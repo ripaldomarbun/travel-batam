@@ -40,6 +40,14 @@ const FleetContext = createContext<FleetContextType | undefined>(undefined);
 const STORAGE_CARS_KEY = 'la_transport_fleet_v1';
 const STORAGE_SETTINGS_KEY = 'la_transport_settings_v1';
 
+function sanitizeCarPaths(car: ExtendedCar): ExtendedCar {
+  return {
+    ...car,
+    image_url: car.image_url ? car.image_url.replace('/src/assets/images/', '/images/') : car.image_url,
+    gallery: car.gallery ? car.gallery.map((g) => g.replace('/src/assets/images/', '/images/')) : undefined
+  };
+}
+
 export const FleetProvider: React.FC<{ children: React.ReactNode }> = ({ children }) => {
   const [cars, setCars] = useState<ExtendedCar[]>(() => {
     try {
@@ -47,13 +55,13 @@ export const FleetProvider: React.FC<{ children: React.ReactNode }> = ({ childre
       if (saved) {
         const parsed = JSON.parse(saved);
         if (Array.isArray(parsed) && parsed.length > 0) {
-          return parsed;
+          return parsed.map(sanitizeCarPaths);
         }
       }
     } catch {
       // fallback
     }
-    return defaultCarsData.map((c) => ({ ...c, isAvailable: true }));
+    return defaultCarsData.map((c) => sanitizeCarPaths({ ...c, isAvailable: true }));
   });
 
   const [settings, setSettings] = useState<CompanySettings>(() => {

@@ -18,17 +18,33 @@ import { AdminPortal } from './components/Admin/AdminPortal';
 export default function App() {
   const [isAdminOpen, setIsAdminOpen] = useState(false);
 
-  // Allow opening admin directly via URL hash e.g. #admin
+  // Secret entry points for authorized admin only (completely invisible to public visitors):
+  // 1. URL hash: #admin or #cms (e.g. yourwebsite.com/#admin)
+  // 2. Keyboard shortcut: Ctrl + Shift + A or Cmd + Shift + A
   useEffect(() => {
     const handleHash = () => {
-      if (window.location.hash === '#admin') {
+      const hash = window.location.hash.toLowerCase();
+      if (hash === '#admin' || hash === '#cms') {
         setIsAdminOpen(true);
+      }
+    };
+
+    const handleKeyDown = (e: KeyboardEvent) => {
+      // Check for Ctrl+Shift+A or Cmd+Shift+A
+      if ((e.ctrlKey || e.metaKey) && e.shiftKey && (e.key === 'A' || e.key === 'a')) {
+        e.preventDefault();
+        setIsAdminOpen((prev) => !prev);
       }
     };
 
     handleHash();
     window.addEventListener('hashchange', handleHash);
-    return () => window.removeEventListener('hashchange', handleHash);
+    window.addEventListener('keydown', handleKeyDown);
+
+    return () => {
+      window.removeEventListener('hashchange', handleHash);
+      window.removeEventListener('keydown', handleKeyDown);
+    };
   }, []);
 
   return (
@@ -36,8 +52,8 @@ export default function App() {
       <LanguageProvider>
         <FleetProvider>
           <div className="min-h-screen bg-[#F8F9FA] dark:bg-[#121212] text-slate-900 dark:text-neutral-100 flex flex-col font-sans selection:bg-[#D4AF37] selection:text-black transition-colors duration-200">
-            {/* 1-Row 3-Zone Top Bar with Theme Toggle, Bilingual Switcher & Admin CMS button */}
-            <Header onOpenAdmin={() => setIsAdminOpen(true)} />
+            {/* 1-Row 3-Zone Clean Header with zero admin buttons visible to the public */}
+            <Header />
 
             {/* Main Content Flow: Proposition -> Catalog -> Proof */}
             <main className="flex-1">
@@ -46,18 +62,18 @@ export default function App() {
               <WhyUs />
             </main>
 
-            {/* Quiet Grounded Footer with Admin CMS Entry Point */}
-            <Footer onOpenAdmin={() => setIsAdminOpen(true)} />
+            {/* Clean Professional Public Footer (Zero Admin Links) */}
+            <Footer />
 
             {/* Sticky Floating WhatsApp CTA Button */}
             <FloatingWhatsApp />
 
-            {/* Admin CMS Portal Modal */}
+            {/* Hidden Admin CMS Portal - only accessible via URL #admin or Ctrl+Shift+A */}
             <AdminPortal
               isOpen={isAdminOpen}
               onClose={() => {
                 setIsAdminOpen(false);
-                if (window.location.hash === '#admin') {
+                if (window.location.hash === '#admin' || window.location.hash === '#cms') {
                   history.replaceState(null, '', ' ');
                 }
               }}

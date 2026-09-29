@@ -4,11 +4,7 @@ import { useLanguage } from '../context/LanguageContext';
 import { useFleet } from '../context/FleetContext';
 import { buildWhatsAppUrl } from '../utils/whatsapp';
 
-interface FooterProps {
-  onOpenAdmin?: () => void;
-}
-
-export const Footer: React.FC<FooterProps> = ({ onOpenAdmin }) => {
+export const Footer: React.FC = () => {
   const { language, t } = useLanguage();
   const { settings } = useFleet();
 
@@ -82,17 +78,6 @@ export const Footer: React.FC<FooterProps> = ({ onOpenAdmin }) => {
               <li>
                 <a href="#faq" className="hover:text-[#D4AF37] transition-colors">{t.nav.terms}</a>
               </li>
-              {onOpenAdmin && (
-                <li>
-                  <button
-                    onClick={onOpenAdmin}
-                    className="hover:text-[#D4AF37] transition-colors flex items-center gap-1.5 cursor-pointer text-[#D4AF37]/80"
-                  >
-                    <Lock className="w-3 h-3" />
-                    <span>Admin CMS Login</span>
-                  </button>
-                </li>
-              )}
             </ul>
           </div>
 
@@ -140,17 +125,7 @@ export const Footer: React.FC<FooterProps> = ({ onOpenAdmin }) => {
 
         <div className="pt-8 border-t border-neutral-800/80 flex flex-col sm:flex-row items-center justify-between gap-4 text-neutral-500 text-[11px]">
           <p>© {new Date().getFullYear()} L.A Transport Batam. {t.footer.rights}</p>
-          <div className="flex items-center gap-4">
-            <p>{t.footer.tagline}</p>
-            {onOpenAdmin && (
-              <button
-                onClick={onOpenAdmin}
-                className="text-neutral-500 hover:text-[#D4AF37] transition-colors cursor-pointer"
-              >
-                CMS Admin
-              </button>
-            )}
-          </div>
+          <p>{t.footer.tagline}</p>
         </div>
       </div>
     </footer>

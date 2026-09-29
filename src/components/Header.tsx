@@ -5,11 +5,7 @@ import { useTheme } from '../context/ThemeContext';
 import { useFleet } from '../context/FleetContext';
 import { getGeneralInquiryUrl } from '../utils/whatsapp';
 
-interface HeaderProps {
-  onOpenAdmin?: () => void;
-}
-
-export const Header: React.FC<HeaderProps> = ({ onOpenAdmin }) => {
+export const Header: React.FC = () => {
   const { language, setLanguage, t } = useLanguage();
   const { theme, toggleTheme } = useTheme();
   const { settings } = useFleet();
@@ -48,21 +44,8 @@ export const Header: React.FC<HeaderProps> = ({ onOpenAdmin }) => {
           </a>
         </nav>
 
-        {/* Zone 3: Primary Actions (Theme Toggle + Language Toggle + Admin CMS + WhatsApp Direct) */}
+        {/* Zone 3: Primary Actions (Theme Toggle + Language Toggle + WhatsApp Direct) */}
         <div className="flex items-center gap-2 sm:gap-2.5">
-          
-          {/* Admin CMS Trigger Button */}
-          {onOpenAdmin && (
-            <button
-              onClick={onOpenAdmin}
-              className="flex items-center gap-1 p-2 sm:px-2.5 sm:py-1.5 rounded-lg bg-slate-100 dark:bg-[#1C1C1C] border border-slate-200 dark:border-neutral-800 text-xs font-semibold text-slate-700 dark:text-neutral-200 hover:text-[#B8860B] dark:hover:text-[#D4AF37] hover:border-[#D4AF37]/50 transition-all cursor-pointer"
-              title="Buka Portal Admin CMS"
-              aria-label="Buka CMS Admin"
-            >
-              <SlidersHorizontal className="w-3.5 h-3.5 text-[#B8860B] dark:text-[#D4AF37]" />
-              <span className="hidden xl:inline text-[11px]">CMS</span>
-            </button>
-          )}
 
           {/* Theme Mode Toggle (Light / Dark) */}
           <button

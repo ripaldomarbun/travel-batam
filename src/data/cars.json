@@ -21,12 +21,12 @@
     },
     "description_id": "Pilihan utama eksekutif, tamu VVIP, pejabat, dan pebisnis di Kota Batam. Dilengkapi jok kulit Ottoman elektrik dengan pemanas/pendingin, panoramic twin sunroof, serta suspensi super empuk untuk perjalanan kelas satu.",
     "description_en": "The premier choice for VIP delegations, corporate executives, and luxury travelers in Batam. Featuring Ottoman reclining captain seats, dual panoramic sunroofs, and executive noise insulation.",
-    "image_url": "/src/assets/images/car_toyota_alphard_1790686505551.jpg",
+    "image_url": "/images/car_toyota_alphard_1790686505551.jpg",
     "gallery": [
-      "/src/assets/images/car_toyota_alphard_1790686505551.jpg",
-      "/src/assets/images/car_interior_alphard_1790687658888.jpg",
-      "/src/assets/images/car_luggage_trunk_1790687694166.jpg",
-      "/src/assets/images/hero_la_transport_1790686468335.jpg"
+      "/images/car_toyota_alphard_1790686505551.jpg",
+      "/images/car_interior_alphard_1790687658888.jpg",
+      "/images/car_luggage_trunk_1790687694166.jpg",
+      "/images/hero_la_transport_1790686468335.jpg"
     ],
     "features": [
       "Captain Seat Ottoman Mewah dengan Sandaran Kaki Elektrik",
@@ -69,11 +69,11 @@
     },
     "description_id": "Generasi terbaru Innova berteknologi Hybrid TNGA yang senyap, modern, dan sangat nyaman dikendarai di Batam. AC digital double-blower menjamin seluruh baris kabin sejuk saat cuaca panas Batam.",
     "description_en": "The latest generation Innova built on the TNGA platform with ultra-quiet Hybrid EV technology. Extremely smooth ride and cold digital climate control across all 3 rows.",
-    "image_url": "/src/assets/images/car_innova_zenix_1790686488157.jpg",
+    "image_url": "/images/car_innova_zenix_1790686488157.jpg",
     "gallery": [
-      "/src/assets/images/car_innova_zenix_1790686488157.jpg",
-      "/src/assets/images/car_interior_zenix_1790687674985.jpg",
-      "/src/assets/images/car_luggage_trunk_1790687694166.jpg"
+      "/images/car_innova_zenix_1790686488157.jpg",
+      "/images/car_interior_zenix_1790687674985.jpg",
+      "/images/car_luggage_trunk_1790687694166.jpg"
     ],
     "features": [
       "Mesin Hybrid Generasi Terbaru (Super Senyap & Bertenaga)",
@@ -116,11 +116,11 @@
     },
     "description_id": "Mobil keluarga paling populer untuk keliling Batam, belanja di Nagoya Hill, atau wisata kuliner Barelang. Irit bahan bakar, lincah bermanuver, serta suspensi empuk dengan fitur keselamatan lengkap.",
     "description_en": "The most beloved family MPV for sightseeing in Batam, shopping at Nagoya Hill, or visiting Barelang Bridge. Nimble, highly fuel-efficient, and very comfortable.",
-    "image_url": "/src/assets/images/car_toyota_veloz_1790686518687.jpg",
+    "image_url": "/images/car_toyota_veloz_1790686518687.jpg",
     "gallery": [
-      "/src/assets/images/car_toyota_veloz_1790686518687.jpg",
-      "/src/assets/images/car_interior_zenix_1790687674985.jpg",
-      "/src/assets/images/car_luggage_trunk_1790687694166.jpg"
+      "/images/car_toyota_veloz_1790686518687.jpg",
+      "/images/car_interior_zenix_1790687674985.jpg",
+      "/images/car_luggage_trunk_1790687694166.jpg"
     ],
     "features": [
       "Irit Bahan Bakar & Sangat Lincah di Jalanan Batam",
@@ -163,11 +163,11 @@
     },
     "description_id": "Rajanya MPV tangguh di Batam dengan torsi diesel badak. Sangat kokoh melibas rute perbukitan Sekupang atau jembatan Barelang dengan rombongan keluarga dan muatan koper penuh.",
     "description_en": "Legendary heavy-duty diesel MPV renowned for strong hill climbing torque, spacious 3-row comfort, and massive luggage capacity for island journeys.",
-    "image_url": "/src/assets/images/car_innova_zenix_1790686488157.jpg",
+    "image_url": "/images/car_innova_zenix_1790686488157.jpg",
     "gallery": [
-      "/src/assets/images/car_innova_zenix_1790686488157.jpg",
-      "/src/assets/images/car_interior_zenix_1790687674985.jpg",
-      "/src/assets/images/car_luggage_trunk_1790687694166.jpg"
+      "/images/car_innova_zenix_1790686488157.jpg",
+      "/images/car_interior_zenix_1790687674985.jpg",
+      "/images/car_luggage_trunk_1790687694166.jpg"
     ],
     "features": [
       "Mesin 2GD-FTV Turbo Diesel Tangguh & Irit",
@@ -210,11 +210,11 @@
     },
     "description_id": "Solusi terbaik untuk rombongan wisata kantor, reuni, family gathering, atau delegasi konferensi di Batam. Kabin luas dengan kursi reclining ergonomis yang menjamin setiap penumpang nyaman.",
     "description_en": "The premier choice for tour groups, corporate outings, and family gatherings in Batam. Spacious high-roof cabin with individual reclining seats and large luggage room.",
-    "image_url": "/src/assets/images/hero_la_transport_1790686468335.jpg",
+    "image_url": "/images/hero_la_transport_1790686468335.jpg",
     "gallery": [
-      "/src/assets/images/hero_la_transport_1790686468335.jpg",
-      "/src/assets/images/car_interior_alphard_1790687658888.jpg",
-      "/src/assets/images/car_luggage_trunk_1790687694166.jpg"
+      "/images/hero_la_transport_1790686468335.jpg",
+      "/images/car_interior_alphard_1790687658888.jpg",
+      "/images/car_luggage_trunk_1790687694166.jpg"
     ],
     "features": [
       "Kapasitas Hingga 15 Orang Dewasa Duduk Leluasa",
@@ -257,11 +257,11 @@
     },
     "description_id": "Tampilan sporty dan tangguh dengan ground clearance 225mm tertinggi di kelasnya. Memberikan pandangan luas, sangat nyaman saat melintasi berbagai destinasi wisata pantai di Batam.",
     "description_en": "Sporty crossover SUV styling with class-leading 225mm ground clearance. Offers high commanding seating position, superb ride isolation, and athletic styling.",
-    "image_url": "/src/assets/images/car_toyota_veloz_1790686518687.jpg",
+    "image_url": "/images/car_toyota_veloz_1790686518687.jpg",
     "gallery": [
-      "/src/assets/images/car_toyota_veloz_1790686518687.jpg",
-      "/src/assets/images/car_interior_zenix_1790687674985.jpg",
-      "/src/assets/images/car_luggage_trunk_1790687694166.jpg"
+      "/images/car_toyota_veloz_1790686518687.jpg",
+      "/images/car_interior_zenix_1790687674985.jpg",
+      "/images/car_luggage_trunk_1790687694166.jpg"
     ],
     "features": [
       "Ground Clearance Tinggi (Aman & Nyaman ke Pantai Batam)",

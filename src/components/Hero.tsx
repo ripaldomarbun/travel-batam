@@ -11,7 +11,7 @@ export const Hero: React.FC = () => {
       {/* Background Photography with Scrim */}
       <div className="absolute inset-0 z-0">
         <img
-          src="/src/assets/images/hero_la_transport_1790686468335.jpg"
+          src="/images/hero_la_transport_1790686468335.jpg"
           alt="L.A Transport Batam Luxury Car Fleet"
           referrerPolicy="no-referrer"
           className="w-full h-full object-cover object-center filter brightness-50 dark:brightness-40 contrast-110"
