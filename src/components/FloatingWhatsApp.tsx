@@ -10,7 +10,7 @@ export const FloatingWhatsApp: React.FC = () => {
   const waUrl = buildWhatsAppUrl(t.floatingWa.defaultMsg);
 
   return (
-    <aside aria-label="Bantuan WhatsApp" className="fixed bottom-6 right-5 z-50 flex flex-col items-end pointer-events-auto">
+    <aside aria-label="Bantuan WhatsApp" className="fixed bottom-20 sm:bottom-6 right-3 sm:right-6 z-30 flex flex-col items-end pointer-events-auto">
       {/* Tooltip / Mini Chat Popover */}
       {isOpen && (
         <div className="mb-3 w-72 rounded-2xl bg-white dark:bg-[#1A1A1A] border border-neutral-200 dark:border-[#D4AF37]/30 p-4 shadow-2xl backdrop-blur-md transition-all animate-in fade-in slide-in-from-bottom-2">
@@ -55,7 +55,7 @@ export const FloatingWhatsApp: React.FC = () => {
         <button
           onClick={() => setIsOpen(!isOpen)}
           className="relative flex items-center justify-center w-14 h-14 rounded-full bg-[#25D366] hover:bg-[#20ba59] text-white shadow-[0_8px_25px_rgba(37,211,102,0.4)] transition-transform duration-200 hover:scale-105 active:scale-95"
-          aria-label="Hubungi WhatsApp L.A Transport Batam"
+          aria-label="Hubungi WhatsApp L.A Travel Batam"
         >
           <span className="absolute -top-1 -right-1 flex h-4 w-4">
             <span className="animate-ping absolute inline-flex h-full w-full rounded-full bg-white opacity-75"></span>

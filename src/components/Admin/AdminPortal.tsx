@@ -172,7 +172,7 @@ export const AdminPortal: React.FC<AdminPortalProps> = ({ isOpen, onClose }) => 
       },
       popular: formData.popular,
       isAvailable: formData.isAvailable,
-      wa_message: `Halo Admin L.A Transport Batam, saya tertarik sewa ${formData.name}. Mohon info syarat dan jadwal sewanya.`
+      wa_message: `Halo Admin L.A Travel Batam, saya tertarik sewa ${formData.name}. Mohon info syarat dan jadwal sewanya.`
     };
 
     if (editingCarId) {
@@ -204,12 +204,16 @@ export const AdminPortal: React.FC<AdminPortalProps> = ({ isOpen, onClose }) => 
         {/* Top Header Bar */}
         <div className="p-4 sm:p-6 bg-slate-900 text-white flex items-center justify-between border-b border-slate-800 shrink-0">
           <div className="flex items-center gap-3">
-            <div className="w-10 h-10 rounded-xl bg-[#D4AF37] flex items-center justify-center font-brand font-bold text-black text-sm shadow-md">
-              CMS
+            <div className="w-11 h-11 rounded-full overflow-hidden border-2 border-[#D4AF37] p-0.5 bg-black shadow-md shrink-0">
+              <img
+                src="/images/la_travel_logo.jpg"
+                alt="L.A Travel Batam Logo"
+                className="w-full h-full object-cover rounded-full"
+              />
             </div>
             <div>
               <h2 className="text-base sm:text-lg font-bold text-white flex items-center gap-2">
-                <span>L.A Transport Batam — Admin CMS Portal</span>
+                <span>L.A Travel Batam — Admin CMS Portal</span>
                 <span className="text-[10px] px-2 py-0.5 rounded bg-[#D4AF37]/20 text-[#D4AF37] border border-[#D4AF37]/40 font-mono font-bold">
                   v1.0
                 </span>
@@ -370,7 +374,7 @@ export const AdminPortal: React.FC<AdminPortalProps> = ({ isOpen, onClose }) => 
                   <div className="flex items-center justify-between pt-2">
                     <div>
                       <h3 className="text-sm font-bold text-slate-900 dark:text-white">
-                        Daftar Armada L.A Transport Batam
+                        Daftar Armada L.A Travel Batam
                       </h3>
                       <p className="text-xs text-slate-500 dark:text-neutral-400">
                         Perubahan di sini langsung tampil di halaman depan katalog secara realtime.

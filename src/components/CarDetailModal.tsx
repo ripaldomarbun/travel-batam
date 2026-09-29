@@ -93,26 +93,26 @@ export const CarDetailModal: React.FC<CarDetailModalProps> = ({ car, onClose }) 
 
   return (
     <div
-      className="fixed inset-0 z-50 overflow-y-auto bg-black/85 backdrop-blur-md flex items-center justify-center p-2 sm:p-5 animate-in fade-in duration-200"
+      className="fixed inset-0 z-50 overflow-y-auto bg-black/85 backdrop-blur-md flex items-end sm:items-center justify-center p-0 sm:p-5 animate-in fade-in duration-200"
       onClick={onClose}
     >
       <div
-        className="relative w-full max-w-4xl bg-white dark:bg-[#1A1A1A] border border-slate-200 dark:border-neutral-800 rounded-2xl sm:rounded-3xl shadow-2xl overflow-hidden my-auto transition-colors duration-200"
+        className="relative w-full max-w-4xl bg-white dark:bg-[#1A1A1A] border-t sm:border border-slate-200 dark:border-neutral-800 rounded-t-3xl sm:rounded-3xl shadow-2xl overflow-hidden my-0 sm:my-auto max-h-[94dvh] flex flex-col transition-colors duration-200"
         onClick={(e) => e.stopPropagation()}
       >
         {/* Floating Close Button */}
         <button
           onClick={onClose}
-          className="absolute top-4 right-4 z-30 w-10 h-10 rounded-full bg-black/70 hover:bg-black/90 text-white flex items-center justify-center transition-transform active:scale-95 shadow-lg backdrop-blur-sm cursor-pointer"
+          className="absolute top-3 right-3 sm:top-4 sm:right-4 z-30 w-9 h-9 sm:w-10 sm:h-10 rounded-full bg-black/75 hover:bg-black/90 text-white flex items-center justify-center transition-transform active:scale-95 shadow-lg backdrop-blur-sm cursor-pointer"
           aria-label="Tutup Detail Mobil"
         >
           <X className="w-5 h-5" />
         </button>
 
         {/* Gallery Visual Area */}
-        <div className="relative bg-black select-none">
+        <div className="relative bg-black select-none shrink-0">
           {/* Main Active Image Display */}
-          <div className="relative aspect-[16/9] sm:aspect-[21/9] bg-neutral-950 overflow-hidden">
+          <div className="relative aspect-[16/10] sm:aspect-[21/9] bg-neutral-950 overflow-hidden">
             <LazyImage
               key={galleryImages[activeImageIndex]}
               src={galleryImages[activeImageIndex]}
@@ -230,11 +230,11 @@ export const CarDetailModal: React.FC<CarDetailModalProps> = ({ car, onClose }) 
         </div>
 
         {/* Modal Scrollable Content */}
-        <div className="p-5 sm:p-8 max-h-[58vh] overflow-y-auto space-y-8">
+        <div className="p-4 sm:p-8 overflow-y-auto flex-1 space-y-5 sm:space-y-8">
           
           {/* Executive Pitch Description */}
           {displayDescription && (
-            <div className="p-4 sm:p-5 rounded-2xl bg-slate-50 dark:bg-neutral-900/60 border border-slate-200 dark:border-neutral-800">
+            <div className="p-3.5 sm:p-5 rounded-2xl bg-slate-50 dark:bg-neutral-900/60 border border-slate-200 dark:border-neutral-800">
               <p className="text-xs sm:text-sm text-slate-700 dark:text-neutral-300 leading-relaxed font-normal">
                 {displayDescription}
               </p>
@@ -383,7 +383,7 @@ export const CarDetailModal: React.FC<CarDetailModalProps> = ({ car, onClose }) 
         </div>
 
         {/* Modal Sticky Bottom Action Footer */}
-        <div className="p-4 sm:p-6 bg-slate-100 dark:bg-[#121212] border-t border-slate-200 dark:border-neutral-800 flex flex-col sm:flex-row items-center justify-between gap-3">
+        <div className="p-3.5 sm:p-6 pb-[max(0.875rem,env(safe-area-inset-bottom))] bg-slate-100 dark:bg-[#121212] border-t border-slate-200 dark:border-neutral-800 flex flex-col sm:flex-row items-center justify-between gap-2.5 sm:gap-3 shrink-0">
           <div className="hidden sm:block">
             <p className="text-xs font-semibold text-slate-900 dark:text-white">{car.name}</p>
             <p className="text-[11px] text-slate-500 dark:text-neutral-400">
@@ -402,10 +402,10 @@ export const CarDetailModal: React.FC<CarDetailModalProps> = ({ car, onClose }) 
               href={waSelfDriveUrl}
               target="_blank"
               rel="noopener noreferrer"
-              className="flex-1 sm:flex-none inline-flex items-center justify-center gap-2 px-6 py-3 rounded-xl bg-[#25D366] hover:bg-[#20ba59] active:scale-95 text-white text-xs font-bold shadow-lg transition-transform"
+              className="flex-1 sm:flex-none inline-flex items-center justify-center gap-2 px-5 sm:px-6 py-3 rounded-xl bg-[#25D366] hover:bg-[#20ba59] active:scale-95 text-white text-xs font-bold shadow-lg transition-transform"
             >
               <MessageCircle className="w-4 h-4 fill-white" />
-              <span>{isEn ? 'Chat WhatsApp to Book' : 'Chat WhatsApp Sekarang'}</span>
+              <span>{isEn ? 'Book via WhatsApp' : 'Chat WhatsApp Sekarang'}</span>
             </a>
           </div>
         </div>

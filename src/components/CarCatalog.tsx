@@ -32,32 +32,32 @@ export const CarCatalog: React.FC = () => {
   const activeServiceLabel = serviceOption === 'self' ? t.catalog.selfDrive : t.catalog.withDriver;
 
   return (
-    <section id="armada" className="py-20 bg-[#F8F9FA] dark:bg-[#121212] transition-colors duration-200 relative">
+    <section id="armada" className="py-12 sm:py-20 bg-[#F8F9FA] dark:bg-[#121212] transition-colors duration-200 relative">
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
         
         {/* Section Header */}
-        <div className="text-center max-w-3xl mx-auto mb-12">
+        <div className="text-center max-w-3xl mx-auto mb-8 sm:mb-12">
           <p className="text-xs uppercase tracking-widest text-[#B8860B] dark:text-[#D4AF37] font-bold mb-2">
             {t.catalog.tag}
           </p>
-          <h2 className="text-2xl sm:text-4xl font-bold text-slate-900 dark:text-white mb-4 text-balance">
+          <h2 className="text-2xl sm:text-4xl font-extrabold text-slate-900 dark:text-white mb-3 text-balance">
             {t.catalog.title}
           </h2>
-          <p className="text-slate-600 dark:text-neutral-400 text-sm sm:text-base leading-relaxed">
+          <p className="text-slate-600 dark:text-neutral-400 text-xs sm:text-base leading-relaxed">
             {t.catalog.subtitle}
           </p>
         </div>
 
         {/* Filter Bar & Service Switcher */}
-        <div className="flex flex-col md:flex-row items-center justify-between gap-4 mb-10 pb-6 border-b border-slate-200 dark:border-neutral-800">
+        <div className="flex flex-col md:flex-row items-stretch md:items-center justify-between gap-4 mb-8 sm:mb-10 pb-4 sm:pb-6 border-b border-slate-200 dark:border-neutral-800">
           
-          {/* Category Tabs */}
-          <div className="flex items-center gap-1.5 overflow-x-auto w-full md:w-auto pb-2 md:pb-0 scrollbar-none">
+          {/* Category Tabs - Mobile Swipe Carousel */}
+          <div className="flex items-center gap-2 overflow-x-auto w-full md:w-auto pb-2 scrollbar-none snap-x snap-mandatory">
             {categories.map((cat) => (
               <button
                 key={cat.key}
                 onClick={() => setSelectedCategoryKey(cat.key)}
-                className={`px-4 py-2 rounded-xl text-xs sm:text-sm font-medium transition-all whitespace-nowrap cursor-pointer ${
+                className={`px-3.5 sm:px-4 py-2 sm:py-2.5 rounded-xl text-xs sm:text-sm font-semibold transition-all whitespace-nowrap cursor-pointer shrink-0 snap-start active:scale-95 ${
                   selectedCategoryKey === cat.key
                     ? 'bg-[#D4AF37] text-black font-bold shadow-sm'
                     : 'bg-white dark:bg-[#1A1A1A] text-slate-700 dark:text-neutral-300 hover:text-slate-900 dark:hover:text-white hover:bg-slate-100 dark:hover:bg-[#252525] border border-slate-200 dark:border-neutral-800'
@@ -68,12 +68,12 @@ export const CarCatalog: React.FC = () => {
             ))}
           </div>
 
-          {/* Service Preference Switch */}
-          <div className="flex items-center gap-2 p-1 bg-white dark:bg-[#1A1A1A] border border-slate-200 dark:border-neutral-800 rounded-xl self-end md:self-auto shadow-sm dark:shadow-none">
-            <span className="text-xs text-slate-500 dark:text-neutral-400 pl-2 hidden sm:inline">{t.catalog.packageLabel}</span>
+          {/* Service Preference Switch - Touch Friendly */}
+          <div className="flex items-center justify-between sm:justify-start gap-1 sm:gap-2 p-1 bg-white dark:bg-[#1A1A1A] border border-slate-200 dark:border-neutral-800 rounded-xl shadow-xs">
+            <span className="text-[11px] sm:text-xs text-slate-500 dark:text-neutral-400 pl-2 hidden sm:inline">{t.catalog.packageLabel}</span>
             <button
               onClick={() => setServiceOption('self')}
-              className={`px-3 py-1.5 rounded-lg text-xs font-medium transition-all cursor-pointer ${
+              className={`flex-1 sm:flex-none px-3 py-2 rounded-lg text-xs font-semibold transition-all cursor-pointer text-center ${
                 serviceOption === 'self'
                   ? 'bg-slate-100 dark:bg-neutral-800 text-[#B8860B] dark:text-[#D4AF37] font-bold shadow-xs'
                   : 'text-slate-600 dark:text-neutral-400 hover:text-slate-900 dark:hover:text-neutral-200'
@@ -83,7 +83,7 @@ export const CarCatalog: React.FC = () => {
             </button>
             <button
               onClick={() => setServiceOption('driver')}
-              className={`px-3 py-1.5 rounded-lg text-xs font-medium transition-all cursor-pointer ${
+              className={`flex-1 sm:flex-none px-3 py-2 rounded-lg text-xs font-semibold transition-all cursor-pointer text-center ${
                 serviceOption === 'driver'
                   ? 'bg-slate-100 dark:bg-neutral-800 text-[#B8860B] dark:text-[#D4AF37] font-bold shadow-xs'
                   : 'text-slate-600 dark:text-neutral-400 hover:text-slate-900 dark:hover:text-neutral-200'
@@ -155,17 +155,17 @@ export const CarCatalog: React.FC = () => {
                 </div>
 
                 {/* Content Area */}
-                <div className="p-6 flex-1 flex flex-col justify-between">
+                <div className="p-4 sm:p-6 flex-1 flex flex-col justify-between">
                   <div>
                     <div className="flex items-start justify-between gap-2 mb-2">
-                      <h3 className="text-xl font-bold text-slate-900 dark:text-white group-hover:text-[#B8860B] dark:group-hover:text-[#D4AF37] transition-colors flex items-center gap-1.5">
+                      <h3 className="text-lg sm:text-xl font-bold text-slate-900 dark:text-white group-hover:text-[#B8860B] dark:group-hover:text-[#D4AF37] transition-colors flex items-center gap-1.5">
                         <span>{car.name}</span>
                         <ArrowUpRight className="w-4 h-4 opacity-0 group-hover:opacity-100 transition-opacity text-[#B8860B] dark:text-[#D4AF37]" />
                       </h3>
                     </div>
 
                     {/* Unboxed Metadata (Zero-Pill discipline) */}
-                    <div className="flex items-center gap-2 text-xs text-slate-500 dark:text-neutral-400 mb-4 font-medium">
+                    <div className="flex items-center gap-2 text-xs text-slate-500 dark:text-neutral-400 mb-3 sm:mb-4 font-medium">
                       <span className="flex items-center gap-1">
                         <Users className="w-3.5 h-3.5 text-[#B8860B] dark:text-[#D4AF37]" />
                         {displayCapacity}
@@ -178,25 +178,25 @@ export const CarCatalog: React.FC = () => {
                     </div>
 
                     {/* Feature Bullets (First 3 for clean card density) */}
-                    <ul className="space-y-2 mb-6">
+                    <ul className="space-y-1.5 sm:space-y-2 mb-4 sm:mb-6">
                       {displayFeatures.slice(0, 3).map((feature, idx) => (
                         <li key={idx} className="flex items-start gap-2 text-xs text-slate-600 dark:text-neutral-300">
                           <Check className="w-3.5 h-3.5 text-[#B8860B] dark:text-[#D4AF37] shrink-0 mt-0.5" />
-                          <span>{feature}</span>
+                          <span className="line-clamp-1">{feature}</span>
                         </li>
                       ))}
                     </ul>
                   </div>
 
                   {/* Dual Action: Details + Direct WA */}
-                  <div className="pt-4 border-t border-slate-100 dark:border-neutral-800/80 flex items-center gap-2">
+                  <div className="pt-3 sm:pt-4 border-t border-slate-100 dark:border-neutral-800/80 flex items-center gap-2">
                     <button
                       type="button"
                       onClick={(e) => {
                         e.stopPropagation();
                         setSelectedCarForDetail(car);
                       }}
-                      className="px-3.5 py-3 rounded-xl bg-slate-100 hover:bg-slate-200 dark:bg-neutral-800 dark:hover:bg-neutral-700 text-slate-700 dark:text-neutral-200 text-xs font-semibold flex items-center justify-center transition-colors cursor-pointer"
+                      className="px-3 sm:px-3.5 py-2.5 sm:py-3 rounded-xl bg-slate-100 hover:bg-slate-200 dark:bg-neutral-800 dark:hover:bg-neutral-700 text-slate-700 dark:text-neutral-200 text-xs font-semibold flex items-center justify-center transition-colors cursor-pointer"
                       title={isEn ? 'View Details' : 'Lihat Detail'}
                     >
                       <Eye className="w-4 h-4" />
@@ -207,9 +207,9 @@ export const CarCatalog: React.FC = () => {
                       onClick={(e) => e.stopPropagation()}
                       target="_blank"
                       rel="noopener noreferrer"
-                      className="flex-1 flex items-center justify-center gap-2 py-3 px-4 bg-[#D4AF37] hover:bg-[#c49f2b] active:scale-95 text-black font-bold text-xs rounded-xl shadow-md transition-all duration-200 cursor-pointer"
+                      className="flex-1 flex items-center justify-center gap-1.5 sm:gap-2 py-2.5 sm:py-3 px-3 sm:px-4 bg-[#D4AF37] hover:bg-[#c49f2b] active:scale-95 text-black font-bold text-xs rounded-xl shadow-md transition-all duration-200 cursor-pointer"
                     >
-                      <MessageCircle className="w-4 h-4 fill-black" />
+                      <MessageCircle className="w-4 h-4 fill-black shrink-0" />
                       <span>{t.catalog.rentViaWa}</span>
                     </a>
                   </div>

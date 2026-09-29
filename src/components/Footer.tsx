@@ -15,13 +15,22 @@ export const Footer: React.FC = () => {
           
           {/* Brand Col */}
           <div className="space-y-4">
-            <div className="flex items-center gap-2">
-              <div className="w-8 h-8 rounded-lg bg-[#D4AF37] flex items-center justify-center font-brand font-bold text-black text-sm shadow-md">
-                LA
+            <div className="flex items-center gap-3">
+              <div className="w-12 h-12 rounded-full overflow-hidden border-2 border-[#D4AF37] p-0.5 bg-black shadow-[0_0_15px_rgba(212,175,55,0.3)] shrink-0">
+                <img
+                  src="/images/la_travel_logo.jpg"
+                  alt="L.A Travel Batam Logo"
+                  className="w-full h-full object-cover rounded-full"
+                />
               </div>
-              <span className="font-brand font-bold text-base text-white tracking-wider">
-                L.A TRANSPORT BATAM
-              </span>
+              <div>
+                <span className="font-brand font-bold text-base text-white tracking-wider block leading-tight">
+                  L.A TRAVEL BATAM
+                </span>
+                <span className="text-[10px] font-semibold text-[#D4AF37] tracking-wider uppercase">
+                  Ride • Travel • Enjoy Batam
+                </span>
+              </div>
             </div>
             <p className="leading-relaxed text-neutral-400 text-xs">
               {t.footer.about}
@@ -32,7 +41,7 @@ export const Footer: React.FC = () => {
                 target="_blank"
                 rel="noopener noreferrer"
                 className="w-9 h-9 rounded-lg bg-neutral-900 border border-neutral-800 hover:border-[#D4AF37] hover:text-[#D4AF37] flex items-center justify-center transition-colors"
-                aria-label="Instagram L.A Transport Batam"
+                aria-label="Instagram L.A Travel Batam"
               >
                 <Instagram className="w-4 h-4" />
               </a>
@@ -41,7 +50,7 @@ export const Footer: React.FC = () => {
                 target="_blank"
                 rel="noopener noreferrer"
                 className="w-9 h-9 rounded-lg bg-neutral-900 border border-neutral-800 hover:border-[#D4AF37] hover:text-[#D4AF37] flex items-center justify-center transition-colors font-bold text-xs"
-                aria-label="TikTok L.A Transport Batam"
+                aria-label="TikTok L.A Travel Batam"
               >
                 TT
               </a>
@@ -50,7 +59,7 @@ export const Footer: React.FC = () => {
                 target="_blank"
                 rel="noopener noreferrer"
                 className="w-9 h-9 rounded-lg bg-neutral-900 border border-neutral-800 hover:border-[#D4AF37] hover:text-[#D4AF37] flex items-center justify-center transition-colors"
-                aria-label="Google Maps L.A Transport Batam"
+                aria-label="Google Maps L.A Travel Batam"
               >
                 <MapPin className="w-4 h-4" />
               </a>
@@ -111,7 +120,7 @@ export const Footer: React.FC = () => {
               </p>
             </div>
             <a
-              href={buildWhatsAppUrl(language === 'en' ? 'Hello Admin L.A Transport Batam, I need a car rental today.' : 'Halo Admin L.A Transport Batam, saya butuh mobil rental hari ini.')}
+              href={buildWhatsAppUrl(language === 'en' ? 'Hello Admin L.A Travel Batam, I need a car rental today.' : 'Halo Admin L.A Travel Batam, saya butuh mobil rental hari ini.')}
               target="_blank"
               rel="noopener noreferrer"
               className="flex items-center justify-center gap-2 py-2.5 px-3 bg-[#25D366] hover:bg-[#20ba59] text-white font-semibold rounded-lg transition-transform active:scale-95"
@@ -124,7 +133,7 @@ export const Footer: React.FC = () => {
         </div>
 
         <div className="pt-8 border-t border-neutral-800/80 flex flex-col sm:flex-row items-center justify-between gap-4 text-neutral-500 text-[11px]">
-          <p>© {new Date().getFullYear()} L.A Transport Batam. {t.footer.rights}</p>
+          <p>© {new Date().getFullYear()} L.A Travel Batam. {t.footer.rights}</p>
           <p>{t.footer.tagline}</p>
         </div>
       </div>

@@ -18,9 +18,9 @@ export interface CompanySettings {
 const DEFAULT_SETTINGS: CompanySettings = {
   whatsappNumber: LA_TRANSPORT_WA_PHONE,
   officeAddress: LA_TRANSPORT_OFFICE_ADDRESS,
-  instagramUrl: 'https://instagram.com/latransportbatam',
-  tiktokUrl: 'https://tiktok.com/@latransportbatam',
-  mapsUrl: 'https://maps.google.com/?q=LA+Transport+Batam',
+  instagramUrl: 'https://instagram.com/latravelbatam',
+  tiktokUrl: 'https://tiktok.com/@latravelbatam',
+  mapsUrl: 'https://maps.google.com/?q=LA+Travel+Batam',
   openingHours: '24 Jam (Setiap Hari)'
 };
 
@@ -39,8 +39,8 @@ interface FleetContextType {
 
 const FleetContext = createContext<FleetContextType | undefined>(undefined);
 
-const STORAGE_CARS_KEY = 'la_transport_fleet_v2';
-const STORAGE_SETTINGS_KEY = 'la_transport_settings_v2';
+const STORAGE_CARS_KEY = 'la_transport_fleet_v3';
+const STORAGE_SETTINGS_KEY = 'la_transport_settings_v3';
 
 function sanitizeCarPaths(car: ExtendedCar): ExtendedCar {
   const cleanImageUrl = car.image_url
@@ -61,9 +61,11 @@ function sanitizeCarPaths(car: ExtendedCar): ExtendedCar {
 export const FleetProvider: React.FC<{ children: React.ReactNode }> = ({ children }) => {
   const [cars, setCars] = useState<ExtendedCar[]>(() => {
     try {
-      // Clean legacy v1 cache if exists
+      // Clean legacy v1/v2 cache if exists
       localStorage.removeItem('la_transport_fleet_v1');
       localStorage.removeItem('la_transport_settings_v1');
+      localStorage.removeItem('la_transport_fleet_v2');
+      localStorage.removeItem('la_transport_settings_v2');
 
       const saved = localStorage.getItem(STORAGE_CARS_KEY);
       if (saved) {

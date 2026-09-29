@@ -13,6 +13,7 @@ import { CarCatalog } from './components/CarCatalog';
 import { WhyUs } from './components/WhyUs';
 import { Footer } from './components/Footer';
 import { FloatingWhatsApp } from './components/FloatingWhatsApp';
+import { MobileBottomBar } from './components/common/MobileBottomBar';
 import { AdminPortal } from './components/Admin/AdminPortal';
 
 export default function App() {
@@ -63,10 +64,15 @@ export default function App() {
             </main>
 
             {/* Clean Professional Public Footer (Zero Admin Links) */}
-            <Footer />
+            <div className="pb-16 md:pb-0">
+              <Footer />
+            </div>
 
             {/* Sticky Floating WhatsApp CTA Button */}
             <FloatingWhatsApp />
+
+            {/* Modern Mobile Bottom Navigation Bar */}
+            <MobileBottomBar />
 
             {/* Hidden Admin CMS Portal - only accessible via URL #admin or Ctrl+Shift+A */}
             <AdminPortal
