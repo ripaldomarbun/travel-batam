@@ -27,6 +27,8 @@ const DEFAULT_SETTINGS: CompanySettings = {
 interface FleetContextType {
   cars: ExtendedCar[];
   settings: CompanySettings;
+  selectedCarForDetail: ExtendedCar | null;
+  setSelectedCarForDetail: (car: ExtendedCar | null) => void;
   addCar: (car: Omit<ExtendedCar, 'id'>) => void;
   updateCar: (id: string, updatedCar: Partial<ExtendedCar>) => void;
   deleteCar: (id: string) => void;
@@ -37,20 +39,32 @@ interface FleetContextType {
 
 const FleetContext = createContext<FleetContextType | undefined>(undefined);
 
-const STORAGE_CARS_KEY = 'la_transport_fleet_v1';
-const STORAGE_SETTINGS_KEY = 'la_transport_settings_v1';
+const STORAGE_CARS_KEY = 'la_transport_fleet_v2';
+const STORAGE_SETTINGS_KEY = 'la_transport_settings_v2';
 
 function sanitizeCarPaths(car: ExtendedCar): ExtendedCar {
+  const cleanImageUrl = car.image_url
+    ? car.image_url.replace('/src/assets/images/', '/images/')
+    : '/images/hero_la_transport_1790686468335.jpg';
+
+  const cleanGallery = car.gallery && car.gallery.length > 0
+    ? car.gallery.map((g) => g.replace('/src/assets/images/', '/images/'))
+    : [cleanImageUrl];
+
   return {
     ...car,
-    image_url: car.image_url ? car.image_url.replace('/src/assets/images/', '/images/') : car.image_url,
-    gallery: car.gallery ? car.gallery.map((g) => g.replace('/src/assets/images/', '/images/')) : undefined
+    image_url: cleanImageUrl,
+    gallery: cleanGallery
   };
 }
 
 export const FleetProvider: React.FC<{ children: React.ReactNode }> = ({ children }) => {
   const [cars, setCars] = useState<ExtendedCar[]>(() => {
     try {
+      // Clean legacy v1 cache if exists
+      localStorage.removeItem('la_transport_fleet_v1');
+      localStorage.removeItem('la_transport_settings_v1');
+
       const saved = localStorage.getItem(STORAGE_CARS_KEY);
       if (saved) {
         const parsed = JSON.parse(saved);
@@ -75,6 +89,41 @@ export const FleetProvider: React.FC<{ children: React.ReactNode }> = ({ childre
     }
     return DEFAULT_SETTINGS;
   });
+
+  const [selectedCarForDetail, setSelectedCarForDetailState] = useState<ExtendedCar | null>(null);
+
+  // Sync with URL hash (e.g. #detail-toyota-alphard-transformer)
+  useEffect(() => {
+    const handleHashChange = () => {
+      const hash = window.location.hash;
+      if (hash.startsWith('#detail-')) {
+        const carId = hash.replace('#detail-', '');
+        const matched = cars.find((c) => c.id === carId);
+        if (matched) {
+          setSelectedCarForDetailState(matched);
+        }
+      } else if (!hash.startsWith('#detail-') && selectedCarForDetail) {
+        setSelectedCarForDetailState(null);
+      }
+    };
+
+    handleHashChange();
+    window.addEventListener('hashchange', handleHashChange);
+    return () => window.removeEventListener('hashchange', handleHashChange);
+  }, [cars]);
+
+  const setSelectedCarForDetail = (car: ExtendedCar | null) => {
+    setSelectedCarForDetailState(car);
+    if (car) {
+      if (window.location.hash !== `#detail-${car.id}`) {
+        window.location.hash = `#detail-${car.id}`;
+      }
+    } else {
+      if (window.location.hash.startsWith('#detail-')) {
+        history.replaceState(null, '', window.location.pathname + window.location.search);
+      }
+    }
+  };
 
   // Persist cars on change
   useEffect(() => {
@@ -144,6 +193,8 @@ export const FleetProvider: React.FC<{ children: React.ReactNode }> = ({ childre
       value={{
         cars,
         settings,
+        selectedCarForDetail,
+        setSelectedCarForDetail,
         addCar,
         updateCar,
         deleteCar,

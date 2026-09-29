@@ -15,6 +15,7 @@ import {
 } from 'lucide-react';
 import { Car, getCarInquiryUrl } from '../utils/whatsapp';
 import { useLanguage } from '../context/LanguageContext';
+import { LazyImage } from './common/LazyImage';
 
 interface CarDetailModalProps {
   car: Car | null;
@@ -112,12 +113,12 @@ export const CarDetailModal: React.FC<CarDetailModalProps> = ({ car, onClose }) 
         <div className="relative bg-black select-none">
           {/* Main Active Image Display */}
           <div className="relative aspect-[16/9] sm:aspect-[21/9] bg-neutral-950 overflow-hidden">
-            <img
+            <LazyImage
               key={galleryImages[activeImageIndex]}
               src={galleryImages[activeImageIndex]}
               alt={`${car.name} - View ${activeImageIndex + 1}`}
-              referrerPolicy="no-referrer"
-              className="w-full h-full object-cover object-center filter brightness-95 animate-in fade-in duration-300"
+              containerClassName="w-full h-full"
+              className="w-full h-full object-cover object-center filter brightness-95"
             />
             <div className="absolute inset-0 bg-gradient-to-t from-black/90 via-black/35 to-transparent pointer-events-none" />
 
@@ -210,9 +211,10 @@ export const CarDetailModal: React.FC<CarDetailModalProps> = ({ car, onClose }) 
                         : 'border-neutral-800 opacity-60 hover:opacity-100'
                     }`}
                   >
-                    <img
+                    <LazyImage
                       src={imgUrl}
                       alt={`Thumbnail ${idx + 1}`}
+                      containerClassName="w-full h-full"
                       className="w-full h-full object-cover"
                     />
                     <div className="absolute inset-x-0 bottom-0 bg-black/75 py-0.5 text-center">

@@ -20,6 +20,7 @@ import {
 } from 'lucide-react';
 import { useFleet, ExtendedCar } from '../../context/FleetContext';
 import { useLanguage } from '../../context/LanguageContext';
+import { LazyImage } from '../common/LazyImage';
 
 interface AdminPortalProps {
   isOpen: boolean;
@@ -396,9 +397,10 @@ export const AdminPortal: React.FC<AdminPortalProps> = ({ isOpen, onClose }) => 
                         >
                           <div className="flex items-center gap-4">
                             <div className="w-20 h-14 rounded-lg bg-neutral-900 overflow-hidden shrink-0 border border-neutral-700">
-                              <img
+                              <LazyImage
                                 src={car.image_url}
                                 alt={car.name}
+                                containerClassName="w-full h-full"
                                 className="w-full h-full object-cover"
                               />
                             </div>

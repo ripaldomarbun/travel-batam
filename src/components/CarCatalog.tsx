@@ -4,13 +4,13 @@ import { Car, getCarInquiryUrl } from '../utils/whatsapp';
 import { useLanguage } from '../context/LanguageContext';
 import { useFleet } from '../context/FleetContext';
 import { CarDetailModal } from './CarDetailModal';
+import { LazyImage } from './common/LazyImage';
 
 export const CarCatalog: React.FC = () => {
   const { language, t } = useLanguage();
-  const { cars, settings } = useFleet();
+  const { cars, settings, selectedCarForDetail, setSelectedCarForDetail } = useFleet();
   const [selectedCategoryKey, setSelectedCategoryKey] = useState<string>('all');
   const [serviceOption, setServiceOption] = useState<'self' | 'driver'>('self');
-  const [selectedCarForDetail, setSelectedCarForDetail] = useState<Car | null>(null);
 
   const isEn = language === 'en';
 
@@ -117,10 +117,10 @@ export const CarCatalog: React.FC = () => {
               >
                 {/* Image Container with Badges */}
                 <div className="relative aspect-[4/3] bg-neutral-900 overflow-hidden">
-                  <img
+                  <LazyImage
                     src={car.image_url}
                     alt={car.name}
-                    referrerPolicy="no-referrer"
+                    containerClassName="w-full h-full"
                     className="w-full h-full object-cover object-center group-hover:scale-105 transition-transform duration-500 filter brightness-95"
                   />
                   <div className="absolute inset-0 bg-gradient-to-t from-black/75 via-transparent to-transparent opacity-80" />
