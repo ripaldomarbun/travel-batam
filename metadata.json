@@ -1,0 +1,8 @@
+{
+  "name": "L.A Transport Batam",
+  "description": "Layanan Rental Mobil Premium & Terpercaya di Batam - Sewa Lepas Kunci & dengan Supir",
+  "requestFramePermissions": [],
+  "majorCapabilities": [
+    "MAJOR_CAPABILITY_SERVER_SIDE_GEMINI_API"
+  ]
+}
