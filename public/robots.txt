@@ -39,6 +39,3 @@ Disallow: /api/
 
 # XML Sitemap Location
 Sitemap: https://latravelbatam.com/sitemap.xml
-
-# Agentic Resource Discovery
-Agentmap: https://latravelbatam.com/.well-known/ai-catalog.json
