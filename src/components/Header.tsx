@@ -228,9 +228,9 @@ export const Header: React.FC = () => {
                   href={getGeneralInquiryUrl('Konsultasi Cepat dari Mobile Menu', language)}
                   target="_blank"
                   rel="noopener noreferrer"
-                  className="px-3 py-2 rounded-lg bg-[#25D366] text-white text-xs font-bold flex items-center gap-1.5 shadow-sm active:scale-95 transition-transform"
+                  className="px-3 py-2 rounded-lg bg-[#25D366] text-[#06240E] text-xs font-extrabold flex items-center gap-1.5 shadow-sm active:scale-95 transition-transform"
                 >
-                  <MessageCircle className="w-3.5 h-3.5 fill-white" />
+                  <MessageCircle className="w-3.5 h-3.5 fill-[#06240E] text-[#06240E]" />
                   <span>Chat WA</span>
                 </a>
               </div>

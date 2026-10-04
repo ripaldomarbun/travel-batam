@@ -50,9 +50,9 @@ export const Hero: React.FC = () => {
             href={getGeneralInquiryUrl('Pemesanan Rental Cepat', language)}
             target="_blank"
             rel="noopener noreferrer"
-            className="apple-pressable w-full sm:w-auto inline-flex items-center justify-center gap-2.5 px-8 py-4 rounded-full bg-[#25D366] hover:bg-[#20BA59] text-white font-semibold text-sm shadow-[0_4px_24px_rgba(37,211,102,0.45)] transition-colors duration-150"
+            className="apple-pressable w-full sm:w-auto inline-flex items-center justify-center gap-2.5 px-8 py-4 rounded-full bg-[#25D366] hover:bg-[#20BA59] text-[#06240E] font-bold text-sm shadow-[0_4px_24px_rgba(37,211,102,0.45)] transition-colors duration-150"
           >
-            <MessageCircle className="w-4 h-4 fill-white" />
+            <MessageCircle className="w-4 h-4 fill-[#06240E] text-[#06240E]" />
             <span>{t.hero.ctaWhatsapp}</span>
           </a>
 

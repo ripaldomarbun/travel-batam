@@ -444,9 +444,9 @@ export const CarDetailModal: React.FC<CarDetailModalProps> = ({ car, onClose }) 
               href={waSelfDriveUrl}
               target="_blank"
               rel="noopener noreferrer"
-              className="apple-pressable flex-1 sm:flex-none inline-flex items-center justify-center gap-2 px-7 py-3 rounded-full bg-[#25D366] hover:bg-[#20BA59] text-white text-xs font-bold shadow-md transition-colors"
+              className="apple-pressable flex-1 sm:flex-none inline-flex items-center justify-center gap-2 px-7 py-3 rounded-full bg-[#25D366] hover:bg-[#20BA59] text-[#06240E] text-xs font-bold shadow-md transition-colors"
             >
-              <MessageCircle className="w-4 h-4 fill-white" />
+              <MessageCircle className="w-4 h-4 fill-[#06240E] text-[#06240E]" />
               <span>{isEn ? 'Book via WhatsApp' : 'Chat WhatsApp Sekarang'}</span>
             </a>
           </div>

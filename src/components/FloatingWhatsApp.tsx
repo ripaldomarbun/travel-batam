@@ -39,9 +39,9 @@ export const FloatingWhatsApp: React.FC = () => {
             href={waUrl}
             target="_blank"
             rel="noopener noreferrer"
-            className="apple-pressable flex items-center justify-center gap-2 w-full py-2.5 px-4 bg-[#25D366] hover:bg-[#20BA59] text-white text-xs font-semibold rounded-full shadow-md transition-colors"
+            className="apple-pressable flex items-center justify-center gap-2 w-full py-2.5 px-4 bg-[#25D366] hover:bg-[#20BA59] text-[#06240E] text-xs font-bold rounded-full shadow-md transition-colors"
           >
-            <MessageCircle className="w-4 h-4 fill-white" />
+            <MessageCircle className="w-4 h-4 fill-[#06240E] text-[#06240E]" />
             <span>{t.floatingWa.chatBtn}</span>
           </a>
         </div>

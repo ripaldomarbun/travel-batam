@@ -160,9 +160,9 @@ export const Footer: React.FC = () => {
               href={buildWhatsAppUrl(settings.defaultWaGreeting || (language === 'en' ? 'Hello Admin L.A Travel Batam, I need a car rental today.' : 'Halo Admin L.A Travel Batam, saya butuh mobil rental hari ini.'))}
               target="_blank"
               rel="noopener noreferrer"
-              className="apple-pressable flex items-center justify-center gap-2 py-2.5 px-4 bg-[#25D366] hover:bg-[#20BA59] text-white font-semibold rounded-full shadow-md transition-colors"
+              className="apple-pressable flex items-center justify-center gap-2 py-2.5 px-4 bg-[#25D366] hover:bg-[#20BA59] text-[#06240E] font-bold rounded-full shadow-md transition-colors"
             >
-              <MessageCircle className="w-4 h-4 fill-white" />
+              <MessageCircle className="w-4 h-4 fill-[#06240E] text-[#06240E]" />
               <span>{t.footer.chatNow}</span>
             </a>
           </div>

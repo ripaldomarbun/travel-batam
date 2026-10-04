@@ -67,12 +67,12 @@ export const MobileBottomBar: React.FC = () => {
           href={getGeneralInquiryUrl('Pemesanan Cepat via Mobile', language)}
           target="_blank"
           rel="noopener noreferrer"
-          className="flex flex-col items-center justify-center gap-1 py-1 text-[#25D366] hover:text-[#20ba59] active:scale-95 transition-all"
+          className="flex flex-col items-center justify-center gap-1 py-1 text-[#0E7A33] dark:text-[#25D366] hover:text-[#0a5c26] active:scale-95 transition-all"
         >
           <div className="w-7 h-7 rounded-full bg-[#25D366] flex items-center justify-center shadow-md">
-            <MessageCircle className="w-4 h-4 fill-white text-white" />
+            <MessageCircle className="w-4 h-4 fill-[#06240E] text-[#06240E]" />
           </div>
-          <span className="text-[10px] font-extrabold text-[#25D366] tracking-tight">WhatsApp</span>
+          <span className="text-[10px] font-extrabold text-[#0E7A33] dark:text-[#25D366] tracking-tight">WhatsApp</span>
         </a>
       </div>
     </nav>
