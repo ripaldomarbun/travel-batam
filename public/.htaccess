@@ -24,10 +24,18 @@ ServerSignature Off
 # 4. Disable Directory Listing
 Options -Indexes
 
-# 5. Block Access to Sensitive Files, Dotfiles, and Backups
-<FilesMatch "(^\.|\.(sql|bak|old|orig|swp|log|env|ini|md)$)">
+# 5. Allow .well-known directory (ACME SSL & ARD ai-catalog.json) and Block other dotfiles/backups
+<IfModule mod_rewrite.c>
+  RewriteRule ^\.well-known/ - [L]
+</IfModule>
+
+<FilesMatch "\.(sql|bak|old|orig|swp|log|env|ini|md)$">
   Require all denied
 </FilesMatch>
+
+# Explicit MIME Types for AI Manifests & Crawlers
+AddType application/json .json
+AddType text/plain .txt
 
 # 6. SPA Fallback Routing
 <IfModule mod_rewrite.c>
