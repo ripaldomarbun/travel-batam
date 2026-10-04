@@ -130,7 +130,7 @@ export const FleetProvider: React.FC<{ children: React.ReactNode }> = ({ childre
     let isMounted = true;
     const fetchFromDatabase = async () => {
       try {
-        const res = await fetch('/api/cars.php');
+        const res = await fetch(`/api/cars.php?t=${Date.now()}`);
         if (res.ok) {
           const json = await res.json();
           if (json.success && Array.isArray(json.data) && json.data.length > 0 && isMounted) {
@@ -142,7 +142,7 @@ export const FleetProvider: React.FC<{ children: React.ReactNode }> = ({ childre
       }
 
       try {
-        const res = await fetch('/api/settings.php');
+        const res = await fetch(`/api/settings.php?t=${Date.now()}`);
         if (res.ok) {
           const json = await res.json();
           if (json.success && json.data && isMounted) {

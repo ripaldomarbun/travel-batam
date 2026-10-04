@@ -16,11 +16,14 @@ define('DB_CHARSET', 'utf8mb4');
 // PIN Admin default untuk otorisasi perubahan data via API
 define('ADMIN_PIN_HASH', '1234');
 
-// Setup CORS Headers untuk API
+// Setup CORS & Anti-Caching Headers untuk API
 header('Content-Type: application/json; charset=utf-8');
 header('Access-Control-Allow-Origin: *');
 header('Access-Control-Allow-Methods: GET, POST, PUT, DELETE, OPTIONS');
 header('Access-Control-Allow-Headers: Content-Type, Authorization, X-Admin-PIN');
+header('Cache-Control: no-store, no-cache, must-revalidate, max-age=0');
+header('Pragma: no-cache');
+header('Expires: 0');
 
 if ($_SERVER['REQUEST_METHOD'] === 'OPTIONS') {
     http_response_code(200);
