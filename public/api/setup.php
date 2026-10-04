@@ -78,7 +78,33 @@ try {
                 :rates_json, :description_id, :description_en, :image_url,
                 :gallery_json, :features_json, :features_en_json, :badge,
                 :badge_en, :popular, :is_available, :wa_message, :sort_order
-            )");
+            ) ON DUPLICATE KEY UPDATE
+                `name` = VALUES(`name`),
+                `category` = VALUES(`category`),
+                `capacity` = VALUES(`capacity`),
+                `capacity_en` = VALUES(`capacity_en`),
+                `transmission` = VALUES(`transmission`),
+                `transmission_en` = VALUES(`transmission_en`),
+                `engine` = VALUES(`engine`),
+                `fuel` = VALUES(`fuel`),
+                `fuel_en` = VALUES(`fuel_en`),
+                `luggage` = VALUES(`luggage`),
+                `luggage_en` = VALUES(`luggage_en`),
+                `price_start_from` = VALUES(`price_start_from`),
+                `price_unit` = VALUES(`price_unit`),
+                `rates_json` = VALUES(`rates_json`),
+                `description_id` = VALUES(`description_id`),
+                `description_en` = VALUES(`description_en`),
+                `image_url` = VALUES(`image_url`),
+                `gallery_json` = VALUES(`gallery_json`),
+                `features_json` = VALUES(`features_json`),
+                `features_en_json` = VALUES(`features_en_json`),
+                `badge` = VALUES(`badge`),
+                `badge_en` = VALUES(`badge_en`),
+                `popular` = VALUES(`popular`),
+                `is_available` = VALUES(`is_available`),
+                `wa_message` = VALUES(`wa_message`),
+                `sort_order` = VALUES(`sort_order`)");
 
             foreach ($initialCars as $index => $c) {
                 $stmt->execute([
