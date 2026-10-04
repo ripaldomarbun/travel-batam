@@ -15,37 +15,52 @@ import { Footer } from './components/Footer';
 import { FloatingWhatsApp } from './components/FloatingWhatsApp';
 import { MobileBottomBar } from './components/common/MobileBottomBar';
 import { AdminPortal } from './components/Admin/AdminPortal';
+import { SEOHead } from './components/common/SEOHead';
 
 export default function App() {
   const [isAdminOpen, setIsAdminOpen] = useState(false);
+  const [isStandaloneAdmin, setIsStandaloneAdmin] = useState(() => {
+    const path = window.location.pathname.toLowerCase();
+    const hash = window.location.hash.toLowerCase();
+    return path === '/admin' || path === '/admin/' || path === '/cms' || hash === '#/admin';
+  });
 
-  // Secret entry points for authorized admin only (completely invisible to public visitors):
-  // 1. URL hash: #admin or #cms (e.g. yourwebsite.com/#admin)
-  // 2. Keyboard shortcut: Ctrl + Shift + A or Cmd + Shift + A
+  // Secret entry points for authorized admin:
+  // 1. Direct path /admin (Standalone tab/page)
+  // 2. URL hash: #admin or #cms (Quick modal)
+  // 3. Keyboard shortcut: Ctrl + Shift + A or Cmd + Shift + A (Opens new tab to /admin)
   useEffect(() => {
-    const handleHash = () => {
+    const checkRoute = () => {
+      const path = window.location.pathname.toLowerCase();
       const hash = window.location.hash.toLowerCase();
       const params = new URLSearchParams(window.location.search);
       const hasResetToken = params.has('reset_token');
-      if (hash === '#admin' || hash === '#cms' || hasResetToken) {
+
+      const isPathAdmin = path === '/admin' || path === '/admin/' || path === '/cms' || hash === '#/admin';
+      setIsStandaloneAdmin(isPathAdmin);
+
+      if (isPathAdmin || hash === '#admin' || hash === '#cms' || hasResetToken) {
         setIsAdminOpen(true);
       }
     };
 
     const handleKeyDown = (e: KeyboardEvent) => {
-      // Check for Ctrl+Shift+A or Cmd+Shift+A
+      // Check for Ctrl+Shift+A or Cmd+Shift+A -> Open Admin in new tab!
       if ((e.ctrlKey || e.metaKey) && e.shiftKey && (e.key === 'A' || e.key === 'a')) {
         e.preventDefault();
-        setIsAdminOpen((prev) => !prev);
+        const adminUrl = window.location.origin + '/admin';
+        window.open(adminUrl, '_blank');
       }
     };
 
-    handleHash();
-    window.addEventListener('hashchange', handleHash);
+    checkRoute();
+    window.addEventListener('hashchange', checkRoute);
+    window.addEventListener('popstate', checkRoute);
     window.addEventListener('keydown', handleKeyDown);
 
     return () => {
-      window.removeEventListener('hashchange', handleHash);
+      window.removeEventListener('hashchange', checkRoute);
+      window.removeEventListener('popstate', checkRoute);
       window.removeEventListener('keydown', handleKeyDown);
     };
   }, []);
@@ -54,39 +69,55 @@ export default function App() {
     <ThemeProvider>
       <LanguageProvider>
         <FleetProvider>
-          <div className="min-h-screen bg-[#F5F5F7] dark:bg-[#000000] text-[#1D1D1F] dark:text-[#F5F5F7] flex flex-col selection:bg-[#D4AF37] selection:text-black transition-colors duration-300">
-            {/* 1-Row 3-Zone Clean Header with zero admin buttons visible to the public */}
-            <Header />
+          {/* Dynamic SEO, Canonical & Multilingual Alternate Hreflang Injector */}
+          <SEOHead />
 
-            {/* Main Content Flow: Proposition -> Catalog -> Proof */}
-            <main className="flex-1">
-              <Hero />
-              <CarCatalog />
-              <WhyUs />
-            </main>
-
-            {/* Clean Professional Public Footer (Zero Admin Links) */}
-            <div className="pb-16 md:pb-0">
-              <Footer />
-            </div>
-
-            {/* Sticky Floating WhatsApp CTA Button */}
-            <FloatingWhatsApp />
-
-            {/* Modern Mobile Bottom Navigation Bar */}
-            <MobileBottomBar />
-
-            {/* Hidden Admin CMS Portal - only accessible via URL #admin or Ctrl+Shift+A */}
+          {isStandaloneAdmin ? (
+            /* Standalone Admin Tab Page Mode (Dedicated Page) */
             <AdminPortal
-              isOpen={isAdminOpen}
+              isOpen={true}
+              isStandalone={true}
               onClose={() => {
-                setIsAdminOpen(false);
-                if (window.location.hash === '#admin' || window.location.hash === '#cms') {
-                  history.replaceState(null, '', ' ');
-                }
+                window.location.href = window.location.origin + '/';
               }}
             />
-          </div>
+          ) : (
+            /* Standard Customer-Facing Website Mode */
+            <div className="min-h-screen bg-[#F5F5F7] dark:bg-[#000000] text-[#1D1D1F] dark:text-[#F5F5F7] flex flex-col selection:bg-[#D4AF37] selection:text-black transition-colors duration-300">
+              {/* 1-Row 3-Zone Clean Header with zero admin buttons visible to the public */}
+              <Header />
+
+              {/* Main Content Flow: Proposition -> Catalog -> Proof */}
+              <main className="flex-1">
+                <Hero />
+                <CarCatalog />
+                <WhyUs />
+              </main>
+
+              {/* Clean Professional Public Footer (Zero Admin Links) */}
+              <div className="pb-16 md:pb-0">
+                <Footer />
+              </div>
+
+              {/* Sticky Floating WhatsApp CTA Button */}
+              <FloatingWhatsApp />
+
+              {/* Modern Mobile Bottom Navigation Bar */}
+              <MobileBottomBar />
+
+              {/* Quick Admin CMS Portal (Popup Modal / Secret Shortcut) */}
+              <AdminPortal
+                isOpen={isAdminOpen}
+                isStandalone={false}
+                onClose={() => {
+                  setIsAdminOpen(false);
+                  if (window.location.hash === '#admin' || window.location.hash === '#cms') {
+                    history.replaceState(null, '', ' ');
+                  }
+                }}
+              />
+            </div>
+          )}
         </FleetProvider>
       </LanguageProvider>
     </ThemeProvider>

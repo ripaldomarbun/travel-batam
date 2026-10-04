@@ -117,7 +117,11 @@ export const CarCatalog: React.FC = () => {
                 <div className="relative aspect-[4/3] bg-neutral-900 overflow-hidden">
                   <LazyImage
                     src={car.image_url}
-                    alt={car.name}
+                    alt={
+                      isEn
+                        ? `Batam Car Rental - ${car.name} (${car.category}) tour package`
+                        : `Rental Mobil Batam - Paket Wisata ${car.name} (${car.category})`
+                    }
                     containerClassName="w-full h-full"
                     className="w-full h-full object-cover object-center group-hover:scale-105 transition-transform duration-500 filter brightness-95"
                   />

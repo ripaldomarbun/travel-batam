@@ -51,12 +51,18 @@ import {
 } from '../../utils/security';
 import { dispatchResetPasswordEmail } from '../../utils/emailService';
 
+import {
+  ExternalLink,
+  Globe
+} from 'lucide-react';
+
 interface AdminPortalProps {
   isOpen: boolean;
   onClose: () => void;
+  isStandalone?: boolean;
 }
 
-export const AdminPortal: React.FC<AdminPortalProps> = ({ isOpen, onClose }) => {
+export const AdminPortal: React.FC<AdminPortalProps> = ({ isOpen, onClose, isStandalone = false }) => {
   const { cars, settings, addCar, updateCar, deleteCar, toggleCarAvailability, updateSettings, resetToDefaults } = useFleet();
   const { language } = useLanguage();
 
@@ -227,6 +233,12 @@ export const AdminPortal: React.FC<AdminPortalProps> = ({ isOpen, onClose }) => 
   };
 
   const handleClose = () => {
+    if (isStandalone) {
+      // In standalone tab mode, redirect cleanly to main website
+      window.location.href = window.location.origin + '/';
+      return;
+    }
+
     if (
       window.location.hash.toLowerCase() === '#admin' ||
       window.location.hash.toLowerCase() === '#cms' ||
@@ -239,6 +251,11 @@ export const AdminPortal: React.FC<AdminPortalProps> = ({ isOpen, onClose }) => 
     setForgotMsg(null);
     setResetError('');
     onClose();
+  };
+
+  const handleOpenInNewTab = () => {
+    const adminUrl = window.location.origin + '/admin';
+    window.open(adminUrl, '_blank', 'noopener,noreferrer');
   };
 
   // Kirim tautan pemulihan PIN langsung ke email pengguna secara otomatis di latar belakang
@@ -550,7 +567,7 @@ export const AdminPortal: React.FC<AdminPortalProps> = ({ isOpen, onClose }) => 
       <div className="fixed inset-0 z-50 overflow-y-auto bg-black/65 dark:bg-black/85 backdrop-blur-xl flex items-center justify-center p-4 sm:p-6 animate-in fade-in duration-200">
         <div className="relative w-full max-w-md apple-glass-card rounded-3xl shadow-2xl overflow-hidden border border-black/10 dark:border-white/10 p-6 sm:p-8 my-auto animate-in zoom-in-95 duration-200">
           
-          {/* Top Bar with Brand Badge & Close */}
+          {/* Top Bar with Brand Badge, Open New Tab, and Close */}
           <div className="flex items-center justify-between mb-5">
             <div className="flex items-center gap-2.5">
               <div className="w-8 h-8 rounded-xl bg-[#D4AF37] flex items-center justify-center font-bold text-black text-xs shadow-md">
@@ -561,17 +578,43 @@ export const AdminPortal: React.FC<AdminPortalProps> = ({ isOpen, onClose }) => 
                   L.A Travel Batam
                 </span>
                 <span className="text-[10px] text-slate-500 dark:text-neutral-400 font-mono">
-                  Admin CMS Portal v2.0
+                  {isStandalone ? 'Admin CMS (Tab Terpisah)' : 'Admin CMS Portal v2.0'}
                 </span>
               </div>
             </div>
-            <button
-              onClick={handleClose}
-              className="apple-pressable w-8 h-8 rounded-full bg-black/5 dark:bg-white/10 hover:bg-black/10 dark:hover:bg-white/20 text-slate-600 dark:text-neutral-300 flex items-center justify-center transition-colors cursor-pointer"
-              aria-label="Tutup"
-            >
-              <X className="w-4 h-4" />
-            </button>
+
+            <div className="flex items-center gap-1.5">
+              {!isStandalone ? (
+                <button
+                  type="button"
+                  onClick={handleOpenInNewTab}
+                  className="apple-pressable px-2.5 py-1.5 rounded-full bg-black/5 dark:bg-white/10 hover:bg-[#D4AF37]/20 hover:text-[#B8860B] dark:hover:text-[#D4AF37] text-slate-600 dark:text-neutral-300 flex items-center gap-1 text-[11px] font-medium transition-colors cursor-pointer"
+                  title="Buka Admin di Tab Baru"
+                >
+                  <ExternalLink className="w-3.5 h-3.5" />
+                  <span className="hidden sm:inline">Tab Baru</span>
+                </button>
+              ) : (
+                <a
+                  href="/"
+                  className="apple-pressable px-2.5 py-1.5 rounded-full bg-black/5 dark:bg-white/10 hover:bg-[#D4AF37]/20 hover:text-[#B8860B] dark:hover:text-[#D4AF37] text-slate-600 dark:text-neutral-300 flex items-center gap-1 text-[11px] font-medium transition-colors cursor-pointer"
+                  title="Kembali ke Website Utama"
+                >
+                  <Globe className="w-3.5 h-3.5" />
+                  <span className="hidden sm:inline">Website</span>
+                </a>
+              )}
+
+              <button
+                type="button"
+                onClick={handleClose}
+                className="apple-pressable w-8 h-8 rounded-full bg-black/5 dark:bg-white/10 hover:bg-black/10 dark:hover:bg-white/20 text-slate-600 dark:text-neutral-300 flex items-center justify-center transition-colors cursor-pointer"
+                aria-label={isStandalone ? 'Kembali ke Website' : 'Tutup'}
+                title={isStandalone ? 'Kembali ke Website' : 'Tutup'}
+              >
+                <X className="w-4 h-4" />
+              </button>
+            </div>
           </div>
 
           {/* View 1: Standard Login Form */}
@@ -975,8 +1018,20 @@ export const AdminPortal: React.FC<AdminPortalProps> = ({ isOpen, onClose }) => 
 
   // Authenticated Management Dashboard View
   return (
-    <div className="fixed inset-0 z-50 overflow-y-auto bg-black/70 backdrop-blur-xl flex items-center justify-center p-3 sm:p-5 animate-in fade-in duration-200">
-      <div className="relative w-full max-w-5xl apple-glass-card rounded-2xl sm:rounded-3xl shadow-2xl overflow-hidden my-auto flex flex-col max-h-[92vh]">
+    <div
+      className={
+        isStandalone
+          ? 'min-h-screen bg-[#F5F5F7] dark:bg-[#000000] text-[#1D1D1F] dark:text-[#F5F5F7] flex flex-col p-2 sm:p-6 transition-colors duration-200'
+          : 'fixed inset-0 z-50 overflow-y-auto bg-black/70 backdrop-blur-xl flex items-center justify-center p-3 sm:p-5 animate-in fade-in duration-200'
+      }
+    >
+      <div
+        className={
+          isStandalone
+            ? 'relative w-full max-w-6xl mx-auto apple-glass-card rounded-2xl sm:rounded-3xl shadow-2xl overflow-hidden flex flex-col flex-1 border border-black/10 dark:border-white/10'
+            : 'relative w-full max-w-5xl apple-glass-card rounded-2xl sm:rounded-3xl shadow-2xl overflow-hidden my-auto flex flex-col max-h-[92vh]'
+        }
+      >
         
         {/* Top Header Bar */}
         <div className="p-4 sm:p-5 bg-slate-900/90 text-white flex items-center justify-between border-b border-white/10 shrink-0">
@@ -998,18 +1053,43 @@ export const AdminPortal: React.FC<AdminPortalProps> = ({ isOpen, onClose }) => 
           </div>
 
           <div className="flex items-center gap-2">
+            {!isStandalone ? (
+              <button
+                type="button"
+                onClick={handleOpenInNewTab}
+                className="apple-pressable hidden sm:inline-flex items-center gap-1.5 px-3 py-1.5 rounded-full bg-white/10 hover:bg-[#D4AF37]/20 hover:text-[#D4AF37] text-neutral-200 text-xs font-medium transition-colors cursor-pointer"
+                title="Buka Admin di Tab Baru"
+              >
+                <ExternalLink className="w-3.5 h-3.5" />
+                <span>Buka di Tab Baru</span>
+              </button>
+            ) : (
+              <a
+                href="/"
+                className="apple-pressable inline-flex items-center gap-1.5 px-3.5 py-1.5 rounded-full bg-white/10 hover:bg-[#D4AF37]/20 hover:text-[#D4AF37] text-neutral-200 text-xs font-medium transition-colors cursor-pointer"
+                title="Buka Website Utama"
+              >
+                <Globe className="w-3.5 h-3.5" />
+                <span className="hidden sm:inline">Ke Website Utama</span>
+                <span className="sm:hidden">Web</span>
+              </a>
+            )}
+
             <button
+              type="button"
               onClick={handleLogout}
-              className="apple-pressable hidden sm:inline-flex items-center gap-1.5 px-3.5 py-1.5 rounded-full bg-white/10 hover:bg-white/15 text-neutral-200 text-xs font-medium transition-colors cursor-pointer"
+              className="apple-pressable hidden sm:inline-flex items-center gap-1.5 px-3.5 py-1.5 rounded-full bg-white/10 hover:bg-rose-500/20 hover:text-rose-400 text-neutral-200 text-xs font-medium transition-colors cursor-pointer"
               title="Keluar dari Admin"
             >
               <LogOut className="w-3.5 h-3.5" />
               <span>Logout</span>
             </button>
             <button
+              type="button"
               onClick={handleClose}
               className="apple-pressable w-9 h-9 rounded-full bg-white/10 hover:bg-white/15 text-white flex items-center justify-center transition-colors cursor-pointer"
-              aria-label="Tutup CMS"
+              aria-label={isStandalone ? 'Kembali ke Website' : 'Tutup CMS'}
+              title={isStandalone ? 'Kembali ke Website' : 'Tutup CMS'}
             >
               <X className="w-4 h-4" />
             </button>
@@ -1161,7 +1241,9 @@ export const AdminPortal: React.FC<AdminPortalProps> = ({ isOpen, onClose }) => 
                             <div className="w-14 h-14 rounded-xl bg-neutral-900 overflow-hidden shrink-0 border border-neutral-700/50">
                               <img
                                 src={car.image_url}
-                                alt={car.name}
+                                alt={`Armada ${car.name} (${car.category})`}
+                                loading="lazy"
+                                decoding="async"
                                 className="w-full h-full object-cover"
                               />
                             </div>
@@ -1840,7 +1922,9 @@ export const AdminPortal: React.FC<AdminPortalProps> = ({ isOpen, onClose }) => 
                         <div className="relative aspect-video w-full rounded-xl overflow-hidden bg-black/10 dark:bg-black/40 border border-black/10 dark:border-white/10 group">
                           <img
                             src={formData.image_url}
-                            alt="Preview Foto Utama Mobil"
+                            alt="Preview Foto Utama Armada Mobil"
+                            loading="lazy"
+                            decoding="async"
                             className="w-full h-full object-cover object-center"
                           />
                           <div className="absolute top-2 left-2 px-2.5 py-1 rounded-full bg-black/70 backdrop-blur-md text-[10px] font-bold text-emerald-400 border border-emerald-500/30">
@@ -1970,7 +2054,9 @@ export const AdminPortal: React.FC<AdminPortalProps> = ({ isOpen, onClose }) => 
                             >
                               <img
                                 src={url}
-                                alt={`Galeri ${idx + 1}`}
+                                alt={`Preview Foto Galeri ${idx + 1}`}
+                                loading="lazy"
+                                decoding="async"
                                 className="w-full h-full object-cover object-center"
                               />
                               <button

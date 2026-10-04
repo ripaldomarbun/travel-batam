@@ -16,6 +16,7 @@ import {
 import { Car, getCarInquiryUrl } from '../utils/whatsapp';
 import { useLanguage } from '../context/LanguageContext';
 import { LazyImage } from './common/LazyImage';
+import { generateTouristTripJsonLd } from '../utils/seo';
 
 interface CarDetailModalProps {
   car: Car | null;
@@ -116,7 +117,11 @@ export const CarDetailModal: React.FC<CarDetailModalProps> = ({ car, onClose }) 
             <LazyImage
               key={galleryImages[activeImageIndex]}
               src={galleryImages[activeImageIndex]}
-              alt={`${car.name} - View ${activeImageIndex + 1}`}
+              alt={
+                isEn
+                  ? `${car.name} (${car.category}) Batam Island Travel Package - ${getThumbnailLabel(activeImageIndex)}`
+                  : `Paket Rental Wisata Batam ${car.name} (${car.category}) - ${getThumbnailLabel(activeImageIndex)}`
+              }
               containerClassName="w-full h-full"
               className="w-full h-full object-cover object-center filter brightness-95"
             />
@@ -213,7 +218,7 @@ export const CarDetailModal: React.FC<CarDetailModalProps> = ({ car, onClose }) 
                   >
                     <LazyImage
                       src={imgUrl}
-                      alt={`Thumbnail ${idx + 1}`}
+                      alt={`${car.name} - ${getThumbnailLabel(idx)}`}
                       containerClassName="w-full h-full"
                       className="w-full h-full object-cover"
                     />
@@ -409,6 +414,14 @@ export const CarDetailModal: React.FC<CarDetailModalProps> = ({ car, onClose }) 
             </a>
           </div>
         </div>
+
+        {/* Embedded JSON-LD Schema (TouristTrip & Product) for Search Engine Crawlers */}
+        <script
+          type="application/ld+json"
+          dangerouslySetInnerHTML={{
+            __html: JSON.stringify(generateTouristTripJsonLd(car, language))
+          }}
+        />
 
       </div>
     </div>

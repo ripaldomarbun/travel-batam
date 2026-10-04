@@ -12,7 +12,9 @@ export const Hero: React.FC = () => {
       <div className="absolute inset-0 z-0">
         <img
           src="/images/hero_la_transport_1790686468335.jpg"
-          alt="L.A Travel Batam Luxury Car Fleet"
+          alt="L.A Travel Batam - Layanan Rental Mobil Mewah dan Paket Wisata Pulau Batam"
+          fetchPriority="high"
+          decoding="async"
           referrerPolicy="no-referrer"
           className="w-full h-full object-cover object-center filter brightness-50 dark:brightness-40 contrast-110"
         />

@@ -4,12 +4,11 @@ import { useLanguage } from '../context/LanguageContext';
 import { useTheme } from '../context/ThemeContext';
 import { useFleet } from '../context/FleetContext';
 import { getGeneralInquiryUrl } from '../utils/whatsapp';
-import { updateMetaTags } from '../utils/seo';
 
 export const Header: React.FC = () => {
   const { language, setLanguage, t } = useLanguage();
   const { theme, toggleTheme } = useTheme();
-  const { settings, selectedCarForDetail } = useFleet();
+  const { settings } = useFleet();
   const [isMobileMenuOpen, setIsMobileMenuOpen] = useState(false);
 
   // Close mobile drawer when route/hash changes or on resize
@@ -23,45 +22,7 @@ export const Header: React.FC = () => {
     };
   }, []);
 
-  // Dynamic meta tag generation utility: Updates page title and Open Graph metadata
-  // whenever a user navigates to a specific car detail view or returns to the home page.
-  useEffect(() => {
-    const isEn = language === 'en';
-
-    if (selectedCarForDetail) {
-      const carName = selectedCarForDetail.name;
-      const category = selectedCarForDetail.category;
-      const price = selectedCarForDetail.price_start_from;
-      const desc = isEn
-        ? selectedCarForDetail.description_en || `Rent ${carName} in Batam from ${price}/day. Self-drive or with professional chauffeur.`
-        : selectedCarForDetail.description_id || `Sewa ${carName} di Batam mulai dari ${price}/hari. Tersedia lepas kunci atau dengan supir profesional L.A Travel.`;
-
-      const pageTitle = isEn
-        ? `Rent ${carName} in Batam – ${category} | L.A Travel`
-        : `Sewa ${carName} di Batam – ${category} | L.A Travel`;
-
-      updateMetaTags({
-        title: pageTitle,
-        description: desc,
-        imageUrl: selectedCarForDetail.image_url,
-        url: typeof window !== 'undefined' ? `${window.location.origin}${window.location.pathname}#detail-${selectedCarForDetail.id}` : undefined,
-        type: 'article'
-      });
-    } else {
-      // Default Base Meta Tags when on general page
-      updateMetaTags({
-        title: isEn
-          ? 'L.A Travel Batam – Premium Car Rental & Chauffeur Services'
-          : 'L.A Travel Batam | Rental Mobil Premium & Terpercaya',
-        description: isEn
-          ? 'Premier car rental and travel service in Batam. Rent Toyota Alphard VIP, Innova Zenix Hybrid, Veloz. Self-drive and professional chauffeur packages with free airport delivery.'
-          : 'Layanan sewa dan rental mobil terbaik di Batam. Pilihan unit prima (Innova, Alphard, Veloz), lepas kunci atau dengan supir ramah. Reservasi cepat via WhatsApp!',
-        imageUrl: '/images/hero_la_transport_1790686468335.jpg',
-        url: typeof window !== 'undefined' ? `${window.location.origin}${window.location.pathname}` : undefined,
-        type: 'website'
-      });
-    }
-  }, [selectedCarForDetail, language]);
+  // Header presentation logic (SEO tags are managed cleanly by the root SEOHead component)
 
   const activePromoText = language === 'en' && settings.promoBannerTextEn
     ? settings.promoBannerTextEn
@@ -203,7 +164,9 @@ export const Header: React.FC = () => {
               <div className="w-12 h-12 rounded-full overflow-hidden border-2 border-[#D4AF37] p-0.5 bg-black shadow-md shrink-0">
                 <img
                   src="/images/la_travel_logo.jpg"
-                  alt="L.A Travel Batam Logo"
+                  alt="Logo L.A Travel Batam - Agen Rental Mobil & Paket Wisata Batam"
+                  loading="lazy"
+                  decoding="async"
                   className="w-full h-full object-cover rounded-full"
                 />
               </div>

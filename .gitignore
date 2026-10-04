@@ -1,8 +1,53 @@
+# Dependencies & Package Managers
 node_modules/
-build/
+.pnp
+.pnp.js
+
+# Production Builds & Output
 dist/
+build/
 coverage/
-.DS_Store
-*.log
-.env*
+
+# Local Environment & Secrets
+.env
+.env.local
+.env.development.local
+.env.test.local
+.env.production.local
+*.env
 !.env.example
+
+# Production Archive Packages (Do not commit large zip files)
+*.zip
+*.tar.gz
+*.tgz
+*.rar
+*.7z
+latravelbatam-production.zip
+
+# Sensitive Files, Backups & Databases
+*.sql
+*.sqlite
+*.db
+*.log
+*.bak
+*.old
+*.orig
+*.swp
+*.tmp
+*.key
+*.pem
+*.cert
+*.crt
+
+# IDE & Editor Configurations
+.vscode/
+.idea/
+*.suo
+*.ntvs*
+*.njsproj
+*.sln
+*.sw?
+.DS_Store
+Thumbs.db
+

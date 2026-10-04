@@ -1,0 +1,41 @@
+# ==============================================================================
+# L.A TRAVEL BATAM - Search Engine Crawling Policy (robots.txt)
+# https://latravelbatam.com
+# ==============================================================================
+
+User-agent: *
+Allow: /
+Allow: /images/
+Allow: /favicon.svg
+Allow: /assets/
+
+# Block Private Admin Portal & CMS Routes
+Disallow: /admin
+Disallow: /admin/
+Disallow: /cms
+Disallow: /cms/
+Disallow: /#admin
+Disallow: /#cms
+Disallow: /?reset_token=*
+Disallow: /*?*reset_token=*
+
+# Block Internal APIs & Server Scripts
+Disallow: /api/
+Disallow: /server/
+Disallow: /server.js
+
+# Specific Search Engine Directives
+User-agent: Googlebot
+Allow: /
+Disallow: /admin
+Disallow: /admin/
+Disallow: /api/
+
+User-agent: Bingbot
+Allow: /
+Disallow: /admin
+Disallow: /admin/
+Disallow: /api/
+
+# XML Sitemap Location
+Sitemap: https://latravelbatam.com/sitemap.xml
