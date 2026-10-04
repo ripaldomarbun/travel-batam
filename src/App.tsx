@@ -14,8 +14,12 @@ import { WhyUs } from './components/WhyUs';
 import { Footer } from './components/Footer';
 import { FloatingWhatsApp } from './components/FloatingWhatsApp';
 import { MobileBottomBar } from './components/common/MobileBottomBar';
-import { AdminPortal } from './components/Admin/AdminPortal';
 import { SEOHead } from './components/common/SEOHead';
+
+// Lazy load AdminPortal so regular customers do not download the 100KB+ admin bundle
+const AdminPortal = React.lazy(() =>
+  import('./components/Admin/AdminPortal').then((m) => ({ default: m.AdminPortal }))
+);
 
 export default function App() {
   const [isAdminOpen, setIsAdminOpen] = useState(false);
@@ -74,13 +78,15 @@ export default function App() {
 
           {isStandaloneAdmin ? (
             /* Standalone Admin Tab Page Mode (Dedicated Page) */
-            <AdminPortal
-              isOpen={true}
-              isStandalone={true}
-              onClose={() => {
-                window.location.href = window.location.origin + '/';
-              }}
-            />
+            <React.Suspense fallback={<div className="min-h-screen bg-black flex items-center justify-center text-[#D4AF37]">Memuat Admin Portal...</div>}>
+              <AdminPortal
+                isOpen={true}
+                isStandalone={true}
+                onClose={() => {
+                  window.location.href = window.location.origin + '/';
+                }}
+              />
+            </React.Suspense>
           ) : (
             /* Standard Customer-Facing Website Mode */
             <div className="min-h-screen bg-[#F5F5F7] dark:bg-[#000000] text-[#1D1D1F] dark:text-[#F5F5F7] flex flex-col selection:bg-[#D4AF37] selection:text-black transition-colors duration-300">
@@ -106,16 +112,20 @@ export default function App() {
               <MobileBottomBar />
 
               {/* Quick Admin CMS Portal (Popup Modal / Secret Shortcut) */}
-              <AdminPortal
-                isOpen={isAdminOpen}
-                isStandalone={false}
-                onClose={() => {
-                  setIsAdminOpen(false);
-                  if (window.location.hash === '#admin' || window.location.hash === '#cms') {
-                    history.replaceState(null, '', ' ');
-                  }
-                }}
-              />
+              {isAdminOpen && (
+                <React.Suspense fallback={null}>
+                  <AdminPortal
+                    isOpen={isAdminOpen}
+                    isStandalone={false}
+                    onClose={() => {
+                      setIsAdminOpen(false);
+                      if (window.location.hash === '#admin' || window.location.hash === '#cms') {
+                        history.replaceState(null, '', ' ');
+                      }
+                    }}
+                  />
+                </React.Suspense>
+              )}
             </div>
           )}
         </FleetProvider>

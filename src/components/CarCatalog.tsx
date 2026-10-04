@@ -3,8 +3,12 @@ import { Users, Gauge, Check, MessageCircle, Info, Eye, ArrowUpRight } from 'luc
 import { Car, getCarInquiryUrl, isSelfDriveCar } from '../utils/whatsapp';
 import { useLanguage } from '../context/LanguageContext';
 import { useFleet } from '../context/FleetContext';
-import { CarDetailModal } from './CarDetailModal';
 import { LazyImage } from './common/LazyImage';
+
+// Lazy load CarDetailModal so modal JS isn't loaded on initial page load
+const CarDetailModal = React.lazy(() =>
+  import('./CarDetailModal').then((m) => ({ default: m.CarDetailModal }))
+);
 
 export const CarCatalog: React.FC = () => {
   const { language, t } = useLanguage();
@@ -357,10 +361,12 @@ export const CarCatalog: React.FC = () => {
 
       {/* Car Detail Modal */}
       {selectedCarForDetail && (
-        <CarDetailModal
-          car={selectedCarForDetail}
-          onClose={() => setSelectedCarForDetail(null)}
-        />
+        <React.Suspense fallback={null}>
+          <CarDetailModal
+            car={selectedCarForDetail}
+            onClose={() => setSelectedCarForDetail(null)}
+          />
+        </React.Suspense>
       )}
     </section>
   );

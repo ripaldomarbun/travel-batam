@@ -72,7 +72,7 @@ export const Footer: React.FC = () => {
                   target="_blank"
                   rel="noopener noreferrer"
                   className="apple-pressable w-9 h-9 rounded-full bg-white/5 border border-white/10 hover:border-[#D4AF37] hover:text-[#D4AF37] flex items-center justify-center transition-colors font-bold text-xs"
-                  aria-label="TikTok L.A Travel Batam"
+                  aria-label="TT - TikTok L.A Travel Batam"
                 >
                   TT
                 </a>

@@ -20,6 +20,32 @@ export const LazyImage: React.FC<LazyImageProps> = ({
   const [isLoaded, setIsLoaded] = useState(false);
   const [hasError, setHasError] = useState(false);
   const [currentSrc, setCurrentSrc] = useState(src);
+  const [isInView, setIsInView] = useState(false);
+  const containerRef = React.useRef<HTMLDivElement>(null);
+
+  // Viewport Intersection Observer for true mobile lazy loading
+  useEffect(() => {
+    const el = containerRef.current;
+    if (!el) return;
+
+    if (!('IntersectionObserver' in window)) {
+      setIsInView(true);
+      return;
+    }
+
+    const observer = new IntersectionObserver(
+      ([entry]) => {
+        if (entry.isIntersecting) {
+          setIsInView(true);
+          observer.disconnect();
+        }
+      },
+      { rootMargin: '250px 0px' }
+    );
+
+    observer.observe(el);
+    return () => observer.disconnect();
+  }, []);
 
   // Reset state when src prop changes
   useEffect(() => {
@@ -44,7 +70,10 @@ export const LazyImage: React.FC<LazyImageProps> = ({
   };
 
   return (
-    <div className={`relative overflow-hidden bg-neutral-900/60 ${containerClassName}`}>
+    <div
+      ref={containerRef}
+      className={`relative overflow-hidden bg-neutral-900/60 ${containerClassName}`}
+    >
       {/* Shimmer skeleton placeholder while loading */}
       {!isLoaded && !hasError && (
         <div className="absolute inset-0 z-0 bg-neutral-800/80 animate-pulse flex items-center justify-center">
@@ -63,19 +92,21 @@ export const LazyImage: React.FC<LazyImageProps> = ({
           <span className="text-[10px] text-neutral-500 mt-0.5">{alt}</span>
         </div>
       ) : (
-        <img
-          src={currentSrc}
-          alt={alt}
-          loading="lazy"
-          decoding="async"
-          referrerPolicy="no-referrer"
-          onLoad={handleLoad}
-          onError={handleError}
-          className={`w-full h-full transition-all duration-700 ease-out ${
-            isLoaded ? 'opacity-100 blur-0 scale-100' : 'opacity-0 blur-md scale-105'
-          } ${className}`}
-          {...props}
-        />
+        isInView && (
+          <img
+            src={currentSrc}
+            alt={alt}
+            loading="lazy"
+            decoding="async"
+            referrerPolicy="no-referrer"
+            onLoad={handleLoad}
+            onError={handleError}
+            className={`w-full h-full transition-all duration-700 ease-out ${
+              isLoaded ? 'opacity-100 blur-0 scale-100' : 'opacity-0 blur-md scale-105'
+            } ${className}`}
+            {...props}
+          />
+        )
       )}
     </div>
   );

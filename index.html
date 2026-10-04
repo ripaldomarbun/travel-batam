@@ -29,25 +29,39 @@
     <link rel="alternate" hreflang="en-SG" href="https://latravelbatam.com/?lang=en" />
     <link rel="alternate" hreflang="en-MY" href="https://latravelbatam.com/?lang=en" />
     <link rel="alternate" hreflang="x-default" href="https://latravelbatam.com/" />
+    <!-- Preload Critical LCP Hero Image for Instant Mobile Rendering -->
+    <link rel="preload" as="image" href="/images/hero_la_transport_1790686468335.jpg" fetchpriority="high" />
+
     <!-- Google Search Console Verification -->
     <meta name="google-site-verification" content="GSC_VERIFICATION_CODE_HERE" />
 
-    <!-- Google tag (gtag.js) - Google Analytics 4 -->
-    <script async src="https://www.googletagmanager.com/gtag/js?id=G-XXXXXXXXXX"></script>
+    <!-- Google Analytics (Deferred non-blocking loader to safeguard mobile TBT) -->
     <script>
       window.dataLayer = window.dataLayer || [];
       function gtag(){dataLayer.push(arguments);}
-      gtag('js', new Date());
-      gtag('config', 'G-XXXXXXXXXX');
+      (function() {
+        var GA_ID = 'G-XXXXXXXXXX';
+        if (GA_ID && !GA_ID.includes('XXXXXXXXXX')) {
+          var s = document.createElement('script');
+          s.async = true;
+          s.src = 'https://www.googletagmanager.com/gtag/js?id=' + GA_ID;
+          document.head.appendChild(s);
+          gtag('js', new Date());
+          gtag('config', GA_ID);
+        }
+      })();
     </script>
 
-    <!-- Defensive Security Headers & Policies (Configured for Google Analytics & Fonts) -->
+    <!-- Defensive Security Headers & Policies -->
     <meta http-equiv="Content-Security-Policy" content="default-src 'self'; script-src 'self' 'unsafe-inline' https://www.googletagmanager.com; style-src 'self' 'unsafe-inline' https://fonts.googleapis.com; font-src 'self' https://fonts.gstatic.com data:; img-src 'self' data: https: blob: https://*.google-analytics.com https://*.googletagmanager.com; connect-src 'self' https: https://*.google-analytics.com https://*.analytics.google.com https://*.googletagmanager.com; object-src 'none'; base-uri 'self';" />
     <meta http-equiv="X-Content-Type-Options" content="nosniff" />
     <meta name="referrer" content="strict-origin-when-cross-origin" />
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700;800&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700;800&display=swap" media="print" onload="this.media='all'" />
+    <noscript>
+      <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700;800&display=swap" />
+    </noscript>
   </head>
   <body class="antialiased selection:bg-[#D4AF37] selection:text-black min-h-screen">
     <div id="root"></div>
