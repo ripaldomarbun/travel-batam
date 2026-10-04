@@ -53,6 +53,9 @@ try {
     $seededCount = 0;
 
     if ($checkCount == 0 || isset($_GET['seed']) || isset($_GET['force'])) {
+        if (isset($_GET['seed']) || isset($_GET['force'])) {
+            $pdo->exec("DELETE FROM `cars`");
+        }
         $jsonPath = __DIR__ . '/cars.json';
         if (!file_exists($jsonPath)) {
             $jsonPath = __DIR__ . '/../../src/data/cars.json';
