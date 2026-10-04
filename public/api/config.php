@@ -6,12 +6,17 @@
  * - cPanel > MySQL® Databases (Buat Database & User MySQL, lalu hubungkan)
  */
 
+// Cek apakah ada file kredensial lokal di server cPanel (agar password tidak pernah tertimpa saat git push/deploy)
+if (file_exists(__DIR__ . '/config.local.php')) {
+    require_once __DIR__ . '/config.local.php';
+}
+
 // Konfigurasi Database MySQL Rumahweb
-define('DB_HOST', 'localhost');
-define('DB_NAME', 'latb8519_latravel'); // Database cPanel Anda
-define('DB_USER', 'latb8519_latravel'); // User cPanel Anda
-define('DB_PASS', 'MASUKKAN_PASSWORD_DATABASE_DI_SINI'); // Password yang baru Anda buat di Database Wizard
-define('DB_CHARSET', 'utf8mb4');
+if (!defined('DB_HOST')) define('DB_HOST', 'localhost');
+if (!defined('DB_NAME')) define('DB_NAME', 'latb8519_latravel'); // Database cPanel Anda
+if (!defined('DB_USER')) define('DB_USER', 'latb8519_latravel'); // User cPanel Anda
+if (!defined('DB_PASS')) define('DB_PASS', 'MASUKKAN_PASSWORD_DATABASE_DI_SINI'); // Password MySQL Anda
+if (!defined('DB_CHARSET')) define('DB_CHARSET', 'utf8mb4');
 
 // PIN Admin default untuk otorisasi perubahan data via API
 define('ADMIN_PIN_HASH', '1234');

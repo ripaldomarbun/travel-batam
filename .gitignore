@@ -39,6 +39,7 @@ latravelbatam-production.zip
 *.pem
 *.cert
 *.crt
+*config.local.php
 
 # IDE & Editor Configurations
 .vscode/
