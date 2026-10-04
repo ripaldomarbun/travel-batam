@@ -1,5 +1,4 @@
 {
-  "$schema": "https://raw.githubusercontent.com/ards-project/ard-spec/main/spec/schemas/ai-catalog.schema.json",
   "specVersion": "1.0",
   "host": {
     "displayName": "L.A Travel Batam",
@@ -10,7 +9,7 @@
     {
       "identifier": "urn:air:latravelbatam.com:fleet:car-rental-service",
       "displayName": "L.A Travel Batam Car Rental & Tour Service",
-      "type": "application/json",
+      "type": "application/agent-card+json",
       "url": "https://latravelbatam.com/api/get_cars.php",
       "description": "Layanan rental mobil resmi Batam dengan paket lepas kunci dan supir serta BBM, armada Innova, Zenix, Alphard, Avanza, Xenia, Brio, Calya, Fortuner, dan HiAce.",
       "tags": [
