@@ -13,7 +13,7 @@ import {
   ChevronRight,
   Camera
 } from 'lucide-react';
-import { Car, getCarInquiryUrl } from '../utils/whatsapp';
+import { Car, getCarInquiryUrl, isSelfDriveCar } from '../utils/whatsapp';
 import { useLanguage } from '../context/LanguageContext';
 import { LazyImage } from './common/LazyImage';
 import { generateTouristTripJsonLd } from '../utils/seo';
@@ -297,50 +297,87 @@ export const CarDetailModal: React.FC<CarDetailModalProps> = ({ car, onClose }) 
               <div className="grid grid-cols-1 sm:grid-cols-2 gap-4">
                 
                 {/* Option 1: Self Drive */}
-                <div className="p-4 rounded-xl bg-slate-50 dark:bg-neutral-900 border border-slate-200 dark:border-neutral-800 flex flex-col justify-between">
-                  <div>
-                    <span className="text-xs font-bold text-slate-700 dark:text-neutral-300">
-                      {isEn ? 'Option A: Self-Drive (24 Hours)' : 'Opsi 1: Lepas Kunci (24 Jam)'}
-                    </span>
-                    <p className="text-base font-bold text-slate-900 dark:text-white mt-1">
-                      {car.rates.self_drive_24h}
-                    </p>
-                    <p className="text-xs text-slate-600 dark:text-neutral-400 mt-2">
-                      {isEn ? 'Full freedom to drive across Batam Island without a driver.' : 'Bebas keliling Batam tanpa supir. Syarat KTP/Paspor & SIM A.'}
-                    </p>
+                {isSelfDriveCar(car) ? (
+                  <div className="p-4 rounded-xl bg-slate-50 dark:bg-neutral-900 border border-emerald-500/30 flex flex-col justify-between">
+                    <div>
+                      <div className="flex items-center justify-between">
+                        <span className="text-xs font-bold text-slate-700 dark:text-neutral-300">
+                          {isEn ? 'Option A: Self-Drive (24 Hours)' : 'Opsi 1: Lepas Kunci (24 Jam)'}
+                        </span>
+                        <span className="text-[10px] px-2 py-0.5 rounded-full bg-emerald-500/15 text-emerald-700 dark:text-emerald-400 font-bold border border-emerald-500/30">
+                          {isEn ? 'Available' : 'Tersedia'}
+                        </span>
+                      </div>
+                      <p className="text-base font-bold text-slate-900 dark:text-white mt-1">
+                        {car.rates.self_drive_24h}
+                      </p>
+                      <p className="text-xs text-slate-600 dark:text-neutral-400 mt-2">
+                        {isEn ? 'Full freedom to drive across Batam Island without a driver. Simple verification.' : 'Bebas keliling Batam tanpa supir. Syarat mudah (KTP/Paspor & SIM A).'}
+                      </p>
+                    </div>
+                    <a
+                      href={waSelfDriveUrl}
+                      target="_blank"
+                      rel="noopener noreferrer"
+                      className="apple-pressable mt-4 inline-flex items-center justify-center gap-2 py-2.5 px-4 rounded-full bg-[#D4AF37] hover:bg-[#C59B27] text-black text-xs font-bold transition-all"
+                    >
+                      <MessageCircle className="w-3.5 h-3.5" />
+                      <span>{isEn ? 'Book Self-Drive via WA' : 'Pesan Lepas Kunci'}</span>
+                    </a>
                   </div>
-                  <a
-                    href={waSelfDriveUrl}
-                    target="_blank"
-                    rel="noopener noreferrer"
-                    className="apple-pressable mt-4 inline-flex items-center justify-center gap-2 py-2.5 px-4 rounded-full bg-slate-200 dark:bg-neutral-800 hover:bg-[#D4AF37] hover:text-black text-slate-900 dark:text-neutral-200 text-xs font-bold transition-all"
-                  >
-                    <MessageCircle className="w-3.5 h-3.5" />
-                    <span>{isEn ? 'Book Self-Drive via WA' : 'Pesan Lepas Kunci'}</span>
-                  </a>
-                </div>
+                ) : (
+                  <div className="p-4 rounded-xl bg-slate-100/70 dark:bg-neutral-900/40 border border-slate-200 dark:border-neutral-800 flex flex-col justify-between opacity-80">
+                    <div>
+                      <div className="flex items-center justify-between">
+                        <span className="text-xs font-bold text-slate-500 dark:text-neutral-400">
+                          {isEn ? 'Self-Drive (24 Hours)' : 'Lepas Kunci (24 Jam)'}
+                        </span>
+                        <span className="text-[10px] px-2 py-0.5 rounded-full bg-slate-200 dark:bg-neutral-800 text-slate-600 dark:text-neutral-400 font-semibold">
+                          {isEn ? 'Not Available' : 'Tidak Tersedia'}
+                        </span>
+                      </div>
+                      <p className="text-sm font-semibold text-slate-700 dark:text-neutral-300 mt-2">
+                        {isEn ? 'Chauffeur Package Only' : 'Khusus Paket Supir & BBM'}
+                      </p>
+                      <p className="text-xs text-slate-500 dark:text-neutral-400 mt-1 leading-relaxed">
+                        {isEn ? 'This vehicle is exclusively bundled with our driver service for your utmost comfort & safety.' : 'Armada ini khusus dipaketkan bersama supir berpengalaman & BBM demi kenyamanan prima Anda.'}
+                      </p>
+                    </div>
+                  </div>
+                )}
 
                 {/* Option 2: With Chauffeur */}
-                <div className="p-4 rounded-xl bg-slate-50 dark:bg-neutral-900 border border-slate-200 dark:border-neutral-800 flex flex-col justify-between">
+                <div className={`p-4 rounded-xl flex flex-col justify-between ${
+                  !isSelfDriveCar(car) 
+                    ? 'bg-amber-500/10 dark:bg-neutral-900 border-2 border-[#D4AF37]' 
+                    : 'bg-slate-50 dark:bg-neutral-900 border border-slate-200 dark:border-neutral-800'
+                }`}>
                   <div>
-                    <span className="text-xs font-bold text-slate-700 dark:text-neutral-300">
-                      {isEn ? 'Option B: With Chauffeur (12 Hours)' : 'Opsi 2: Lengkap Supir (12 Jam)'}
-                    </span>
+                    <div className="flex items-center justify-between">
+                      <span className="text-xs font-bold text-slate-700 dark:text-neutral-300">
+                        {isEn ? 'Option B: With Chauffeur & Fuel' : 'Opsi: Lengkap Supir & BBM (12 Jam)'}
+                      </span>
+                      {!isSelfDriveCar(car) && (
+                        <span className="text-[10px] px-2 py-0.5 rounded-full bg-[#D4AF37] text-black font-bold">
+                          {isEn ? 'Recommended Package' : 'Paket Rekomendasi'}
+                        </span>
+                      )}
+                    </div>
                     <p className="text-base font-bold text-slate-900 dark:text-white mt-1">
                       {car.rates.with_driver_12h}
                     </p>
                     <p className="text-xs text-slate-600 dark:text-neutral-400 mt-2">
-                      {isEn ? 'Includes experienced, courteous driver who knows all top Batam sights.' : 'Termasuk supir ramah yang paham rute wisata & kuliner Batam.'}
+                      {isEn ? 'Includes experienced, courteous driver and fuel who knows all top Batam sights.' : 'Termasuk supir ramah yang paham rute wisata & BBM. Bebas repot, santai di jalan.'}
                     </p>
                   </div>
                   <a
                     href={waDriverUrl}
                     target="_blank"
                     rel="noopener noreferrer"
-                    className="apple-pressable mt-4 inline-flex items-center justify-center gap-2 py-2.5 px-4 rounded-full bg-slate-200 dark:bg-neutral-800 hover:bg-[#D4AF37] hover:text-black text-slate-900 dark:text-neutral-200 text-xs font-bold transition-all"
+                    className="apple-pressable mt-4 inline-flex items-center justify-center gap-2 py-2.5 px-4 rounded-full bg-[#D4AF37] hover:bg-[#C59B27] text-black text-xs font-bold transition-all"
                   >
                     <MessageCircle className="w-3.5 h-3.5" />
-                    <span>{isEn ? 'Book with Chauffeur' : 'Pesan Dengan Supir'}</span>
+                    <span>{isEn ? 'Book with Chauffeur' : 'Pesan Termasuk Supir'}</span>
                   </a>
                 </div>
 

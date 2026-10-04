@@ -1,6 +1,6 @@
 import React, { useState } from 'react';
 import { Users, Gauge, Check, MessageCircle, Info, Eye, ArrowUpRight } from 'lucide-react';
-import { Car, getCarInquiryUrl } from '../utils/whatsapp';
+import { Car, getCarInquiryUrl, isSelfDriveCar } from '../utils/whatsapp';
 import { useLanguage } from '../context/LanguageContext';
 import { useFleet } from '../context/FleetContext';
 import { CarDetailModal } from './CarDetailModal';
@@ -10,7 +10,7 @@ export const CarCatalog: React.FC = () => {
   const { language, t } = useLanguage();
   const { cars, settings, selectedCarForDetail, setSelectedCarForDetail } = useFleet();
   const [selectedCategoryKey, setSelectedCategoryKey] = useState<string>('all');
-  const [serviceOption, setServiceOption] = useState<'self' | 'driver'>('self');
+  const [serviceOption, setServiceOption] = useState<'all' | 'self' | 'driver'>('self');
 
   const isEn = language === 'en';
 
@@ -24,12 +24,29 @@ export const CarCatalog: React.FC = () => {
 
   const activeCategory = categories.find((c) => c.key === selectedCategoryKey) || categories[0];
 
+  // Hitung jumlah masing-masing paket secara real-time
+  const selfDriveCount = cars.filter(isSelfDriveCar).length;
+  const driverOnlyCount = cars.filter((c) => !isSelfDriveCar(c)).length;
+  const allCount = cars.length;
+
+  const handleServiceChange = (newOption: 'all' | 'self' | 'driver') => {
+    setServiceOption(newOption);
+    setSelectedCategoryKey('all');
+  };
+
   const filteredCars = cars.filter((car) => {
+    // 1. Filter Kategori Paket Layanan
+    if (serviceOption === 'self' && !isSelfDriveCar(car)) return false;
+    if (serviceOption === 'driver' && isSelfDriveCar(car)) return false;
+
+    // 2. Filter Tab Tipe Mobil
     if (activeCategory.filterValue === 'Semua') return true;
+    if (activeCategory.key === 'vip') return car.category.includes('VIP') || car.category.includes('Luxury');
+    if (activeCategory.key === 'premium') return car.category.includes('Premium') || car.category.includes('SUV');
+    if (activeCategory.key === 'family') return car.category.includes('Family') || car.category.includes('Compact') || car.category.includes('City');
+    if (activeCategory.key === 'group') return car.category.includes('Minibus') || car.category.includes('Group');
     return car.category === activeCategory.filterValue;
   });
-
-  const activeServiceLabel = serviceOption === 'self' ? t.catalog.selfDrive : t.catalog.withDriver;
 
   return (
     <section id="armada" className="py-24 bg-[#F5F5F7] dark:bg-[#000000] transition-colors duration-300 relative">
@@ -68,42 +85,112 @@ export const CarCatalog: React.FC = () => {
             ))}
           </div>
 
-          {/* Service Preference Switch (Apple Segmented Control) */}
+          {/* Service Preference Switch (Apple Segmented Control with Counts) */}
           <div className="flex items-center gap-1 p-1 bg-black/5 dark:bg-white/10 border border-black/5 dark:border-white/10 rounded-full w-full sm:w-auto justify-center sm:justify-start shadow-xs">
-            <span className="text-xs text-slate-700 dark:text-neutral-300 pl-3 pr-1 hidden sm:inline font-medium">{t.catalog.packageLabel}</span>
+            <span className="text-xs text-slate-700 dark:text-neutral-300 pl-3 pr-1 hidden lg:inline font-medium">
+              {t.catalog.packageLabel}
+            </span>
             <button
-              onClick={() => setServiceOption('self')}
+              onClick={() => handleServiceChange('self')}
               className={`apple-pressable flex-1 sm:flex-none text-center px-3.5 py-1.5 rounded-full text-xs transition-all cursor-pointer ${
                 serviceOption === 'self'
                   ? 'bg-white dark:bg-neutral-800 text-slate-900 dark:text-[#D4AF37] font-bold shadow-xs border border-black/5 dark:border-white/10'
                   : 'text-slate-600 dark:text-neutral-400 font-semibold hover:text-slate-900 dark:hover:text-white'
               }`}
             >
-              {t.catalog.selfDrive}
+              {isEn ? `Self-Drive (${selfDriveCount})` : `Lepas Kunci (${selfDriveCount})`}
             </button>
             <button
-              onClick={() => setServiceOption('driver')}
+              onClick={() => handleServiceChange('driver')}
               className={`apple-pressable flex-1 sm:flex-none text-center px-3.5 py-1.5 rounded-full text-xs transition-all cursor-pointer ${
                 serviceOption === 'driver'
                   ? 'bg-white dark:bg-neutral-800 text-slate-900 dark:text-[#D4AF37] font-bold shadow-xs border border-black/5 dark:border-white/10'
                   : 'text-slate-600 dark:text-neutral-400 font-semibold hover:text-slate-900 dark:hover:text-white'
               }`}
             >
-              {t.catalog.withDriver}
+              {isEn ? `With Driver & Fuel (${driverOnlyCount})` : `Include Supir & BBM (${driverOnlyCount})`}
+            </button>
+            <button
+              onClick={() => handleServiceChange('all')}
+              className={`apple-pressable flex-1 sm:flex-none text-center px-3.5 py-1.5 rounded-full text-xs transition-all cursor-pointer ${
+                serviceOption === 'all'
+                  ? 'bg-white dark:bg-neutral-800 text-slate-900 dark:text-[#D4AF37] font-bold shadow-xs border border-black/5 dark:border-white/10'
+                  : 'text-slate-600 dark:text-neutral-400 font-semibold hover:text-slate-900 dark:hover:text-white'
+              }`}
+            >
+              {isEn ? `All (${allCount})` : `Semua (${allCount})`}
             </button>
           </div>
 
         </div>
 
+        {/* Empty State jika filter kategori tidak menemukan mobil */}
+        {filteredCars.length === 0 && (
+          <div className="py-16 text-center max-w-md mx-auto">
+            <p className="text-sm font-semibold text-slate-700 dark:text-neutral-300 mb-2">
+              {isEn 
+                ? 'No vehicles found in this category for the selected package.' 
+                : 'Tidak ada armada dalam kategori ini pada paket yang dipilih.'}
+            </p>
+            <p className="text-xs text-slate-500 dark:text-neutral-400 mb-6">
+              {isEn
+                ? 'Try selecting a different category tab or switch package options.'
+                : 'Silakan pilih tab kategori mobil lain atau beralih ke paket lainnya.'}
+            </p>
+            <button
+              onClick={() => {
+                setSelectedCategoryKey('all');
+                setServiceOption('all');
+              }}
+              className="apple-pressable px-5 py-2.5 rounded-full bg-[#D4AF37] text-black text-xs font-bold hover:bg-[#C59B27] transition-all cursor-pointer"
+            >
+              {isEn ? 'View All Vehicles (14)' : 'Tampilkan Seluruh 14 Armada'}
+            </button>
+          </div>
+        )}
+
         {/* Car Cards Grid */}
         <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
           {filteredCars.map((car) => {
-            const bookingUrl = getCarInquiryUrl(car, activeServiceLabel, language);
+            const isSelf = isSelfDriveCar(car);
+            
+            // Tentukan label layanan untuk booking WA
+            const bookingServiceLabel = isSelf
+              ? (serviceOption === 'driver' ? (isEn ? 'With Driver' : 'Dengan Supir') : (isEn ? 'Self-Drive (Lepas Kunci)' : 'Lepas Kunci'))
+              : (isEn ? 'With Driver & Fuel' : 'Include Supir & BBM');
+
+            const bookingUrl = getCarInquiryUrl(car, bookingServiceLabel, language);
             const displayFeatures = (isEn && car.features_en) ? car.features_en : car.features;
             const displayCapacity = (isEn && car.capacity_en) ? car.capacity_en : car.capacity;
             const displayTransmission = (isEn && car.transmission_en) ? car.transmission_en : car.transmission;
-            const displayBadge = (isEn && car.badge_en) ? car.badge_en : car.badge;
             const isAvailable = car.isAvailable ?? true;
+
+            // Paket Badge di pojok kiri atas foto
+            const packageBadge = isSelf
+              ? (isEn ? 'Self-Drive Available' : 'Lepas Kunci')
+              : (isEn ? 'Driver & Fuel Included' : 'Include Supir & BBM');
+
+            // Format tarif spesifik sesuai paket aktif
+            let displayPrice = car.price_start_from;
+            let displayUnit = isEn ? 'per day' : 'per hari';
+
+            if (serviceOption === 'driver') {
+              if (car.rates?.with_driver_12h) {
+                const match = car.rates.with_driver_12h.match(/Rp\s*[\d.]+/i);
+                if (match) displayPrice = match[0];
+              }
+              displayUnit = isEn ? '12 hrs (All-In)' : '12 jam (Supir & BBM)';
+            } else if (serviceOption === 'self') {
+              if (car.rates?.self_drive_24h) {
+                const match = car.rates.self_drive_24h.match(/Rp\s*[\d.]+/i);
+                if (match) displayPrice = match[0];
+              }
+              displayUnit = isEn ? '24 hrs (Self-Drive)' : '24 jam (Lepas Kunci)';
+            } else {
+              displayUnit = isSelf 
+                ? (isEn ? 'per day (Self-Drive)' : 'per hari (Lepas Kunci)') 
+                : (isEn ? '12 hrs (All-In)' : '12 jam (Supir & BBM)');
+            }
 
             return (
               <div
@@ -128,9 +215,13 @@ export const CarCatalog: React.FC = () => {
                   <div className="absolute inset-0 bg-gradient-to-t from-black/75 via-transparent to-transparent opacity-80" />
                   
                   {/* Category Chip & Status Badge */}
-                  <div className="absolute top-3.5 left-3.5 flex items-center gap-1.5">
-                    <span className="px-3 py-1 text-[11px] font-semibold text-white bg-black/65 backdrop-blur-md rounded-full border border-white/20 shadow-xs">
-                      {displayBadge || car.category}
+                  <div className="absolute top-3.5 left-3.5 flex flex-wrap items-center gap-1.5">
+                    <span className={`px-3 py-1 text-[11px] font-bold rounded-full backdrop-blur-md shadow-xs border ${
+                      isSelf 
+                        ? 'bg-emerald-950/75 text-emerald-300 border-emerald-500/40' 
+                        : 'bg-amber-950/75 text-[#D4AF37] border-amber-500/40'
+                    }`}>
+                      {packageBadge}
                     </span>
                     {!isAvailable && (
                       <span className="px-2.5 py-0.5 text-[10px] font-bold text-amber-300 bg-amber-500/25 border border-amber-400/40 rounded-full backdrop-blur-md">
@@ -148,10 +239,10 @@ export const CarCatalog: React.FC = () => {
                   </div>
 
                   {/* Price Tag Overlay */}
-                  <div className="absolute bottom-3.5 right-3.5 text-right px-3.5 py-1.5 rounded-xl bg-black/70 backdrop-blur-md border border-white/20 shadow-sm">
+                  <div className="absolute bottom-3.5 right-3.5 text-right px-3.5 py-1.5 rounded-xl bg-black/75 backdrop-blur-md border border-white/20 shadow-sm">
                     <p className="text-[10px] text-white/75 font-medium">{t.catalog.startingFrom}</p>
                     <p className="text-sm font-bold text-[#D4AF37] tabular-nums">
-                      {car.price_start_from} <span className="text-[10px] font-normal text-white/75">{t.catalog.perDay}</span>
+                      {displayPrice} <span className="text-[10px] font-normal text-white/75">{displayUnit}</span>
                     </p>
                   </div>
                 </div>
@@ -166,7 +257,7 @@ export const CarCatalog: React.FC = () => {
                       </h3>
                     </div>
 
-                    {/* Unboxed Metadata (Zero-Pill discipline) */}
+                    {/* Unboxed Metadata */}
                     <div className="flex items-center gap-2 text-xs text-slate-500 dark:text-neutral-400 mb-3 sm:mb-4 font-medium">
                       <span className="flex items-center gap-1">
                         <Users className="w-3.5 h-3.5 text-[#B8860B] dark:text-[#D4AF37]" />
@@ -177,9 +268,13 @@ export const CarCatalog: React.FC = () => {
                         <Gauge className="w-3.5 h-3.5 text-[#B8860B] dark:text-[#D4AF37]" />
                         {displayTransmission}
                       </span>
+                      <span aria-hidden="true" className="text-slate-300 dark:text-neutral-600">·</span>
+                      <span className="text-slate-600 dark:text-neutral-400 font-semibold">
+                        {car.category}
+                      </span>
                     </div>
 
-                    {/* Feature Bullets (First 3 for clean card density) */}
+                    {/* Feature Bullets */}
                     <ul className="space-y-1.5 sm:space-y-2 mb-4 sm:mb-6">
                       {displayFeatures.slice(0, 3).map((feature, idx) => (
                         <li key={idx} className="flex items-start gap-2 text-xs text-slate-600 dark:text-neutral-300">
@@ -212,7 +307,7 @@ export const CarCatalog: React.FC = () => {
                       className="apple-pressable flex-1 flex items-center justify-center gap-2 py-3 px-4 bg-[#D4AF37] hover:bg-[#C59B27] text-black font-bold text-xs rounded-full shadow-xs transition-colors cursor-pointer"
                     >
                       <MessageCircle className="w-4 h-4 fill-black shrink-0" />
-                      <span>{t.catalog.rentViaWa}</span>
+                      <span>{isSelf ? (isEn ? 'Book Self-Drive' : 'Sewa Lepas Kunci') : (isEn ? 'Book Driver Package' : 'Sewa Include Supir')}</span>
                     </a>
                   </div>
                 </div>
@@ -238,21 +333,21 @@ export const CarCatalog: React.FC = () => {
               {
                 id: 'custom-fleet',
                 name: isEn ? 'Corporate & Long-term Lease' : 'Permintaan Khusus / Sewa Bulanan',
-                category: 'Corporate',
+                category: 'Corporate Fleet',
                 capacity: 'Custom',
                 transmission: 'Custom',
-                price_start_from: 'Negotiable',
-                price_unit: 'month',
-                image_url: '',
-                features: [],
-                wa_message: ''
+                price_start_from: 'Hubungi Admin',
+                price_unit: 'paket',
+                image_url: '/images/hero_la_transport_1790686468335.jpg',
+                features: ['Sewa Bulanan / Korporat', 'Unit Baru & Terawat', 'Invoicing Resmi Perusahaan'],
+                wa_message: 'Halo L.A Travel Batam, saya ingin konsultasi sewa jangka panjang / armada korporat.'
               },
-              'Corporate Lease',
+              'Corporate Inquiry',
               language
             )}
             target="_blank"
             rel="noopener noreferrer"
-            className="px-5 py-2.5 rounded-xl bg-slate-100 hover:bg-slate-200 dark:bg-neutral-800 dark:hover:bg-neutral-700 text-[#B8860B] dark:text-[#D4AF37] text-xs font-bold whitespace-nowrap transition-colors"
+            className="apple-pressable shrink-0 py-3 px-6 rounded-full bg-white dark:bg-neutral-800 hover:bg-[#D4AF37] hover:text-black text-slate-900 dark:text-neutral-200 text-xs font-bold border border-black/5 dark:border-white/10 shadow-xs transition-all cursor-pointer"
           >
             {t.catalog.customInquiryBtn}
           </a>
@@ -260,11 +355,13 @@ export const CarCatalog: React.FC = () => {
 
       </div>
 
-      {/* Render Dedicated Detail Modal */}
-      <CarDetailModal
-        car={selectedCarForDetail}
-        onClose={() => setSelectedCarForDetail(null)}
-      />
+      {/* Car Detail Modal */}
+      {selectedCarForDetail && (
+        <CarDetailModal
+          car={selectedCarForDetail}
+          onClose={() => setSelectedCarForDetail(null)}
+        />
+      )}
     </section>
   );
 };

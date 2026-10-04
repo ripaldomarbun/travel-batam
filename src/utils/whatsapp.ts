@@ -69,6 +69,24 @@ export interface Car {
 }
 
 /**
+ * Memeriksa apakah mobil masuk ke dalam kategori Lepas Kunci (Hanya 6 unit armada yang diizinkan)
+ */
+export function isSelfDriveCar(car: { id?: string; rates?: { self_drive_24h?: string } } | null | undefined): boolean {
+  if (!car) return false;
+  const selfDriveIds = [
+    'toyota-agya',
+    'honda-brio',
+    'toyota-calya',
+    'toyota-avanza',
+    'toyota-all-new-avanza',
+    'daihatsu-xenia'
+  ];
+  if (car.id && selfDriveIds.includes(car.id)) return true;
+  const rate = car.rates?.self_drive_24h || '';
+  return rate.toLowerCase().includes('lepas kunci') && !rate.toLowerCase().includes('khusus');
+}
+
+/**
  * Menghasilkan URL WhatsApp dengan encode query string yang valid
  */
 export function buildWhatsAppUrl(message: string, phone?: string): string {
