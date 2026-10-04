@@ -8,20 +8,50 @@ export interface ExtendedCar extends Car {
 
 export interface CompanySettings {
   whatsappNumber: string;
+  secondaryPhone: string;
+  email: string;
   officeAddress: string;
+  openingHours: string;
   instagramUrl: string;
   tiktokUrl: string;
+  facebookUrl: string;
   mapsUrl: string;
-  openingHours: string;
+  promoBannerActive: boolean;
+  promoBannerText: string;
+  promoBannerTextEn: string;
+  selfDriveTerms: string[];
+  withDriverTerms: string[];
+  defaultWaGreeting: string;
 }
 
 const DEFAULT_SETTINGS: CompanySettings = {
   whatsappNumber: LA_TRANSPORT_WA_PHONE,
+  secondaryPhone: '6282170008899',
+  email: 'info@latravelbatam.com',
   officeAddress: LA_TRANSPORT_OFFICE_ADDRESS,
-  instagramUrl: 'https://instagram.com/latransportbatam',
-  tiktokUrl: 'https://tiktok.com/@latransportbatam',
-  mapsUrl: 'https://maps.google.com/?q=LA+Transport+Batam',
-  openingHours: '24 Jam (Setiap Hari)'
+  openingHours: '24 Jam (Setiap Hari)',
+  instagramUrl: 'https://instagram.com/latravelbatam',
+  tiktokUrl: 'https://tiktok.com/@latravelbatam',
+  facebookUrl: 'https://facebook.com/latravelbatam',
+  mapsUrl: 'https://maps.google.com/?q=LA+Travel+Batam',
+  promoBannerActive: true,
+  promoBannerText: '✨ Promo Spesial Batam: Gratis Antar-Jemput Bandara Hang Nadim & Pelabuhan Ferry untuk sewa minimal 2 hari!',
+  promoBannerTextEn: '✨ Special Batam Offer: Free Airport & Ferry Terminal Delivery for rentals of 2 days or more!',
+  selfDriveTerms: [
+    'Foto KTP asli & SIM A yang masih aktif/berlaku',
+    'Tiket pesawat / tiket ferry kedatangan & kepulangan Batam',
+    'Bukti booking hotel atau voucher penginapan di Batam',
+    'Deposit jaminan keamanan (100% refundable saat mobil kembali prima)',
+    'Penyewa bersedia difoto bersama kendaraan saat serah terima kunci'
+  ],
+  withDriverTerms: [
+    'Sudah termasuk supir profesional, ramah & paham rute Batam',
+    'Paket sewa fleksibel 12 jam atau seharian penuh (full day)',
+    'Termasuk BBM dalam kota Batam & bebas biaya antar mobil',
+    'Supir siap memandu rekomendasi tempat wisata & seafood lezat khas Batam',
+    'Layanan tepat waktu, mobil selalu hadir bersih dan wangi sebelum jam penjemputan'
+  ],
+  defaultWaGreeting: 'Halo Admin L.A Travel Batam, saya ingin konsultasi ketersediaan mobil dan booking rental.'
 };
 
 interface FleetContextType {
@@ -39,8 +69,8 @@ interface FleetContextType {
 
 const FleetContext = createContext<FleetContextType | undefined>(undefined);
 
-const STORAGE_CARS_KEY = 'la_transport_fleet_v2';
-const STORAGE_SETTINGS_KEY = 'la_transport_settings_v2';
+const STORAGE_CARS_KEY = 'la_travel_fleet_v2';
+const STORAGE_SETTINGS_KEY = 'la_travel_settings_v2';
 
 function sanitizeCarPaths(car: ExtendedCar): ExtendedCar {
   const cleanImageUrl = car.image_url
@@ -61,9 +91,10 @@ function sanitizeCarPaths(car: ExtendedCar): ExtendedCar {
 export const FleetProvider: React.FC<{ children: React.ReactNode }> = ({ children }) => {
   const [cars, setCars] = useState<ExtendedCar[]>(() => {
     try {
-      // Clean legacy v1 cache if exists
+      // Clean legacy caches if exists
       localStorage.removeItem('la_transport_fleet_v1');
       localStorage.removeItem('la_transport_settings_v1');
+      localStorage.removeItem('la_transport_settings_v2');
 
       const saved = localStorage.getItem(STORAGE_CARS_KEY);
       if (saved) {

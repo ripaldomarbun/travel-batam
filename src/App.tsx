@@ -24,7 +24,9 @@ export default function App() {
   useEffect(() => {
     const handleHash = () => {
       const hash = window.location.hash.toLowerCase();
-      if (hash === '#admin' || hash === '#cms') {
+      const params = new URLSearchParams(window.location.search);
+      const hasResetToken = params.has('reset_token');
+      if (hash === '#admin' || hash === '#cms' || hasResetToken) {
         setIsAdminOpen(true);
       }
     };
@@ -51,7 +53,7 @@ export default function App() {
     <ThemeProvider>
       <LanguageProvider>
         <FleetProvider>
-          <div className="min-h-screen bg-[#F8F9FA] dark:bg-[#121212] text-slate-900 dark:text-neutral-100 flex flex-col font-sans selection:bg-[#D4AF37] selection:text-black transition-colors duration-200">
+          <div className="min-h-screen bg-[#F5F5F7] dark:bg-[#000000] text-[#1D1D1F] dark:text-[#F5F5F7] flex flex-col selection:bg-[#D4AF37] selection:text-black transition-colors duration-300">
             {/* 1-Row 3-Zone Clean Header with zero admin buttons visible to the public */}
             <Header />
 

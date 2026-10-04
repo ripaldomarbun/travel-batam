@@ -7,63 +7,177 @@
     --gold: #D4AF37;
     --gold-hover: #C59B27;
     --gold-text: #B8860B;
-    --bg-main: #121212;
-    --bg-surface: #1A1A1A;
-    --bg-surface-elevated: #242424;
-    --border-subtle: #262626;
-    --text-primary: #F5F5F5;
-    --text-muted: #A3A3A3;
+    --bg-main: #000000;
+    --bg-surface: rgba(28, 28, 30, 0.85);
+    --bg-surface-elevated: #2C2C2E;
+    --border-subtle: rgba(255, 255, 255, 0.12);
+    --text-primary: #F5F5F7;
+    --text-muted: #86868B;
   }
 
   html.dark, html:not(.light) {
     color-scheme: dark;
-    background-color: #121212;
-    color: #F5F5F5;
+    background-color: #000000;
+    color: #F5F5F7;
   }
 
   html.light {
     color-scheme: light;
-    background-color: #F8F9FA;
-    color: #0F172A;
+    background-color: #F5F5F7;
+    color: #1D1D1F;
   }
 
-  body, h1, h2, h3, h4, h5, h6, .font-brand {
-    font-family: 'Poppins', -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif;
+  /* Apple Typography: System font first with optical sizing & tracking */
+  body, button, input, select, textarea {
+    font-family: -apple-system, BlinkMacSystemFont, "SF Pro Text", "SF Pro Display", "Helvetica Neue", Helvetica, Arial, sans-serif;
+    -webkit-font-smoothing: antialiased;
+    -moz-osx-font-smoothing: grayscale;
+    text-rendering: optimizeLegibility;
   }
 
   body {
-    transition: background-color 0.25s ease, color 0.25s ease;
+    transition: background-color 0.3s cubic-bezier(0.16, 1, 0.3, 1), color 0.3s cubic-bezier(0.16, 1, 0.3, 1);
   }
 
-  .font-brand {
-    letter-spacing: 0.04em;
+  /* Optical Tracking (§15: Negative for large text, positive for small caption) */
+  h1, .display-hero {
+    letter-spacing: -0.025em;
+    line-height: 1.08;
+  }
+
+  h2, .section-heading {
+    letter-spacing: -0.02em;
+    line-height: 1.15;
+  }
+
+  h3, .card-title {
+    letter-spacing: -0.012em;
+    line-height: 1.25;
+  }
+
+  .caption-label {
+    letter-spacing: 0.02em;
   }
 }
 
-/* Custom scrollbars */
-html.dark ::-webkit-scrollbar, html:not(.light) ::-webkit-scrollbar {
+/* Apple Fluid Feedback & Spring Press (§1 & §4) */
+.apple-pressable {
+  transition: transform 120ms cubic-bezier(0.2, 0, 0, 1), opacity 120ms ease;
+  user-select: none;
+  -webkit-tap-highlight-color: transparent;
+}
+.apple-pressable:active {
+  transform: scale(0.97) !important;
+}
+
+/* Translucent Glass Materials (§12) */
+.apple-glass {
+  background: rgba(255, 255, 255, 0.85);
+  backdrop-filter: blur(20px) saturate(180%);
+  -webkit-backdrop-filter: blur(20px) saturate(180%);
+  border: 1px solid rgba(0, 0, 0, 0.08);
+  color: #1D1D1F;
+}
+
+html.dark .apple-glass, html:not(.light) .apple-glass {
+  background: rgba(22, 22, 24, 0.75);
+  backdrop-filter: blur(24px) saturate(190%);
+  -webkit-backdrop-filter: blur(24px) saturate(190%);
+  border: 1px solid rgba(255, 255, 255, 0.1);
+  box-shadow: 0 8px 32px 0 rgba(0, 0, 0, 0.37);
+  color: #F5F5F7;
+}
+
+.apple-glass-card {
+  background: #ffffff;
+  border: 1px solid rgba(0, 0, 0, 0.08);
+  box-shadow: 0 4px 20px -2px rgba(0, 0, 0, 0.05);
+  color: #1D1D1F;
+  transition: transform 0.35s cubic-bezier(0.16, 1, 0.3, 1), box-shadow 0.35s cubic-bezier(0.16, 1, 0.3, 1), border-color 0.25s ease;
+}
+
+html.dark .apple-glass-card, html:not(.light) .apple-glass-card {
+  background: rgba(28, 28, 30, 0.8);
+  backdrop-filter: blur(16px);
+  -webkit-backdrop-filter: blur(16px);
+  border: 1px solid rgba(255, 255, 255, 0.1);
+  box-shadow: 0 8px 30px -4px rgba(0, 0, 0, 0.5);
+  color: #F5F5F7;
+}
+
+html.dark .apple-glass-card:hover, html:not(.light) .apple-glass-card:hover {
+  border-color: rgba(212, 175, 55, 0.5);
+  transform: translateY(-2px);
+  box-shadow: 0 16px 40px -8px rgba(0, 0, 0, 0.6), 0 0 20px -4px rgba(212, 175, 55, 0.15);
+}
+
+html.light .apple-glass-card:hover {
+  transform: translateY(-2px);
+  box-shadow: 0 12px 30px -6px rgba(0, 0, 0, 0.1);
+  border-color: rgba(212, 175, 55, 0.6);
+}
+
+/* Light edge reflection on translucent layers (§12) */
+.apple-glass-nav {
+  background: rgba(255, 255, 255, 0.8);
+  backdrop-filter: blur(20px) saturate(180%);
+  -webkit-backdrop-filter: blur(20px) saturate(180%);
+  border-bottom: 1px solid rgba(0, 0, 0, 0.08);
+}
+
+html.dark .apple-glass-nav, html:not(.light) .apple-glass-nav {
+  background: rgba(18, 18, 18, 0.78);
+  backdrop-filter: blur(24px) saturate(190%);
+  -webkit-backdrop-filter: blur(24px) saturate(190%);
+  border-bottom: 1px solid rgba(255, 255, 255, 0.08);
+  border-top: 1px solid rgba(255, 255, 255, 0.04);
+}
+
+/* Reduced Motion & Transparency (§14) */
+@media (prefers-reduced-motion: reduce) {
+  * {
+    animation-duration: 0.01ms !important;
+    animation-iteration-count: 1 !important;
+    transition-duration: 0.01ms !important;
+    scroll-behavior: auto !important;
+  }
+  .apple-pressable:active {
+    transform: none !important;
+  }
+}
+
+@media (prefers-reduced-transparency: reduce) {
+  .apple-glass, .apple-glass-nav, .apple-glass-card {
+    backdrop-filter: none !important;
+    -webkit-backdrop-filter: none !important;
+    background: #1C1C1E !important;
+  }
+  html.light .apple-glass, html.light .apple-glass-nav, html.light .apple-glass-card {
+    background: #FFFFFF !important;
+  }
+}
+
+/* Custom Scrollbars */
+::-webkit-scrollbar {
   width: 8px;
 }
 html.dark ::-webkit-scrollbar-track, html:not(.light) ::-webkit-scrollbar-track {
-  background: #121212;
+  background: #000000;
 }
 html.dark ::-webkit-scrollbar-thumb, html:not(.light) ::-webkit-scrollbar-thumb {
-  background: #2a2a2a;
-  border-radius: 4px;
+  background: #2C2C2E;
+  border-radius: 9999px;
 }
 html.dark ::-webkit-scrollbar-thumb:hover, html:not(.light) ::-webkit-scrollbar-thumb:hover {
   background: #D4AF37;
 }
 
-html.light ::-webkit-scrollbar {
-  width: 8px;
-}
 html.light ::-webkit-scrollbar-track {
-  background: #F1F3F5;
+  background: #F5F5F7;
 }
 html.light ::-webkit-scrollbar-thumb {
-  background: #CBD5E1;
-  border-radius: 4px;
+  background: #D1D1D6;
+  border-radius: 9999px;
 }
 html.light ::-webkit-scrollbar-thumb:hover {
   background: #B8860B;

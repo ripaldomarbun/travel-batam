@@ -1,59 +1,82 @@
 import React from 'react';
-import { MessageCircle, MapPin, Clock, Phone, Instagram, Lock } from 'lucide-react';
+import { MessageCircle, MapPin, Clock, Phone, Instagram, Lock, Mail, Facebook } from 'lucide-react';
 import { useLanguage } from '../context/LanguageContext';
 import { useFleet } from '../context/FleetContext';
 import { buildWhatsAppUrl } from '../utils/whatsapp';
+import { sanitizeExternalUrl } from '../utils/security';
 
 export const Footer: React.FC = () => {
   const { language, t } = useLanguage();
   const { settings } = useFleet();
 
+  const safeInstagram = sanitizeExternalUrl(settings.instagramUrl);
+  const safeFacebook = sanitizeExternalUrl(settings.facebookUrl);
+  const safeTiktok = sanitizeExternalUrl(settings.tiktokUrl);
+  const safeMaps = sanitizeExternalUrl(settings.mapsUrl);
+
   return (
-    <footer className="bg-slate-950 dark:bg-[#0D0D0D] border-t border-slate-800 dark:border-neutral-800 text-neutral-400 text-xs transition-colors duration-200">
-      <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-14">
-        <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-10 mb-12">
+    <footer className="bg-[#0A0A0C] border-t border-black/5 dark:border-white/10 text-neutral-400 text-xs transition-colors duration-300">
+      <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-16">
+        <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-10 mb-14">
           
           {/* Brand Col */}
           <div className="space-y-4">
-            <div className="flex items-center gap-2">
-              <div className="w-8 h-8 rounded-lg bg-[#D4AF37] flex items-center justify-center font-brand font-bold text-black text-sm shadow-md">
+            <div className="flex items-center gap-2.5">
+              <div className="w-8 h-8 rounded-xl bg-[#D4AF37] flex items-center justify-center font-bold text-black text-sm shadow-md">
                 LA
               </div>
-              <span className="font-brand font-bold text-base text-white tracking-wider">
-                L.A TRANSPORT BATAM
+              <span className="font-bold text-sm tracking-tight text-white">
+                L.A TRAVEL BATAM
               </span>
             </div>
             <p className="leading-relaxed text-neutral-400 text-xs">
               {t.footer.about}
             </p>
-            <div className="flex items-center gap-3 pt-2">
-              <a
-                href={settings.instagramUrl}
-                target="_blank"
-                rel="noopener noreferrer"
-                className="w-9 h-9 rounded-lg bg-neutral-900 border border-neutral-800 hover:border-[#D4AF37] hover:text-[#D4AF37] flex items-center justify-center transition-colors"
-                aria-label="Instagram L.A Transport Batam"
-              >
-                <Instagram className="w-4 h-4" />
-              </a>
-              <a
-                href={settings.tiktokUrl}
-                target="_blank"
-                rel="noopener noreferrer"
-                className="w-9 h-9 rounded-lg bg-neutral-900 border border-neutral-800 hover:border-[#D4AF37] hover:text-[#D4AF37] flex items-center justify-center transition-colors font-bold text-xs"
-                aria-label="TikTok L.A Transport Batam"
-              >
-                TT
-              </a>
-              <a
-                href={settings.mapsUrl}
-                target="_blank"
-                rel="noopener noreferrer"
-                className="w-9 h-9 rounded-lg bg-neutral-900 border border-neutral-800 hover:border-[#D4AF37] hover:text-[#D4AF37] flex items-center justify-center transition-colors"
-                aria-label="Google Maps L.A Transport Batam"
-              >
-                <MapPin className="w-4 h-4" />
-              </a>
+            <div className="flex items-center gap-2.5 pt-2 flex-wrap">
+              {safeInstagram !== '#' && (
+                <a
+                  href={safeInstagram}
+                  target="_blank"
+                  rel="noopener noreferrer"
+                  className="apple-pressable w-9 h-9 rounded-full bg-white/5 border border-white/10 hover:border-[#D4AF37] hover:text-[#D4AF37] flex items-center justify-center transition-colors"
+                  aria-label="Instagram L.A Travel Batam"
+                >
+                  <Instagram className="w-4 h-4" />
+                </a>
+              )}
+              {safeFacebook !== '#' && (
+                <a
+                  href={safeFacebook}
+                  target="_blank"
+                  rel="noopener noreferrer"
+                  className="apple-pressable w-9 h-9 rounded-full bg-white/5 border border-white/10 hover:border-[#D4AF37] hover:text-[#D4AF37] flex items-center justify-center transition-colors"
+                  aria-label="Facebook L.A Travel Batam"
+                >
+                  <Facebook className="w-4 h-4" />
+                </a>
+              )}
+              {safeTiktok !== '#' && (
+                <a
+                  href={safeTiktok}
+                  target="_blank"
+                  rel="noopener noreferrer"
+                  className="apple-pressable w-9 h-9 rounded-full bg-white/5 border border-white/10 hover:border-[#D4AF37] hover:text-[#D4AF37] flex items-center justify-center transition-colors font-bold text-xs"
+                  aria-label="TikTok L.A Travel Batam"
+                >
+                  TT
+                </a>
+              )}
+              {safeMaps !== '#' && (
+                <a
+                  href={safeMaps}
+                  target="_blank"
+                  rel="noopener noreferrer"
+                  className="apple-pressable w-9 h-9 rounded-full bg-white/5 border border-white/10 hover:border-[#D4AF37] hover:text-[#D4AF37] flex items-center justify-center transition-colors"
+                  aria-label="Google Maps L.A Travel Batam"
+                >
+                  <MapPin className="w-4 h-4" />
+                </a>
+              )}
             </div>
           </div>
 
@@ -99,22 +122,34 @@ export const Footer: React.FC = () => {
                 <Phone className="w-4 h-4 text-[#D4AF37] shrink-0" />
                 <span>+{settings.whatsappNumber}</span>
               </li>
+              {settings.secondaryPhone && (
+                <li className="flex items-center gap-2.5">
+                  <Phone className="w-4 h-4 text-[#D4AF37] shrink-0" />
+                  <span>+{settings.secondaryPhone} (Cadangan)</span>
+                </li>
+              )}
+              {settings.email && (
+                <li className="flex items-center gap-2.5">
+                  <Mail className="w-4 h-4 text-[#D4AF37] shrink-0" />
+                  <a href={`mailto:${settings.email}`} className="hover:text-white transition-colors">{settings.email}</a>
+                </li>
+              )}
             </ul>
           </div>
 
           {/* Direct WhatsApp Callout */}
-          <div className="p-5 rounded-xl bg-neutral-900/90 border border-neutral-800 flex flex-col justify-between">
+          <div className="p-5 rounded-2xl bg-white/5 border border-white/10 backdrop-blur-md flex flex-col justify-between">
             <div>
               <p className="font-bold text-white text-sm mb-1">{t.footer.response24}</p>
-              <p className="text-neutral-400 text-xs mb-4 leading-relaxed">
+              <p className="text-neutral-300 text-xs mb-4 leading-relaxed">
                 {t.footer.response24Desc}
               </p>
             </div>
             <a
-              href={buildWhatsAppUrl(language === 'en' ? 'Hello Admin L.A Transport Batam, I need a car rental today.' : 'Halo Admin L.A Transport Batam, saya butuh mobil rental hari ini.')}
+              href={buildWhatsAppUrl(settings.defaultWaGreeting || (language === 'en' ? 'Hello Admin L.A Travel Batam, I need a car rental today.' : 'Halo Admin L.A Travel Batam, saya butuh mobil rental hari ini.'))}
               target="_blank"
               rel="noopener noreferrer"
-              className="flex items-center justify-center gap-2 py-2.5 px-3 bg-[#25D366] hover:bg-[#20ba59] text-white font-semibold rounded-lg transition-transform active:scale-95"
+              className="apple-pressable flex items-center justify-center gap-2 py-2.5 px-4 bg-[#25D366] hover:bg-[#20BA59] text-white font-semibold rounded-full shadow-md transition-colors"
             >
               <MessageCircle className="w-4 h-4 fill-white" />
               <span>{t.footer.chatNow}</span>
@@ -123,9 +158,20 @@ export const Footer: React.FC = () => {
 
         </div>
 
-        <div className="pt-8 border-t border-neutral-800/80 flex flex-col sm:flex-row items-center justify-between gap-4 text-neutral-500 text-[11px]">
-          <p>© {new Date().getFullYear()} L.A Transport Batam. {t.footer.rights}</p>
-          <p>{t.footer.tagline}</p>
+        <div className="pt-8 border-t border-white/10 flex flex-col sm:flex-row items-center justify-between gap-4 text-neutral-500 text-[11px]">
+          <p>© {new Date().getFullYear()} L.A Travel Batam. {t.footer.rights}</p>
+          <div className="flex items-center gap-4">
+            <p>{t.footer.tagline}</p>
+            <span className="text-neutral-700">|</span>
+            <a
+              href="#admin"
+              className="apple-pressable inline-flex items-center gap-1.5 text-neutral-500 hover:text-[#D4AF37] transition-colors"
+              title="Akses Portal Manajemen CMS Admin"
+            >
+              <Lock className="w-3 h-3 text-[#D4AF37]" />
+              <span>Admin CMS</span>
+            </a>
+          </div>
         </div>
       </div>
     </footer>

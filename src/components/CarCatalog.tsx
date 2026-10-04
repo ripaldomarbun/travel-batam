@@ -32,35 +32,35 @@ export const CarCatalog: React.FC = () => {
   const activeServiceLabel = serviceOption === 'self' ? t.catalog.selfDrive : t.catalog.withDriver;
 
   return (
-    <section id="armada" className="py-20 bg-[#F8F9FA] dark:bg-[#121212] transition-colors duration-200 relative">
+    <section id="armada" className="py-24 bg-[#F5F5F7] dark:bg-[#000000] transition-colors duration-300 relative">
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
         
         {/* Section Header */}
-        <div className="text-center max-w-3xl mx-auto mb-12">
-          <p className="text-xs uppercase tracking-widest text-[#B8860B] dark:text-[#D4AF37] font-bold mb-2">
+        <div className="text-center max-w-3xl mx-auto mb-14">
+          <p className="text-xs uppercase tracking-widest text-[#B8860B] dark:text-[#D4AF37] font-bold mb-2.5 caption-label">
             {t.catalog.tag}
           </p>
-          <h2 className="text-2xl sm:text-4xl font-bold text-slate-900 dark:text-white mb-4 text-balance">
+          <h2 className="text-3xl sm:text-4xl lg:text-5xl font-extrabold text-[#1D1D1F] dark:text-[#F5F5F7] tracking-[-0.025em] mb-4 text-balance">
             {t.catalog.title}
           </h2>
-          <p className="text-slate-600 dark:text-neutral-400 text-sm sm:text-base leading-relaxed">
+          <p className="text-slate-600 dark:text-neutral-400 text-sm sm:text-base leading-relaxed text-balance">
             {t.catalog.subtitle}
           </p>
         </div>
 
         {/* Filter Bar & Service Switcher */}
-        <div className="flex flex-col md:flex-row items-center justify-between gap-4 mb-10 pb-6 border-b border-slate-200 dark:border-neutral-800">
+        <div className="flex flex-col md:flex-row items-center justify-between gap-4 mb-12 pb-6 border-b border-black/5 dark:border-white/10">
           
-          {/* Category Tabs */}
-          <div className="flex items-center gap-1.5 overflow-x-auto w-full md:w-auto pb-2 md:pb-0 scrollbar-none">
+          {/* Category Tabs (Apple Pills) */}
+          <div className="flex items-center gap-2 overflow-x-auto w-full md:w-auto pb-2 md:pb-0 scrollbar-none -mx-4 px-4 sm:mx-0 sm:px-0">
             {categories.map((cat) => (
               <button
                 key={cat.key}
                 onClick={() => setSelectedCategoryKey(cat.key)}
-                className={`px-4 py-2 rounded-xl text-xs sm:text-sm font-medium transition-all whitespace-nowrap cursor-pointer ${
+                className={`apple-pressable px-4 py-2 rounded-full text-xs sm:text-[13px] font-semibold transition-all whitespace-nowrap cursor-pointer ${
                   selectedCategoryKey === cat.key
-                    ? 'bg-[#D4AF37] text-black font-bold shadow-sm'
-                    : 'bg-white dark:bg-[#1A1A1A] text-slate-700 dark:text-neutral-300 hover:text-slate-900 dark:hover:text-white hover:bg-slate-100 dark:hover:bg-[#252525] border border-slate-200 dark:border-neutral-800'
+                    ? 'bg-[#D4AF37] text-black shadow-xs font-bold'
+                    : 'bg-white/80 dark:bg-white/10 text-slate-700 dark:text-neutral-300 hover:text-black dark:hover:text-white hover:bg-white dark:hover:bg-white/15 border border-black/5 dark:border-white/10'
                 }`}
               >
                 {cat.label}
@@ -68,25 +68,25 @@ export const CarCatalog: React.FC = () => {
             ))}
           </div>
 
-          {/* Service Preference Switch */}
-          <div className="flex items-center gap-2 p-1 bg-white dark:bg-[#1A1A1A] border border-slate-200 dark:border-neutral-800 rounded-xl self-end md:self-auto shadow-sm dark:shadow-none">
-            <span className="text-xs text-slate-500 dark:text-neutral-400 pl-2 hidden sm:inline">{t.catalog.packageLabel}</span>
+          {/* Service Preference Switch (Apple Segmented Control) */}
+          <div className="flex items-center gap-1 p-1 bg-black/5 dark:bg-white/10 border border-black/5 dark:border-white/10 rounded-full w-full sm:w-auto justify-center sm:justify-start shadow-xs">
+            <span className="text-xs text-slate-700 dark:text-neutral-300 pl-3 pr-1 hidden sm:inline font-medium">{t.catalog.packageLabel}</span>
             <button
               onClick={() => setServiceOption('self')}
-              className={`px-3 py-1.5 rounded-lg text-xs font-medium transition-all cursor-pointer ${
+              className={`apple-pressable flex-1 sm:flex-none text-center px-3.5 py-1.5 rounded-full text-xs transition-all cursor-pointer ${
                 serviceOption === 'self'
-                  ? 'bg-slate-100 dark:bg-neutral-800 text-[#B8860B] dark:text-[#D4AF37] font-bold shadow-xs'
-                  : 'text-slate-600 dark:text-neutral-400 hover:text-slate-900 dark:hover:text-neutral-200'
+                  ? 'bg-white dark:bg-neutral-800 text-slate-900 dark:text-[#D4AF37] font-bold shadow-xs border border-black/5 dark:border-white/10'
+                  : 'text-slate-600 dark:text-neutral-400 font-semibold hover:text-slate-900 dark:hover:text-white'
               }`}
             >
               {t.catalog.selfDrive}
             </button>
             <button
               onClick={() => setServiceOption('driver')}
-              className={`px-3 py-1.5 rounded-lg text-xs font-medium transition-all cursor-pointer ${
+              className={`apple-pressable flex-1 sm:flex-none text-center px-3.5 py-1.5 rounded-full text-xs transition-all cursor-pointer ${
                 serviceOption === 'driver'
-                  ? 'bg-slate-100 dark:bg-neutral-800 text-[#B8860B] dark:text-[#D4AF37] font-bold shadow-xs'
-                  : 'text-slate-600 dark:text-neutral-400 hover:text-slate-900 dark:hover:text-neutral-200'
+                  ? 'bg-white dark:bg-neutral-800 text-slate-900 dark:text-[#D4AF37] font-bold shadow-xs border border-black/5 dark:border-white/10'
+                  : 'text-slate-600 dark:text-neutral-400 font-semibold hover:text-slate-900 dark:hover:text-white'
               }`}
             >
               {t.catalog.withDriver}
@@ -109,10 +109,8 @@ export const CarCatalog: React.FC = () => {
               <div
                 key={car.id}
                 onClick={() => setSelectedCarForDetail(car)}
-                className={`group flex flex-col bg-white dark:bg-[#1A1A1A] border rounded-2xl overflow-hidden shadow-sm hover:shadow-2xl dark:hover:shadow-[0_12px_35px_rgba(212,175,55,0.15)] transition-all duration-300 cursor-pointer ${
-                  isAvailable
-                    ? 'border-slate-200 dark:border-neutral-800 hover:border-[#D4AF37]/80 dark:hover:border-[#D4AF37]/60'
-                    : 'border-slate-300 dark:border-neutral-700 opacity-80'
+                className={`group flex flex-col apple-glass-card rounded-2xl overflow-hidden cursor-pointer ${
+                  !isAvailable ? 'opacity-80' : ''
                 }`}
               >
                 {/* Image Container with Badges */}
@@ -126,30 +124,30 @@ export const CarCatalog: React.FC = () => {
                   <div className="absolute inset-0 bg-gradient-to-t from-black/75 via-transparent to-transparent opacity-80" />
                   
                   {/* Category Chip & Status Badge */}
-                  <div className="absolute top-3 left-3 flex items-center gap-1.5">
-                    <span className="px-2.5 py-1 text-[11px] font-semibold tracking-wide text-neutral-100 bg-black/75 backdrop-blur-md rounded-md border border-neutral-700">
+                  <div className="absolute top-3.5 left-3.5 flex items-center gap-1.5">
+                    <span className="px-3 py-1 text-[11px] font-semibold text-white bg-black/65 backdrop-blur-md rounded-full border border-white/20 shadow-xs">
                       {displayBadge || car.category}
                     </span>
                     {!isAvailable && (
-                      <span className="px-2 py-0.5 text-[10px] font-bold text-amber-300 bg-amber-950/80 border border-amber-600/40 rounded-md backdrop-blur-sm">
+                      <span className="px-2.5 py-0.5 text-[10px] font-bold text-amber-300 bg-amber-500/25 border border-amber-400/40 rounded-full backdrop-blur-md">
                         {isEn ? 'Booked' : 'Tersewa'}
                       </span>
                     )}
                   </div>
 
                   {/* "Click to View Details" Hover Overlay */}
-                  <div className="absolute inset-0 flex items-center justify-center opacity-0 group-hover:opacity-100 transition-opacity bg-black/40 backdrop-blur-xs">
-                    <span className="inline-flex items-center gap-1.5 px-3 py-1.5 rounded-full bg-white/95 text-black text-xs font-bold shadow-lg">
+                  <div className="absolute inset-0 flex items-center justify-center opacity-0 group-hover:opacity-100 transition-opacity duration-200 bg-black/35 backdrop-blur-xs">
+                    <span className="apple-pressable inline-flex items-center gap-1.5 px-4 py-2 rounded-full bg-white/95 text-black text-xs font-bold shadow-lg">
                       <Eye className="w-3.5 h-3.5 text-[#B8860B]" />
                       <span>{isEn ? 'View Full Specs' : 'Lihat Detail Mobil'}</span>
                     </span>
                   </div>
 
                   {/* Price Tag Overlay */}
-                  <div className="absolute bottom-3 right-3 text-right bg-black/85 backdrop-blur-md px-3 py-1.5 rounded-xl border border-neutral-800">
-                    <p className="text-[10px] text-neutral-300">{t.catalog.startingFrom}</p>
+                  <div className="absolute bottom-3.5 right-3.5 text-right px-3.5 py-1.5 rounded-xl bg-black/70 backdrop-blur-md border border-white/20 shadow-sm">
+                    <p className="text-[10px] text-white/75 font-medium">{t.catalog.startingFrom}</p>
                     <p className="text-sm font-bold text-[#D4AF37] tabular-nums">
-                      {car.price_start_from} <span className="text-[10px] font-normal text-neutral-300">{t.catalog.perDay}</span>
+                      {car.price_start_from} <span className="text-[10px] font-normal text-white/75">{t.catalog.perDay}</span>
                     </p>
                   </div>
                 </div>
@@ -158,7 +156,7 @@ export const CarCatalog: React.FC = () => {
                 <div className="p-6 flex-1 flex flex-col justify-between">
                   <div>
                     <div className="flex items-start justify-between gap-2 mb-2">
-                      <h3 className="text-xl font-bold text-slate-900 dark:text-white group-hover:text-[#B8860B] dark:group-hover:text-[#D4AF37] transition-colors flex items-center gap-1.5">
+                      <h3 className="text-xl font-bold text-[#1D1D1F] dark:text-[#F5F5F7] tracking-[-0.015em] group-hover:text-[#B8860B] dark:group-hover:text-[#D4AF37] transition-colors flex items-center gap-1.5">
                         <span>{car.name}</span>
                         <ArrowUpRight className="w-4 h-4 opacity-0 group-hover:opacity-100 transition-opacity text-[#B8860B] dark:text-[#D4AF37]" />
                       </h3>
@@ -189,14 +187,14 @@ export const CarCatalog: React.FC = () => {
                   </div>
 
                   {/* Dual Action: Details + Direct WA */}
-                  <div className="pt-4 border-t border-slate-100 dark:border-neutral-800/80 flex items-center gap-2">
+                  <div className="pt-4 border-t border-black/5 dark:border-white/10 flex items-center gap-2">
                     <button
                       type="button"
                       onClick={(e) => {
                         e.stopPropagation();
                         setSelectedCarForDetail(car);
                       }}
-                      className="px-3.5 py-3 rounded-xl bg-slate-100 hover:bg-slate-200 dark:bg-neutral-800 dark:hover:bg-neutral-700 text-slate-700 dark:text-neutral-200 text-xs font-semibold flex items-center justify-center transition-colors cursor-pointer"
+                      className="apple-pressable p-3 rounded-full bg-black/5 hover:bg-black/10 dark:bg-white/10 dark:hover:bg-white/15 text-slate-700 dark:text-neutral-200 text-xs font-semibold flex items-center justify-center transition-colors cursor-pointer"
                       title={isEn ? 'View Details' : 'Lihat Detail'}
                     >
                       <Eye className="w-4 h-4" />
@@ -207,7 +205,7 @@ export const CarCatalog: React.FC = () => {
                       onClick={(e) => e.stopPropagation()}
                       target="_blank"
                       rel="noopener noreferrer"
-                      className="flex-1 flex items-center justify-center gap-2 py-3 px-4 bg-[#D4AF37] hover:bg-[#c49f2b] active:scale-95 text-black font-bold text-xs rounded-xl shadow-md transition-all duration-200 cursor-pointer"
+                      className="apple-pressable flex-1 flex items-center justify-center gap-2 py-3 px-4 bg-[#D4AF37] hover:bg-[#C59B27] text-black font-bold text-xs rounded-full shadow-xs transition-colors cursor-pointer"
                     >
                       <MessageCircle className="w-4 h-4 fill-black" />
                       <span>{t.catalog.rentViaWa}</span>
@@ -221,14 +219,14 @@ export const CarCatalog: React.FC = () => {
         </div>
 
         {/* Free Custom Consultation Note */}
-        <div className="mt-12 p-6 rounded-2xl bg-white dark:bg-[#1A1A1A] border border-slate-200 dark:border-neutral-800 flex flex-col sm:flex-row items-center justify-between gap-4 shadow-sm">
-          <div className="flex items-center gap-3">
-            <div className="w-10 h-10 rounded-full bg-[#D4AF37]/15 flex items-center justify-center shrink-0">
+        <div className="mt-14 p-6 sm:p-7 rounded-2xl apple-glass border border-black/5 dark:border-white/10 flex flex-col sm:flex-row items-center justify-between gap-5 shadow-xs">
+          <div className="flex items-center gap-3.5">
+            <div className="w-11 h-11 rounded-full bg-[#D4AF37]/15 flex items-center justify-center shrink-0">
               <Info className="w-5 h-5 text-[#B8860B] dark:text-[#D4AF37]" />
             </div>
             <div>
-              <p className="text-sm font-semibold text-slate-900 dark:text-white">{t.catalog.customInquiryTitle}</p>
-              <p className="text-xs text-slate-600 dark:text-neutral-400">{t.catalog.customInquiryDesc}</p>
+              <p className="text-sm font-bold text-[#1D1D1F] dark:text-[#F5F5F7] tracking-tight">{t.catalog.customInquiryTitle}</p>
+              <p className="text-xs text-slate-600 dark:text-neutral-400 mt-0.5">{t.catalog.customInquiryDesc}</p>
             </div>
           </div>
           <a

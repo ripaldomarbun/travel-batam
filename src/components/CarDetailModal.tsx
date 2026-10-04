@@ -93,20 +93,20 @@ export const CarDetailModal: React.FC<CarDetailModalProps> = ({ car, onClose }) 
 
   return (
     <div
-      className="fixed inset-0 z-50 overflow-y-auto bg-black/85 backdrop-blur-md flex items-center justify-center p-2 sm:p-5 animate-in fade-in duration-200"
+      className="fixed inset-0 z-50 overflow-y-auto bg-black/70 backdrop-blur-xl flex items-center justify-center p-2.5 sm:p-6 animate-in fade-in duration-200"
       onClick={onClose}
     >
       <div
-        className="relative w-full max-w-4xl bg-white dark:bg-[#1A1A1A] border border-slate-200 dark:border-neutral-800 rounded-2xl sm:rounded-3xl shadow-2xl overflow-hidden my-auto transition-colors duration-200"
+        className="relative w-full max-w-4xl apple-glass-card rounded-2xl sm:rounded-3xl shadow-2xl overflow-hidden my-auto max-h-[94vh] flex flex-col"
         onClick={(e) => e.stopPropagation()}
       >
         {/* Floating Close Button */}
         <button
           onClick={onClose}
-          className="absolute top-4 right-4 z-30 w-10 h-10 rounded-full bg-black/70 hover:bg-black/90 text-white flex items-center justify-center transition-transform active:scale-95 shadow-lg backdrop-blur-sm cursor-pointer"
+          className="apple-pressable absolute top-4 right-4 z-30 w-9 h-9 rounded-full bg-black/60 hover:bg-black/80 text-white flex items-center justify-center shadow-lg backdrop-blur-md cursor-pointer border border-white/20"
           aria-label="Tutup Detail Mobil"
         >
-          <X className="w-5 h-5" />
+          <X className="w-4 h-4" />
         </button>
 
         {/* Gallery Visual Area */}
@@ -249,33 +249,33 @@ export const CarDetailModal: React.FC<CarDetailModalProps> = ({ car, onClose }) 
             <div className="grid grid-cols-2 sm:grid-cols-4 gap-3 sm:gap-4">
               
               <div className="p-3.5 rounded-xl bg-slate-100/80 dark:bg-neutral-900 border border-slate-200 dark:border-neutral-800 flex flex-col justify-center">
-                <div className="flex items-center gap-2 text-slate-500 dark:text-neutral-400 mb-1">
+                <div className="flex items-center gap-2 text-slate-600 dark:text-neutral-300 mb-1">
                   <Users className="w-4 h-4 text-[#B8860B] dark:text-[#D4AF37]" />
-                  <span className="text-[11px] font-medium">{isEn ? 'Capacity' : 'Kapasitas'}</span>
+                  <span className="text-[11px] font-semibold">{isEn ? 'Capacity' : 'Kapasitas'}</span>
                 </div>
                 <p className="text-sm font-bold text-slate-900 dark:text-white">{displayCapacity}</p>
               </div>
 
               <div className="p-3.5 rounded-xl bg-slate-100/80 dark:bg-neutral-900 border border-slate-200 dark:border-neutral-800 flex flex-col justify-center">
-                <div className="flex items-center gap-2 text-slate-500 dark:text-neutral-400 mb-1">
+                <div className="flex items-center gap-2 text-slate-600 dark:text-neutral-300 mb-1">
                   <Gauge className="w-4 h-4 text-[#B8860B] dark:text-[#D4AF37]" />
-                  <span className="text-[11px] font-medium">{isEn ? 'Transmission' : 'Transmisi'}</span>
+                  <span className="text-[11px] font-semibold">{isEn ? 'Transmission' : 'Transmisi'}</span>
                 </div>
                 <p className="text-sm font-bold text-slate-900 dark:text-white">{displayTransmission}</p>
               </div>
 
               <div className="p-3.5 rounded-xl bg-slate-100/80 dark:bg-neutral-900 border border-slate-200 dark:border-neutral-800 flex flex-col justify-center">
-                <div className="flex items-center gap-2 text-slate-500 dark:text-neutral-400 mb-1">
+                <div className="flex items-center gap-2 text-slate-600 dark:text-neutral-300 mb-1">
                   <Briefcase className="w-4 h-4 text-[#B8860B] dark:text-[#D4AF37]" />
-                  <span className="text-[11px] font-medium">{isEn ? 'Luggage' : 'Bagasi'}</span>
+                  <span className="text-[11px] font-semibold">{isEn ? 'Luggage' : 'Bagasi'}</span>
                 </div>
                 <p className="text-sm font-bold text-slate-900 dark:text-white">{displayLuggage || '3-4 Koper'}</p>
               </div>
 
               <div className="p-3.5 rounded-xl bg-slate-100/80 dark:bg-neutral-900 border border-slate-200 dark:border-neutral-800 flex flex-col justify-center">
-                <div className="flex items-center gap-2 text-slate-500 dark:text-neutral-400 mb-1">
+                <div className="flex items-center gap-2 text-slate-600 dark:text-neutral-300 mb-1">
                   <Fuel className="w-4 h-4 text-[#B8860B] dark:text-[#D4AF37]" />
-                  <span className="text-[11px] font-medium">{isEn ? 'Fuel Type' : 'Bahan Bakar'}</span>
+                  <span className="text-[11px] font-semibold">{isEn ? 'Fuel Type' : 'Bahan Bakar'}</span>
                 </div>
                 <p className="text-sm font-bold text-slate-900 dark:text-white">{displayFuel || 'Bensin'}</p>
               </div>
@@ -294,13 +294,13 @@ export const CarDetailModal: React.FC<CarDetailModalProps> = ({ car, onClose }) 
                 {/* Option 1: Self Drive */}
                 <div className="p-4 rounded-xl bg-slate-50 dark:bg-neutral-900 border border-slate-200 dark:border-neutral-800 flex flex-col justify-between">
                   <div>
-                    <span className="text-xs font-semibold text-slate-500 dark:text-neutral-400">
+                    <span className="text-xs font-bold text-slate-700 dark:text-neutral-300">
                       {isEn ? 'Option A: Self-Drive (24 Hours)' : 'Opsi 1: Lepas Kunci (24 Jam)'}
                     </span>
                     <p className="text-base font-bold text-slate-900 dark:text-white mt-1">
                       {car.rates.self_drive_24h}
                     </p>
-                    <p className="text-xs text-slate-500 dark:text-neutral-400 mt-2">
+                    <p className="text-xs text-slate-600 dark:text-neutral-400 mt-2">
                       {isEn ? 'Full freedom to drive across Batam Island without a driver.' : 'Bebas keliling Batam tanpa supir. Syarat KTP/Paspor & SIM A.'}
                     </p>
                   </div>
@@ -308,7 +308,7 @@ export const CarDetailModal: React.FC<CarDetailModalProps> = ({ car, onClose }) 
                     href={waSelfDriveUrl}
                     target="_blank"
                     rel="noopener noreferrer"
-                    className="mt-4 inline-flex items-center justify-center gap-2 py-2 px-3 rounded-lg bg-slate-200 dark:bg-neutral-800 hover:bg-[#D4AF37] hover:text-black text-slate-800 dark:text-neutral-200 text-xs font-bold transition-all"
+                    className="apple-pressable mt-4 inline-flex items-center justify-center gap-2 py-2.5 px-4 rounded-full bg-slate-200 dark:bg-neutral-800 hover:bg-[#D4AF37] hover:text-black text-slate-900 dark:text-neutral-200 text-xs font-bold transition-all"
                   >
                     <MessageCircle className="w-3.5 h-3.5" />
                     <span>{isEn ? 'Book Self-Drive via WA' : 'Pesan Lepas Kunci'}</span>
@@ -318,13 +318,13 @@ export const CarDetailModal: React.FC<CarDetailModalProps> = ({ car, onClose }) 
                 {/* Option 2: With Chauffeur */}
                 <div className="p-4 rounded-xl bg-slate-50 dark:bg-neutral-900 border border-slate-200 dark:border-neutral-800 flex flex-col justify-between">
                   <div>
-                    <span className="text-xs font-semibold text-slate-500 dark:text-neutral-400">
+                    <span className="text-xs font-bold text-slate-700 dark:text-neutral-300">
                       {isEn ? 'Option B: With Chauffeur (12 Hours)' : 'Opsi 2: Lengkap Supir (12 Jam)'}
                     </span>
                     <p className="text-base font-bold text-slate-900 dark:text-white mt-1">
                       {car.rates.with_driver_12h}
                     </p>
-                    <p className="text-xs text-slate-500 dark:text-neutral-400 mt-2">
+                    <p className="text-xs text-slate-600 dark:text-neutral-400 mt-2">
                       {isEn ? 'Includes experienced, courteous driver who knows all top Batam sights.' : 'Termasuk supir ramah yang paham rute wisata & kuliner Batam.'}
                     </p>
                   </div>
@@ -332,7 +332,7 @@ export const CarDetailModal: React.FC<CarDetailModalProps> = ({ car, onClose }) 
                     href={waDriverUrl}
                     target="_blank"
                     rel="noopener noreferrer"
-                    className="mt-4 inline-flex items-center justify-center gap-2 py-2 px-3 rounded-lg bg-slate-200 dark:bg-neutral-800 hover:bg-[#D4AF37] hover:text-black text-slate-800 dark:text-neutral-200 text-xs font-bold transition-all"
+                    className="apple-pressable mt-4 inline-flex items-center justify-center gap-2 py-2.5 px-4 rounded-full bg-slate-200 dark:bg-neutral-800 hover:bg-[#D4AF37] hover:text-black text-slate-900 dark:text-neutral-200 text-xs font-bold transition-all"
                   >
                     <MessageCircle className="w-3.5 h-3.5" />
                     <span>{isEn ? 'Book with Chauffeur' : 'Pesan Dengan Supir'}</span>
@@ -383,18 +383,18 @@ export const CarDetailModal: React.FC<CarDetailModalProps> = ({ car, onClose }) 
         </div>
 
         {/* Modal Sticky Bottom Action Footer */}
-        <div className="p-4 sm:p-6 bg-slate-100 dark:bg-[#121212] border-t border-slate-200 dark:border-neutral-800 flex flex-col sm:flex-row items-center justify-between gap-3">
+        <div className="p-3.5 sm:p-5 apple-glass border-t border-black/5 dark:border-white/10 flex flex-col sm:flex-row items-center justify-between gap-3 shrink-0">
           <div className="hidden sm:block">
-            <p className="text-xs font-semibold text-slate-900 dark:text-white">{car.name}</p>
+            <p className="text-xs font-semibold text-[#1D1D1F] dark:text-[#F5F5F7]">{car.name}</p>
             <p className="text-[11px] text-slate-500 dark:text-neutral-400">
               {isEn ? 'Ready for immediate booking in Batam' : 'Tersedia untuk reservasi hari ini di Batam'}
             </p>
           </div>
 
-          <div className="flex items-center gap-2 w-full sm:w-auto">
+          <div className="flex items-center gap-2.5 w-full sm:w-auto">
             <button
               onClick={onClose}
-              className="w-1/3 sm:w-auto px-4 py-3 rounded-xl border border-slate-300 dark:border-neutral-700 text-slate-700 dark:text-neutral-300 hover:bg-slate-200 dark:hover:bg-neutral-800 text-xs font-semibold transition-colors cursor-pointer"
+              className="apple-pressable w-1/3 sm:w-auto px-5 py-3 rounded-full border border-black/10 dark:border-white/15 text-[#1D1D1F] dark:text-[#F5F5F7] hover:bg-black/5 dark:hover:bg-white/10 text-xs font-semibold transition-colors cursor-pointer"
             >
               {isEn ? 'Close' : 'Tutup'}
             </button>
@@ -402,7 +402,7 @@ export const CarDetailModal: React.FC<CarDetailModalProps> = ({ car, onClose }) 
               href={waSelfDriveUrl}
               target="_blank"
               rel="noopener noreferrer"
-              className="flex-1 sm:flex-none inline-flex items-center justify-center gap-2 px-6 py-3 rounded-xl bg-[#25D366] hover:bg-[#20ba59] active:scale-95 text-white text-xs font-bold shadow-lg transition-transform"
+              className="apple-pressable flex-1 sm:flex-none inline-flex items-center justify-center gap-2 px-7 py-3 rounded-full bg-[#25D366] hover:bg-[#20BA59] text-white text-xs font-bold shadow-md transition-colors"
             >
               <MessageCircle className="w-4 h-4 fill-white" />
               <span>{isEn ? 'Chat WhatsApp to Book' : 'Chat WhatsApp Sekarang'}</span>

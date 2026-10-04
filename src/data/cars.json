@@ -45,7 +45,7 @@
     "badge": "Pilihan VIP & Bisnis",
     "badge_en": "VIP & Business Executive",
     "popular": true,
-    "wa_message": "Halo L.A Transport Batam, saya ingin booking Toyota Alphard VIP. Mohon info ketersediaan tanggal dan paket tarifnya."
+    "wa_message": "Halo L.A Travel Batam, saya ingin booking Toyota Alphard VIP. Mohon info ketersediaan tanggal dan paket tarifnya."
   },
   {
     "id": "toyota-innova-zenix",
@@ -92,7 +92,7 @@
     "badge": "Paling Diminati",
     "badge_en": "Most Popular",
     "popular": true,
-    "wa_message": "Halo L.A Transport Batam, saya tertarik sewa Toyota Innova Zenix Hybrid. Apakah unit tersedia untuk jadwal saya?"
+    "wa_message": "Halo L.A Travel Batam, saya tertarik sewa Toyota Innova Zenix Hybrid. Apakah unit tersedia untuk jadwal saya?"
   },
   {
     "id": "toyota-veloz-facelift",
@@ -139,7 +139,7 @@
     "badge": "Hemat & Nyaman",
     "badge_en": "Best Value",
     "popular": true,
-    "wa_message": "Halo L.A Transport Batam, saya mau sewa Toyota All New Veloz. Bagaimana syarat lepas kunci dan ketersediaan unitnya?"
+    "wa_message": "Halo L.A Travel Batam, saya mau sewa Toyota All New Veloz. Bagaimana syarat lepas kunci dan ketersediaan unitnya?"
   },
   {
     "id": "toyota-innova-reborn",
@@ -186,7 +186,7 @@
     "badge": "Favorit Wisata",
     "badge_en": "Tourist Favorite",
     "popular": false,
-    "wa_message": "Halo L.A Transport Batam, saya berminat sewa unit Toyota Innova Reborn Diesel. Mohon info syarat dan ketersediaannya."
+    "wa_message": "Halo L.A Travel Batam, saya berminat sewa unit Toyota Innova Reborn Diesel. Mohon info syarat dan ketersediaannya."
   },
   {
     "id": "toyota-hiace-commuter",
@@ -233,7 +233,7 @@
     "badge": "Rombongan & Tour",
     "badge_en": "Group & Delegation",
     "popular": false,
-    "wa_message": "Halo L.A Transport Batam, saya butuh informasi sewa Toyota HiAce untuk rombongan di Batam. Mohon detail paketnya."
+    "wa_message": "Halo L.A Travel Batam, saya butuh informasi sewa Toyota HiAce untuk rombongan di Batam. Mohon detail paketnya."
   },
   {
     "id": "mitsubishi-xpander-cross",
@@ -280,6 +280,6 @@
     "badge": "Sporty Family",
     "badge_en": "Sporty Comfort",
     "popular": false,
-    "wa_message": "Halo L.A Transport Batam, saya tertarik sewa Mitsubishi Xpander Cross. Mohon kirimkan pricelist dan syarat sewanya."
+    "wa_message": "Halo L.A Travel Batam, saya tertarik sewa Mitsubishi Xpander Cross. Mohon kirimkan pricelist dan syarat sewanya."
   }
 ]
