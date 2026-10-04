@@ -49,19 +49,21 @@ export const Header: React.FC = () => {
       <div className="w-full apple-glass-nav">
         <div className="max-w-7xl mx-auto px-3.5 sm:px-6 lg:px-8 h-16 sm:h-20 flex items-center justify-between">
         
-        {/* Zone 1: Brand Wordmark (Display Font + Gold Accent) */}
-        <a href="#" className="flex items-center gap-2 sm:gap-2.5 group apple-pressable shrink-0">
-          <div className="w-9 h-9 sm:w-10 sm:h-10 rounded-xl bg-gradient-to-br from-[#D4AF37] to-[#996515] p-0.5 shadow-[0_2px_12px_rgba(212,175,55,0.25)]">
-            <div className="w-full h-full bg-[#121212] rounded-[9px] sm:rounded-[10px] flex items-center justify-center">
-              <span className="font-bold text-sm sm:text-base text-[#D4AF37] tracking-wider">LA</span>
-            </div>
+        {/* Zone 1: Brand Wordmark (Official Logo + Gold Accent) */}
+        <a href="#" className="flex items-center gap-2.5 sm:gap-3 group apple-pressable shrink-0">
+          <div className="w-10 h-10 sm:w-11 sm:h-11 rounded-full overflow-hidden border-2 border-[#D4AF37] p-0.5 bg-black shadow-[0_2px_12px_rgba(212,175,55,0.3)] shrink-0 transition-transform group-hover:scale-105">
+            <img
+              src="/images/la_travel_logo.jpg"
+              alt="Logo L.A Travel Batam"
+              className="w-full h-full object-cover rounded-full"
+            />
           </div>
           <div className="flex flex-col">
-            <span className="font-bold text-xs sm:text-base tracking-tight text-[#1D1D1F] dark:text-[#F5F5F7] group-hover:text-[#B8860B] dark:group-hover:text-[#D4AF37] transition-colors leading-tight">
-              L.A TRAVEL
+            <span className="font-brand font-extrabold text-sm sm:text-base tracking-tight text-[#1D1D1F] dark:text-[#F5F5F7] group-hover:text-[#B8860B] dark:group-hover:text-[#D4AF37] transition-colors leading-tight">
+              L.A TRAVEL BATAM
             </span>
-            <span className="text-[9px] sm:text-[10px] tracking-wider sm:tracking-widest text-[#B8860B] dark:text-[#D4AF37] uppercase font-semibold">
-              Batam Car Rental
+            <span className="text-[8.5px] sm:text-[9.5px] tracking-wider sm:tracking-widest text-[#B8860B] dark:text-[#D4AF37] uppercase font-bold">
+              Ride • Travel • Enjoy Batam
             </span>
           </div>
         </a>

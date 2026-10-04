@@ -21,13 +21,24 @@ export const Footer: React.FC = () => {
           
           {/* Brand Col */}
           <div className="space-y-4">
-            <div className="flex items-center gap-2.5">
-              <div className="w-8 h-8 rounded-xl bg-[#D4AF37] flex items-center justify-center font-bold text-black text-sm shadow-md">
-                LA
+            <div className="flex items-center gap-3">
+              <div className="w-11 h-11 rounded-full overflow-hidden border-2 border-[#D4AF37] p-0.5 bg-black shadow-[0_2px_12px_rgba(212,175,55,0.3)] shrink-0">
+                <img
+                  src="/images/la_travel_logo.jpg"
+                  alt="Logo L.A Travel Batam"
+                  loading="lazy"
+                  decoding="async"
+                  className="w-full h-full object-cover rounded-full"
+                />
               </div>
-              <span className="font-bold text-sm tracking-tight text-white">
-                L.A TRAVEL BATAM
-              </span>
+              <div className="flex flex-col">
+                <span className="font-brand font-extrabold text-sm tracking-tight text-white leading-tight">
+                  L.A TRAVEL BATAM
+                </span>
+                <span className="text-[9px] tracking-wider text-[#D4AF37] uppercase font-bold">
+                  Ride • Travel • Enjoy Batam
+                </span>
+              </div>
             </div>
             <p className="leading-relaxed text-neutral-400 text-xs">
               {t.footer.about}
