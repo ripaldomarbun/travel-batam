@@ -52,10 +52,10 @@ try {
     $checkCount = $pdo->query("SELECT COUNT(*) FROM `cars`")->fetchColumn();
     $seededCount = 0;
 
-    if ($checkCount == 0) {
-        $jsonPath = __DIR__ . '/../../src/data/cars.json';
+    if ($checkCount == 0 || isset($_GET['seed']) || isset($_GET['force'])) {
+        $jsonPath = __DIR__ . '/cars.json';
         if (!file_exists($jsonPath)) {
-            $jsonPath = __DIR__ . '/cars.json';
+            $jsonPath = __DIR__ . '/../../src/data/cars.json';
         }
         
         $initialCars = [];
