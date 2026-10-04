@@ -8,9 +8,9 @@
 
 // Konfigurasi Database MySQL Rumahweb
 define('DB_HOST', 'localhost');
-define('DB_NAME', 'latr_travelbatam'); // Ganti dengan nama database cPanel Anda (contoh: cpaneluser_travelbatam)
-define('DB_USER', 'latr_dbuser');      // Ganti dengan username database cPanel Anda
-define('DB_PASS', 'GantiPasswordDbAnda123!'); // Ganti dengan password user database Anda
+define('DB_NAME', 'latb8519_latravel'); // Database cPanel Anda
+define('DB_USER', 'latb8519_latravel'); // User cPanel Anda
+define('DB_PASS', 'MASUKKAN_PASSWORD_DATABASE_DI_SINI'); // Password yang baru Anda buat di Database Wizard
 define('DB_CHARSET', 'utf8mb4');
 
 // PIN Admin default untuk otorisasi perubahan data via API
