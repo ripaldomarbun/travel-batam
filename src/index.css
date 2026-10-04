@@ -36,7 +36,8 @@
   }
 
   body {
-    transition: background-color 0.3s cubic-bezier(0.16, 1, 0.3, 1), color 0.3s cubic-bezier(0.16, 1, 0.3, 1);
+    background-color: var(--bg-main, #000000);
+    color: var(--text-primary, #F5F5F7);
   }
 
   /* Optical Tracking (§15: Negative for large text, positive for small caption) */
