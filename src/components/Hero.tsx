@@ -7,7 +7,7 @@ export const Hero: React.FC = () => {
   const { language, t } = useLanguage();
 
   return (
-    <section className="relative min-h-[85vh] flex items-center justify-center overflow-hidden border-b border-neutral-200 dark:border-[#262626] transition-colors duration-200">
+    <section className="relative min-h-[75svh] sm:min-h-[85vh] flex items-center justify-center overflow-hidden border-b border-neutral-200 dark:border-[#262626] transition-colors duration-200">
       {/* Background Photography with Scrim */}
       <div className="absolute inset-0 z-0">
         <img
@@ -17,7 +17,7 @@ export const Hero: React.FC = () => {
           className="w-full h-full object-cover object-center filter brightness-50 dark:brightness-40 contrast-110"
         />
         {/* Gradients for high contrast readable text */}
-        <div className="absolute inset-0 bg-gradient-to-t from-black/85 via-black/60 to-black/40" />
+        <div className="absolute inset-0 bg-gradient-to-t from-black/90 via-black/65 to-black/45" />
         <div className="absolute inset-0 bg-[radial-gradient(ellipse_at_top,_var(--tw-gradient-stops))] from-[#D4AF37]/15 via-transparent to-transparent pointer-events-none" />
       </div>
 
@@ -34,7 +34,7 @@ export const Hero: React.FC = () => {
         {/* Marquee Headline with Optical Tracking */}
         <h1 className="text-3xl sm:text-5xl lg:text-6xl font-extrabold tracking-[-0.028em] text-white mb-6 max-w-4xl text-balance leading-[1.08]">
           {t.hero.titlePart1}
-          <span className="text-[#D4AF37]">{t.hero.titleHighlight}</span>
+          <span className="text-[#D4AF37] block sm:inline"> {t.hero.titleHighlight}</span>
         </h1>
 
         {/* Value Proposition */}

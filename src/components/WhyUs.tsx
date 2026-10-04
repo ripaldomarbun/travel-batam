@@ -30,7 +30,7 @@ export const WhyUs: React.FC = () => {
           </p>
         </div>
 
-        <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6">
+        <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-4 sm:gap-6">
           {t.whyUs.points.map((p, idx) => {
             const Icon = icons[idx] || Award;
             return (
@@ -74,7 +74,7 @@ export const WhyUs: React.FC = () => {
               </div>
             </div>
 
-            <div className="text-center lg:text-right">
+            <div className="text-center lg:text-right pt-2 lg:pt-0">
               <a
                 href={buildWhatsAppUrl(waInquiryMsg)}
                 target="_blank"

@@ -12,7 +12,7 @@ export const FloatingWhatsApp: React.FC = () => {
   const waUrl = buildWhatsAppUrl(t.floatingWa.defaultMsg, settings.whatsappNumber);
 
   return (
-    <aside aria-label="Bantuan WhatsApp" className="fixed bottom-6 right-5 z-50 flex flex-col items-end pointer-events-auto">
+    <aside aria-label="Bantuan WhatsApp" className="fixed bottom-20 sm:bottom-6 right-3 sm:right-6 z-30 flex flex-col items-end pointer-events-auto">
       {/* Tooltip / Mini Chat Popover */}
       {isOpen && (
         <div className="mb-3 w-72 max-w-[calc(100vw-36px)] rounded-2xl apple-glass p-4 shadow-2xl border border-black/5 dark:border-white/10 transition-all animate-in fade-in slide-in-from-bottom-2 duration-200">

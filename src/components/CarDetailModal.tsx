@@ -110,9 +110,9 @@ export const CarDetailModal: React.FC<CarDetailModalProps> = ({ car, onClose }) 
         </button>
 
         {/* Gallery Visual Area */}
-        <div className="relative bg-black select-none">
+        <div className="relative bg-black select-none shrink-0">
           {/* Main Active Image Display */}
-          <div className="relative aspect-[16/9] sm:aspect-[21/9] bg-neutral-950 overflow-hidden">
+          <div className="relative aspect-[16/10] sm:aspect-[21/9] bg-neutral-950 overflow-hidden">
             <LazyImage
               key={galleryImages[activeImageIndex]}
               src={galleryImages[activeImageIndex]}
@@ -230,11 +230,11 @@ export const CarDetailModal: React.FC<CarDetailModalProps> = ({ car, onClose }) 
         </div>
 
         {/* Modal Scrollable Content */}
-        <div className="p-5 sm:p-8 max-h-[58vh] overflow-y-auto space-y-8">
+        <div className="p-4 sm:p-8 overflow-y-auto flex-1 space-y-5 sm:space-y-8">
           
           {/* Executive Pitch Description */}
           {displayDescription && (
-            <div className="p-4 sm:p-5 rounded-2xl bg-slate-50 dark:bg-neutral-900/60 border border-slate-200 dark:border-neutral-800">
+            <div className="p-3.5 sm:p-5 rounded-2xl bg-slate-50 dark:bg-neutral-900/60 border border-slate-200 dark:border-neutral-800">
               <p className="text-xs sm:text-sm text-slate-700 dark:text-neutral-300 leading-relaxed font-normal">
                 {displayDescription}
               </p>
@@ -405,7 +405,7 @@ export const CarDetailModal: React.FC<CarDetailModalProps> = ({ car, onClose }) 
               className="apple-pressable flex-1 sm:flex-none inline-flex items-center justify-center gap-2 px-7 py-3 rounded-full bg-[#25D366] hover:bg-[#20BA59] text-white text-xs font-bold shadow-md transition-colors"
             >
               <MessageCircle className="w-4 h-4 fill-white" />
-              <span>{isEn ? 'Chat WhatsApp to Book' : 'Chat WhatsApp Sekarang'}</span>
+              <span>{isEn ? 'Book via WhatsApp' : 'Chat WhatsApp Sekarang'}</span>
             </a>
           </div>
         </div>

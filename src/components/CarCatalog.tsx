@@ -153,7 +153,7 @@ export const CarCatalog: React.FC = () => {
                 </div>
 
                 {/* Content Area */}
-                <div className="p-6 flex-1 flex flex-col justify-between">
+                <div className="p-4 sm:p-6 flex-1 flex flex-col justify-between">
                   <div>
                     <div className="flex items-start justify-between gap-2 mb-2">
                       <h3 className="text-xl font-bold text-[#1D1D1F] dark:text-[#F5F5F7] tracking-[-0.015em] group-hover:text-[#B8860B] dark:group-hover:text-[#D4AF37] transition-colors flex items-center gap-1.5">
@@ -163,7 +163,7 @@ export const CarCatalog: React.FC = () => {
                     </div>
 
                     {/* Unboxed Metadata (Zero-Pill discipline) */}
-                    <div className="flex items-center gap-2 text-xs text-slate-500 dark:text-neutral-400 mb-4 font-medium">
+                    <div className="flex items-center gap-2 text-xs text-slate-500 dark:text-neutral-400 mb-3 sm:mb-4 font-medium">
                       <span className="flex items-center gap-1">
                         <Users className="w-3.5 h-3.5 text-[#B8860B] dark:text-[#D4AF37]" />
                         {displayCapacity}
@@ -176,11 +176,11 @@ export const CarCatalog: React.FC = () => {
                     </div>
 
                     {/* Feature Bullets (First 3 for clean card density) */}
-                    <ul className="space-y-2 mb-6">
+                    <ul className="space-y-1.5 sm:space-y-2 mb-4 sm:mb-6">
                       {displayFeatures.slice(0, 3).map((feature, idx) => (
                         <li key={idx} className="flex items-start gap-2 text-xs text-slate-600 dark:text-neutral-300">
                           <Check className="w-3.5 h-3.5 text-[#B8860B] dark:text-[#D4AF37] shrink-0 mt-0.5" />
-                          <span>{feature}</span>
+                          <span className="line-clamp-1">{feature}</span>
                         </li>
                       ))}
                     </ul>
@@ -207,7 +207,7 @@ export const CarCatalog: React.FC = () => {
                       rel="noopener noreferrer"
                       className="apple-pressable flex-1 flex items-center justify-center gap-2 py-3 px-4 bg-[#D4AF37] hover:bg-[#C59B27] text-black font-bold text-xs rounded-full shadow-xs transition-colors cursor-pointer"
                     >
-                      <MessageCircle className="w-4 h-4 fill-black" />
+                      <MessageCircle className="w-4 h-4 fill-black shrink-0" />
                       <span>{t.catalog.rentViaWa}</span>
                     </a>
                   </div>

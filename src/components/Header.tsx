@@ -1,5 +1,5 @@
-import React, { useEffect } from 'react';
-import { MessageCircle, Sun, Moon } from 'lucide-react';
+import React, { useEffect, useState } from 'react';
+import { MessageCircle, Sun, Moon, Menu, X, Car, ShieldCheck, FileText, Phone, MapPin } from 'lucide-react';
 import { useLanguage } from '../context/LanguageContext';
 import { useTheme } from '../context/ThemeContext';
 import { useFleet } from '../context/FleetContext';
@@ -10,6 +10,18 @@ export const Header: React.FC = () => {
   const { language, setLanguage, t } = useLanguage();
   const { theme, toggleTheme } = useTheme();
   const { settings, selectedCarForDetail } = useFleet();
+  const [isMobileMenuOpen, setIsMobileMenuOpen] = useState(false);
+
+  // Close mobile drawer when route/hash changes or on resize
+  useEffect(() => {
+    const handleClose = () => setIsMobileMenuOpen(false);
+    window.addEventListener('resize', handleClose);
+    window.addEventListener('hashchange', handleClose);
+    return () => {
+      window.removeEventListener('resize', handleClose);
+      window.removeEventListener('hashchange', handleClose);
+    };
+  }, []);
 
   // Dynamic meta tag generation utility: Updates page title and Open Graph metadata
   // whenever a user navigates to a specific car detail view or returns to the home page.
@@ -42,7 +54,7 @@ export const Header: React.FC = () => {
           ? 'L.A Travel Batam – Premium Car Rental & Chauffeur Services'
           : 'L.A Travel Batam | Rental Mobil Premium & Terpercaya',
         description: isEn
-          ? 'Premier car rental service in Batam. Rent Toyota Alphard VIP, Innova Zenix Hybrid, Veloz. Self-drive and professional chauffeur packages with free airport delivery.'
+          ? 'Premier car rental and travel service in Batam. Rent Toyota Alphard VIP, Innova Zenix Hybrid, Veloz. Self-drive and professional chauffeur packages with free airport delivery.'
           : 'Layanan sewa dan rental mobil terbaik di Batam. Pilihan unit prima (Innova, Alphard, Veloz), lepas kunci atau dengan supir ramah. Reservasi cepat via WhatsApp!',
         imageUrl: '/images/hero_la_transport_1790686468335.jpg',
         url: typeof window !== 'undefined' ? `${window.location.origin}${window.location.pathname}` : undefined,
@@ -127,6 +139,7 @@ export const Header: React.FC = () => {
                 <span className="hidden lg:inline text-[11px] ml-1">Gelap</span>
               </>
             )}
+            <span className="hidden xl:inline text-[11px]">{theme === 'dark' ? 'Terang' : 'Gelap'}</span>
           </button>
 
           {/* Bilingual Switcher */}
@@ -139,7 +152,6 @@ export const Header: React.FC = () => {
                   : 'text-slate-700 dark:text-neutral-300 hover:text-black dark:hover:text-white'
               }`}
               title="Bahasa Indonesia"
-              aria-label="Ubah ke Bahasa Indonesia"
             >
               ID
             </button>
@@ -150,8 +162,7 @@ export const Header: React.FC = () => {
                   ? 'bg-[#D4AF37] text-black shadow-xs font-bold'
                   : 'text-slate-700 dark:text-neutral-300 hover:text-black dark:hover:text-white'
               }`}
-              title="English Language"
-              aria-label="Switch to English"
+              title="English"
             >
               EN
             </button>
@@ -168,10 +179,102 @@ export const Header: React.FC = () => {
             <span className="hidden sm:inline">{t.nav.chatAdmin}</span>
             <span className="sm:hidden font-bold">WA</span>
           </a>
+
+          {/* Mobile Hamburger Drawer Button */}
+          <button
+            onClick={() => setIsMobileMenuOpen(!isMobileMenuOpen)}
+            className="md:hidden p-2 rounded-lg bg-slate-100 dark:bg-[#1C1C1C] border border-slate-200 dark:border-neutral-800 text-slate-800 dark:text-neutral-200 hover:text-[#B8860B] dark:hover:text-[#D4AF37] active:scale-95 transition-all cursor-pointer"
+            aria-label="Buka Menu Navigasi Mobile"
+          >
+            {isMobileMenuOpen ? <X className="w-5 h-5" /> : <Menu className="w-5 h-5" />}
+          </button>
         </div>
 
         </div>
       </div>
+
+      {/* Slide-Down Mobile Drawer Menu */}
+      {isMobileMenuOpen && (
+        <div className="md:hidden border-t border-slate-200 dark:border-neutral-800 bg-white/98 dark:bg-[#141414]/98 backdrop-blur-xl px-4 py-5 animate-in slide-in-from-top-2 duration-200 shadow-2xl">
+          <div className="space-y-4">
+            
+            {/* Logo Emblem Header in Mobile Drawer */}
+            <div className="flex items-center gap-3 pb-3 border-b border-slate-200 dark:border-neutral-800">
+              <div className="w-12 h-12 rounded-full overflow-hidden border-2 border-[#D4AF37] p-0.5 bg-black shadow-md shrink-0">
+                <img
+                  src="/images/la_travel_logo.jpg"
+                  alt="L.A Travel Batam Logo"
+                  className="w-full h-full object-cover rounded-full"
+                />
+              </div>
+              <div>
+                <p className="font-brand font-extrabold text-base text-slate-900 dark:text-white leading-tight">
+                  L.A TRAVEL BATAM
+                </p>
+                <p className="text-[10px] font-bold text-[#B8860B] dark:text-[#D4AF37] uppercase tracking-wider">
+                  Ride • Travel • Enjoy Batam
+                </p>
+              </div>
+            </div>
+
+            <nav className="flex flex-col space-y-1.5">
+              <a
+                href="#armada"
+                onClick={() => setIsMobileMenuOpen(false)}
+                className="flex items-center gap-3 p-3 rounded-xl bg-slate-50 dark:bg-[#1A1A1A] hover:bg-slate-100 dark:hover:bg-[#252525] text-sm font-semibold text-slate-900 dark:text-white transition-colors"
+              >
+                <div className="w-8 h-8 rounded-lg bg-[#D4AF37]/15 flex items-center justify-center text-[#B8860B] dark:text-[#D4AF37]">
+                  <Car className="w-4 h-4" />
+                </div>
+                <span>{t.nav.cars} (Alphard, Zenix, Veloz, HiAce)</span>
+              </a>
+
+              <a
+                href="#keunggulan"
+                onClick={() => setIsMobileMenuOpen(false)}
+                className="flex items-center gap-3 p-3 rounded-xl bg-slate-50 dark:bg-[#1A1A1A] hover:bg-slate-100 dark:hover:bg-[#252525] text-sm font-semibold text-slate-900 dark:text-white transition-colors"
+              >
+                <div className="w-8 h-8 rounded-lg bg-[#D4AF37]/15 flex items-center justify-center text-[#B8860B] dark:text-[#D4AF37]">
+                  <ShieldCheck className="w-4 h-4" />
+                </div>
+                <span>{t.nav.whyUs} & Antar-Jemput Gratis</span>
+              </a>
+
+              <a
+                href="#keunggulan"
+                onClick={() => setIsMobileMenuOpen(false)}
+                className="flex items-center gap-3 p-3 rounded-xl bg-slate-50 dark:bg-[#1A1A1A] hover:bg-slate-100 dark:hover:bg-[#252525] text-sm font-semibold text-slate-900 dark:text-white transition-colors"
+              >
+                <div className="w-8 h-8 rounded-lg bg-[#D4AF37]/15 flex items-center justify-center text-[#B8860B] dark:text-[#D4AF37]">
+                  <FileText className="w-4 h-4" />
+                </div>
+                <span>{t.nav.terms} (Syarat Lepas Kunci 15 Menit)</span>
+              </a>
+            </nav>
+
+            {/* Quick Contact Box inside Drawer */}
+            <div className="pt-3 border-t border-slate-200 dark:border-neutral-800">
+              <div className="p-3.5 rounded-xl bg-gradient-to-r from-amber-500/10 via-[#D4AF37]/10 to-transparent border border-[#D4AF37]/30 flex items-center justify-between">
+                <div>
+                  <p className="text-xs font-bold text-slate-900 dark:text-white">Customer Support 24 Jam</p>
+                  <p className="text-[11px] text-slate-500 dark:text-neutral-400">+{settings.whatsappNumber}</p>
+                </div>
+                <a
+                  href={getGeneralInquiryUrl('Konsultasi Cepat dari Mobile Menu', language)}
+                  target="_blank"
+                  rel="noopener noreferrer"
+                  className="px-3 py-2 rounded-lg bg-[#25D366] text-white text-xs font-bold flex items-center gap-1.5 shadow-sm active:scale-95 transition-transform"
+                >
+                  <MessageCircle className="w-3.5 h-3.5 fill-white" />
+                  <span>Chat WA</span>
+                </a>
+              </div>
+            </div>
+
+          </div>
+        </div>
+      )}
     </header>
   );
 };
+
