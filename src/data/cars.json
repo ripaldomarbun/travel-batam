@@ -1,5 +1,561 @@
 [
   {
+    "id": "toyota-agya",
+    "name": "Toyota Agya",
+    "category": "City Car",
+    "capacity": "4-5 Penumpang",
+    "capacity_en": "4-5 Passengers",
+    "transmission": "Automatic / Manual",
+    "transmission_en": "Automatic / Manual",
+    "engine": "1.2L Dual VVT-i",
+    "fuel": "Bensin (Hemat)",
+    "fuel_en": "Petrol (Eco)",
+    "luggage": "1-2 Koper Kecil",
+    "luggage_en": "1-2 Small Suitcases",
+    "price_start_from": "Rp 300.000",
+    "price_unit": "per hari",
+    "rates": {
+      "self_drive_24h": "Rp 300.000 / 24 Jam (Lepas Kunci)",
+      "with_driver_12h": "Rp 800.000 / 12 Jam (Dengan Supir & BBM)",
+      "airport_transfer": "Free Antar-Jemput Pelabuhan & Bandara (Sewa min 2 hari)"
+    },
+    "description_id": "Mobil hatchback lincah dan super hemat bahan bakar, sangat cocok untuk mobilitas perkotaan Batam, belanja di Nagoya Hill, atau urusan bisnis cepat.",
+    "description_en": "Nimble and ultra-fuel-efficient city hatchback, perfect for city travel in Batam, shopping at Nagoya Hill, or quick business trips.",
+    "image_url": "/images/car_toyota_veloz_1790686518687.jpg",
+    "gallery": [
+      "/images/car_toyota_veloz_1790686518687.jpg",
+      "/images/car_luggage_trunk_1790687694166.jpg"
+    ],
+    "features": [
+      "Konsumsi Bahan Bakar Super Irit",
+      "Lincah Bermanuver & Mudah Parkir di Nagoya/Batam Center",
+      "AC Dingin & Audio Bluetooth",
+      "Unit Bersih, Terawat & Bebas Bau Rokok",
+      "Verifikasi Lepas Kunci Mudah (KTP/SIM/Paspor)"
+    ],
+    "features_en": [
+      "Ultra Fuel Efficient",
+      "Nimble Handling & Easy Parking in Crowded Areas",
+      "Cold AC & Bluetooth Audio",
+      "Sanitized, Fresh & Non-Smoking Cabin",
+      "Fast Self-Drive Verification"
+    ],
+    "badge": "Hemat & Lincah",
+    "badge_en": "Best Eco Value",
+    "popular": false,
+    "wa_message": "Halo L.A Travel Batam, saya ingin booking rental Toyota Agya (Rp 300k/hari). Mohon info ketersediaan tanggalnya."
+  },
+  {
+    "id": "honda-brio",
+    "name": "Honda Brio",
+    "category": "City Car",
+    "capacity": "4-5 Penumpang",
+    "capacity_en": "4-5 Passengers",
+    "transmission": "Automatic (CVT)",
+    "transmission_en": "Automatic (CVT)",
+    "engine": "1.2L i-VTEC",
+    "fuel": "Bensin",
+    "fuel_en": "Petrol",
+    "luggage": "1-2 Koper Kecil",
+    "luggage_en": "1-2 Small Suitcases",
+    "price_start_from": "Rp 300.000",
+    "price_unit": "per hari",
+    "rates": {
+      "self_drive_24h": "Rp 300.000 / 24 Jam (Lepas Kunci)",
+      "with_driver_12h": "Rp 800.000 / 12 Jam (Dengan Supir & BBM)",
+      "airport_transfer": "Free Antar-Jemput Pelabuhan & Bandara (Sewa min 2 hari)"
+    },
+    "description_id": "Hatchback favorit berdesain sporty dan bertenaga. Sangat nyaman untuk keliling café-hopping dan belanja oleh-oleh di Nagoya dan Batam Center.",
+    "description_en": "Sporty and modern compact hatchback with responsive i-VTEC engine. Ideal for couples, solo travelers, and city exploration.",
+    "image_url": "/images/car_toyota_veloz_1790686518687.jpg",
+    "gallery": [
+      "/images/car_toyota_veloz_1790686518687.jpg",
+      "/images/car_luggage_trunk_1790687694166.jpg"
+    ],
+    "features": [
+      "Mesin Responsif & Sangat Irit BBM",
+      "Desain Modern & Sporty",
+      "Transmisi Matic CVT Halus",
+      "Kamera / Sensor Parkir",
+      "Layanan Antar Unit Tepat Waktu"
+    ],
+    "features_en": [
+      "Responsive & Fuel-Efficient Engine",
+      "Sporty Modern Design",
+      "Smooth CVT Transmission",
+      "Parking Sensors & Crisp AC",
+      "Punctual Delivery Service"
+    ],
+    "badge": "Favorit Anak Muda",
+    "badge_en": "Youth Favorite",
+    "popular": true,
+    "wa_message": "Halo L.A Travel Batam, saya tertarik sewa Honda Brio (Rp 300k/hari). Mohon info jadwal yang tersedia."
+  },
+  {
+    "id": "toyota-calya",
+    "name": "Toyota Calya",
+    "category": "Compact MPV",
+    "capacity": "7 Penumpang",
+    "capacity_en": "7 Passengers",
+    "transmission": "Manual / Automatic",
+    "transmission_en": "Manual / Automatic",
+    "engine": "1.2L Dual VVT-i",
+    "fuel": "Bensin",
+    "fuel_en": "Petrol",
+    "luggage": "2 Koper Sedang",
+    "luggage_en": "2 Medium Suitcases",
+    "price_start_from": "Rp 300.000",
+    "price_unit": "per hari",
+    "rates": {
+      "self_drive_24h": "Rp 300.000 / 24 Jam (Lepas Kunci)",
+      "with_driver_12h": "Rp 800.000 / 12 Jam (Dengan Supir & BBM)",
+      "airport_transfer": "Free Antar-Jemput Pelabuhan & Bandara (Sewa min 2 hari)"
+    },
+    "description_id": "MPV 7-seater paling ramah kantong untuk rombongan keluarga kecil. Muat banyak penumpang dengan biaya sewa sangat terjangkau.",
+    "description_en": "The most budget-friendly 7-seater MPV for family vacations in Batam. Highly practical with plenty of seating space.",
+    "image_url": "/images/car_toyota_veloz_1790686518687.jpg",
+    "gallery": [
+      "/images/car_toyota_veloz_1790686518687.jpg",
+      "/images/car_luggage_trunk_1790687694166.jpg"
+    ],
+    "features": [
+      "Kapasitas 7 Kursi dengan Harga Super Hemat",
+      "Air Circulator Belakang Dingin Merata",
+      "Sangat Irit Bahan Bakar",
+      "Kondisi Mesin Selalu Servis Rutin",
+      "Syarat Booking Cepat via WhatsApp"
+    ],
+    "features_en": [
+      "7-Passenger Capacity at Unbeatable Rate",
+      "Rear Air Circulator for Cool Comfort",
+      "Super Low Fuel Consumption",
+      "Regularly Maintained Mechanics",
+      "Fast WhatsApp Verification"
+    ],
+    "badge": "Paling Ekonomis",
+    "badge_en": "Budget Saver",
+    "popular": false,
+    "wa_message": "Halo L.A Travel Batam, saya ingin booking Toyota Calya 7-seater (Rp 300k/hari). Apakah unit ready?"
+  },
+  {
+    "id": "toyota-avanza",
+    "name": "Toyota Avanza",
+    "category": "Family MPV",
+    "capacity": "7 Penumpang",
+    "capacity_en": "7 Passengers",
+    "transmission": "Manual / Automatic",
+    "transmission_en": "Manual / Automatic",
+    "engine": "1.3L / 1.5L Dual VVT-i",
+    "fuel": "Bensin",
+    "fuel_en": "Petrol",
+    "luggage": "2-3 Koper",
+    "luggage_en": "2-3 Suitcases",
+    "price_start_from": "Rp 300.000",
+    "price_unit": "per hari",
+    "rates": {
+      "self_drive_24h": "Rp 300.000 / 24 Jam (Lepas Kunci)",
+      "with_driver_12h": "Rp 800.000 / 12 Jam (Dengan Supir & BBM)",
+      "airport_transfer": "Free Antar-Jemput Pelabuhan & Bandara (Sewa min 2 hari)"
+    },
+    "description_id": "Mobil sejuta umat yang terbukti tangguh dan andal untuk segala medan jalanan Batam. Pilihan tepat untuk perjalanan dinas maupun liburan.",
+    "description_en": "The iconic and reliable family MPV trusted for Batam journeys. Proven reliability with spacious interior for 7 people.",
+    "image_url": "/images/car_toyota_veloz_1790686518687.jpg",
+    "gallery": [
+      "/images/car_toyota_veloz_1790686518687.jpg",
+      "/images/car_luggage_trunk_1790687694166.jpg"
+    ],
+    "features": [
+      "Kapasitas 7 Kursi Luas & Lega",
+      "Double Blower AC Dingin Hingga Baris Belakang",
+      "Tangguh Menanjak & Melewati Berbagai Rute",
+      "Pilihan Lepas Kunci atau Supir",
+      "Harga Bersahabat"
+    ],
+    "features_en": [
+      "Comfortable 7-Passenger Seating",
+      "Double Blower Air Conditioning",
+      "Reliable Hill Climbing & Highway Cruising",
+      "Self-Drive or Chauffeur Available",
+      "Friendly Daily Rates"
+    ],
+    "badge": "Mobil Andal",
+    "badge_en": "Proven Reliable",
+    "popular": true,
+    "wa_message": "Halo L.A Travel Batam, saya ingin booking Toyota Avanza (Rp 300k/hari). Mohon info jadwal unitnya."
+  },
+  {
+    "id": "toyota-all-new-avanza",
+    "name": "Toyota All New Avanza",
+    "category": "Family MPV",
+    "capacity": "7 Penumpang",
+    "capacity_en": "7 Passengers",
+    "transmission": "Automatic (CVT)",
+    "transmission_en": "Automatic (CVT)",
+    "engine": "1.5L Dual VVT-i FWD",
+    "fuel": "Bensin",
+    "fuel_en": "Petrol",
+    "luggage": "3 Koper Sedang",
+    "luggage_en": "3 Medium Suitcases",
+    "price_start_from": "Rp 450.000",
+    "price_unit": "per hari",
+    "rates": {
+      "self_drive_24h": "Rp 450.000 / 24 Jam (Lepas Kunci)",
+      "with_driver_12h": "Rp 950.000 / 12 Jam (Dengan Supir & BBM)",
+      "airport_transfer": "Free Antar-Jemput Pelabuhan & Bandara"
+    },
+    "description_id": "Generasi terbaru All New Avanza dengan platform modern penggerak depan (FWD) yang super empuk, kedap suara, dan interior lapang bergaya modern.",
+    "description_en": "Latest generation All New Avanza featuring modern front-wheel drive platform, quiet cabin insulation, and contemporary interior.",
+    "image_url": "/images/car_toyota_veloz_1790686518687.jpg",
+    "gallery": [
+      "/images/car_toyota_veloz_1790686518687.jpg",
+      "/images/car_interior_zenix_1790687674985.jpg"
+    ],
+    "features": [
+      "Platform FWD Modern Super Nyaman & Empuk",
+      "Head Unit Layar Sentuh dengan Smartphone Link",
+      "Kabin Senyap & AC Digital Sejuk",
+      "Fitur Sofa Mode untuk Istirahat Santai",
+      "Suspensi Baru Stabil & Halus"
+    ],
+    "features_en": [
+      "Modern Front-Wheel Drive Comfort",
+      "Touchscreen with Smartphone Connectivity",
+      "Quiet Cabin & Digital Climate Control",
+      "Long Sofa Mode Cabin Flexibility",
+      "Smooth & Stable Suspension"
+    ],
+    "badge": "Unit Baru & Nyaman",
+    "badge_en": "Modern & Fresh",
+    "popular": true,
+    "wa_message": "Halo L.A Travel Batam, saya ingin booking Toyota All New Avanza (Rp 450k/hari). Mohon info ketersediaannya."
+  },
+  {
+    "id": "daihatsu-xenia",
+    "name": "Daihatsu Xenia",
+    "category": "Family MPV",
+    "capacity": "7 Penumpang",
+    "capacity_en": "7 Passengers",
+    "transmission": "Manual / Automatic",
+    "transmission_en": "Manual / Automatic",
+    "engine": "1.3L / 1.5L Dual VVT-i",
+    "fuel": "Bensin",
+    "fuel_en": "Petrol",
+    "luggage": "2-3 Koper",
+    "luggage_en": "2-3 Suitcases",
+    "price_start_from": "Rp 350.000",
+    "price_unit": "per hari",
+    "rates": {
+      "self_drive_24h": "Rp 350.000 / 24 Jam (Lepas Kunci)",
+      "with_driver_12h": "Rp 850.000 / 12 Jam (Dengan Supir & BBM)",
+      "airport_transfer": "Free Antar-Jemput Pelabuhan & Bandara (Sewa min 2 hari)"
+    },
+    "description_id": "Pilihan ideal mobil keluarga dengan efisiensi tinggi, kabin luas, dan perawatan prima. Sangat cocok untuk perjalanan keliling pulau Batam.",
+    "description_en": "A practical and comfortable family MPV offering high fuel efficiency, spacious 3-row seating, and smooth handling.",
+    "image_url": "/images/car_toyota_veloz_1790686518687.jpg",
+    "gallery": [
+      "/images/car_toyota_veloz_1790686518687.jpg",
+      "/images/car_luggage_trunk_1790687694166.jpg"
+    ],
+    "features": [
+      "Kapasitas 7 Penumpang Luas",
+      "Suspensi Halus & Nyaman",
+      "AC Double Blower Dingin Merata",
+      "Konsumsi Bahan Bakar Irit",
+      "Bisa Lepas Kunci atau Supir"
+    ],
+    "features_en": [
+      "Comfortable 7-Passenger Cabin",
+      "Smooth Suspension Ride",
+      "Double Blower Air Conditioning",
+      "Excellent Fuel Economy",
+      "Self-Drive or Chauffeur Options"
+    ],
+    "badge": "Keluarga Hemat",
+    "badge_en": "Family Value",
+    "popular": false,
+    "wa_message": "Halo L.A Travel Batam, saya ingin booking Daihatsu Xenia (Rp 350k/hari). Mohon info jadwalnya."
+  },
+  {
+    "id": "mitsubishi-xpander",
+    "name": "Mitsubishi Xpander",
+    "category": "Crossover MPV",
+    "capacity": "7 Penumpang",
+    "capacity_en": "7 Passengers",
+    "transmission": "Automatic",
+    "transmission_en": "Automatic",
+    "engine": "1.5L MIVEC DOHC",
+    "fuel": "Bensin",
+    "fuel_en": "Petrol",
+    "luggage": "3 Koper Sedang",
+    "luggage_en": "3 Medium Suitcases",
+    "price_start_from": "Rp 400.000",
+    "price_unit": "per hari",
+    "rates": {
+      "self_drive_24h": "Rp 400.000 / 24 Jam (Lepas Kunci)",
+      "with_driver_12h": "Rp 900.000 / 12 Jam (Dengan Supir & BBM)",
+      "airport_transfer": "Free Antar-Jemput Pelabuhan & Bandara"
+    },
+    "description_id": "MPV dengan suspensi paling empuk di kelasnya dan kabin sangat senyap. Desain Dynamic Shield modern yang gagah untuk menjelajahi Batam.",
+    "description_en": "Featuring class-leading soft suspension and quiet sound insulation. Modern Dynamic Shield design perfect for touring Batam.",
+    "image_url": "/images/car_toyota_veloz_1790686518687.jpg",
+    "gallery": [
+      "/images/car_toyota_veloz_1790686518687.jpg",
+      "/images/car_interior_zenix_1790687674985.jpg",
+      "/images/car_luggage_trunk_1790687694166.jpg"
+    ],
+    "features": [
+      "Suspensi Paling Nyaman & Empuk di Kelasnya",
+      "Kabin Ekstra Senyap Bebas Bising Luar",
+      "Desain Gagah & Ground Clearance Tinggi",
+      "Head Unit Layar Sentuh Bluetooth",
+      "Kursi Fleksibel Muat Banyak Koper"
+    ],
+    "features_en": [
+      "Top-tier Soft Suspension Ride Comfort",
+      "Quiet Noise-Insulated Cabin",
+      "Bold Crossover Design & High Ground Clearance",
+      "Touchscreen Audio with Bluetooth",
+      "Versatile Foldable Seats for Cargo"
+    ],
+    "badge": "Paling Empuk",
+    "badge_en": "Ultra Smooth Ride",
+    "popular": true,
+    "wa_message": "Halo L.A Travel Batam, saya tertarik rental Mitsubishi Xpander (Rp 400k/hari). Mohon info ketersediaannya."
+  },
+  {
+    "id": "daihatsu-rocky",
+    "name": "Daihatsu Rocky",
+    "category": "Compact SUV",
+    "capacity": "5 Penumpang",
+    "capacity_en": "5 Passengers",
+    "transmission": "Automatic (CVT)",
+    "transmission_en": "Automatic (CVT)",
+    "engine": "1.2L / 1.0L Turbo",
+    "fuel": "Bensin",
+    "fuel_en": "Petrol",
+    "luggage": "2 Koper Sedang",
+    "luggage_en": "2 Medium Suitcases",
+    "price_start_from": "Rp 300.000",
+    "price_unit": "per hari",
+    "rates": {
+      "self_drive_24h": "Rp 300.000 / 24 Jam (Lepas Kunci)",
+      "with_driver_12h": "Rp 800.000 / 12 Jam (Dengan Supir & BBM)",
+      "airport_transfer": "Free Antar-Jemput Pelabuhan & Bandara (Sewa min 2 hari)"
+    },
+    "description_id": "SUV kompak bergaya modern dengan ground clearance tinggi, sangat lincah dan berani di berbagai rute jalanan Batam hingga kawasan pantai Barelang.",
+    "description_en": "Modern compact SUV with high ground clearance, energetic drive, and adventurous styling for Batam island drives.",
+    "image_url": "/images/car_toyota_veloz_1790686518687.jpg",
+    "gallery": [
+      "/images/car_toyota_veloz_1790686518687.jpg",
+      "/images/car_luggage_trunk_1790687694166.jpg"
+    ],
+    "features": [
+      "Desain SUV Modern & Gagah",
+      "Ground Clearance Tinggi Bebas Polisi Tidur",
+      "Layar Spidometer Full Digital Futuristik",
+      "Irit Bahan Bakar & Lincah",
+      "Kamera Parkir & Sensor Lengkap"
+    ],
+    "features_en": [
+      "Modern Bold Compact SUV Styling",
+      "High Ground Clearance for Coastal Roads",
+      "Futuristic Full Digital Cluster",
+      "High Fuel Efficiency & Nimble Handling",
+      "Parking Camera & Complete Sensors"
+    ],
+    "badge": "SUV Kompak",
+    "badge_en": "Compact SUV",
+    "popular": false,
+    "wa_message": "Halo L.A Travel Batam, saya mau sewa Daihatsu Rocky (Rp 300k/hari). Bagaimana syarat lepas kuncinya?"
+  },
+  {
+    "id": "toyota-raize",
+    "name": "Toyota Raize",
+    "category": "Compact SUV",
+    "capacity": "5 Penumpang",
+    "capacity_en": "5 Passengers",
+    "transmission": "Automatic (CVT)",
+    "transmission_en": "Automatic (CVT)",
+    "engine": "1.0L Turbo / 1.2L Dual VVT-i",
+    "fuel": "Bensin",
+    "fuel_en": "Petrol",
+    "luggage": "2 Koper Sedang",
+    "luggage_en": "2 Medium Suitcases",
+    "price_start_from": "Rp 300.000",
+    "price_unit": "per hari",
+    "rates": {
+      "self_drive_24h": "Rp 300.000 / 24 Jam (Lepas Kunci)",
+      "with_driver_12h": "Rp 800.000 / 12 Jam (Dengan Supir & BBM)",
+      "airport_transfer": "Free Antar-Jemput Pelabuhan & Bandara (Sewa min 2 hari)"
+    },
+    "description_id": "SUV kompak favorit dengan tarikan responsif, fitur teknologi canggih, dan tampilan dinamis. Sangat diminati turis dan pasangan yang berlibur di Batam.",
+    "description_en": "Dynamic compact SUV featuring responsive performance, advanced infotainment, and sharp styling. A top choice for modern travelers in Batam.",
+    "image_url": "/images/car_toyota_veloz_1790686518687.jpg",
+    "gallery": [
+      "/images/car_toyota_veloz_1790686518687.jpg",
+      "/images/car_luggage_trunk_1790687694166.jpg"
+    ],
+    "features": [
+      "Desain Sporty Two-Tone Menarik",
+      "Head Unit Besar dengan Apple CarPlay & Android Auto",
+      "Posisi Duduk Tinggi Pandangan Luas",
+      "Kenyamanan Berkendara Maksimal",
+      "Unit Selalu Bersih & Wangi"
+    ],
+    "features_en": [
+      "Sporty Two-Tone Exterior Styling",
+      "Large Touchscreen with Apple CarPlay & Android Auto",
+      "Commanding High Driving Position",
+      "Maximum Cruising Comfort",
+      "Fresh & Spotless Handover"
+    ],
+    "badge": "Favorit Wisatawan",
+    "badge_en": "Traveler Choice",
+    "popular": true,
+    "wa_message": "Halo L.A Travel Batam, saya ingin booking Toyota Raize (Rp 300k/hari). Apakah unit tersedia?"
+  },
+  {
+    "id": "toyota-fortuner-gr",
+    "name": "Toyota Fortuner GR Sport",
+    "category": "Luxury SUV",
+    "capacity": "7 Penumpang",
+    "capacity_en": "7 Passengers",
+    "transmission": "Automatic",
+    "transmission_en": "Automatic",
+    "engine": "2.8L 1GD-FTV Heavy Duty Diesel",
+    "fuel": "Solar (Dexlite / Pertamina Dex)",
+    "fuel_en": "Diesel",
+    "luggage": "4 Koper Besar",
+    "luggage_en": "4 Large Suitcases",
+    "price_start_from": "Rp 1.600.000",
+    "price_unit": "per hari",
+    "rates": {
+      "self_drive_24h": "Khusus dengan Driver VIP",
+      "with_driver_12h": "Rp 1.600.000 / 12 Jam (Include Supir & BBM)",
+      "airport_transfer": "Free Antar-Jemput Bandara Hang Nadim & Pelabuhan Batam"
+    },
+    "description_id": "SUV bongsor mewah dan berkelas untuk tamu penting, pejabat, eksekutif, atau kunjungan proyek di Batam. Tampilan prestisius dengan kenyamanan kabin premium.",
+    "description_en": "Imposing luxury full-size SUV for corporate executives, project delegates, and VIP tours. Robust performance paired with premium cabin luxury.",
+    "image_url": "/images/car_toyota_alphard_1790686505551.jpg",
+    "gallery": [
+      "/images/car_toyota_alphard_1790686505551.jpg",
+      "/images/car_interior_alphard_1790687658888.jpg",
+      "/images/car_luggage_trunk_1790687694166.jpg"
+    ],
+    "features": [
+      "Paket All-In Termasuk Supir Berpengalaman & BBM",
+      "Tampilan Gagah, Mewah & Prestisius",
+      "Jok Kulit Mewah & Audio Berkualitas Tinggi",
+      "Suspensi Tangguh Melibas Segala Medan",
+      "Layanan Antar-Jemput VIP Ferry & Airport"
+    ],
+    "features_en": [
+      "All-Inclusive Package with Professional Driver & Fuel",
+      "Prestigious & Executive Presence",
+      "Luxury Leather Upholstery & Premium Sound",
+      "Heavy-Duty Suspension for All Terrains",
+      "VIP Ferry & Airport Chauffeur Service"
+    ],
+    "badge": "VIP Executive SUV",
+    "badge_en": "Executive SUV",
+    "popular": true,
+    "wa_message": "Halo L.A Travel Batam, saya ingin booking paket Toyota Fortuner All-In (Rp 1.600.000/hari include supir & bbm). Mohon info ketersediaannya."
+  },
+  {
+    "id": "toyota-innova-reborn",
+    "name": "Toyota Innova Reborn Diesel",
+    "category": "Family MPV",
+    "capacity": "7-8 Penumpang",
+    "capacity_en": "7-8 Passengers",
+    "transmission": "Manual / Automatic",
+    "transmission_en": "Manual / Automatic",
+    "engine": "2.4L 2GD-FTV Turbo Diesel",
+    "fuel": "Solar (Dexlite / Bio Solar)",
+    "fuel_en": "Turbo Diesel",
+    "luggage": "4 Koper Besar",
+    "luggage_en": "4 Large Suitcases",
+    "price_start_from": "Rp 450.000",
+    "price_unit": "per hari",
+    "rates": {
+      "self_drive_24h": "Rp 450.000 / 24 Jam (Lepas Kunci)",
+      "with_driver_12h": "Rp 950.000 / 12 Jam (Dengan Supir & BBM)",
+      "airport_transfer": "Free Antar-Jemput Bandara & Pelabuhan"
+    },
+    "description_id": "Rajanya MPV tangguh di Batam dengan torsi diesel badak. Sangat kokoh melibas rute perbukitan Sekupang atau jembatan Barelang dengan rombongan keluarga dan muatan koper penuh.",
+    "description_en": "Legendary heavy-duty diesel MPV renowned for strong hill climbing torque, spacious 3-row comfort, and massive luggage capacity for island journeys.",
+    "image_url": "/images/car_innova_zenix_1790686488157.jpg",
+    "gallery": [
+      "/images/car_innova_zenix_1790686488157.jpg",
+      "/images/car_interior_zenix_1790687674985.jpg",
+      "/images/car_luggage_trunk_1790687694166.jpg"
+    ],
+    "features": [
+      "Mesin 2GD-FTV Turbo Diesel Tangguh & Irit",
+      "AC Dingin Merata Hingga Baris Ketiga",
+      "Suspensi Kokoh Sangat Nyaman di Segala Kontur Jalan",
+      "Kapasitas Bagasi Ekstra Luas Muat Banyak Oleh-oleh",
+      "Unit Selalu Dicek Sebelum Diserahkan ke Penyewa"
+    ],
+    "features_en": [
+      "2GD-FTV Turbo Diesel Engine with Strong Torque",
+      "Triple-Row Chilled Air Conditioning",
+      "Heavy-Duty Suspension for Maximum Travel Comfort",
+      "Extra Wide Luggage Boot for Bags and Souvenirs",
+      "Full Multi-Point Safety Check Before Handover"
+    ],
+    "badge": "Pilihan Terfavorit",
+    "badge_en": "All-Time Favorite",
+    "popular": true,
+    "wa_message": "Halo L.A Travel Batam, saya berminat sewa unit Toyota Innova Reborn Diesel (Rp 450k/hari). Mohon info syarat dan ketersediaannya."
+  },
+  {
+    "id": "toyota-innova-zenix",
+    "name": "Toyota Innova Zenix",
+    "category": "Premium MPV",
+    "capacity": "7 Penumpang",
+    "capacity_en": "7 Passengers",
+    "transmission": "Automatic (CVT)",
+    "transmission_en": "Automatic (CVT)",
+    "engine": "2.0L M20A-FKS Dynamic Force",
+    "fuel": "Bensin",
+    "fuel_en": "Petrol",
+    "luggage": "3-4 Koper Besar",
+    "luggage_en": "3-4 Large Suitcases",
+    "price_start_from": "Rp 600.000",
+    "price_unit": "per hari",
+    "rates": {
+      "self_drive_24h": "Rp 600.000 / 24 Jam (Lepas Kunci)",
+      "with_driver_12h": "Rp 1.100.000 / 12 Jam (Dengan Supir & BBM)",
+      "airport_transfer": "Free Antar-Jemput Bandara & Pelabuhan"
+    },
+    "description_id": "Generasi terbaru Innova berbasis platform TNGA yang senyap, modern, dan sangat nyaman dikendarai di Batam. AC digital double-blower menjamin seluruh kabin sejuk dan menyenangkan.",
+    "description_en": "The latest generation Innova built on the TNGA platform with ultra-quiet comfort, smooth CVT, and crisp digital climate control across all rows.",
+    "image_url": "/images/car_innova_zenix_1790686488157.jpg",
+    "gallery": [
+      "/images/car_innova_zenix_1790686488157.jpg",
+      "/images/car_interior_zenix_1790687674985.jpg",
+      "/images/car_luggage_trunk_1790687694166.jpg"
+    ],
+    "features": [
+      "Platform TNGA Generasi Terbaru Super Senyap & Stabil",
+      "Layar Sentuh 10 Inch & Kamera Mundur Jernih",
+      "Digital Climate Control dengan AC Double Blower",
+      "Kabin Luas, Bersih, Higienis & Tidak Bau Rokok",
+      "Pilihan Lepas Kunci Mudah atau Paket Supir Berpengalaman"
+    ],
+    "features_en": [
+      "Latest Generation TNGA Platform (Ultra Quiet & Stable)",
+      "10-inch Touchscreen with Apple CarPlay & Rear Camera",
+      "Digital Climate Control with Double-Blower AC",
+      "Spacious, Sanitized, Non-Smoking Cabin",
+      "Flexible Self-Drive or Experienced Chauffeur Package"
+    ],
+    "badge": "Modern & Mewah",
+    "badge_en": "Modern Luxury",
+    "popular": true,
+    "wa_message": "Halo L.A Travel Batam, saya tertarik sewa Toyota Innova Zenix (Rp 600k/hari). Apakah unit tersedia untuk jadwal saya?"
+  },
+  {
     "id": "toyota-alphard-transformer",
     "name": "Toyota Alphard VIP",
     "category": "VIP Luxury Van",
@@ -12,11 +568,11 @@
     "fuel_en": "Petrol (92+ RON)",
     "luggage": "4-5 Koper Besar + Golf Bag",
     "luggage_en": "4-5 Large Suitcases + Golf Bag",
-    "price_start_from": "Rp 2.000.000",
+    "price_start_from": "Rp 3.200.000",
     "price_unit": "per hari",
     "rates": {
-      "self_drive_24h": "Rp 2.000.000 / 24 Jam",
-      "with_driver_12h": "Rp 2.500.000 / 12 Jam (Termasuk Supir & BBM)",
+      "self_drive_24h": "Khusus dengan Driver VIP",
+      "with_driver_12h": "Rp 3.200.000 / 12 Jam (Termasuk Supir VIP & BBM)",
       "airport_transfer": "Free Antar-Jemput Bandara Hang Nadim & Pelabuhan Batam"
     },
     "description_id": "Pilihan utama eksekutif, tamu VVIP, pejabat, dan pebisnis di Kota Batam. Dilengkapi jok kulit Ottoman elektrik dengan pemanas/pendingin, panoramic twin sunroof, serta suspensi super empuk untuk perjalanan kelas satu.",
@@ -45,152 +601,11 @@
     "badge": "Pilihan VIP & Bisnis",
     "badge_en": "VIP & Business Executive",
     "popular": true,
-    "wa_message": "Halo L.A Travel Batam, saya ingin booking Toyota Alphard VIP. Mohon info ketersediaan tanggal dan paket tarifnya."
-  },
-  {
-    "id": "toyota-innova-zenix",
-    "name": "Toyota Innova Zenix Hybrid",
-    "category": "Premium MPV",
-    "capacity": "7 Penumpang",
-    "capacity_en": "7 Passengers",
-    "transmission": "Automatic (CVT)",
-    "transmission_en": "Automatic (CVT)",
-    "engine": "2.0L M20A-FXS Hybrid EV",
-    "fuel": "Bensin Hybrid (Super Hemat)",
-    "fuel_en": "Hybrid EV (Ultra Efficient)",
-    "luggage": "3-4 Koper Besar",
-    "luggage_en": "3-4 Large Suitcases",
-    "price_start_from": "Rp 750.000",
-    "price_unit": "per hari",
-    "rates": {
-      "self_drive_24h": "Rp 750.000 / 24 Jam (Lepas Kunci)",
-      "with_driver_12h": "Rp 1.050.000 / 12 Jam (Dengan Supir & BBM)",
-      "airport_transfer": "Free Antar-Jemput Bandara & Pelabuhan"
-    },
-    "description_id": "Generasi terbaru Innova berteknologi Hybrid TNGA yang senyap, modern, dan sangat nyaman dikendarai di Batam. AC digital double-blower menjamin seluruh baris kabin sejuk saat cuaca panas Batam.",
-    "description_en": "The latest generation Innova built on the TNGA platform with ultra-quiet Hybrid EV technology. Extremely smooth ride and cold digital climate control across all 3 rows.",
-    "image_url": "/images/car_innova_zenix_1790686488157.jpg",
-    "gallery": [
-      "/images/car_innova_zenix_1790686488157.jpg",
-      "/images/car_interior_zenix_1790687674985.jpg",
-      "/images/car_luggage_trunk_1790687694166.jpg"
-    ],
-    "features": [
-      "Mesin Hybrid Generasi Terbaru (Super Senyap & Bertenaga)",
-      "Layar Sentuh 10 Inch & Kamera Mundur Jernih",
-      "Digital Climate Control dengan AC Double Blower",
-      "Kabin Luas, Bersih, Higienis & Tidak Bau Rokok",
-      "Pilihan Lepas Kunci Mudah atau Paket Supir Berpengalaman"
-    ],
-    "features_en": [
-      "Latest Generation Hybrid Engine (Ultra Quiet & Powerful)",
-      "10-inch Touchscreen with Apple CarPlay & Rear Camera",
-      "Digital Climate Control with Double-Blower AC",
-      "Spacious, Sanitized, Non-Smoking Cabin",
-      "Flexible Self-Drive or Experienced Chauffeur Package"
-    ],
-    "badge": "Paling Diminati",
-    "badge_en": "Most Popular",
-    "popular": true,
-    "wa_message": "Halo L.A Travel Batam, saya tertarik sewa Toyota Innova Zenix Hybrid. Apakah unit tersedia untuk jadwal saya?"
-  },
-  {
-    "id": "toyota-veloz-facelift",
-    "name": "Toyota All New Veloz",
-    "category": "Family MPV",
-    "capacity": "7 Penumpang",
-    "capacity_en": "7 Passengers",
-    "transmission": "Automatic (CVT)",
-    "transmission_en": "Automatic (CVT)",
-    "engine": "1.5L Dual VVT-i 4-Silinder",
-    "fuel": "Bensin",
-    "fuel_en": "Petrol",
-    "luggage": "2-3 Koper Sedang",
-    "luggage_en": "2-3 Medium Suitcases",
-    "price_start_from": "Rp 450.000",
-    "price_unit": "per hari",
-    "rates": {
-      "self_drive_24h": "Rp 450.000 / 24 Jam (Lepas Kunci)",
-      "with_driver_12h": "Rp 750.000 / 12 Jam (Dengan Supir & BBM)",
-      "airport_transfer": "Free Antar-Jemput Bandara & Pelabuhan"
-    },
-    "description_id": "Mobil keluarga paling populer untuk keliling Batam, belanja di Nagoya Hill, atau wisata kuliner Barelang. Irit bahan bakar, lincah bermanuver, serta suspensi empuk dengan fitur keselamatan lengkap.",
-    "description_en": "The most beloved family MPV for sightseeing in Batam, shopping at Nagoya Hill, or visiting Barelang Bridge. Nimble, highly fuel-efficient, and very comfortable.",
-    "image_url": "/images/car_toyota_veloz_1790686518687.jpg",
-    "gallery": [
-      "/images/car_toyota_veloz_1790686518687.jpg",
-      "/images/car_interior_zenix_1790687674985.jpg",
-      "/images/car_luggage_trunk_1790687694166.jpg"
-    ],
-    "features": [
-      "Irit Bahan Bakar & Sangat Lincah di Jalanan Batam",
-      "Wireless Smartphone Charging & Layar Head Unit Modern",
-      "AC Dingin Terawat & Seluruh Kursi Bersih Higienis",
-      "Rem Parkir Elektrik dengan Auto Brake Hold",
-      "Proses Verifikasi Lepas Kunci Cepat Hanya 15 Menit"
-    ],
-    "features_en": [
-      "Excellent Fuel Economy & Easy Maneuverability",
-      "Wireless Phone Charger & Modern Touchscreen",
-      "Crisp Air Conditioning & Immaculate Clean Interior",
-      "Electric Parking Brake with Auto Brake Hold",
-      "Instant 15-Minute Document Verification for Self-Drive"
-    ],
-    "badge": "Hemat & Nyaman",
-    "badge_en": "Best Value",
-    "popular": true,
-    "wa_message": "Halo L.A Travel Batam, saya mau sewa Toyota All New Veloz. Bagaimana syarat lepas kunci dan ketersediaan unitnya?"
-  },
-  {
-    "id": "toyota-innova-reborn",
-    "name": "Toyota Innova Reborn Diesel",
-    "category": "Family MPV",
-    "capacity": "7-8 Penumpang",
-    "capacity_en": "7-8 Passengers",
-    "transmission": "Manual / Automatic",
-    "transmission_en": "Manual / Automatic",
-    "engine": "2.4L 2GD-FTV Turbo Diesel",
-    "fuel": "Solar (Dexlite / Bio Solar)",
-    "fuel_en": "Turbo Diesel",
-    "luggage": "4 Koper Besar",
-    "luggage_en": "4 Large Suitcases",
-    "price_start_from": "Rp 550.000",
-    "price_unit": "per hari",
-    "rates": {
-      "self_drive_24h": "Rp 550.000 / 24 Jam (Lepas Kunci)",
-      "with_driver_12h": "Rp 850.000 / 12 Jam (Dengan Supir & BBM)",
-      "airport_transfer": "Free Antar-Jemput Bandara & Pelabuhan"
-    },
-    "description_id": "Rajanya MPV tangguh di Batam dengan torsi diesel badak. Sangat kokoh melibas rute perbukitan Sekupang atau jembatan Barelang dengan rombongan keluarga dan muatan koper penuh.",
-    "description_en": "Legendary heavy-duty diesel MPV renowned for strong hill climbing torque, spacious 3-row comfort, and massive luggage capacity for island journeys.",
-    "image_url": "/images/car_innova_zenix_1790686488157.jpg",
-    "gallery": [
-      "/images/car_innova_zenix_1790686488157.jpg",
-      "/images/car_interior_zenix_1790687674985.jpg",
-      "/images/car_luggage_trunk_1790687694166.jpg"
-    ],
-    "features": [
-      "Mesin 2GD-FTV Turbo Diesel Tangguh & Irit",
-      "AC Dingin Merata Hingga Baris Ketiga",
-      "Suspensi Kokoh Sangat Nyaman di Segala Kontur Jalan",
-      "Kapasitas Bagasi Ekstra Luas Muat Banyak Oleh-oleh",
-      "Unit Selalu Dicek Sebelum Diserahkan ke Penyewa"
-    ],
-    "features_en": [
-      "2GD-FTV Turbo Diesel Engine with Strong Torque",
-      "Triple-Row Chilled Air Conditioning",
-      "Heavy-Duty Suspension for Maximum Travel Comfort",
-      "Extra Wide Luggage Boot for Bags and Souvenirs",
-      "Full Multi-Point Safety Check Before Handover"
-    ],
-    "badge": "Favorit Wisata",
-    "badge_en": "Tourist Favorite",
-    "popular": false,
-    "wa_message": "Halo L.A Travel Batam, saya berminat sewa unit Toyota Innova Reborn Diesel. Mohon info syarat dan ketersediaannya."
+    "wa_message": "Halo L.A Travel Batam, saya ingin booking Toyota Alphard VIP (Rp 3.200.000 include supir & bbm). Mohon info ketersediaan tanggalnya."
   },
   {
     "id": "toyota-hiace-commuter",
-    "name": "Toyota HiAce Commuter / Premio",
+    "name": "Toyota HiAce (HC)",
     "category": "Minibus Group",
     "capacity": "14-15 Penumpang",
     "capacity_en": "14-15 Passengers",
@@ -201,11 +616,11 @@
     "fuel_en": "Diesel",
     "luggage": "8-10 Koper",
     "luggage_en": "8-10 Suitcases",
-    "price_start_from": "Rp 1.100.000",
+    "price_start_from": "Rp 1.400.000",
     "price_unit": "per hari",
     "rates": {
       "self_drive_24h": "Khusus dengan Driver",
-      "with_driver_12h": "Rp 1.100.000 / 12 Jam (Termasuk Supir & Wisata)",
+      "with_driver_12h": "Rp 1.400.000 / 12 Jam (Termasuk Supir & BBM)",
       "airport_transfer": "Free Antar-Jemput Rombongan di Pelabuhan & Bandara"
     },
     "description_id": "Solusi terbaik untuk rombongan wisata kantor, reuni, family gathering, atau delegasi konferensi di Batam. Kabin luas dengan kursi reclining ergonomis yang menjamin setiap penumpang nyaman.",
@@ -218,68 +633,21 @@
     ],
     "features": [
       "Kapasitas Hingga 15 Orang Dewasa Duduk Leluasa",
-      "Termasuk Supir Berpengalaman yang Menguasai Seluruh Batam",
+      "Termasuk Supir Berpengalaman yang Menguasai Seluruh Batam & BBM",
       "Kursi Reclining Ergonomis dengan Sabuk Pengaman Setiap Kursi",
       "Audio Bluetooth & Mic untuk Tour Guide Rombongan",
       "Layanan Antar-Jemput Rombongan Ferry Singapura/Malaysia"
     ],
     "features_en": [
       "Accommodates up to 15 Adults with Generous Legroom",
-      "Professional Chauffeur Included (Experienced Tour Guide)",
+      "Professional Chauffeur & Fuel Included (Experienced Tour Guide)",
       "Individual Ergonomic Reclining Seats with Seatbelts",
       "Bluetooth Sound System & Microphone for Group Announcements",
       "Ferry Terminal Pickup for Singapore/Malaysia Arrivals"
     ],
-    "badge": "Rombongan & Tour",
+    "badge": "Rombongan & Wisata",
     "badge_en": "Group & Delegation",
-    "popular": false,
-    "wa_message": "Halo L.A Travel Batam, saya butuh informasi sewa Toyota HiAce untuk rombongan di Batam. Mohon detail paketnya."
-  },
-  {
-    "id": "mitsubishi-xpander-cross",
-    "name": "Mitsubishi Xpander Cross",
-    "category": "Crossover MPV",
-    "capacity": "7 Penumpang",
-    "capacity_en": "7 Passengers",
-    "transmission": "Automatic",
-    "transmission_en": "Automatic",
-    "engine": "1.5L MIVEC DOHC",
-    "fuel": "Bensin",
-    "fuel_en": "Petrol",
-    "luggage": "3 Koper Sedang",
-    "luggage_en": "3 Medium Suitcases",
-    "price_start_from": "Rp 500.000",
-    "price_unit": "per hari",
-    "rates": {
-      "self_drive_24h": "Rp 500.000 / 24 Jam (Lepas Kunci)",
-      "with_driver_12h": "Rp 800.000 / 12 Jam (Dengan Supir & BBM)",
-      "airport_transfer": "Free Antar-Jemput Bandara & Pelabuhan"
-    },
-    "description_id": "Tampilan sporty dan tangguh dengan ground clearance 225mm tertinggi di kelasnya. Memberikan pandangan luas, sangat nyaman saat melintasi berbagai destinasi wisata pantai di Batam.",
-    "description_en": "Sporty crossover SUV styling with class-leading 225mm ground clearance. Offers high commanding seating position, superb ride isolation, and athletic styling.",
-    "image_url": "/images/car_toyota_veloz_1790686518687.jpg",
-    "gallery": [
-      "/images/car_toyota_veloz_1790686518687.jpg",
-      "/images/car_interior_zenix_1790687674985.jpg",
-      "/images/car_luggage_trunk_1790687694166.jpg"
-    ],
-    "features": [
-      "Ground Clearance Tinggi (Aman & Nyaman ke Pantai Batam)",
-      "Desain Crossover Gagah & Modern",
-      "Kekedapan Kabin Unggul dengan Audio Berkualitas",
-      "Layar Instrumen Digital & Cruise Control",
-      "Pilihan Lepas Kunci Mudah atau Lengkap dengan Driver"
-    ],
-    "features_en": [
-      "High Ground Clearance (Ideal for Coastal Beach Drives)",
-      "Bold Crossover SUV Styling & Muscular Grille",
-      "Superior Cabin Soundproofing with Crisp Audio",
-      "Digital Instrument Cluster & Cruise Control",
-      "Available for Self-Drive or with Professional Driver"
-    ],
-    "badge": "Sporty Family",
-    "badge_en": "Sporty Comfort",
-    "popular": false,
-    "wa_message": "Halo L.A Travel Batam, saya tertarik sewa Mitsubishi Xpander Cross. Mohon kirimkan pricelist dan syarat sewanya."
+    "popular": true,
+    "wa_message": "Halo L.A Travel Batam, saya butuh informasi sewa Toyota HiAce HC untuk rombongan (Rp 1.400.000 include supir & bbm). Mohon detail paketnya."
   }
 ]

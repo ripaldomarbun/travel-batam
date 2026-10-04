@@ -38,17 +38,19 @@ const DEFAULT_SETTINGS: CompanySettings = {
   promoBannerText: '✨ Promo Spesial Batam: Gratis Antar-Jemput Bandara Hang Nadim & Pelabuhan Ferry untuk sewa minimal 2 hari!',
   promoBannerTextEn: '✨ Special Batam Offer: Free Airport & Ferry Terminal Delivery for rentals of 2 days or more!',
   selfDriveTerms: [
-    'Foto KTP asli & SIM A yang masih aktif/berlaku',
+    'Foto KTP asli & SIM A yang masih aktif/berlaku (Paspor untuk turis mancanegara)',
     'Tiket pesawat / tiket ferry kedatangan & kepulangan Batam',
     'Bukti booking hotel atau voucher penginapan di Batam',
+    'Pembayaran di awal full (Metode pembayaran via QRIS dan Transfer Bank)',
     'Deposit jaminan keamanan (100% refundable saat mobil kembali prima)',
     'Penyewa bersedia difoto bersama kendaraan saat serah terima kunci'
   ],
   withDriverTerms: [
-    'Sudah termasuk supir profesional, ramah & paham rute Batam',
-    'Paket sewa fleksibel 12 jam atau seharian penuh (full day)',
+    'Sudah termasuk supir profesional, ramah & paham seluruh rute wisata Batam',
     'Termasuk BBM dalam kota Batam & bebas biaya antar mobil',
-    'Supir siap memandu rekomendasi tempat wisata & seafood lezat khas Batam',
+    'Paket fleksibel 12 jam atau seharian penuh (All-in)',
+    'Biaya include Supir & BBM mulai dari +Rp 500.000 / hari',
+    'Pembayaran di awal full via QRIS dan Transfer Bank resmi',
     'Layanan tepat waktu, mobil selalu hadir bersih dan wangi sebelum jam penjemputan'
   ],
   defaultWaGreeting: 'Halo Admin L.A Travel Batam, saya ingin konsultasi ketersediaan mobil dan booking rental.'
@@ -123,6 +125,39 @@ export const FleetProvider: React.FC<{ children: React.ReactNode }> = ({ childre
 
   const [selectedCarForDetail, setSelectedCarForDetailState] = useState<ExtendedCar | null>(null);
 
+  // Sync dengan database MySQL Rumahweb saat pertama kali dimuat
+  useEffect(() => {
+    let isMounted = true;
+    const fetchFromDatabase = async () => {
+      try {
+        const res = await fetch('/api/cars.php');
+        if (res.ok) {
+          const json = await res.json();
+          if (json.success && Array.isArray(json.data) && json.data.length > 0 && isMounted) {
+            setCars(json.data.map(sanitizeCarPaths));
+          }
+        }
+      } catch {
+        // Fallback offline / local
+      }
+
+      try {
+        const res = await fetch('/api/settings.php');
+        if (res.ok) {
+          const json = await res.json();
+          if (json.success && json.data && isMounted) {
+            setSettings((prev) => ({ ...prev, ...json.data }));
+          }
+        }
+      } catch {
+        // Fallback offline / local
+      }
+    };
+
+    fetchFromDatabase();
+    return () => { isMounted = false; };
+  }, []);
+
   // Sync with URL hash (e.g. #detail-toyota-alphard-transformer)
   useEffect(() => {
     const handleHashChange = () => {
@@ -156,7 +191,7 @@ export const FleetProvider: React.FC<{ children: React.ReactNode }> = ({ childre
     }
   };
 
-  // Persist cars on change
+  // Persist cars on change to local cache
   useEffect(() => {
     try {
       localStorage.setItem(STORAGE_CARS_KEY, JSON.stringify(cars));
@@ -165,7 +200,7 @@ export const FleetProvider: React.FC<{ children: React.ReactNode }> = ({ childre
     }
   }, [cars]);
 
-  // Persist settings on change
+  // Persist settings on change to local cache
   useEffect(() => {
     try {
       localStorage.setItem(STORAGE_SETTINGS_KEY, JSON.stringify(settings));
@@ -173,6 +208,58 @@ export const FleetProvider: React.FC<{ children: React.ReactNode }> = ({ childre
       console.error('Failed to save settings to localStorage', e);
     }
   }, [settings]);
+
+  // Helper untuk kirim perubahan ke MySQL API di latar belakang
+  const getAdminPinHeader = () => {
+    try {
+      return localStorage.getItem('la_admin_pin') || '1234';
+    } catch {
+      return '1234';
+    }
+  };
+
+  const syncCarToDatabase = async (car: ExtendedCar) => {
+    try {
+      await fetch('/api/cars.php', {
+        method: 'POST',
+        headers: {
+          'Content-Type': 'application/json',
+          'X-Admin-PIN': getAdminPinHeader()
+        },
+        body: JSON.stringify(car)
+      });
+    } catch (e) {
+      console.warn('Sync to MySQL deferred:', e);
+    }
+  };
+
+  const deleteCarFromDatabase = async (carId: string) => {
+    try {
+      await fetch(`/api/cars.php?id=${encodeURIComponent(carId)}`, {
+        method: 'DELETE',
+        headers: {
+          'X-Admin-PIN': getAdminPinHeader()
+        }
+      });
+    } catch (e) {
+      console.warn('Delete from MySQL deferred:', e);
+    }
+  };
+
+  const syncSettingsToDatabase = async (newSettings: CompanySettings) => {
+    try {
+      await fetch('/api/settings.php', {
+        method: 'POST',
+        headers: {
+          'Content-Type': 'application/json',
+          'X-Admin-PIN': getAdminPinHeader()
+        },
+        body: JSON.stringify(newSettings)
+      });
+    } catch (e) {
+      console.warn('Settings sync to MySQL deferred:', e);
+    }
+  };
 
   const addCar = (newCarData: Omit<ExtendedCar, 'id'>) => {
     const newId = `car-${Date.now()}`;
@@ -183,28 +270,44 @@ export const FleetProvider: React.FC<{ children: React.ReactNode }> = ({ childre
       popular: newCarData.popular ?? false
     };
     setCars((prev) => [newCar, ...prev]);
+    syncCarToDatabase(newCar);
   };
 
   const updateCar = (id: string, updatedFields: Partial<ExtendedCar>) => {
-    setCars((prev) =>
-      prev.map((c) => (c.id === id ? { ...c, ...updatedFields } : c))
-    );
+    setCars((prev) => {
+      const updatedList = prev.map((c) => (c.id === id ? { ...c, ...updatedFields } : c));
+      const targetCar = updatedList.find((c) => c.id === id);
+      if (targetCar) {
+        syncCarToDatabase(targetCar);
+      }
+      return updatedList;
+    });
   };
 
   const deleteCar = (id: string) => {
     setCars((prev) => prev.filter((c) => c.id !== id));
+    deleteCarFromDatabase(id);
   };
 
   const toggleCarAvailability = (id: string) => {
-    setCars((prev) =>
-      prev.map((c) =>
+    setCars((prev) => {
+      const updatedList = prev.map((c) =>
         c.id === id ? { ...c, isAvailable: !(c.isAvailable ?? true) } : c
-      )
-    );
+      );
+      const targetCar = updatedList.find((c) => c.id === id);
+      if (targetCar) {
+        syncCarToDatabase(targetCar);
+      }
+      return updatedList;
+    });
   };
 
   const updateSettings = (newFields: Partial<CompanySettings>) => {
-    setSettings((prev) => ({ ...prev, ...newFields }));
+    setSettings((prev) => {
+      const merged = { ...prev, ...newFields };
+      syncSettingsToDatabase(merged);
+      return merged;
+    });
   };
 
   const resetToDefaults = () => {
