@@ -15,6 +15,7 @@ import {
 } from 'lucide-react';
 import { Car, getCarInquiryUrl, isSelfDriveCar } from '../utils/whatsapp';
 import { useLanguage } from '../context/LanguageContext';
+import { useFleet } from '../context/FleetContext';
 import { LazyImage } from './common/LazyImage';
 import { generateTouristTripJsonLd } from '../utils/seo';
 
@@ -25,6 +26,7 @@ interface CarDetailModalProps {
 
 export const CarDetailModal: React.FC<CarDetailModalProps> = ({ car, onClose }) => {
   const { language } = useLanguage();
+  const { settings } = useFleet();
   const [activeImageIndex, setActiveImageIndex] = useState<number>(0);
 
   // Reset active image when car changes
