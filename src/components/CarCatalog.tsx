@@ -14,7 +14,7 @@ export const CarCatalog: React.FC = () => {
   const { language, t } = useLanguage();
   const { cars, settings, selectedCarForDetail, setSelectedCarForDetail } = useFleet();
   const [selectedCategoryKey, setSelectedCategoryKey] = useState<string>('all');
-  const [serviceOption, setServiceOption] = useState<'all' | 'self' | 'driver'>('self');
+  const [serviceOption, setServiceOption] = useState<'all' | 'self' | 'driver'>('all');
 
   const isEn = language === 'en';
 
@@ -95,6 +95,16 @@ export const CarCatalog: React.FC = () => {
               {t.catalog.packageLabel}
             </span>
             <button
+              onClick={() => handleServiceChange('all')}
+              className={`apple-pressable flex-1 sm:flex-none text-center px-3.5 py-1.5 rounded-full text-xs transition-all cursor-pointer ${
+                serviceOption === 'all'
+                  ? 'bg-white dark:bg-neutral-800 text-slate-900 dark:text-[#D4AF37] font-bold shadow-xs border border-black/5 dark:border-white/10'
+                  : 'text-slate-600 dark:text-neutral-400 font-semibold hover:text-slate-900 dark:hover:text-white'
+              }`}
+            >
+              {isEn ? `All (${allCount})` : `Semua (${allCount})`}
+            </button>
+            <button
               onClick={() => handleServiceChange('self')}
               className={`apple-pressable flex-1 sm:flex-none text-center px-3.5 py-1.5 rounded-full text-xs transition-all cursor-pointer ${
                 serviceOption === 'self'
@@ -113,16 +123,6 @@ export const CarCatalog: React.FC = () => {
               }`}
             >
               {isEn ? `With Driver & Fuel (${driverOnlyCount})` : `Include Supir & BBM (${driverOnlyCount})`}
-            </button>
-            <button
-              onClick={() => handleServiceChange('all')}
-              className={`apple-pressable flex-1 sm:flex-none text-center px-3.5 py-1.5 rounded-full text-xs transition-all cursor-pointer ${
-                serviceOption === 'all'
-                  ? 'bg-white dark:bg-neutral-800 text-slate-900 dark:text-[#D4AF37] font-bold shadow-xs border border-black/5 dark:border-white/10'
-                  : 'text-slate-600 dark:text-neutral-400 font-semibold hover:text-slate-900 dark:hover:text-white'
-              }`}
-            >
-              {isEn ? `All (${allCount})` : `Semua (${allCount})`}
             </button>
           </div>
 
