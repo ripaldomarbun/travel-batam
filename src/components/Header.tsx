@@ -36,7 +36,7 @@ export const Header: React.FC = () => {
           <span className="inline-block animate-pulse">🔥</span>
           <span className="truncate max-w-4xl">{activePromoText}</span>
           <a
-            href={getGeneralInquiryUrl('Klaim Promo Spesial Batam', language)}
+            href={getGeneralInquiryUrl('Klaim Promo Spesial Batam', language, settings.whatsappNumber)}
             target="_blank"
             rel="noopener noreferrer"
             className="hidden md:inline-flex items-center underline text-[#D4AF37] hover:text-white font-bold ml-1.5 transition-colors"
@@ -133,7 +133,7 @@ export const Header: React.FC = () => {
 
           {/* WhatsApp Direct CTA */}
           <a
-            href={getGeneralInquiryUrl('Cek Ketersediaan Mobil', language)}
+            href={getGeneralInquiryUrl('Cek Ketersediaan Mobil', language, settings.whatsappNumber)}
             target="_blank"
             rel="noopener noreferrer"
             className="apple-pressable inline-flex items-center gap-1.5 sm:gap-2 px-3 sm:px-4 py-2 text-xs sm:text-[13px] font-semibold text-black bg-[#D4AF37] hover:bg-[#C59B27] rounded-full shadow-[0_2px_12px_rgba(212,175,55,0.35)] transition-all whitespace-nowrap"
@@ -225,7 +225,7 @@ export const Header: React.FC = () => {
                   <p className="text-[11px] text-slate-500 dark:text-neutral-400">+{settings.whatsappNumber}</p>
                 </div>
                 <a
-                  href={getGeneralInquiryUrl('Konsultasi Cepat dari Mobile Menu', language)}
+                  href={getGeneralInquiryUrl('Konsultasi Cepat dari Mobile Menu', language, settings.whatsappNumber)}
                   target="_blank"
                   rel="noopener noreferrer"
                   className="px-3 py-2 rounded-lg bg-[#25D366] text-[#06240E] text-xs font-extrabold flex items-center gap-1.5 shadow-sm active:scale-95 transition-transform"

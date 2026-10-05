@@ -6,7 +6,7 @@ import { getGeneralInquiryUrl } from '../../utils/whatsapp';
 
 export const MobileBottomBar: React.FC = () => {
   const { language, t } = useLanguage();
-  const { selectedCarForDetail } = useFleet();
+  const { selectedCarForDetail, settings } = useFleet();
 
   // If a car detail modal or full modal is open, let the modal have full focus
   if (selectedCarForDetail) {
@@ -64,7 +64,7 @@ export const MobileBottomBar: React.FC = () => {
 
         {/* Tab 4: Direct WhatsApp Chat */}
         <a
-          href={getGeneralInquiryUrl('Pemesanan Cepat via Mobile', language)}
+          href={getGeneralInquiryUrl('Pemesanan Cepat via Mobile', language, settings.whatsappNumber)}
           target="_blank"
           rel="noopener noreferrer"
           className="flex flex-col items-center justify-center gap-1 py-1 text-[#0E7A33] dark:text-[#25D366] hover:text-[#0a5c26] active:scale-95 transition-all"

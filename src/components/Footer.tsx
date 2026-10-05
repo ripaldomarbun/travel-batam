@@ -157,7 +157,7 @@ export const Footer: React.FC = () => {
               </p>
             </div>
             <a
-              href={buildWhatsAppUrl(settings.defaultWaGreeting || (language === 'en' ? 'Hello Admin L.A Travel Batam, I need a car rental today.' : 'Halo Admin L.A Travel Batam, saya butuh mobil rental hari ini.'))}
+              href={buildWhatsAppUrl(settings.defaultWaGreeting || (language === 'en' ? 'Hello Admin L.A Travel Batam, I need a car rental today.' : 'Halo Admin L.A Travel Batam, saya butuh mobil rental hari ini.'), settings.whatsappNumber)}
               target="_blank"
               rel="noopener noreferrer"
               className="apple-pressable flex items-center justify-center gap-2 py-2.5 px-4 bg-[#25D366] hover:bg-[#20BA59] text-[#06240E] font-bold rounded-full shadow-md transition-colors"

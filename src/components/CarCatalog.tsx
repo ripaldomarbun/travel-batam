@@ -163,7 +163,7 @@ export const CarCatalog: React.FC = () => {
               ? (serviceOption === 'driver' ? (isEn ? 'With Driver' : 'Dengan Supir') : (isEn ? 'Self-Drive (Lepas Kunci)' : 'Lepas Kunci'))
               : (isEn ? 'With Driver & Fuel' : 'Include Supir & BBM');
 
-            const bookingUrl = getCarInquiryUrl(car, bookingServiceLabel, language);
+            const bookingUrl = getCarInquiryUrl(car, bookingServiceLabel, language, settings.whatsappNumber);
             const displayFeatures = (isEn && car.features_en) ? car.features_en : car.features;
             const displayCapacity = (isEn && car.capacity_en) ? car.capacity_en : car.capacity;
             const displayTransmission = (isEn && car.transmission_en) ? car.transmission_en : car.transmission;
@@ -347,7 +347,8 @@ export const CarCatalog: React.FC = () => {
                 wa_message: 'Halo L.A Travel Batam, saya ingin konsultasi sewa jangka panjang / armada korporat.'
               },
               'Corporate Inquiry',
-              language
+              language,
+              settings.whatsappNumber
             )}
             target="_blank"
             rel="noopener noreferrer"

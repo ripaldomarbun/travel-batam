@@ -1344,7 +1344,7 @@ export const AdminPortal: React.FC<AdminPortalProps> = ({ isOpen, onClose, isSta
                           required
                         />
                         <p className="text-[10px] text-slate-500 dark:text-neutral-400 mt-1">
-                          Contoh: 6281270008899 (tanpa spasi/tanda plus).
+                          Contoh: 6287797631578 (tanpa spasi/tanda plus).
                         </p>
                       </div>
 

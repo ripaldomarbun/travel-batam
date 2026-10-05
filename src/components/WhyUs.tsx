@@ -76,7 +76,7 @@ export const WhyUs: React.FC = () => {
 
             <div className="text-center lg:text-right pt-2 lg:pt-0">
               <a
-                href={buildWhatsAppUrl(waInquiryMsg)}
+                href={buildWhatsAppUrl(waInquiryMsg, settings.whatsappNumber)}
                 target="_blank"
                 rel="noopener noreferrer"
                 className="apple-pressable inline-flex items-center justify-center px-8 py-3.5 rounded-full bg-[#D4AF37] hover:bg-[#C59B27] text-black font-bold text-xs shadow-md transition-colors"

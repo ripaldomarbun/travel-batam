@@ -1,10 +1,12 @@
 import React from 'react';
 import { MessageCircle, ArrowDown, ShieldCheck, MapPin, Sparkles, Clock } from 'lucide-react';
 import { useLanguage } from '../context/LanguageContext';
+import { useFleet } from '../context/FleetContext';
 import { getGeneralInquiryUrl } from '../utils/whatsapp';
 
 export const Hero: React.FC = () => {
   const { language, t } = useLanguage();
+  const { settings } = useFleet();
 
   return (
     <section className="relative min-h-[75svh] sm:min-h-[85vh] flex items-center justify-center overflow-hidden border-b border-neutral-200 dark:border-[#262626] transition-colors duration-200">
@@ -47,7 +49,7 @@ export const Hero: React.FC = () => {
         {/* Primary CTA Decision Group */}
         <div className="flex flex-col sm:flex-row items-center justify-center gap-4 w-full sm:w-auto mb-14">
           <a
-            href={getGeneralInquiryUrl('Pemesanan Rental Cepat', language)}
+            href={getGeneralInquiryUrl('Pemesanan Rental Cepat', language, settings.whatsappNumber)}
             target="_blank"
             rel="noopener noreferrer"
             className="apple-pressable w-full sm:w-auto inline-flex items-center justify-center gap-2.5 px-8 py-4 rounded-full bg-[#25D366] hover:bg-[#20BA59] text-[#06240E] font-bold text-sm shadow-[0_4px_24px_rgba(37,211,102,0.45)] transition-colors duration-150"

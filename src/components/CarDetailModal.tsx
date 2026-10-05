@@ -71,8 +71,8 @@ export const CarDetailModal: React.FC<CarDetailModalProps> = ({ car, onClose }) 
   const displayBadge = (isEn && car.badge_en) ? car.badge_en : car.badge;
   const displayDescription = (isEn && car.description_en) ? car.description_en : car.description_id;
 
-  const waSelfDriveUrl = getCarInquiryUrl(car, isEn ? 'Self-Drive (Lepas Kunci)' : 'Lepas Kunci', language);
-  const waDriverUrl = getCarInquiryUrl(car, isEn ? 'With Chauffeur (Dengan Supir)' : 'Dengan Supir', language);
+  const waSelfDriveUrl = getCarInquiryUrl(car, isEn ? 'Self-Drive (Lepas Kunci)' : 'Lepas Kunci', language, settings.whatsappNumber);
+  const waDriverUrl = getCarInquiryUrl(car, isEn ? 'With Chauffeur (Dengan Supir)' : 'Dengan Supir', language, settings.whatsappNumber);
 
   const nextImage = (e?: React.MouseEvent) => {
     e?.stopPropagation();

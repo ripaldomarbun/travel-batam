@@ -1,0 +1,105 @@
+BEGIN:VCALENDAR
+VERSION:2.0
+PRODID:-//L.A Travel Batam//Roadmap Calendar//ID
+CALSCALE:GREGORIAN
+METHOD:PUBLISH
+X-WR-CALNAME:L.A Travel Batam - Jadwal Operasional & Marketing
+X-WR-TIMEZONE:Asia/Jakarta
+
+BEGIN:VEVENT
+UID:latravel-event-1-20261006@latravelbatam.com
+DTSTAMP:20261005T024900Z
+DTSTART:20261006T090000
+DTEND:20261006T100000
+SUMMARY:🔍 Cek Indexing Google & Setup Google Analytics (GA4)
+DESCRIPTION:1. Cek apakah latravelbatam.com sudah muncul di Google (site:latravelbatam.com)\n2. Buat akun di Google Analytics (analytics.google.com)\n3. Ambil Measurement ID (G-XXXXX) dan pasang ke website.
+LOCATION:https://latravelbatam.com
+STATUS:CONFIRMED
+BEGIN:VALARM
+TRIGGER:-PT15M
+ACTION:DISPLAY
+DESCRIPTION:Pengingat: Cek Indexing Google & Setup GA4
+END:VALARM
+END:VEVENT
+
+BEGIN:VEVENT
+UID:latravel-event-2-20261008@latravelbatam.com
+DTSTAMP:20261005T024900Z
+DTSTART:20261008T100000
+DTEND:20261008T113000
+SUMMARY:📍 Daftarkan Google Business Profile (Google Maps Batam)
+DESCRIPTION:1. Buka business.google.com\n2. Buat profil: L.A Travel Batam - Rental Mobil & Paket Wisata\n3. Masukkan alamat kantor/pool mobil di Batam\n4. Cantumkan website: https://latravelbatam.com dan no. WhatsApp.
+LOCATION:Batam, Kepulauan Riau
+STATUS:CONFIRMED
+BEGIN:VALARM
+TRIGGER:-PT15M
+ACTION:DISPLAY
+DESCRIPTION:Pengingat: Daftarkan Google Maps L.A Travel Batam
+END:VALARM
+END:VEVENT
+
+BEGIN:VEVENT
+UID:latravel-event-3-20261010@latravelbatam.com
+DTSTAMP:20261005T024900Z
+DTSTART:20261010T130000
+DTEND:20261010T140000
+SUMMARY:📸 Upload Foto Armada HD & Verifikasi Google Maps
+DESCRIPTION:1. Upload logo resmi L.A Travel Batam ke Google Business Profile\n2. Upload foto 14 unit armada (Innova Zenix, Alphard, Avanza, HiAce, dll.)\n3. Lakukan verifikasi profil bisnis.
+LOCATION:https://business.google.com
+STATUS:CONFIRMED
+BEGIN:VALARM
+TRIGGER:-PT15M
+ACTION:DISPLAY
+DESCRIPTION:Pengingat: Upload Foto Armada Google Bisnis
+END:VALARM
+END:VEVENT
+
+BEGIN:VEVENT
+UID:latravel-event-4-20261013@latravelbatam.com
+DTSTAMP:20261005T024900Z
+DTSTART:20261013T090000
+DTEND:20261013T103000
+SUMMARY:💬 Optimalisasi WhatsApp Business & Link Bio Medsos
+DESCRIPTION:1. Tambahkan https://latravelbatam.com di bio WhatsApp Business, Instagram, TikTok, Facebook\n2. Siapkan Quick Reply WhatsApp untuk syarat lepas kunci & paket supir\n3. Aktifkan auto-greeting penjemputan Bandara & Ferry.
+LOCATION:WhatsApp Business & Media Sosial
+STATUS:CONFIRMED
+BEGIN:VALARM
+TRIGGER:-PT15M
+ACTION:DISPLAY
+DESCRIPTION:Pengingat: Setup WA Business & Link Bio
+END:VALARM
+END:VEVENT
+
+BEGIN:VEVENT
+UID:latravel-event-5-20261016@latravelbatam.com
+DTSTAMP:20261005T024900Z
+DTSTART:20261016T140000
+DTEND:20261016T150000
+SUMMARY:⚙️ Uji Operasional Admin Portal CMS L.A Travel
+DESCRIPTION:1. Login ke https://latravelbatam.com/admin\n2. Uji coba ubah tarif sewa mobil (simulasi high season)\n3. Uji coba ganti status mobil (Tersedia / Tersewa)\n4. Uji coba update banner promo.
+LOCATION:https://latravelbatam.com/admin
+STATUS:CONFIRMED
+BEGIN:VALARM
+TRIGGER:-PT15M
+ACTION:DISPLAY
+DESCRIPTION:Pengingat: Simulasi Admin CMS Portal
+END:VALARM
+END:VEVENT
+
+BEGIN:VEVENT
+UID:latravel-event-6-20261020@latravelbatam.com
+DTSTAMP:20261005T024900Z
+DTSTART:20261020T100000
+DTEND:20261020T113000
+SUMMARY:📊 Evaluasi Kunjungan Website & Rencana Google Ads
+DESCRIPTION:1. Buka dashboard Google Analytics & Search Console\n2. Analisis kata kunci pencarian yang paling banyak mendatangkan klik\n3. Evaluasi konversi klik WhatsApp\n4. Rencanakan kampanye Google Ads pencarian Batam.
+LOCATION:https://search.google.com
+STATUS:CONFIRMED
+BEGIN:VALARM
+TRIGGER:-PT15M
+ACTION:DISPLAY
+DESCRIPTION:Pengingat: Evaluasi Analitik & Iklan
+END:VALARM
+END:VEVENT
+
+END:VCALENDAR
