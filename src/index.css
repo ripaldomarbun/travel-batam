@@ -22,6 +22,12 @@
   }
 
   html.light {
+    --bg-main: #F5F5F7;
+    --bg-surface: rgba(255, 255, 255, 0.85);
+    --bg-surface-elevated: #FFFFFF;
+    --border-subtle: rgba(0, 0, 0, 0.1);
+    --text-primary: #1D1D1F;
+    --text-muted: #6E6E73;
     color-scheme: light;
     background-color: #F5F5F7;
     color: #1D1D1F;

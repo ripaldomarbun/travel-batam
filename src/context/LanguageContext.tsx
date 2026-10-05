@@ -301,15 +301,46 @@ interface LanguageContextType {
 
 const LanguageContext = createContext<LanguageContextType | undefined>(undefined);
 
-export const LanguageProvider: React.FC<{ children: React.ReactNode }> = ({ children }) => {
-  const [language, setLanguageState] = useState<Language>(() => {
-    try {
-      const saved = localStorage.getItem('la_transport_lang');
-      return (saved === 'en' || saved === 'id') ? saved : 'id';
-    } catch {
-      return 'id';
+function getInitialLanguage(): Language {
+  try {
+    // 1. Jika pengunjung pernah memilih bahasa secara manual sebelumnya
+    const saved = localStorage.getItem('la_transport_lang');
+    if (saved === 'en' || saved === 'id') {
+      return saved;
     }
-  });
+
+    // 2. Deteksi otomatis dari preferensi bahasa browser/perangkat
+    if (typeof navigator !== 'undefined') {
+      const browserLanguages = navigator.languages && navigator.languages.length > 0
+        ? navigator.languages
+        : [navigator.language || ''];
+
+      // Jika perangkat menggunakan Bahasa Indonesia (id, id-ID, id-*, dll) -> gunakan Bahasa Indonesia
+      const isIndonesian = browserLanguages.some((lang) =>
+        lang && lang.toLowerCase().startsWith('id')
+      );
+
+      if (isIndonesian) {
+        return 'id';
+      }
+
+      // Jika turis asing / internasional (Singapura en-SG, Malaysia en-MY, global tourist) -> otomatis Bahasa Inggris
+      return 'en';
+    }
+  } catch {
+    // fallback safe
+  }
+  return 'id';
+}
+
+export const LanguageProvider: React.FC<{ children: React.ReactNode }> = ({ children }) => {
+  const [language, setLanguageState] = useState<Language>(getInitialLanguage);
+
+  useEffect(() => {
+    if (typeof document !== 'undefined') {
+      document.documentElement.lang = language;
+    }
+  }, [language]);
 
   const setLanguage = (lang: Language) => {
     setLanguageState(lang);
