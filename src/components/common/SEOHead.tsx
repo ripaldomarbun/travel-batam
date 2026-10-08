@@ -75,12 +75,12 @@ export const SEOHead: React.FC<SEOHeadProps> = ({
 
     // 3. Tampilan Halaman Utama / Katalog Umum (Schema.org TravelAgency / AutoRental)
     const defaultTitle = isEn
-      ? 'L.A Travel Batam – Premium Car Rental & Travel in Batam Island'
-      : 'L.A Travel Batam | Rental Mobil & Travel Terpercaya di Batam';
+      ? 'Batam Car Rental with Driver & Self Drive | L.A Travel Batam'
+      : 'Rental Mobil Batam Lepas Kunci & Include Supir | L.A Travel Batam';
 
     const defaultDescription = isEn
-      ? 'Top-rated car rental and tour travel in Batam. Rent Toyota Alphard VIP, Innova Zenix, Veloz, HiAce. Self-drive or with polite English-speaking chauffeur. Free airport & ferry pickup!'
-      : 'Pusat sewa dan rental mobil terbaik di Batam. Pilihan unit prima (Innova, Alphard VIP, Veloz, HiAce), lepas kunci atau dengan supir ramah. Reservasi cepat via WhatsApp!';
+      ? 'Premier Batam car rental with polite English-speaking driver & self-drive options. Luxury Alphard VIP, Innova Zenix Hybrid, Veloz, HiAce. Free ferry terminal & airport delivery!'
+      : 'Rental mobil Batam lepas kunci 24 jam murah & sewa mobil include supir VIP. Unit Alphard, Innova Zenix, Veloz, HiAce. Gratis antar-jemput Pelabuhan Ferry & Bandara Batam!';
 
     injectDynamicSEO({
       title: customTitle || defaultTitle,

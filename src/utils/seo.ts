@@ -240,9 +240,10 @@ export function generateTravelAgencyJsonLd() {
     'url': origin,
     'logo': `${origin}/favicon.svg`,
     'image': `${origin}/images/hero_la_transport_1790686468335.jpg`,
-    'description': 'Layanan rental mobil premium dan travel wisata terpercaya di Batam. Pilihan unit prima (Innova Zenix, Alphard VIP, Veloz, HiAce) lepas kunci atau dengan supir.',
+    'description': 'Layanan rental mobil Batam lepas kunci 24 jam murah & sewa mobil include supir VIP. Unit prima Alphard, Innova Zenix Hybrid, Veloz, HiAce. Gratis antar-jemput Pelabuhan Ferry & Bandara Hang Nadim!',
+    'keywords': 'rental mobil batam, sewa mobil batam, rental mobil batam lepas kunci, batam car rental with driver, private driver batam, sewa zenix batam, rental alphard batam, sewa mobil batam murah',
     'telephone': '+6287797631578',
-    'priceRange': 'Rp 450.000 - Rp 2.500.000',
+    'priceRange': 'Rp 300.000 - Rp 3.200.000',
     'currenciesAccepted': 'IDR, SGD',
     'paymentAccepted': 'Cash, Bank Transfer, QRIS, PayNow',
     'areaServed': [

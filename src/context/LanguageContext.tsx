@@ -94,10 +94,10 @@ const translations: Record<Language, Translations> = {
       chatAdmin: 'Chat WhatsApp'
     },
     hero: {
-      badge: 'Rental Mobil #1 Pilihan Wisatawan & Pebisnis di Batam',
-      titlePart1: 'Rental Mobil Premium & Nyaman di ',
-      titleHighlight: 'Kota Batam',
-      subtitle: 'Pilihan armada prima mulai dari Alphard VIP, Innova Zenix Hybrid, hingga mobil keluarga hemat. Siap antar-jemput di Bandara Hang Nadim & seluruh Pelabuhan Ferry Batam (Harbour Bay & Batam Center).',
+      badge: 'Rental Mobil Batam #1 – Lepas Kunci 24 Jam & Include Supir',
+      titlePart1: 'Rental Mobil Batam Lepas Kunci & ',
+      titleHighlight: 'Include Supir',
+      subtitle: 'Pusat sewa & rental mobil terbaik di Batam. Pilihan unit prima mulai Alphard VIP, Innova Zenix Hybrid, Veloz, hingga HiAce. Gratis antar-jemput di Bandara Hang Nadim & seluruh Pelabuhan Ferry (Batam Center & Harbour Bay).',
       ctaWhatsapp: 'Hubungi via WhatsApp',
       ctaCatalog: 'Lihat Daftar Armada',
       freePickup: 'Antar-Jemput Gratis',
@@ -201,10 +201,10 @@ const translations: Record<Language, Translations> = {
       chatAdmin: 'Chat WhatsApp'
     },
     hero: {
-      badge: '#1 Car Rental Choice for Tourists & Business Travelers in Batam',
-      titlePart1: 'Premium & Reliable Car Rental in ',
-      titleHighlight: 'Batam Island',
-      subtitle: 'Premium fleet including Toyota Alphard VIP, Innova Zenix Hybrid, and economical family MPVs. Free pickup & delivery at Hang Nadim Airport and International Ferry Terminals (Harbour Bay & Batam Center).',
+      badge: '#1 Batam Car Rental with Driver & Self-Drive Options',
+      titlePart1: 'Batam Car Rental with Driver & ',
+      titleHighlight: 'Self Drive',
+      subtitle: 'Premier private car hire & chauffeur service in Batam Island. Modern Toyota Alphard VIP, Innova Zenix Hybrid, MPVs & HiAce vans. Free delivery at Batam Center & Harbour Bay ferry terminals and Airport.',
       ctaWhatsapp: 'Book via WhatsApp',
       ctaCatalog: 'Explore Fleet',
       freePickup: 'Free Delivery / Pickup',
