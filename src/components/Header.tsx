@@ -1,5 +1,5 @@
 import React, { useEffect, useState } from 'react';
-import { MessageCircle, Sun, Moon, Menu, X, Car, ShieldCheck, FileText, Phone, MapPin, HelpCircle } from 'lucide-react';
+import { MessageCircle, Sun, Moon, Menu, X, Car, ShieldCheck, FileText, Phone, MapPin, HelpCircle, Compass } from 'lucide-react';
 import { useLanguage } from '../context/LanguageContext';
 import { useTheme } from '../context/ThemeContext';
 import { useFleet } from '../context/FleetContext';
@@ -72,6 +72,9 @@ export const Header: React.FC = () => {
         <nav className="hidden md:flex items-center gap-7 text-[13px] font-semibold text-slate-700 dark:text-neutral-300">
           <a href="#armada" className="hover:text-black dark:hover:text-[#D4AF37] transition-colors">
             {t.nav.cars}
+          </a>
+          <a href="#paket-wisata" className="hover:text-black dark:hover:text-[#D4AF37] transition-colors">
+            {t.nav.services}
           </a>
           <a href="#area-layanan" className="hover:text-black dark:hover:text-[#D4AF37] transition-colors">
             {t.nav.coverage}
@@ -195,6 +198,17 @@ export const Header: React.FC = () => {
                   <Car className="w-4 h-4" />
                 </div>
                 <span>{t.nav.cars} (Alphard, Zenix, Avanza, HiAce)</span>
+              </a>
+
+              <a
+                href="#paket-wisata"
+                onClick={() => setIsMobileMenuOpen(false)}
+                className="flex items-center gap-3 p-3 rounded-xl bg-slate-50 dark:bg-[#1A1A1A] hover:bg-slate-100 dark:hover:bg-[#252525] text-sm font-semibold text-slate-900 dark:text-white transition-colors"
+              >
+                <div className="w-8 h-8 rounded-lg bg-[#D4AF37]/15 flex items-center justify-center text-[#B8860B] dark:text-[#D4AF37]">
+                  <Compass className="w-4 h-4" />
+                </div>
+                <span>{t.nav.services} (Lepas Kunci & Tour Batam)</span>
               </a>
 
               <a

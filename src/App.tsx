@@ -10,6 +10,7 @@ import { FleetProvider } from './context/FleetContext';
 import { Header } from './components/Header';
 import { Hero } from './components/Hero';
 import { CarCatalog } from './components/CarCatalog';
+import { RentalPackagesAndGuide } from './components/RentalPackagesAndGuide';
 import { WhyUs } from './components/WhyUs';
 import { CoverageArea } from './components/CoverageArea';
 import { FAQSection } from './components/FAQSection';
@@ -95,10 +96,11 @@ export default function App() {
               {/* 1-Row 3-Zone Clean Header with zero admin buttons visible to the public */}
               <Header />
 
-              {/* Main Content Flow: Proposition -> Catalog -> Coverage -> Proof -> FAQ */}
+              {/* Main Content Flow: Proposition -> Catalog -> Packages/Tours -> Coverage -> Proof -> FAQ */}
               <main className="flex-1">
                 <Hero />
                 <CarCatalog />
+                <RentalPackagesAndGuide />
                 <CoverageArea />
                 <WhyUs />
                 <FAQSection />

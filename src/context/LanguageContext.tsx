@@ -86,7 +86,7 @@ const translations: Record<Language, Translations> = {
   id: {
     nav: {
       cars: 'Katalog Armada',
-      services: 'Pilihan Layanan',
+      services: 'Paket & Wisata',
       coverage: 'Area Layanan',
       whyUs: 'Keunggulan',
       terms: 'Syarat Sewa',
@@ -193,7 +193,7 @@ const translations: Record<Language, Translations> = {
   en: {
     nav: {
       cars: 'Fleet Catalog',
-      services: 'Services',
+      services: 'Packages & Tours',
       coverage: 'Service Areas',
       whyUs: 'Why Choose Us',
       terms: 'Requirements',
