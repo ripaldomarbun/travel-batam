@@ -309,6 +309,16 @@ const LanguageContext = createContext<LanguageContextType | undefined>(undefined
 
 function getInitialLanguage(): Language {
   try {
+    // 0. Cek parameter URL (?lang=id atau ?lang=en) untuk canonical / hreflang target
+    if (typeof window !== 'undefined' && window.location.search) {
+      const params = new URLSearchParams(window.location.search);
+      const urlLang = params.get('lang')?.toLowerCase();
+      if (urlLang === 'id' || urlLang === 'en') {
+        try { localStorage.setItem('la_transport_lang', urlLang); } catch {}
+        return urlLang;
+      }
+    }
+
     // 1. Jika pengunjung pernah memilih bahasa secara manual sebelumnya
     const saved = localStorage.getItem('la_transport_lang');
     if (saved === 'en' || saved === 'id') {
