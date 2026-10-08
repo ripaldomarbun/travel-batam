@@ -49,7 +49,7 @@ export const WhyUs: React.FC = () => {
         </div>
 
         {/* Short Rental Requirements Box */}
-        <div id="faq" className="mt-16 p-5 sm:p-8 lg:p-10 rounded-2xl sm:rounded-3xl apple-glass border border-black/5 dark:border-white/10 shadow-lg">
+        <div id="syarat" className="mt-16 p-5 sm:p-8 lg:p-10 rounded-2xl sm:rounded-3xl apple-glass border border-black/5 dark:border-white/10 shadow-lg">
           <div className="grid grid-cols-1 lg:grid-cols-3 gap-8 items-center">
             <div className="lg:col-span-2">
               <span className="text-xs text-[#B8860B] dark:text-[#D4AF37] font-bold tracking-wider uppercase caption-label">
