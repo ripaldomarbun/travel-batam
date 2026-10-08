@@ -86,7 +86,7 @@ export const SEOHead: React.FC<SEOHeadProps> = ({
       title: customTitle || defaultTitle,
       description: customDescription || defaultDescription,
       canonicalPath: canonicalPath || '/',
-      imageUrl: '/images/hero_la_transport_1790686468335.jpg',
+      imageUrl: '/images/og_share_preview.jpg',
       type: pageType,
       lang: language
     });

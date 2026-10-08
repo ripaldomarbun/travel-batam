@@ -428,7 +428,7 @@ export function injectDynamicSEO({
 
   // 7. Dynamic Open Graph & Twitter Image (Pastikan selalu Absolute URL)
   // Nilai default/fallback resmi jika halaman beranda dibagikan
-  const defaultCoverImage = `${origin}/images/hero_la_transport_1790686468335.jpg`;
+  const defaultCoverImage = `${origin}/images/og_share_preview.jpg`;
   let targetImageUrl = defaultCoverImage;
 
   if (imageUrl && imageUrl.trim().length > 0) {
@@ -439,11 +439,17 @@ export function injectDynamicSEO({
 
   setMeta('property', 'og:image', targetImageUrl);
   setMeta('property', 'og:image:secure_url', targetImageUrl);
+  setMeta('property', 'og:image:type', 'image/jpeg');
   setMeta('property', 'og:image:alt', title);
   setMeta('property', 'og:image:width', '1200');
   setMeta('property', 'og:image:height', '630');
   setMeta('name', 'twitter:image', targetImageUrl);
   setMeta('name', 'twitter:image:alt', title);
+
+  setLink('link[rel="image_src"]', {
+    rel: 'image_src',
+    href: targetImageUrl
+  });
 
   // 8. Canonical & og:url: Bersihkan parameter filter query (misal ?sort=price, ?filter=vip)
   const currentPath = canonicalPath !== undefined 
