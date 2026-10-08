@@ -11,6 +11,8 @@ import { Header } from './components/Header';
 import { Hero } from './components/Hero';
 import { CarCatalog } from './components/CarCatalog';
 import { WhyUs } from './components/WhyUs';
+import { CoverageArea } from './components/CoverageArea';
+import { FAQSection } from './components/FAQSection';
 import { Footer } from './components/Footer';
 import { FloatingWhatsApp } from './components/FloatingWhatsApp';
 import { MobileBottomBar } from './components/common/MobileBottomBar';
@@ -93,11 +95,13 @@ export default function App() {
               {/* 1-Row 3-Zone Clean Header with zero admin buttons visible to the public */}
               <Header />
 
-              {/* Main Content Flow: Proposition -> Catalog -> Proof */}
+              {/* Main Content Flow: Proposition -> Catalog -> Coverage -> Proof -> FAQ */}
               <main className="flex-1">
                 <Hero />
                 <CarCatalog />
+                <CoverageArea />
                 <WhyUs />
+                <FAQSection />
               </main>
 
               {/* Clean Professional Public Footer (Zero Admin Links) */}

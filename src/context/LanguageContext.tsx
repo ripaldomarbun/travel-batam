@@ -7,7 +7,9 @@ interface Translations {
     cars: string;
     services: string;
     whyUs: string;
+    coverage: string;
     terms: string;
+    faq: string;
     chatAdmin: string;
   };
   hero: {
@@ -85,8 +87,10 @@ const translations: Record<Language, Translations> = {
     nav: {
       cars: 'Katalog Armada',
       services: 'Pilihan Layanan',
+      coverage: 'Area Layanan',
       whyUs: 'Keunggulan',
-      terms: 'Syarat & Ketentuan',
+      terms: 'Syarat Sewa',
+      faq: 'FAQ & Bantuan',
       chatAdmin: 'Chat WhatsApp'
     },
     hero: {
@@ -190,8 +194,10 @@ const translations: Record<Language, Translations> = {
     nav: {
       cars: 'Fleet Catalog',
       services: 'Services',
+      coverage: 'Service Areas',
       whyUs: 'Why Choose Us',
       terms: 'Requirements',
+      faq: 'FAQ',
       chatAdmin: 'Chat WhatsApp'
     },
     hero: {

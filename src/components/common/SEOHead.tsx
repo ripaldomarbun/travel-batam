@@ -1,7 +1,7 @@
 import React, { useEffect } from 'react';
 import { useLanguage } from '../../context/LanguageContext';
 import { useFleet } from '../../context/FleetContext';
-import { injectDynamicSEO, injectJsonLd, generateTouristTripJsonLd, generateTravelAgencyJsonLd } from '../../utils/seo';
+import { injectDynamicSEO, injectJsonLd, generateTouristTripJsonLd, generateTravelAgencyJsonLd, generateFaqJsonLd } from '../../utils/seo';
 
 interface SEOHeadProps {
   customTitle?: string;
@@ -94,6 +94,10 @@ export const SEOHead: React.FC<SEOHeadProps> = ({
     // Suntikkan Schema.org TravelAgency / AutoRental
     const agencySchema = generateTravelAgencyJsonLd();
     injectJsonLd(agencySchema, 'json-ld-tourist-trip');
+
+    // Suntikkan Schema.org FAQPage untuk memicu Google FAQ Rich Snippets
+    const faqSchema = generateFaqJsonLd(language);
+    injectJsonLd(faqSchema, 'json-ld-faq');
   }, [language, selectedCarForDetail, customTitle, customDescription, canonicalPath, pageType]);
 
   return null;

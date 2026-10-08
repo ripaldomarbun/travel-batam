@@ -287,6 +287,70 @@ export function generateTravelAgencyJsonLd() {
 }
 
 /**
+ * Schema.org FAQPage JSON-LD untuk memicu Google FAQ Rich Snippets
+ * (Menampilkan accordion tanya-jawab langsung di hasil pencarian Google)
+ */
+export function generateFaqJsonLd(lang: 'id' | 'en' = 'id') {
+  const isEn = lang === 'en';
+
+  const faqItems = [
+    {
+      q: isEn
+        ? 'How much are the daily car rental rates in Batam?'
+        : 'Berapa tarif harga sewa / rental mobil di Batam per hari?',
+      a: isEn
+        ? 'Car rental rates at L.A Travel Batam start from IDR 300,000 / day (~SGD 25) for compact city cars (Toyota Agya, Honda Brio), IDR 350,000 to IDR 450,000 / day for family MPVs (Toyota Avanza, Daihatsu Xenia), up to IDR 1,100,000 for Innova Zenix Hybrid and IDR 3,200,000 for luxury Toyota Alphard VIP. Available for 24-hour self-drive or with professional chauffeur and fuel.'
+        : 'Tarif sewa mobil di L.A Travel Batam mulai dari Rp 300.000 / hari untuk City Car (Toyota Agya, Honda Brio), Rp 350.000 – Rp 450.000 / hari untuk Family MPV (Avanza, Xenia), hingga Rp 1.100.000 untuk Innova Zenix Hybrid dan Rp 3.200.000 / hari untuk Toyota Alphard VIP. Pilihan lepas kunci 24 jam atau include supir & BBM.'
+    },
+    {
+      q: isEn
+        ? 'What are the requirements for self-drive car rental in Batam?'
+        : 'Apa saja syarat sewa mobil lepas kunci di Batam?',
+      a: isEn
+        ? 'Self-drive rental requirements are simple with a 15-minute fast online verification via WhatsApp. Domestic visitors only need National ID (KTP), Driving License (SIM A), flight/ferry tickets to Batam, and hotel voucher. International tourists (Singapore/Malaysia) provide Passport, Home/International Driving License, and Ferry tickets.'
+        : 'Syarat sewa lepas kunci di L.A Travel Batam cepat dan praktis (verifikasi 15 menit). Wisatawan/tamu luar kota: Foto KTP asli, SIM A aktif, bukti tiket pesawat/ferry tiba di Batam, dan bukti booking hotel. Turis Singapura/Malaysia: Paspor, SIM asal/Internasional, dan tiket ferry PP.'
+    },
+    {
+      q: isEn
+        ? 'Is free pickup and return available at ferry terminals and the airport?'
+        : 'Apakah melayani antar-jemput gratis di Pelabuhan Ferry dan Bandara Hang Nadim?',
+      a: isEn
+        ? 'Yes, 100% FREE! We provide complimentary vehicle drop-off and pickup across all major terminals in Batam: Hang Nadim Airport (BTH), Batam Center Ferry Terminal, Harbour Bay Ferry Terminal, Sekupang, Nongsapura, and all hotels in Nagoya.'
+        : 'Ya, 100% GRATIS! Kami menyediakan layanan antar dan jemput mobil langsung di Bandara Hang Nadim (BTH), Pelabuhan Ferry Batam Center, Pelabuhan Ferry Harbour Bay, Sekupang, Nongsapura, serta seluruh hotel di Nagoya dan Batam Kota.'
+    },
+    {
+      q: isEn
+        ? 'How can tourists from Singapore & Malaysia rent a car easily in Batam?'
+        : 'Bagaimana cara turis dari Singapura & Malaysia menyewa mobil di Batam?',
+      a: isEn
+        ? 'Tourists from Singapore & Malaysia can reserve easily via WhatsApp in advance. We accept PayNow, bank transfers, and cash SGD & IDR upon arrival. Our team will meet you right outside the ferry arrival hall with the car clean and ready to go.'
+        : 'Sangat mudah! Wisatawan dari Singapura & Malaysia dapat booking via WhatsApp sebelum berangkat. Kami menerima pembayaran PayNow, transfer, serta cash IDR & SGD saat mobil diserahkan di pelabuhan Harbour Bay atau Batam Center.'
+    },
+    {
+      q: isEn
+        ? 'Is chauffeur-driven service available for executive business and VIPs in Batam?'
+        : 'Apakah tersedia sewa mobil dengan supir profesional untuk dinas / VIP di Batam?',
+      a: isEn
+        ? 'Yes, we provide executive chauffeur services with polite, punctual, and well-dressed drivers. Executive fleet includes Toyota Alphard VIP, Innova Zenix Hybrid, Fortuner GR Sport, and Toyota HiAce Commuter (14-16 seats) for delegations and corporate trips.'
+        : 'Ya, kami menyediakan paket mobil dengan supir profesional berpengalaman dan berpakaian rapi. Pilihan unit eksekutif meliputi Toyota Alphard VIP, Innova Zenix Hybrid, Fortuner GR Sport, serta Toyota HiAce Commuter (14–16 seat) untuk dinas dan rombongan.'
+    }
+  ];
+
+  return {
+    '@context': 'https://schema.org',
+    '@type': 'FAQPage',
+    'mainEntity': faqItems.map((item) => ({
+      '@type': 'Question',
+      'name': item.q,
+      'acceptedAnswer': {
+        '@type': 'Answer',
+        'text': item.a
+      }
+    }))
+  };
+}
+
+/**
  * Menyuntikkan skrip JSON-LD Schema Markup secara aman ke dalam <head>
  */
 export function injectJsonLd(schemaData: object, scriptId: string = 'json-ld-seo'): void {
