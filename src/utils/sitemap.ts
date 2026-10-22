@@ -33,7 +33,7 @@ export function generateSitemapXml(carsList?: ExtendedCar[], baseUrl: string = '
     ? carsList 
     : (defaultCarsData as ExtendedCar[]);
 
-  // 1. Halaman Statis Utama Website
+  // 1. Halaman Statis Utama Website (Real URLs tanpa # agar diindeks Google)
   const staticPages: SitemapUrlEntry[] = [
     {
       loc: `${baseUrl}/`,
@@ -49,55 +49,55 @@ export function generateSitemapXml(carsList?: ExtendedCar[], baseUrl: string = '
       ]
     },
     {
-      loc: `${baseUrl}/#armada`,
+      loc: `${baseUrl}/rental-mobil-batam-lepas-kunci`,
       lastmod: todayIso,
       changefreq: 'daily',
+      priority: '0.95',
+      title: 'Rental Mobil Batam Lepas Kunci 24 Jam Murah',
+      alternateHreflang: [
+        { hreflang: 'id-ID', href: `${baseUrl}/rental-mobil-batam-lepas-kunci` },
+        { hreflang: 'en-SG', href: `${baseUrl}/batam-car-rental-with-driver` },
+        { hreflang: 'en-MY', href: `${baseUrl}/batam-car-rental-with-driver` },
+        { hreflang: 'x-default', href: `${baseUrl}/rental-mobil-batam-lepas-kunci` }
+      ]
+    },
+    {
+      loc: `${baseUrl}/sewa-mobil-supir-batam`,
+      lastmod: todayIso,
+      changefreq: 'daily',
+      priority: '0.95',
+      title: 'Sewa Mobil Batam Include Supir & BBM Murah',
+      alternateHreflang: [
+        { hreflang: 'id-ID', href: `${baseUrl}/sewa-mobil-supir-batam` },
+        { hreflang: 'en-SG', href: `${baseUrl}/batam-car-rental-with-driver` },
+        { hreflang: 'en-MY', href: `${baseUrl}/batam-car-rental-with-driver` },
+        { hreflang: 'x-default', href: `${baseUrl}/sewa-mobil-supir-batam` }
+      ]
+    },
+    {
+      loc: `${baseUrl}/antar-jemput-bandara-hang-nadim-batam`,
+      lastmod: todayIso,
+      changefreq: 'weekly',
       priority: '0.9',
-      title: 'Katalog Armada & Paket Wisata Batam',
+      title: 'Rental Mobil Bandara Hang Nadim & Pelabuhan Ferry Batam',
       alternateHreflang: [
-        { hreflang: 'id-ID', href: `${baseUrl}/#armada?lang=id` },
-        { hreflang: 'en-SG', href: `${baseUrl}/#armada?lang=en` },
-        { hreflang: 'en-MY', href: `${baseUrl}/#armada?lang=en` },
-        { hreflang: 'x-default', href: `${baseUrl}/#armada` }
+        { hreflang: 'id-ID', href: `${baseUrl}/antar-jemput-bandara-hang-nadim-batam` },
+        { hreflang: 'en-SG', href: `${baseUrl}/batam-car-rental-with-driver` },
+        { hreflang: 'en-MY', href: `${baseUrl}/batam-car-rental-with-driver` },
+        { hreflang: 'x-default', href: `${baseUrl}/antar-jemput-bandara-hang-nadim-batam` }
       ]
     },
     {
-      loc: `${baseUrl}/#keunggulan`,
+      loc: `${baseUrl}/batam-car-rental-with-driver`,
       lastmod: todayIso,
       changefreq: 'weekly',
-      priority: '0.8',
-      title: 'Tentang Kami & Keunggulan Layanan',
+      priority: '0.9',
+      title: 'Batam Car Rental with Driver & Self Drive (Ferry Terminal Pickup)',
       alternateHreflang: [
-        { hreflang: 'id-ID', href: `${baseUrl}/#keunggulan?lang=id` },
-        { hreflang: 'en-SG', href: `${baseUrl}/#keunggulan?lang=en` },
-        { hreflang: 'en-MY', href: `${baseUrl}/#keunggulan?lang=en` },
-        { hreflang: 'x-default', href: `${baseUrl}/#keunggulan` }
-      ]
-    },
-    {
-      loc: `${baseUrl}/#syarat`,
-      lastmod: todayIso,
-      changefreq: 'weekly',
-      priority: '0.8',
-      title: 'Syarat & Ketentuan Rental Lepas Kunci dan Supir',
-      alternateHreflang: [
-        { hreflang: 'id-ID', href: `${baseUrl}/#syarat?lang=id` },
-        { hreflang: 'en-SG', href: `${baseUrl}/#syarat?lang=en` },
-        { hreflang: 'en-MY', href: `${baseUrl}/#syarat?lang=en` },
-        { hreflang: 'x-default', href: `${baseUrl}/#syarat` }
-      ]
-    },
-    {
-      loc: `${baseUrl}/#kontak`,
-      lastmod: todayIso,
-      changefreq: 'monthly',
-      priority: '0.7',
-      title: 'Kontak WhatsApp & Lokasi Kantor Nagoya Batam',
-      alternateHreflang: [
-        { hreflang: 'id-ID', href: `${baseUrl}/#kontak?lang=id` },
-        { hreflang: 'en-SG', href: `${baseUrl}/#kontak?lang=en` },
-        { hreflang: 'en-MY', href: `${baseUrl}/#kontak?lang=en` },
-        { hreflang: 'x-default', href: `${baseUrl}/#kontak` }
+        { hreflang: 'en-SG', href: `${baseUrl}/batam-car-rental-with-driver` },
+        { hreflang: 'en-MY', href: `${baseUrl}/batam-car-rental-with-driver` },
+        { hreflang: 'id-ID', href: `${baseUrl}/sewa-mobil-supir-batam` },
+        { hreflang: 'x-default', href: `${baseUrl}/batam-car-rental-with-driver` }
       ]
     }
   ];
@@ -106,15 +106,15 @@ export function generateSitemapXml(carsList?: ExtendedCar[], baseUrl: string = '
   const carPackagePages: SitemapUrlEntry[] = activeCars
     .filter((car) => car.isAvailable !== false) // hanya mobil yang aktif
     .map((car) => {
-      const packageUrl = `${baseUrl}/#detail-${car.id}`;
+      const packageUrl = `${baseUrl}/armada/${car.id}`;
       return {
         loc: packageUrl,
         lastmod: todayIso,
         changefreq: 'weekly',
-        priority: car.popular ? '0.9' : '0.8',
+        priority: car.popular ? '0.9' : '0.85',
         title: `Paket Rental ${car.name} (${car.category})`,
         alternateHreflang: [
-          { hreflang: 'id-ID', href: `${packageUrl}?lang=id` },
+          { hreflang: 'id-ID', href: packageUrl },
           { hreflang: 'en-SG', href: `${packageUrl}?lang=en` },
           { hreflang: 'en-MY', href: `${packageUrl}?lang=en` },
           { hreflang: 'x-default', href: packageUrl }

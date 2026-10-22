@@ -34,8 +34,8 @@ export const SEOHead: React.FC<SEOHeadProps> = ({
       const price = selectedCarForDetail.price_start_from;
 
       const dynamicTitle = isEn
-        ? `Rent ${carName} in Batam (${category}) | L.A Transport`
-        : `Sewa ${carName} di Batam (${category}) | L.A Transport Batam`;
+        ? `Rent ${carName} in Batam (${category}) – From ${price} | L.A Transport Batam`
+        : `Sewa ${carName} di Batam (${category}) Mulai ${price} | L.A Transport Batam`;
 
       const dynamicDescription = isEn
         ? selectedCarForDetail.description_en ||
@@ -43,11 +43,11 @@ export const SEOHead: React.FC<SEOHeadProps> = ({
         : selectedCarForDetail.description_id ||
           `Sewa ${carName} di Batam mulai dari ${price}/hari. Tersedia pilihan lepas kunci atau dengan supir profesional L.A Transport. Gratis antar-jemput bandara & pelabuhan!`;
 
-      // Suntikkan Dynamic Head SEO
+      // Suntikkan Dynamic Head SEO dengan canonical URL spesifik armada
       injectDynamicSEO({
         title: customTitle || dynamicTitle,
         description: customDescription || dynamicDescription,
-        canonicalPath: canonicalPath || '/',
+        canonicalPath: canonicalPath || `/armada/${selectedCarForDetail.id}`,
         imageUrl: selectedCarForDetail.image_url,
         type: 'article',
         lang: language
@@ -73,22 +73,53 @@ export const SEOHead: React.FC<SEOHeadProps> = ({
       return;
     }
 
-    // 3. Tampilan Halaman Utama / Katalog Umum (Schema.org TravelAgency / AutoRental)
-    const defaultTitle = isEn
+    // 3. Cek apakah berada di Halaman Landing SEO Spesifik
+    const currentPath = typeof window !== 'undefined' ? window.location.pathname.replace(/\/+$/, '') : '';
+    const seoLandingMap: Record<string, { title: string; desc: string; lang?: 'id' | 'en' }> = {
+      '/rental-mobil-batam-lepas-kunci': {
+        title: 'Rental Mobil Batam Lepas Kunci 24 Jam Murah | L.A Transport Batam',
+        desc: 'Pusat rental mobil Batam lepas kunci 24 jam syarat mudah & harga murah mulai Rp 300.000/hari. Unit Agya, Brio, Avanza, Xpander, Innova Zenix. Gratis antar Bandara & Ferry!',
+        lang: 'id'
+      },
+      '/sewa-mobil-supir-batam': {
+        title: 'Sewa Mobil Include Supir & BBM di Batam (All-In) | L.A Transport Batam',
+        desc: 'Paket sewa mobil dengan supir ramah & BBM (All-In 12 Jam) untuk tour wisata Batam, Jembatan Barelang, Nagoya, & tamu dinas VIP. Unit Alphard, Zenix, Fortuner, HiAce.',
+        lang: 'id'
+      },
+      '/antar-jemput-bandara-hang-nadim-batam': {
+        title: 'Rental Mobil Bandara Hang Nadim & Pelabuhan Ferry Batam | L.A Transport Batam',
+        desc: 'Layanan rental mobil & drop-off antar-jemput gratis di Bandara Internasional Hang Nadim (BTH), Pelabuhan Ferry Batam Center, & Harbour Bay. Standby 24 jam tepat waktu!',
+        lang: 'id'
+      },
+      '/batam-car-rental-with-driver': {
+        title: 'Batam Car Rental with Driver & Self Drive (From SGD 25) | L.A Transport Batam',
+        desc: 'Top-rated Batam car rental with polite English-speaking private driver or 24-hour self-drive. Free pickup at Batam Center & Harbour Bay Ferry Terminals. Book via WhatsApp!',
+        lang: 'en'
+      }
+    };
+
+    const matchedLanding = seoLandingMap[currentPath];
+
+    // 4. Tampilan Halaman Utama / Katalog Umum (Schema.org TravelAgency / AutoRental)
+    const defaultTitle = matchedLanding
+      ? matchedLanding.title
+      : isEn
       ? 'Batam Car Rental with Driver & Self Drive | L.A Transport Batam'
       : 'Rental Mobil Batam Lepas Kunci & Include Supir | L.A Transport Batam';
 
-    const defaultDescription = isEn
+    const defaultDescription = matchedLanding
+      ? matchedLanding.desc
+      : isEn
       ? 'Premier Batam car rental with polite English-speaking driver & self-drive options. Luxury Alphard VIP, Innova Zenix Hybrid, Veloz, HiAce. Free ferry terminal & airport delivery!'
       : 'Rental mobil Batam lepas kunci 24 jam murah & sewa mobil include supir VIP. Unit Alphard, Innova Zenix, Veloz, HiAce. Gratis antar-jemput Pelabuhan Ferry & Bandara Batam!';
 
     injectDynamicSEO({
       title: customTitle || defaultTitle,
       description: customDescription || defaultDescription,
-      canonicalPath: canonicalPath || '/',
+      canonicalPath: canonicalPath || (matchedLanding ? currentPath : '/'),
       imageUrl: '/images/og_share_preview.jpg',
       type: pageType,
-      lang: language
+      lang: matchedLanding?.lang || language
     });
 
     // Suntikkan Schema.org TravelAgency / AutoRental

@@ -32,6 +32,7 @@ interface Translations {
     tag: string;
     title: string;
     subtitle: string;
+    allPackages: string;
     categories: {
       all: string;
       vip: string;
@@ -309,13 +310,18 @@ const LanguageContext = createContext<LanguageContextType | undefined>(undefined
 
 function getInitialLanguage(): Language {
   try {
-    // 0. Cek parameter URL (?lang=id atau ?lang=en) untuk canonical / hreflang target
-    if (typeof window !== 'undefined' && window.location.search) {
-      const params = new URLSearchParams(window.location.search);
-      const urlLang = params.get('lang')?.toLowerCase();
-      if (urlLang === 'id' || urlLang === 'en') {
-        try { localStorage.setItem('la_transport_lang', urlLang); } catch {}
-        return urlLang;
+    // 0. Cek parameter URL (?lang=id atau ?lang=en) atau halaman khusus bahasa Inggris
+    if (typeof window !== 'undefined') {
+      if (window.location.pathname.includes('batam-car-rental')) {
+        return 'en';
+      }
+      if (window.location.search) {
+        const params = new URLSearchParams(window.location.search);
+        const urlLang = params.get('lang')?.toLowerCase();
+        if (urlLang === 'id' || urlLang === 'en') {
+          try { localStorage.setItem('la_transport_lang', urlLang); } catch {}
+          return urlLang;
+        }
       }
     }
 

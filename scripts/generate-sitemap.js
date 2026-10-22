@@ -25,7 +25,7 @@ function escapeXml(unsafe) {
   });
 }
 
-// 1. Static Pages
+// 1. Dedicated SEO Landing Pages (Real Clean URLs without #)
 const staticPages = [
   {
     loc: `${baseUrl}/`,
@@ -40,65 +40,61 @@ const staticPages = [
     ]
   },
   {
-    loc: `${baseUrl}/#armada`,
+    loc: `${baseUrl}/rental-mobil-batam-lepas-kunci`,
     lastmod: todayIso,
     changefreq: 'daily',
-    priority: '0.9',
+    priority: '0.95',
     alternateHreflang: [
-      { hreflang: 'id-ID', href: `${baseUrl}/#armada?lang=id` },
-      { hreflang: 'en-SG', href: `${baseUrl}/#armada?lang=en` },
-      { hreflang: 'en-MY', href: `${baseUrl}/#armada?lang=en` },
-      { hreflang: 'x-default', href: `${baseUrl}/#armada` }
+      { hreflang: 'id-ID', href: `${baseUrl}/rental-mobil-batam-lepas-kunci` },
+      { hreflang: 'en-SG', href: `${baseUrl}/batam-car-rental-with-driver` },
+      { hreflang: 'x-default', href: `${baseUrl}/rental-mobil-batam-lepas-kunci` }
     ]
   },
   {
-    loc: `${baseUrl}/#keunggulan`,
+    loc: `${baseUrl}/sewa-mobil-supir-batam`,
+    lastmod: todayIso,
+    changefreq: 'daily',
+    priority: '0.95',
+    alternateHreflang: [
+      { hreflang: 'id-ID', href: `${baseUrl}/sewa-mobil-supir-batam` },
+      { hreflang: 'en-SG', href: `${baseUrl}/batam-car-rental-with-driver` },
+      { hreflang: 'x-default', href: `${baseUrl}/sewa-mobil-supir-batam` }
+    ]
+  },
+  {
+    loc: `${baseUrl}/antar-jemput-bandara-hang-nadim-batam`,
     lastmod: todayIso,
     changefreq: 'weekly',
-    priority: '0.8',
+    priority: '0.90',
     alternateHreflang: [
-      { hreflang: 'id-ID', href: `${baseUrl}/#keunggulan?lang=id` },
-      { hreflang: 'en-SG', href: `${baseUrl}/#keunggulan?lang=en` },
-      { hreflang: 'en-MY', href: `${baseUrl}/#keunggulan?lang=en` },
-      { hreflang: 'x-default', href: `${baseUrl}/#keunggulan` }
+      { hreflang: 'id-ID', href: `${baseUrl}/antar-jemput-bandara-hang-nadim-batam` },
+      { hreflang: 'x-default', href: `${baseUrl}/antar-jemput-bandara-hang-nadim-batam` }
     ]
   },
   {
-    loc: `${baseUrl}/#syarat`,
+    loc: `${baseUrl}/batam-car-rental-with-driver`,
     lastmod: todayIso,
-    changefreq: 'weekly',
-    priority: '0.8',
+    changefreq: 'daily',
+    priority: '0.95',
     alternateHreflang: [
-      { hreflang: 'id-ID', href: `${baseUrl}/#syarat?lang=id` },
-      { hreflang: 'en-SG', href: `${baseUrl}/#syarat?lang=en` },
-      { hreflang: 'en-MY', href: `${baseUrl}/#syarat?lang=en` },
-      { hreflang: 'x-default', href: `${baseUrl}/#syarat` }
-    ]
-  },
-  {
-    loc: `${baseUrl}/#kontak`,
-    lastmod: todayIso,
-    changefreq: 'monthly',
-    priority: '0.7',
-    alternateHreflang: [
-      { hreflang: 'id-ID', href: `${baseUrl}/#kontak?lang=id` },
-      { hreflang: 'en-SG', href: `${baseUrl}/#kontak?lang=en` },
-      { hreflang: 'en-MY', href: `${baseUrl}/#kontak?lang=en` },
-      { hreflang: 'x-default', href: `${baseUrl}/#kontak` }
+      { hreflang: 'en-SG', href: `${baseUrl}/batam-car-rental-with-driver` },
+      { hreflang: 'en-MY', href: `${baseUrl}/batam-car-rental-with-driver` },
+      { hreflang: 'id-ID', href: `${baseUrl}/sewa-mobil-supir-batam` },
+      { hreflang: 'x-default', href: `${baseUrl}/batam-car-rental-with-driver` }
     ]
   }
 ];
 
-// 2. Dynamic Car Tour Packages
+// 2. Dynamic Car Fleet Pages (Real Clean URLs: /armada/<car-id>)
 const carPackagePages = carsData
   .filter((car) => car.isAvailable !== false)
   .map((car) => {
-    const packageUrl = `${baseUrl}/#detail-${car.id}`;
+    const packageUrl = `${baseUrl}/armada/${car.id}`;
     return {
       loc: packageUrl,
       lastmod: todayIso,
       changefreq: 'weekly',
-      priority: car.popular ? '0.9' : '0.8',
+      priority: car.popular ? '0.90' : '0.85',
       alternateHreflang: [
         { hreflang: 'id-ID', href: `${packageUrl}?lang=id` },
         { hreflang: 'en-SG', href: `${packageUrl}?lang=en` },
@@ -142,4 +138,4 @@ ${xmlUrls}
 const publicSitemapPath = path.resolve(__dirname, '../public/sitemap.xml');
 fs.writeFileSync(publicSitemapPath, sitemapContent, 'utf-8');
 
-console.log(`✅ [Sitemap Generator] Berhasil mengenerate sitemap.xml dengan ${allEntries.length} URL ke: ${publicSitemapPath}`);
+console.log(`✅ [Sitemap Generator] Berhasil mengenerate sitemap.xml dengan ${allEntries.length} Real SEO URLs ke: ${publicSitemapPath}`);

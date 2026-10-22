@@ -171,35 +171,54 @@ export const FleetProvider: React.FC<{ children: React.ReactNode }> = ({ childre
     return () => { isMounted = false; };
   }, []);
 
-  // Sync with URL hash (e.g. #detail-toyota-alphard-transformer)
+  // Sync with clean URL path (/armada/toyota-innova-zenix) or hash (#detail-toyota-innova-zenix)
   useEffect(() => {
-    const handleHashChange = () => {
+    const syncRouteToCar = () => {
+      const path = window.location.pathname.replace(/\/+$/, '');
       const hash = window.location.hash;
+
+      if (path.startsWith('/armada/')) {
+        const carId = path.replace('/armada/', '');
+        const matched = cars.find((c) => c.id === carId);
+        if (matched) {
+          setSelectedCarForDetailState(matched);
+          return;
+        }
+      }
+
       if (hash.startsWith('#detail-')) {
         const carId = hash.replace('#detail-', '');
         const matched = cars.find((c) => c.id === carId);
         if (matched) {
           setSelectedCarForDetailState(matched);
+          return;
         }
-      } else if (!hash.startsWith('#detail-') && selectedCarForDetail) {
+      }
+
+      if (selectedCarForDetail) {
         setSelectedCarForDetailState(null);
       }
     };
 
-    handleHashChange();
-    window.addEventListener('hashchange', handleHashChange);
-    return () => window.removeEventListener('hashchange', handleHashChange);
+    syncRouteToCar();
+    window.addEventListener('hashchange', syncRouteToCar);
+    window.addEventListener('popstate', syncRouteToCar);
+    return () => {
+      window.removeEventListener('hashchange', syncRouteToCar);
+      window.removeEventListener('popstate', syncRouteToCar);
+    };
   }, [cars]);
 
   const setSelectedCarForDetail = (car: ExtendedCar | null) => {
     setSelectedCarForDetailState(car);
     if (car) {
-      if (window.location.hash !== `#detail-${car.id}`) {
-        window.location.hash = `#detail-${car.id}`;
+      const targetPath = `/armada/${car.id}`;
+      if (window.location.pathname !== targetPath) {
+        history.pushState(null, '', targetPath + window.location.search);
       }
     } else {
-      if (window.location.hash.startsWith('#detail-')) {
-        history.replaceState(null, '', window.location.pathname + window.location.search);
+      if (window.location.pathname.startsWith('/armada/') || window.location.hash.startsWith('#detail-')) {
+        history.pushState(null, '', '/' + window.location.search);
       }
     }
   };

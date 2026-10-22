@@ -39,10 +39,16 @@ Options -Indexes
 AddType application/json .json
 AddType text/plain .txt
 
-# 6. SPA Fallback Routing
+# 6. Pre-rendered Multi-Page SEO Routing & SPA Fallback
 <IfModule mod_rewrite.c>
   RewriteBase /
   RewriteRule ^index\.html$ - [L]
+
+  # Serve pre-rendered SEO .html files for clean extensionless URLs (HTTP 200 OK, zero redirect)
+  RewriteCond %{DOCUMENT_ROOT}/$1.html -f
+  RewriteRule ^(.+?)/?$ /$1.html [L]
+
+  # Fallback to SPA index.html for dynamic client routes
   RewriteCond %{REQUEST_FILENAME} !-f
   RewriteCond %{REQUEST_FILENAME} !-d
   RewriteRule . /index.html [L]

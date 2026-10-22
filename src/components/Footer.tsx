@@ -7,7 +7,7 @@ import { sanitizeExternalUrl } from '../utils/security';
 
 export const Footer: React.FC = () => {
   const { language, t } = useLanguage();
-  const { settings } = useFleet();
+  const { settings, cars, setSelectedCarForDetail } = useFleet();
 
   const safeInstagram = sanitizeExternalUrl(settings.instagramUrl);
   const safeFacebook = sanitizeExternalUrl(settings.facebookUrl);
@@ -98,19 +98,22 @@ export const Footer: React.FC = () => {
             </h4>
             <ul className="space-y-2.5">
               <li>
+                <a href="/rental-mobil-batam-lepas-kunci" className="hover:text-[#D4AF37] transition-colors">{t.catalog.selfDrive} (24 Jam)</a>
+              </li>
+              <li>
+                <a href="/sewa-mobil-supir-batam" className="hover:text-[#D4AF37] transition-colors">{t.catalog.withDriver} (All-In)</a>
+              </li>
+              <li>
+                <a href="/antar-jemput-bandara-hang-nadim-batam" className="hover:text-[#D4AF37] transition-colors">Antar-Jemput Bandara & Ferry</a>
+              </li>
+              <li>
+                <a href="/batam-car-rental-with-driver" className="hover:text-[#D4AF37] transition-colors">Batam Car Rental with Driver</a>
+              </li>
+              <li>
                 <a href="#armada" className="hover:text-[#D4AF37] transition-colors">{t.nav.cars}</a>
               </li>
               <li>
-                <a href="#armada" className="hover:text-[#D4AF37] transition-colors">{t.catalog.selfDrive}</a>
-              </li>
-              <li>
-                <a href="#armada" className="hover:text-[#D4AF37] transition-colors">{t.catalog.withDriver}</a>
-              </li>
-              <li>
-                <a href="#keunggulan" className="hover:text-[#D4AF37] transition-colors">{t.nav.whyUs}</a>
-              </li>
-              <li>
-                <a href="#faq" className="hover:text-[#D4AF37] transition-colors">{t.nav.terms}</a>
+                <a href="#faq" className="hover:text-[#D4AF37] transition-colors">{t.nav.terms} & FAQ</a>
               </li>
             </ul>
           </div>
@@ -169,7 +172,38 @@ export const Footer: React.FC = () => {
 
         </div>
 
-        <div className="pt-8 border-t border-white/10 flex flex-col sm:flex-row items-center justify-between gap-4 text-neutral-500 text-[11px]">
+        {/* SEO Internal Links Directory for Crawlers & Quick Fleet Access */}
+        <div className="pt-8 pb-6 border-t border-white/10">
+          <p className="text-[11px] font-bold text-neutral-400 uppercase tracking-wider mb-3">
+            {language === 'en' ? 'Popular Batam Car Rental Fleet & Services:' : 'Direktori Layanan & Armada Rental Mobil Batam:'}
+          </p>
+          <div className="flex flex-wrap gap-x-4 gap-y-2 text-[11px] text-neutral-500">
+            <a href="/rental-mobil-batam-lepas-kunci" className="hover:text-[#D4AF37] transition-colors">Rental Mobil Batam Lepas Kunci</a>
+            <span>•</span>
+            <a href="/sewa-mobil-supir-batam" className="hover:text-[#D4AF37] transition-colors">Sewa Mobil Include Supir Batam</a>
+            <span>•</span>
+            <a href="/antar-jemput-bandara-hang-nadim-batam" className="hover:text-[#D4AF37] transition-colors">Rental Mobil Bandara Hang Nadim</a>
+            <span>•</span>
+            <a href="/batam-car-rental-with-driver" className="hover:text-[#D4AF37] transition-colors">Batam Car Rental with Driver</a>
+            {cars.map((car) => (
+              <React.Fragment key={car.id}>
+                <span>•</span>
+                <a
+                  href={`/armada/${car.id}`}
+                  onClick={(e) => {
+                    e.preventDefault();
+                    setSelectedCarForDetail(car);
+                  }}
+                  className="hover:text-[#D4AF37] transition-colors"
+                >
+                  {language === 'en' ? `Rent ${car.name} Batam` : `Sewa ${car.name} Batam`}
+                </a>
+              </React.Fragment>
+            ))}
+          </div>
+        </div>
+
+        <div className="pt-6 border-t border-white/10 flex flex-col sm:flex-row items-center justify-between gap-4 text-neutral-500 text-[11px]">
           <p>© {new Date().getFullYear()} L.A Transport Batam. {t.footer.rights}</p>
           <div className="flex items-center gap-4">
             <p>{t.footer.tagline}</p>

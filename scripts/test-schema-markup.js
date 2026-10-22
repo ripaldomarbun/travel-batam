@@ -26,7 +26,7 @@ function generateTouristTripJsonLd(car, lang = 'id') {
     ? car.image_url
     : `${origin}${car.image_url.startsWith('/') ? '' : '/'}${car.image_url}`;
 
-  const detailUrl = `${origin}/#detail-${car.id}`;
+  const detailUrl = `${origin}/armada/${car.id}`;
 
   const packageName = isEn
     ? `Batam Island Travel & Car Rental – ${car.name} (${car.category})`
