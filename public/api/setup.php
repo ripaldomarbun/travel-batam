@@ -1,6 +1,6 @@
 <?php
 /**
- * L.A TRAVEL BATAM - Auto Database Table Creator & Initial Seeder
+ * L.A TRANSPORT BATAM - Auto Database Table Creator & Initial Seeder
  * Jalankan script ini sekali via browser: https://latravelbatam.com/api/setup.php
  */
 require_once __DIR__ . '/db.php';

@@ -132,7 +132,7 @@ const translations: Record<Language, Translations> = {
       customInquiryBtn: 'Konsultasi Sewa Korporat'
     },
     whyUs: {
-      tag: 'STANDAR KUALITAS L.A TRAVEL',
+      tag: 'STANDAR KUALITAS L.A TRANSPORT',
       title: 'Mengapa Wisatawan & Eksekutif Memilih Kami?',
       subtitle: 'Kenyamanan, keamanan, dan ketepatan waktu adalah prioritas utama kami untuk perjalanan Anda di Batam.',
       points: [
@@ -184,10 +184,10 @@ const translations: Record<Language, Translations> = {
     },
     floatingWa: {
       badge: 'Konsultasi Sewa Cepat',
-      title: 'Admin L.A Travel Batam',
+      title: 'Admin L.A Transport Batam',
       desc: 'Butuh sewa mendesak atau jemputan di bandara/pelabuhan Batam? Kami aktif 24 jam untuk melayani Anda.',
       chatBtn: 'Chat WhatsApp Sekarang',
-      defaultMsg: 'Halo Admin L.A Travel Batam, saya ingin tanya ketersediaan unit rental mobil hari ini.'
+      defaultMsg: 'Halo Admin L.A Transport Batam, saya ingin tanya ketersediaan unit rental mobil hari ini.'
     }
   },
   en: {
@@ -291,10 +291,10 @@ const translations: Record<Language, Translations> = {
     },
     floatingWa: {
       badge: 'Quick Rental Support',
-      title: 'L.A Travel Batam Desk',
+      title: 'L.A Transport Batam Desk',
       desc: 'Need an urgent rental or pickup at Batam ferry terminal/airport? Our bilingual desk is available 24/7.',
       chatBtn: 'Chat on WhatsApp Now',
-      defaultMsg: 'Hello L.A Travel Batam, I would like to inquire about car rental availability in Batam today.'
+      defaultMsg: 'Hello L.A Transport Batam, I would like to inquire about car rental availability in Batam today.'
     }
   }
 };

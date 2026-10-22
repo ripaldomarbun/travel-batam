@@ -1,10 +1,10 @@
 /**
- * L.A Travel Batam - WhatsApp Lead Generation Helper
+ * L.A Transport Batam - WhatsApp Lead Generation Helper
  * Mengoptimalkan tautan WhatsApp dengan URL encoding yang aman & ramah mobile
  * Mendukung Bahasa Indonesia & English
  */
 
-// Nomor WhatsApp Resmi Admin L.A Travel Batam
+// Nomor WhatsApp Resmi Admin L.A Transport Batam
 // (Fallback saja — nilai utama diambil dari database via /api/settings.php)
 export const LA_TRAVEL_WA_PHONE = '6287797631578';
 export const LA_TRANSPORT_WA_PHONE = LA_TRAVEL_WA_PHONE; // backward-compatible alias
@@ -107,11 +107,11 @@ export function getCarInquiryUrl(
   phone?: string
 ): string {
   if (lang === 'en') {
-    const text = `Hello L.A Travel Batam, I am interested in renting the following vehicle:\n\n*Vehicle:* ${car.name}\n*Category:* ${car.category}\n*Rental Option:* ${serviceType}\n*Estimated Rate:* ${car.price_start_from} / day\n\nPlease let me know unit availability and rental terms. Thank you!`;
+    const text = `Hello L.A Transport Batam, I am interested in renting the following vehicle:\n\n*Vehicle:* ${car.name}\n*Category:* ${car.category}\n*Rental Option:* ${serviceType}\n*Estimated Rate:* ${car.price_start_from} / day\n\nPlease let me know unit availability and rental terms. Thank you!`;
     return buildWhatsAppUrl(text, phone);
   }
 
-  const text = `Halo Admin L.A Travel Batam, saya tertarik sewa armada:\n\n*Mobil:* ${car.name}\n*Kategori:* ${car.category}\n*Pilihan Layanan:* ${serviceType}\n*Estimasi Harga:* ${car.price_start_from} / hari\n\nMohon info ketersediaan unit dan persyaratan sewanya ya. Terima kasih!`;
+  const text = `Halo Admin L.A Transport Batam, saya tertarik sewa armada:\n\n*Mobil:* ${car.name}\n*Kategori:* ${car.category}\n*Pilihan Layanan:* ${serviceType}\n*Estimasi Harga:* ${car.price_start_from} / hari\n\nMohon info ketersediaan unit dan persyaratan sewanya ya. Terima kasih!`;
   return buildWhatsAppUrl(text, phone);
 }
 
@@ -121,11 +121,11 @@ export function getGeneralInquiryUrl(
   phone?: string
 ): string {
   if (lang === 'en') {
-    const text = `Hello L.A Travel Batam, I would like to inquire about car rental in Batam (${topic}). Could you please share the fleet list, daily rates, and self-drive/driver options? Thank you.`;
+    const text = `Hello L.A Transport Batam, I would like to inquire about car rental in Batam (${topic}). Could you please share the fleet list, daily rates, and self-drive/driver options? Thank you.`;
     return buildWhatsAppUrl(text, phone);
   }
 
-  const text = `Halo L.A Travel Batam, saya ingin konsultasi mengenai ${topic}. Boleh minta info katalog lengkap, promo dan syarat sewanya? Terima kasih.`;
+  const text = `Halo L.A Transport Batam, saya ingin konsultasi mengenai ${topic}. Boleh minta info katalog lengkap, promo dan syarat sewanya? Terima kasih.`;
   return buildWhatsAppUrl(text, phone);
 }
 

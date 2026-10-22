@@ -26,7 +26,7 @@ def create_exclusive_og_image():
     height = 630
     
     bg_path = 'public/images/executive_fleet_banner.jpg'
-    logo_path = 'public/images/la_travel_logo.jpg'
+    logo_path = 'public/images/la_transport_logo.jpg'
     output_path = 'public/images/og_share_preview.jpg'
     
     if not os.path.exists(bg_path):
@@ -116,8 +116,8 @@ def create_exclusive_og_image():
         
     text_x = logo_x + logo_size + 20
     # Brand Name with drop shadow
-    draw.text((text_x + 1, logo_y + 8), "L.A TRAVEL BATAM", font=font_brand, fill=(0, 0, 0, 200))
-    draw.text((text_x, logo_y + 7), "L.A TRAVEL BATAM", font=font_brand, fill=WHITE)
+    draw.text((text_x + 1, logo_y + 8), "L.A TRANSPORT BATAM", font=font_brand, fill=(0, 0, 0, 200))
+    draw.text((text_x, logo_y + 7), "L.A TRANSPORT BATAM", font=font_brand, fill=WHITE)
     
     # Subtitle
     draw.text((text_x, logo_y + 48), "PREMIER VIP CAR RENTAL & TOUR SERVICES", font=font_brand_sub, fill=GOLD)

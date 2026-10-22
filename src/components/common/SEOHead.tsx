@@ -34,14 +34,14 @@ export const SEOHead: React.FC<SEOHeadProps> = ({
       const price = selectedCarForDetail.price_start_from;
 
       const dynamicTitle = isEn
-        ? `Rent ${carName} in Batam (${category}) | L.A Travel`
-        : `Sewa ${carName} di Batam (${category}) | L.A Travel Batam`;
+        ? `Rent ${carName} in Batam (${category}) | L.A Transport`
+        : `Sewa ${carName} di Batam (${category}) | L.A Transport Batam`;
 
       const dynamicDescription = isEn
         ? selectedCarForDetail.description_en ||
           `Rent ${carName} in Batam starting from ${price}/day. Available for self-drive or with professional chauffeur. Free delivery to airport & ferry terminal.`
         : selectedCarForDetail.description_id ||
-          `Sewa ${carName} di Batam mulai dari ${price}/hari. Tersedia pilihan lepas kunci atau dengan supir profesional L.A Travel. Gratis antar-jemput bandara & pelabuhan!`;
+          `Sewa ${carName} di Batam mulai dari ${price}/hari. Tersedia pilihan lepas kunci atau dengan supir profesional L.A Transport. Gratis antar-jemput bandara & pelabuhan!`;
 
       // Suntikkan Dynamic Head SEO
       injectDynamicSEO({
@@ -62,8 +62,8 @@ export const SEOHead: React.FC<SEOHeadProps> = ({
     // 2. Jika sedang berada di halaman Standalone Admin
     if (typeof window !== 'undefined' && window.location.pathname.startsWith('/admin')) {
       injectDynamicSEO({
-        title: 'Admin CMS Portal | L.A Travel Batam',
-        description: 'Pusat pengelolaan armada, tarif sewa, dan kontak admin L.A Travel Batam.',
+        title: 'Admin CMS Portal | L.A Transport Batam',
+        description: 'Pusat pengelolaan armada, tarif sewa, dan kontak admin L.A Transport Batam.',
         canonicalPath: '/admin',
         type: 'website',
         lang: language
@@ -75,8 +75,8 @@ export const SEOHead: React.FC<SEOHeadProps> = ({
 
     // 3. Tampilan Halaman Utama / Katalog Umum (Schema.org TravelAgency / AutoRental)
     const defaultTitle = isEn
-      ? 'Batam Car Rental with Driver & Self Drive | L.A Travel Batam'
-      : 'Rental Mobil Batam Lepas Kunci & Include Supir | L.A Travel Batam';
+      ? 'Batam Car Rental with Driver & Self Drive | L.A Transport Batam'
+      : 'Rental Mobil Batam Lepas Kunci & Include Supir | L.A Transport Batam';
 
     const defaultDescription = isEn
       ? 'Premier Batam car rental with polite English-speaking driver & self-drive options. Luxury Alphard VIP, Innova Zenix Hybrid, Veloz, HiAce. Free ferry terminal & airport delivery!'

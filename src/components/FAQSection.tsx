@@ -18,7 +18,7 @@ export const FAQ_DATA: FAQItem[] = [
     questionId: 'Berapa tarif harga sewa / rental mobil di Batam per hari?',
     questionEn: 'How much are the daily car rental rates in Batam?',
     answerId:
-      'Tarif rental mobil di L.A Travel Batam sangat kompetitif dan transparan tanpa biaya tersembunyi. Untuk City Car hemat seperti Toyota Agya & Honda Brio mulai dari Rp 300.000 / hari (~SGD 25). Family MPV seperti Toyota Avanza & Daihatsu Xenia Rp 350.000 – Rp 450.000 / hari. Crossover MPV Mitsubishi Xpander & SUV mulai Rp 800.000 – Rp 950.000 / hari. Sementara kelas eksekutif Toyota Innova Zenix Hybrid Rp 1.100.000, Toyota Fortuner GR Rp 1.600.000, dan Toyota Alphard VIP Rp 3.200.000 / hari. Tersedia opsi Lepas Kunci 24 Jam atau Include Supir & BBM.',
+      'Tarif rental mobil di L.A Transport Batam sangat kompetitif dan transparan tanpa biaya tersembunyi. Untuk City Car hemat seperti Toyota Agya & Honda Brio mulai dari Rp 300.000 / hari (~SGD 25). Family MPV seperti Toyota Avanza & Daihatsu Xenia Rp 350.000 – Rp 450.000 / hari. Crossover MPV Mitsubishi Xpander & SUV mulai Rp 800.000 – Rp 950.000 / hari. Sementara kelas eksekutif Toyota Innova Zenix Hybrid Rp 1.100.000, Toyota Fortuner GR Rp 1.600.000, dan Toyota Alphard VIP Rp 3.200.000 / hari. Tersedia opsi Lepas Kunci 24 Jam atau Include Supir & BBM.',
     answerEn:
       'Our car rental rates in Batam are transparent and highly competitive with no hidden fees. Compact city cars (Toyota Agya, Honda Brio) start from IDR 300,000 / day (~SGD 25). Family MPVs (Toyota Avanza, Daihatsu Xenia) range from IDR 350,000 to IDR 450,000 / day. Crossover MPVs (Mitsubishi Xpander) and compact SUVs from IDR 800,000 / day. Executive vehicles like Toyota Innova Zenix Hybrid are IDR 1,100,000 / day, Fortuner GR Sport IDR 1,600,000 / day, and luxury Toyota Alphard VIP IDR 3,200,000 / day. Available for 24-hour self-drive or with professional chauffeur & fuel.'
   },
@@ -27,7 +27,7 @@ export const FAQ_DATA: FAQItem[] = [
     questionId: 'Apa saja syarat sewa mobil lepas kunci di Batam?',
     questionEn: 'What are the requirements for self-drive car rental in Batam?',
     answerId:
-      'Syarat sewa lepas kunci di L.A Travel Batam sangat mudah dan cepat (verifikasi online via WhatsApp hanya 15 menit). Untuk wisatawan nusantara: cukup kirim foto KTP asli, SIM A aktif, bukti tiket pesawat / ferry tiba di Batam, dan bukti booking hotel. Untuk turis mancanegara (Singapura/Malaysia): Passport, Driving License asal / Internasional, dan tiket ferry PP. Untuk warga lokal Batam: KTP, SIM A, dan jaminan dokumen pendukung (motor/KK/ID kerja).',
+      'Syarat sewa lepas kunci di L.A Transport Batam sangat mudah dan cepat (verifikasi online via WhatsApp hanya 15 menit). Untuk wisatawan nusantara: cukup kirim foto KTP asli, SIM A aktif, bukti tiket pesawat / ferry tiba di Batam, dan bukti booking hotel. Untuk turis mancanegara (Singapura/Malaysia): Passport, Driving License asal / Internasional, dan tiket ferry PP. Untuk warga lokal Batam: KTP, SIM A, dan jaminan dokumen pendukung (motor/KK/ID kerja).',
     answerEn:
       'Self-drive requirements are simple and verified online via WhatsApp within 15 minutes. International travelers (Singapore, Malaysia, and overseas tourists) only need to provide: Passport, Valid Driving License (International or home country license), and Proof of Ferry/Flight return tickets. For Indonesian domestic travelers: National ID (KTP), Driving License (SIM A), Travel ticket, and Hotel reservation.'
   },
@@ -63,7 +63,7 @@ export const FAQ_DATA: FAQItem[] = [
     questionId: 'Bagaimana perhitungan durasi sewa 24 jam dan jaminan kebersihan unit?',
     questionEn: 'How does the 24-hour rental duration work and what are the vehicle cleanliness standards?',
     answerId:
-      'Sewa lepas kunci dihitung per 24 jam penuh sejak jam serah terima mobil (contoh: serah terima jam 09.00 pagi, maka batas kembali adalah jam 09.00 pagi keesokan harinya). Seluruh armada L.A Travel Batam selalu dicuci bersih, interior disanitasi wangi, ber-AC dingin prima, dan menjalani pengecekan mekanik sebelum diserahkan demi kenyamanan perjalanan Anda.',
+      'Sewa lepas kunci dihitung per 24 jam penuh sejak jam serah terima mobil (contoh: serah terima jam 09.00 pagi, maka batas kembali adalah jam 09.00 pagi keesokan harinya). Seluruh armada L.A Transport Batam selalu dicuci bersih, interior disanitasi wangi, ber-AC dingin prima, dan menjalani pengecekan mekanik sebelum diserahkan demi kenyamanan perjalanan Anda.',
     answerEn:
       'Self-drive rental operates on a full 24-hour cycle calculated from the exact handover time (e.g. pickup at 9:00 AM, return by 9:00 AM the next day). All vehicles are thoroughly sanitized, smelling fresh, fully air-conditioned, and undergo strict pre-trip safety checks before being handed over to guarantee your peace of mind.'
   }
@@ -165,7 +165,7 @@ export const FAQSection: React.FC = () => {
           <p className="text-xs sm:text-sm text-neutral-300 max-w-xl mb-6">
             {isEn
               ? 'Our bilingual customer care is available 24/7 on WhatsApp. Feel free to ask about custom itineraries, bulk bookings, or specific vehicle availability.'
-              : 'Tim customer support L.A Travel Batam siap membantu 24 jam via WhatsApp. Jangan ragu bertanya seputar rute wisata, sewa mingguan, atau stok mobil hari ini.'}
+              : 'Tim customer support L.A Transport Batam siap membantu 24 jam via WhatsApp. Jangan ragu bertanya seputar rute wisata, sewa mingguan, atau stok mobil hari ini.'}
           </p>
 
           <a

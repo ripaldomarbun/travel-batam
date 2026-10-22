@@ -1,9 +1,9 @@
 BEGIN:VCALENDAR
 VERSION:2.0
-PRODID:-//L.A Travel Batam//Roadmap Calendar//ID
+PRODID:-//L.A Transport Batam//Roadmap Calendar//ID
 CALSCALE:GREGORIAN
 METHOD:PUBLISH
-X-WR-CALNAME:L.A Travel Batam - Jadwal Operasional & Marketing
+X-WR-CALNAME:L.A Transport Batam - Jadwal Operasional & Marketing
 X-WR-TIMEZONE:Asia/Jakarta
 
 BEGIN:VEVENT
@@ -28,13 +28,13 @@ DTSTAMP:20261005T024900Z
 DTSTART:20261008T100000
 DTEND:20261008T113000
 SUMMARY:📍 Daftarkan Google Business Profile (Google Maps Batam)
-DESCRIPTION:1. Buka business.google.com\n2. Buat profil: L.A Travel Batam - Rental Mobil & Paket Wisata\n3. Masukkan alamat kantor/pool mobil di Batam\n4. Cantumkan website: https://latravelbatam.com dan no. WhatsApp.
+DESCRIPTION:1. Buka business.google.com\n2. Buat profil: L.A Transport Batam - Rental Mobil & Paket Wisata\n3. Masukkan alamat kantor/pool mobil di Batam\n4. Cantumkan website: https://latravelbatam.com dan no. WhatsApp.
 LOCATION:Batam, Kepulauan Riau
 STATUS:CONFIRMED
 BEGIN:VALARM
 TRIGGER:-PT15M
 ACTION:DISPLAY
-DESCRIPTION:Pengingat: Daftarkan Google Maps L.A Travel Batam
+DESCRIPTION:Pengingat: Daftarkan Google Maps L.A Transport Batam
 END:VALARM
 END:VEVENT
 
@@ -44,7 +44,7 @@ DTSTAMP:20261005T024900Z
 DTSTART:20261010T130000
 DTEND:20261010T140000
 SUMMARY:📸 Upload Foto Armada HD & Verifikasi Google Maps
-DESCRIPTION:1. Upload logo resmi L.A Travel Batam ke Google Business Profile\n2. Upload foto 14 unit armada (Innova Zenix, Alphard, Avanza, HiAce, dll.)\n3. Lakukan verifikasi profil bisnis.
+DESCRIPTION:1. Upload logo resmi L.A Transport Batam ke Google Business Profile\n2. Upload foto 14 unit armada (Innova Zenix, Alphard, Avanza, HiAce, dll.)\n3. Lakukan verifikasi profil bisnis.
 LOCATION:https://business.google.com
 STATUS:CONFIRMED
 BEGIN:VALARM
@@ -75,7 +75,7 @@ UID:latravel-event-5-20261016@latravelbatam.com
 DTSTAMP:20261005T024900Z
 DTSTART:20261016T140000
 DTEND:20261016T150000
-SUMMARY:⚙️ Uji Operasional Admin Portal CMS L.A Travel
+SUMMARY:⚙️ Uji Operasional Admin Portal CMS L.A Transport
 DESCRIPTION:1. Login ke https://latravelbatam.com/admin\n2. Uji coba ubah tarif sewa mobil (simulasi high season)\n3. Uji coba ganti status mobil (Tersedia / Tersewa)\n4. Uji coba update banner promo.
 LOCATION:https://latravelbatam.com/admin
 STATUS:CONFIRMED

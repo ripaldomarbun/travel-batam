@@ -24,8 +24,8 @@ export const Footer: React.FC = () => {
             <div className="flex items-center gap-3">
               <div className="w-11 h-11 rounded-full overflow-hidden border-2 border-[#D4AF37] p-0.5 bg-black shadow-[0_2px_12px_rgba(212,175,55,0.3)] shrink-0">
                 <img
-                  src="/images/la_travel_logo.jpg"
-                  alt="Logo L.A Travel Batam"
+                  src="/images/la_transport_logo.jpg"
+                  alt="Logo L.A Transport Batam"
                   loading="lazy"
                   decoding="async"
                   className="w-full h-full object-cover rounded-full"
@@ -33,7 +33,7 @@ export const Footer: React.FC = () => {
               </div>
               <div className="flex flex-col">
                 <span className="font-brand font-extrabold text-sm tracking-tight text-white leading-tight">
-                  L.A TRAVEL BATAM
+                  L.A TRANSPORT BATAM
                 </span>
                 <span className="text-[9px] tracking-wider text-[#D4AF37] uppercase font-bold">
                   Ride • Travel • Enjoy Batam
@@ -50,7 +50,7 @@ export const Footer: React.FC = () => {
                   target="_blank"
                   rel="noopener noreferrer"
                   className="apple-pressable w-9 h-9 rounded-full bg-white/5 border border-white/10 hover:border-[#D4AF37] hover:text-[#D4AF37] flex items-center justify-center transition-colors"
-                  aria-label="Instagram L.A Travel Batam"
+                  aria-label="Instagram L.A Transport Batam"
                 >
                   <Instagram className="w-4 h-4" />
                 </a>
@@ -61,7 +61,7 @@ export const Footer: React.FC = () => {
                   target="_blank"
                   rel="noopener noreferrer"
                   className="apple-pressable w-9 h-9 rounded-full bg-white/5 border border-white/10 hover:border-[#D4AF37] hover:text-[#D4AF37] flex items-center justify-center transition-colors"
-                  aria-label="Facebook L.A Travel Batam"
+                  aria-label="Facebook L.A Transport Batam"
                 >
                   <Facebook className="w-4 h-4" />
                 </a>
@@ -72,7 +72,7 @@ export const Footer: React.FC = () => {
                   target="_blank"
                   rel="noopener noreferrer"
                   className="apple-pressable w-9 h-9 rounded-full bg-white/5 border border-white/10 hover:border-[#D4AF37] hover:text-[#D4AF37] flex items-center justify-center transition-colors font-bold text-xs"
-                  aria-label="TT - TikTok L.A Travel Batam"
+                  aria-label="TT - TikTok L.A Transport Batam"
                 >
                   TT
                 </a>
@@ -83,7 +83,7 @@ export const Footer: React.FC = () => {
                   target="_blank"
                   rel="noopener noreferrer"
                   className="apple-pressable w-9 h-9 rounded-full bg-white/5 border border-white/10 hover:border-[#D4AF37] hover:text-[#D4AF37] flex items-center justify-center transition-colors"
-                  aria-label="Google Maps L.A Travel Batam"
+                  aria-label="Google Maps L.A Transport Batam"
                 >
                   <MapPin className="w-4 h-4" />
                 </a>
@@ -157,7 +157,7 @@ export const Footer: React.FC = () => {
               </p>
             </div>
             <a
-              href={buildWhatsAppUrl(settings.defaultWaGreeting || (language === 'en' ? 'Hello Admin L.A Travel Batam, I need a car rental today.' : 'Halo Admin L.A Travel Batam, saya butuh mobil rental hari ini.'), settings.whatsappNumber)}
+              href={buildWhatsAppUrl(settings.defaultWaGreeting || (language === 'en' ? 'Hello Admin L.A Transport Batam, I need a car rental today.' : 'Halo Admin L.A Transport Batam, saya butuh mobil rental hari ini.'), settings.whatsappNumber)}
               target="_blank"
               rel="noopener noreferrer"
               className="apple-pressable flex items-center justify-center gap-2 py-2.5 px-4 bg-[#25D366] hover:bg-[#20BA59] text-[#06240E] font-bold rounded-full shadow-md transition-colors"
@@ -170,7 +170,7 @@ export const Footer: React.FC = () => {
         </div>
 
         <div className="pt-8 border-t border-white/10 flex flex-col sm:flex-row items-center justify-between gap-4 text-neutral-500 text-[11px]">
-          <p>© {new Date().getFullYear()} L.A Travel Batam. {t.footer.rights}</p>
+          <p>© {new Date().getFullYear()} L.A Transport Batam. {t.footer.rights}</p>
           <div className="flex items-center gap-4">
             <p>{t.footer.tagline}</p>
             <span className="text-neutral-700">|</span>

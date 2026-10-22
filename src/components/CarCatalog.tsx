@@ -344,7 +344,7 @@ export const CarCatalog: React.FC = () => {
                 price_unit: 'paket',
                 image_url: '/images/hero_la_transport_1790686468335.jpg',
                 features: ['Sewa Bulanan / Korporat', 'Unit Baru & Terawat', 'Invoicing Resmi Perusahaan'],
-                wa_message: 'Halo L.A Travel Batam, saya ingin konsultasi sewa jangka panjang / armada korporat.'
+                wa_message: 'Halo L.A Transport Batam, saya ingin konsultasi sewa jangka panjang / armada korporat.'
               },
               'Corporate Inquiry',
               language,

@@ -44,7 +44,7 @@
     "badge_en": "Self-Drive",
     "popular": false,
     "isAvailable": true,
-    "wa_message": "Halo L.A Travel Batam, saya ingin booking rental Toyota Agya (Rp 300k/hari lepas kunci). Mohon info ketersediaan tanggalnya.",
+    "wa_message": "Halo L.A Transport Batam, saya ingin booking rental Toyota Agya (Rp 300k/hari lepas kunci). Mohon info ketersediaan tanggalnya.",
     "sort_order": 0
   },
   {
@@ -92,7 +92,7 @@
     "badge_en": "Self-Drive",
     "popular": true,
     "isAvailable": true,
-    "wa_message": "Halo L.A Travel Batam, saya tertarik sewa Honda Brio (Rp 300k/hari lepas kunci). Mohon info jadwal yang tersedia.",
+    "wa_message": "Halo L.A Transport Batam, saya tertarik sewa Honda Brio (Rp 300k/hari lepas kunci). Mohon info jadwal yang tersedia.",
     "sort_order": 1
   },
   {
@@ -140,7 +140,7 @@
     "badge_en": "Self-Drive",
     "popular": false,
     "isAvailable": true,
-    "wa_message": "Halo L.A Travel Batam, saya ingin booking Toyota Calya 7-seater (Rp 300k/hari lepas kunci). Apakah unit ready?",
+    "wa_message": "Halo L.A Transport Batam, saya ingin booking Toyota Calya 7-seater (Rp 300k/hari lepas kunci). Apakah unit ready?",
     "sort_order": 2
   },
   {
@@ -188,7 +188,7 @@
     "badge_en": "Self-Drive",
     "popular": true,
     "isAvailable": true,
-    "wa_message": "Halo L.A Travel Batam, saya ingin booking Toyota Avanza (Rp 300k/hari lepas kunci). Mohon info jadwal unitnya.",
+    "wa_message": "Halo L.A Transport Batam, saya ingin booking Toyota Avanza (Rp 300k/hari lepas kunci). Mohon info jadwal unitnya.",
     "sort_order": 3
   },
   {
@@ -236,7 +236,7 @@
     "badge_en": "Self-Drive",
     "popular": true,
     "isAvailable": true,
-    "wa_message": "Halo L.A Travel Batam, saya ingin booking Toyota All New Avanza (Rp 450k/hari lepas kunci). Mohon info ketersediaannya.",
+    "wa_message": "Halo L.A Transport Batam, saya ingin booking Toyota All New Avanza (Rp 450k/hari lepas kunci). Mohon info ketersediaannya.",
     "sort_order": 4
   },
   {
@@ -284,7 +284,7 @@
     "badge_en": "Self-Drive",
     "popular": false,
     "isAvailable": true,
-    "wa_message": "Halo L.A Travel Batam, saya ingin booking Daihatsu Xenia (Rp 350k/hari lepas kunci). Mohon info jadwalnya.",
+    "wa_message": "Halo L.A Transport Batam, saya ingin booking Daihatsu Xenia (Rp 350k/hari lepas kunci). Mohon info jadwalnya.",
     "sort_order": 5
   },
   {
@@ -333,7 +333,7 @@
     "badge_en": "With Driver & Fuel",
     "popular": true,
     "isAvailable": true,
-    "wa_message": "Halo L.A Travel Batam, saya tertarik rental Mitsubishi Xpander (Rp 900k/hari include supir & bbm). Mohon info ketersediaannya.",
+    "wa_message": "Halo L.A Transport Batam, saya tertarik rental Mitsubishi Xpander (Rp 900k/hari include supir & bbm). Mohon info ketersediaannya.",
     "sort_order": 6
   },
   {
@@ -381,7 +381,7 @@
     "badge_en": "With Driver & Fuel",
     "popular": false,
     "isAvailable": true,
-    "wa_message": "Halo L.A Travel Batam, saya ingin sewa Daihatsu Rocky paket include supir & bbm (Rp 800k/hari). Mohon info jadwalnya.",
+    "wa_message": "Halo L.A Transport Batam, saya ingin sewa Daihatsu Rocky paket include supir & bbm (Rp 800k/hari). Mohon info jadwalnya.",
     "sort_order": 7
   },
   {
@@ -429,7 +429,7 @@
     "badge_en": "With Driver & Fuel",
     "popular": true,
     "isAvailable": true,
-    "wa_message": "Halo L.A Travel Batam, saya ingin booking Toyota Raize paket supir & bbm (Rp 800k/hari). Apakah unit tersedia?",
+    "wa_message": "Halo L.A Transport Batam, saya ingin booking Toyota Raize paket supir & bbm (Rp 800k/hari). Apakah unit tersedia?",
     "sort_order": 8
   },
   {
@@ -478,7 +478,7 @@
     "badge_en": "With Driver & Fuel",
     "popular": true,
     "isAvailable": true,
-    "wa_message": "Halo L.A Travel Batam, saya ingin booking paket Toyota Fortuner All-In (Rp 1.600.000/hari include supir & bbm). Mohon info ketersediaannya.",
+    "wa_message": "Halo L.A Transport Batam, saya ingin booking paket Toyota Fortuner All-In (Rp 1.600.000/hari include supir & bbm). Mohon info ketersediaannya.",
     "sort_order": 9
   },
   {
@@ -527,7 +527,7 @@
     "badge_en": "With Driver & Fuel",
     "popular": true,
     "isAvailable": true,
-    "wa_message": "Halo L.A Travel Batam, saya berminat sewa unit Toyota Innova Reborn Diesel paket supir & bbm (Rp 950k/hari). Mohon info jadwalnya.",
+    "wa_message": "Halo L.A Transport Batam, saya berminat sewa unit Toyota Innova Reborn Diesel paket supir & bbm (Rp 950k/hari). Mohon info jadwalnya.",
     "sort_order": 10
   },
   {
@@ -576,7 +576,7 @@
     "badge_en": "With Driver & Fuel",
     "popular": true,
     "isAvailable": true,
-    "wa_message": "Halo L.A Travel Batam, saya tertarik sewa Toyota Innova Zenix paket supir & bbm (Rp 1.100.000/hari). Apakah unit tersedia?",
+    "wa_message": "Halo L.A Transport Batam, saya tertarik sewa Toyota Innova Zenix paket supir & bbm (Rp 1.100.000/hari). Apakah unit tersedia?",
     "sort_order": 11
   },
   {
@@ -625,7 +625,7 @@
     "badge_en": "With Driver & Fuel",
     "popular": true,
     "isAvailable": true,
-    "wa_message": "Halo L.A Travel Batam, saya ingin booking Toyota Alphard VIP (Rp 3.200.000 include supir vip & bbm). Mohon info ketersediaan tanggalnya.",
+    "wa_message": "Halo L.A Transport Batam, saya ingin booking Toyota Alphard VIP (Rp 3.200.000 include supir vip & bbm). Mohon info ketersediaan tanggalnya.",
     "sort_order": 12
   },
   {
@@ -674,7 +674,7 @@
     "badge_en": "With Driver & Fuel",
     "popular": true,
     "isAvailable": true,
-    "wa_message": "Halo L.A Travel Batam, saya butuh informasi sewa Toyota HiAce HC untuk rombongan (Rp 1.400.000 include supir & bbm). Mohon detail paketnya.",
+    "wa_message": "Halo L.A Transport Batam, saya butuh informasi sewa Toyota HiAce HC untuk rombongan (Rp 1.400.000 include supir & bbm). Mohon detail paketnya.",
     "sort_order": 13
   }
 ]

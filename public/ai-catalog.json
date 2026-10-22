@@ -1,14 +1,14 @@
 {
   "specVersion": "1.0",
   "host": {
-    "displayName": "L.A Travel Batam",
+    "displayName": "L.A Transport Batam",
     "documentationUrl": "https://latravelbatam.com/",
-    "logoUrl": "https://latravelbatam.com/images/la_travel_logo.jpg"
+    "logoUrl": "https://latravelbatam.com/images/la_transport_logo.jpg"
   },
   "entries": [
     {
       "identifier": "urn:air:latravelbatam.com:fleet:car-rental-service",
-      "displayName": "L.A Travel Batam Car Rental & Tour Service",
+      "displayName": "L.A Transport Batam Car Rental & Tour Service",
       "type": "application/agent-card+json",
       "url": "https://latravelbatam.com/api/get_cars.php",
       "description": "Layanan rental mobil resmi Batam dengan paket lepas kunci dan supir serta BBM, armada Innova, Zenix, Alphard, Avanza, Xenia, Brio, Calya, Fortuner, dan HiAce.",

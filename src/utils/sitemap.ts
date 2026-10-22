@@ -1,5 +1,5 @@
 /**
- * L.A TRAVEL BATAM - Dynamic XML Sitemap Generator
+ * L.A TRANSPORT BATAM - Dynamic XML Sitemap Generator
  * Menghasilkan sitemap.xml berstandar Google Search Console (Sitemap Protocol 0.9)
  * - Me-looping semua paket wisata / mobil yang aktif
  * - Menyertakan tag <lastmod> dinamis ISO-8601
@@ -40,7 +40,7 @@ export function generateSitemapXml(carsList?: ExtendedCar[], baseUrl: string = '
       lastmod: todayIso,
       changefreq: 'daily',
       priority: '1.0',
-      title: 'Beranda L.A Travel Batam',
+      title: 'Beranda L.A Transport Batam',
       alternateHreflang: [
         { hreflang: 'id-ID', href: `${baseUrl}/?lang=id` },
         { hreflang: 'en-SG', href: `${baseUrl}/?lang=en` },

@@ -1,6 +1,6 @@
 <?php
 /**
- * L.A TRAVEL BATAM - Company Settings API
+ * L.A TRANSPORT BATAM - Company Settings API
  * Endpoint: /api/settings.php
  */
 require_once __DIR__ . '/db.php';

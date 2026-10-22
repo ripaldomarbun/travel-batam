@@ -11,8 +11,8 @@ export const WhyUs: React.FC = () => {
   const icons = [Plane, Ship, Award, FileCheck, ShieldAlert, Headphones];
 
   const waInquiryMsg = language === 'en'
-    ? 'Hello L.A Travel Batam, I would like to verify rental requirements and car availability.'
-    : 'Halo Admin L.A Travel Batam, saya mau verifikasi syarat sewa lepas kunci untuk tanggal tertentu.';
+    ? 'Hello L.A Transport Batam, I would like to verify rental requirements and car availability.'
+    : 'Halo Admin L.A Transport Batam, saya mau verifikasi syarat sewa lepas kunci untuk tanggal tertentu.';
 
   return (
     <section id="keunggulan" className="py-24 bg-[#F5F5F7] dark:bg-[#0B0B0D] border-y border-black/5 dark:border-white/10 transition-colors duration-300">

@@ -1,6 +1,6 @@
 <?php
 /**
- * L.A TRAVEL BATAM - Database & API Configuration
+ * L.A TRANSPORT BATAM - Database & API Configuration
  * 
  * Silakan sesuaikan kredensial di bawah ini dengan database MySQL yang Anda buat di cPanel Rumahweb:
  * - cPanel > MySQL® Databases (Buat Database & User MySQL, lalu hubungkan)

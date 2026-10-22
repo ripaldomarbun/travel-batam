@@ -1,5 +1,5 @@
 /**
- * L.A TRAVEL BATAM - Dynamic SEO, Rich Snippets (JSON-LD), & Multilingual Head Manager
+ * L.A TRANSPORT BATAM - Dynamic SEO, Rich Snippets (JSON-LD), & Multilingual Head Manager
  * Schema.org Rich Snippets: TouristTrip, Product, Offer, AggregateRating, TravelAgency
  */
 
@@ -132,7 +132,7 @@ export function generateTouristTripJsonLd(car: ExtendedCar, lang: 'id' | 'en' = 
         ],
         'provider': {
           '@type': 'TravelAgency',
-          'name': 'L.A TRAVEL BATAM',
+          'name': 'L.A TRANSPORT BATAM',
           'url': origin,
           'image': `${origin}/images/hero_la_transport_1790686468335.jpg`,
           'telephone': '+6287797631578',
@@ -170,7 +170,7 @@ export function generateTouristTripJsonLd(car: ExtendedCar, lang: 'id' | 'en' = 
         'category': `Vehicle Rental > ${car.category}`,
         'brand': {
           '@type': 'Brand',
-          'name': 'L.A TRAVEL BATAM'
+          'name': 'L.A TRANSPORT BATAM'
         },
         'aggregateRating': {
           '@type': 'AggregateRating',
@@ -235,8 +235,8 @@ export function generateTravelAgencyJsonLd() {
     '@context': 'https://schema.org',
     '@type': 'AutoRental',
     '@id': `${origin}/#agency`,
-    'name': 'L.A TRAVEL BATAM',
-    'legalName': 'L.A Travel Batam - Rental Mobil & Tour Provider',
+    'name': 'L.A TRANSPORT BATAM',
+    'legalName': 'L.A Transport Batam - Rental Mobil & Tour Provider',
     'url': origin,
     'logo': `${origin}/favicon.svg`,
     'image': `${origin}/images/hero_la_transport_1790686468335.jpg`,
@@ -300,8 +300,8 @@ export function generateFaqJsonLd(lang: 'id' | 'en' = 'id') {
         ? 'How much are the daily car rental rates in Batam?'
         : 'Berapa tarif harga sewa / rental mobil di Batam per hari?',
       a: isEn
-        ? 'Car rental rates at L.A Travel Batam start from IDR 300,000 / day (~SGD 25) for compact city cars (Toyota Agya, Honda Brio), IDR 350,000 to IDR 450,000 / day for family MPVs (Toyota Avanza, Daihatsu Xenia), up to IDR 1,100,000 for Innova Zenix Hybrid and IDR 3,200,000 for luxury Toyota Alphard VIP. Available for 24-hour self-drive or with professional chauffeur and fuel.'
-        : 'Tarif sewa mobil di L.A Travel Batam mulai dari Rp 300.000 / hari untuk City Car (Toyota Agya, Honda Brio), Rp 350.000 – Rp 450.000 / hari untuk Family MPV (Avanza, Xenia), hingga Rp 1.100.000 untuk Innova Zenix Hybrid dan Rp 3.200.000 / hari untuk Toyota Alphard VIP. Pilihan lepas kunci 24 jam atau include supir & BBM.'
+        ? 'Car rental rates at L.A Transport Batam start from IDR 300,000 / day (~SGD 25) for compact city cars (Toyota Agya, Honda Brio), IDR 350,000 to IDR 450,000 / day for family MPVs (Toyota Avanza, Daihatsu Xenia), up to IDR 1,100,000 for Innova Zenix Hybrid and IDR 3,200,000 for luxury Toyota Alphard VIP. Available for 24-hour self-drive or with professional chauffeur and fuel.'
+        : 'Tarif sewa mobil di L.A Transport Batam mulai dari Rp 300.000 / hari untuk City Car (Toyota Agya, Honda Brio), Rp 350.000 – Rp 450.000 / hari untuk Family MPV (Avanza, Xenia), hingga Rp 1.100.000 untuk Innova Zenix Hybrid dan Rp 3.200.000 / hari untuk Toyota Alphard VIP. Pilihan lepas kunci 24 jam atau include supir & BBM.'
     },
     {
       q: isEn
@@ -309,7 +309,7 @@ export function generateFaqJsonLd(lang: 'id' | 'en' = 'id') {
         : 'Apa saja syarat sewa mobil lepas kunci di Batam?',
       a: isEn
         ? 'Self-drive rental requirements are simple with a 15-minute fast online verification via WhatsApp. Domestic visitors only need National ID (KTP), Driving License (SIM A), flight/ferry tickets to Batam, and hotel voucher. International tourists (Singapore/Malaysia) provide Passport, Home/International Driving License, and Ferry tickets.'
-        : 'Syarat sewa lepas kunci di L.A Travel Batam cepat dan praktis (verifikasi 15 menit). Wisatawan/tamu luar kota: Foto KTP asli, SIM A aktif, bukti tiket pesawat/ferry tiba di Batam, dan bukti booking hotel. Turis Singapura/Malaysia: Paspor, SIM asal/Internasional, dan tiket ferry PP.'
+        : 'Syarat sewa lepas kunci di L.A Transport Batam cepat dan praktis (verifikasi 15 menit). Wisatawan/tamu luar kota: Foto KTP asli, SIM A aktif, bukti tiket pesawat/ferry tiba di Batam, dan bukti booking hotel. Turis Singapura/Malaysia: Paspor, SIM asal/Internasional, dan tiket ferry PP.'
     },
     {
       q: isEn
@@ -414,7 +414,7 @@ export function injectDynamicSEO({
   setMeta('name', 'description', description);
 
   // 5. OpenGraph Tags (Facebook, WhatsApp, iMessage, LinkedIn, Telegram)
-  setMeta('property', 'og:site_name', 'L.A TRAVEL BATAM');
+  setMeta('property', 'og:site_name', 'L.A TRANSPORT BATAM');
   setMeta('property', 'og:title', title);
   setMeta('property', 'og:description', description);
   setMeta('property', 'og:type', type);

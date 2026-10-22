@@ -54,8 +54,8 @@ export const RentalPackagesAndGuide: React.FC = () => {
         ? ['Simple online identity verification via WhatsApp within 15 mins']
         : ['Untuk Domisili Batam: KTP Batam, SIM A, Kartu Keluarga/ID Kerja, jaminan Motor+STNK atau Deposit'],
       waText: isEn
-        ? 'Hello L.A Travel Batam, I would like to book a Self-Drive (Lepas Kunci) car. Please check car availability.'
-        : 'Halo Admin L.A Travel Batam, saya ingin booking rental mobil Lepas Kunci 24 Jam. Mohon info ketersediaan unit.'
+        ? 'Hello L.A Transport Batam, I would like to book a Self-Drive (Lepas Kunci) car. Please check car availability.'
+        : 'Halo Admin L.A Transport Batam, saya ingin booking rental mobil Lepas Kunci 24 Jam. Mohon info ketersediaan unit.'
     },
     {
       id: 'supir',
@@ -79,8 +79,8 @@ export const RentalPackagesAndGuide: React.FC = () => {
         ? ['Flexible hourly overtime available upon request']
         : ['Bisa perpanjang overtime terjangkau jika ingin menikmati kuliner malam lebih lama'],
       waText: isEn
-        ? 'Hello L.A Travel Batam, I would like to reserve an All-In Car with Driver & Fuel for a Batam Tour.'
-        : 'Halo Admin L.A Travel Batam, saya ingin pesan Paket Sewa Mobil Include Supir & BBM (All-In) untuk tour di Batam.'
+        ? 'Hello L.A Transport Batam, I would like to reserve an All-In Car with Driver & Fuel for a Batam Tour.'
+        : 'Halo Admin L.A Transport Batam, saya ingin pesan Paket Sewa Mobil Include Supir & BBM (All-In) untuk tour di Batam.'
     },
     {
       id: 'antar-jemput',
@@ -104,8 +104,8 @@ export const RentalPackagesAndGuide: React.FC = () => {
         ? ['Available 24 hours with advance booking confirmation']
         : ['Siap melayani 24 jam dengan konfirmasi jadwal reservasi terlebih dahulu'],
       waText: isEn
-        ? 'Hello L.A Travel Batam, I need a private Airport/Ferry transfer in Batam. Please share rates.'
-        : 'Halo Admin L.A Travel Batam, saya mau pesan layanan antar-jemput private Drop-Off Bandara / Pelabuhan Ferry di Batam.'
+        ? 'Hello L.A Transport Batam, I need a private Airport/Ferry transfer in Batam. Please share rates.'
+        : 'Halo Admin L.A Transport Batam, saya mau pesan layanan antar-jemput private Drop-Off Bandara / Pelabuhan Ferry di Batam.'
     }
   ];
 
@@ -274,7 +274,7 @@ export const RentalPackagesAndGuide: React.FC = () => {
                   <p className="text-xs text-neutral-300 mb-6 leading-relaxed">
                     {isEn 
                       ? 'Chat with our Batam reservation team on WhatsApp. Response within 5 minutes, 24/7.'
-                      : 'Konsultasikan tanggal, rute, dan tipe armada dengan tim L.A Travel Batam. Respon ramah 24 jam.'}
+                      : 'Konsultasikan tanggal, rute, dan tipe armada dengan tim L.A Transport Batam. Respon ramah 24 jam.'}
                   </p>
 
                   <a
@@ -371,8 +371,8 @@ export const RentalPackagesAndGuide: React.FC = () => {
                     <a
                       href={buildWhatsAppUrl(
                         isEn 
-                          ? `Hello L.A Travel Batam, I am interested in exploring route: ${route.title}. What is the recommended car and package?`
-                          : `Halo Admin L.A Travel Batam, saya tertarik untuk rute wisata: ${route.title}. Rekomendasi mobil dan paketnya bagaimana ya?`,
+                          ? `Hello L.A Transport Batam, I am interested in exploring route: ${route.title}. What is the recommended car and package?`
+                          : `Halo Admin L.A Transport Batam, saya tertarik untuk rute wisata: ${route.title}. Rekomendasi mobil dan paketnya bagaimana ya?`,
                         settings.whatsappNumber
                       )}
                       target="_blank"
@@ -409,7 +409,7 @@ export const RentalPackagesAndGuide: React.FC = () => {
           </div>
 
           <a
-            href={buildWhatsAppUrl('Halo Admin L.A Travel Batam, saya mau tanya ketersediaan mobil untuk sewa di Batam.', settings.whatsappNumber)}
+            href={buildWhatsAppUrl('Halo Admin L.A Transport Batam, saya mau tanya ketersediaan mobil untuk sewa di Batam.', settings.whatsappNumber)}
             target="_blank"
             rel="noopener noreferrer"
             className="apple-pressable inline-flex items-center gap-2 px-6 py-3 rounded-full bg-[#1D1D1F] dark:bg-white text-white dark:text-black font-bold text-xs shrink-0 shadow-md transition-colors"

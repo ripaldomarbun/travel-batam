@@ -53,14 +53,14 @@ export const Header: React.FC = () => {
         <a href="#" className="flex items-center gap-2.5 sm:gap-3 group apple-pressable shrink-0">
           <div className="w-10 h-10 sm:w-11 sm:h-11 rounded-full overflow-hidden border-2 border-[#D4AF37] p-0.5 bg-black shadow-[0_2px_12px_rgba(212,175,55,0.3)] shrink-0 transition-transform group-hover:scale-105">
             <img
-              src="/images/la_travel_logo.jpg"
-              alt="Logo L.A Travel Batam"
+              src="/images/la_transport_logo.jpg"
+              alt="Logo L.A Transport Batam"
               className="w-full h-full object-cover rounded-full"
             />
           </div>
           <div className="flex flex-col">
             <span className="font-brand font-extrabold text-sm sm:text-base tracking-tight text-[#1D1D1F] dark:text-[#F5F5F7] group-hover:text-[#B8860B] dark:group-hover:text-[#D4AF37] transition-colors leading-tight">
-              L.A TRAVEL BATAM
+              L.A TRANSPORT BATAM
             </span>
             <span className="text-[8.5px] sm:text-[9.5px] tracking-wider sm:tracking-widest text-[#B8860B] dark:text-[#D4AF37] uppercase font-bold">
               Ride • Travel • Enjoy Batam
@@ -171,8 +171,8 @@ export const Header: React.FC = () => {
             <div className="flex items-center gap-3 pb-3 border-b border-slate-200 dark:border-neutral-800">
               <div className="w-12 h-12 rounded-full overflow-hidden border-2 border-[#D4AF37] p-0.5 bg-black shadow-md shrink-0">
                 <img
-                  src="/images/la_travel_logo.jpg"
-                  alt="Logo L.A Travel Batam - Agen Rental Mobil & Paket Wisata Batam"
+                  src="/images/la_transport_logo.jpg"
+                  alt="Logo L.A Transport Batam - Agen Rental Mobil & Paket Wisata Batam"
                   loading="lazy"
                   decoding="async"
                   className="w-full h-full object-cover rounded-full"
@@ -180,7 +180,7 @@ export const Header: React.FC = () => {
               </div>
               <div>
                 <p className="font-brand font-extrabold text-base text-slate-900 dark:text-white leading-tight">
-                  L.A TRAVEL BATAM
+                  L.A TRANSPORT BATAM
                 </p>
                 <p className="text-[10px] font-bold text-[#B8860B] dark:text-[#D4AF37] uppercase tracking-wider">
                   Ride • Travel • Enjoy Batam

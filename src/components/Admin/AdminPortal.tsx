@@ -479,7 +479,7 @@ export const AdminPortal: React.FC<AdminPortalProps> = ({ isOpen, onClose, isSta
       },
       popular: formData.popular,
       isAvailable: formData.isAvailable,
-      wa_message: `Halo Admin L.A Travel Batam, saya tertarik sewa ${formData.name}. Mohon info syarat dan jadwal sewanya.`
+      wa_message: `Halo Admin L.A Transport Batam, saya tertarik sewa ${formData.name}. Mohon info syarat dan jadwal sewanya.`
     };
 
     if (editingCarId) {
@@ -575,7 +575,7 @@ export const AdminPortal: React.FC<AdminPortalProps> = ({ isOpen, onClose, isSta
               </div>
               <div className="text-left">
                 <span className="block text-xs font-bold uppercase tracking-wider text-[#1D1D1F] dark:text-[#F5F5F7]">
-                  L.A Travel Batam
+                  L.A Transport Batam
                 </span>
                 <span className="text-[10px] text-slate-500 dark:text-neutral-400 font-mono">
                   {isStandalone ? 'Admin CMS (Tab Terpisah)' : 'Admin CMS Portal v2.0'}
@@ -1041,7 +1041,7 @@ export const AdminPortal: React.FC<AdminPortalProps> = ({ isOpen, onClose, isSta
             </div>
             <div>
               <h2 className="text-base sm:text-lg font-bold text-white flex items-center gap-2">
-                <span>L.A Travel Batam — Admin CMS Portal</span>
+                <span>L.A Transport Batam — Admin CMS Portal</span>
                 <span className="text-[10px] px-2.5 py-0.5 rounded-full bg-[#D4AF37]/20 text-[#D4AF37] border border-[#D4AF37]/40 font-mono font-bold">
                   v2.0
                 </span>
@@ -1609,7 +1609,7 @@ export const AdminPortal: React.FC<AdminPortalProps> = ({ isOpen, onClose, isSta
                         onChange={(e) =>
                           setContactForm({ ...contactForm, defaultWaGreeting: e.target.value })
                         }
-                        placeholder="Halo Admin L.A Travel Batam, saya ingin booking rental mobil..."
+                        placeholder="Halo Admin L.A Transport Batam, saya ingin booking rental mobil..."
                         className="w-full px-3.5 py-2.5 rounded-xl bg-black/5 dark:bg-white/5 border border-black/10 dark:border-white/15 text-xs text-[#1D1D1F] dark:text-[#F5F5F7] focus:outline-none focus:border-[#D4AF37]"
                       />
                     </div>

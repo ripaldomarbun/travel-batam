@@ -105,7 +105,7 @@ function generateTouristTripJsonLd(car, lang = 'id') {
         ],
         'provider': {
           '@type': 'TravelAgency',
-          'name': 'L.A TRAVEL BATAM',
+          'name': 'L.A TRANSPORT BATAM',
           'url': origin,
           'telephone': '+6287797631578',
           'address': {
@@ -127,7 +127,7 @@ function generateTouristTripJsonLd(car, lang = 'id') {
         'category': `Vehicle Rental > ${car.category}`,
         'brand': {
           '@type': 'Brand',
-          'name': 'L.A TRAVEL BATAM'
+          'name': 'L.A TRANSPORT BATAM'
         },
         'aggregateRating': {
           '@type': 'AggregateRating',
@@ -173,8 +173,8 @@ function generateTravelAgencyJsonLd() {
     '@context': 'https://schema.org',
     '@type': 'AutoRental',
     '@id': `${origin}/#agency`,
-    'name': 'L.A TRAVEL BATAM',
-    'legalName': 'L.A Travel Batam - Rental Mobil & Tour Provider',
+    'name': 'L.A TRANSPORT BATAM',
+    'legalName': 'L.A Transport Batam - Rental Mobil & Tour Provider',
     'url': origin,
     'logo': `${origin}/favicon.svg`,
     'image': `${origin}/images/hero_la_transport_1790686468335.jpg`,

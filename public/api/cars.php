@@ -1,6 +1,6 @@
 <?php
 /**
- * L.A TRAVEL BATAM - Cars API (CRUD)
+ * L.A TRANSPORT BATAM - Cars API (CRUD)
  * Endpoint: /api/cars.php
  */
 require_once __DIR__ . '/db.php';
@@ -112,7 +112,7 @@ if ($method === 'POST' || $method === 'PUT') {
     $badge_en = $input['badge_en'] ?? '';
     $popular = !empty($input['popular']) ? 1 : 0;
     $is_available = isset($input['isAvailable']) ? ($input['isAvailable'] ? 1 : 0) : (isset($input['is_available']) ? ($input['is_available'] ? 1 : 0) : 1);
-    $wa_message = $input['wa_message'] ?? "Halo L.A Travel Batam, saya ingin booking $name.";
+    $wa_message = $input['wa_message'] ?? "Halo L.A Transport Batam, saya ingin booking $name.";
     $sort_order = isset($input['sort_order']) ? (int)$input['sort_order'] : 0;
 
     try {

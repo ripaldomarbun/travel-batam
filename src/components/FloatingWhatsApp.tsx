@@ -57,7 +57,7 @@ export const FloatingWhatsApp: React.FC = () => {
         <button
           onClick={() => setIsOpen(!isOpen)}
           className="apple-pressable relative flex items-center justify-center w-14 h-14 rounded-full bg-[#25D366] hover:bg-[#20BA59] text-white shadow-[0_8px_30px_rgba(37,211,102,0.45)] cursor-pointer"
-          aria-label="Hubungi WhatsApp L.A Travel Batam"
+          aria-label="Hubungi WhatsApp L.A Transport Batam"
         >
           <span className="absolute -top-1 -right-1 flex h-4 w-4">
             <span className="animate-ping absolute inline-flex h-full w-full rounded-full bg-white opacity-75"></span>

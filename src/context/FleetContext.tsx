@@ -53,7 +53,7 @@ const DEFAULT_SETTINGS: CompanySettings = {
     'Pembayaran di awal full via QRIS dan Transfer Bank resmi',
     'Layanan tepat waktu, mobil selalu hadir bersih dan wangi sebelum jam penjemputan'
   ],
-  defaultWaGreeting: 'Halo Admin L.A Travel Batam, saya ingin konsultasi ketersediaan mobil dan booking rental.'
+  defaultWaGreeting: 'Halo Admin L.A Transport Batam, saya ingin konsultasi ketersediaan mobil dan booking rental.'
 };
 
 interface FleetContextType {
@@ -83,10 +83,15 @@ function sanitizeCarPaths(car: ExtendedCar): ExtendedCar {
     ? car.gallery.map((g) => g.replace('/src/assets/images/', '/images/'))
     : [cleanImageUrl];
 
+  const cleanWaMessage = car.wa_message
+    ? car.wa_message.replace(/L\.A Travel/gi, 'L.A Transport')
+    : car.wa_message;
+
   return {
     ...car,
     image_url: cleanImageUrl,
-    gallery: cleanGallery
+    gallery: cleanGallery,
+    wa_message: cleanWaMessage
   };
 }
 
@@ -115,7 +120,11 @@ export const FleetProvider: React.FC<{ children: React.ReactNode }> = ({ childre
     try {
       const saved = localStorage.getItem(STORAGE_SETTINGS_KEY);
       if (saved) {
-        return { ...DEFAULT_SETTINGS, ...JSON.parse(saved) };
+        const parsed = JSON.parse(saved);
+        if (parsed.defaultWaGreeting) {
+          parsed.defaultWaGreeting = parsed.defaultWaGreeting.replace(/L\.A Travel/gi, 'L.A Transport');
+        }
+        return { ...DEFAULT_SETTINGS, ...parsed };
       }
     } catch {
       // fallback
@@ -146,7 +155,11 @@ export const FleetProvider: React.FC<{ children: React.ReactNode }> = ({ childre
         if (res.ok) {
           const json = await res.json();
           if (json.success && json.data && isMounted) {
-            setSettings((prev) => ({ ...prev, ...json.data }));
+            const dbSettings = { ...json.data };
+            if (dbSettings.defaultWaGreeting) {
+              dbSettings.defaultWaGreeting = dbSettings.defaultWaGreeting.replace(/L\.A Travel/gi, 'L.A Transport');
+            }
+            setSettings((prev) => ({ ...prev, ...dbSettings }));
           }
         }
       } catch {

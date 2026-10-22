@@ -1,5 +1,5 @@
 # ==============================================================================
-# L.A TRAVEL BATAM - Search Engine Crawling Policy (robots.txt)
+# L.A TRANSPORT BATAM - Search Engine Crawling Policy (robots.txt)
 # https://latravelbatam.com
 # ==============================================================================
 

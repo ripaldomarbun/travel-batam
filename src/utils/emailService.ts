@@ -1,5 +1,5 @@
 /**
- * L.A Travel Batam - Email Dispatch Service
+ * L.A Transport Batam - Email Dispatch Service
  * Mengirimkan email pemulihan PIN / password langsung ke inbox email pengguna
  * secara otomatis di latar belakang tanpa membuka aplikasi mailto client.
  */
@@ -41,10 +41,10 @@ export async function dispatchResetPasswordEmail({
         'Accept': 'application/json'
       },
       body: JSON.stringify({
-        _subject: '🔐 [L.A Travel Batam] Tautan Reset PIN Admin CMS',
+        _subject: '🔐 [L.A Transport Batam] Tautan Reset PIN Admin CMS',
         _template: 'box',
         _captcha: 'false',
-        Instansi: 'L.A Travel Batam',
+        Instansi: 'L.A Transport Batam',
         Layanan: 'Pemulihan Akses Admin CMS Portal',
         Penerima: cleanEmail,
         Pesan: 'Kami menerima permintaan untuk mereset PIN Admin Anda.',
