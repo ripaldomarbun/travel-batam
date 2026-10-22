@@ -320,28 +320,39 @@ function getInitialLanguage(): Language {
     }
 
     // 1. Jika pengunjung pernah memilih bahasa secara manual sebelumnya
-    const saved = localStorage.getItem('la_transport_lang');
+    const saved = localStorage.getItem('la_transport_lang_manual');
     if (saved === 'en' || saved === 'id') {
       return saved;
     }
 
-    // 2. Deteksi otomatis dari preferensi bahasa browser/perangkat
+    // 2. Pastikan Search Engine Crawler (Googlebot, Bingbot, dll.) di URL utama (/)
+    // selalu merender Bahasa Indonesia ('id') agar kata kunci Indonesia terindeks 100%
     if (typeof navigator !== 'undefined') {
+      const ua = (navigator.userAgent || '').toLowerCase();
+      if (/googlebot|bingbot|yandex|baiduspider|twitterbot|facebookexternalhit|whatsapp|crawler|spider|inspectiontool/i.test(ua)) {
+        return 'id';
+      }
+
+      // 3. Hanya otomatis Bahasa Inggris jika pengunjung berada di zona waktu Singapura/Malaysia
+      // atau memiliki locale spesifik en-SG / en-MY (dan bukan bahasa Indonesia)
       const browserLanguages = navigator.languages && navigator.languages.length > 0
         ? navigator.languages
         : [navigator.language || ''];
 
-      // Jika perangkat menggunakan Bahasa Indonesia (id, id-ID, id-*, dll) -> gunakan Bahasa Indonesia
       const isIndonesian = browserLanguages.some((lang) =>
         lang && lang.toLowerCase().startsWith('id')
       );
-
       if (isIndonesian) {
         return 'id';
       }
 
-      // Jika turis asing / internasional (Singapura en-SG, Malaysia en-MY, global tourist) -> otomatis Bahasa Inggris
-      return 'en';
+      const tz = Intl.DateTimeFormat().resolvedOptions().timeZone || '';
+      const isSgOrMyLocale = browserLanguages.some((lang) =>
+        lang && /^(en-sg|en-my|zh-sg|ms-my)/i.test(lang)
+      );
+      if (tz === 'Asia/Singapore' || tz === 'Asia/Kuala_Lumpur' || isSgOrMyLocale) {
+        return 'en';
+      }
     }
   } catch {
     // fallback safe
@@ -362,6 +373,7 @@ export const LanguageProvider: React.FC<{ children: React.ReactNode }> = ({ chil
     setLanguageState(lang);
     try {
       localStorage.setItem('la_transport_lang', lang);
+      localStorage.setItem('la_transport_lang_manual', lang);
     } catch {
       // ignore
     }

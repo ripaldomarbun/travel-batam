@@ -3,8 +3,10 @@
 # Based on skill-security.md guidelines
 # ==============================================================================
 
-# 1. Force HTTPS
+# 1. Force HTTPS & Non-WWW Canonical Domain (Consolidate SEO Authority)
 RewriteEngine On
+RewriteCond %{HTTP_HOST} ^www\.latravelbatam\.com$ [NC]
+RewriteRule ^(.*)$ https://latravelbatam.com/$1 [L,R=301]
 RewriteCond %{HTTPS} off
 RewriteRule ^(.*)$ https://%{HTTP_HOST}%{REQUEST_URI} [L,R=301]
 
