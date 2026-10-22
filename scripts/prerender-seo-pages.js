@@ -218,8 +218,26 @@ function buildCarJsonLd(car) {
 }
 
 function buildFleetLinksHtml() {
-  const carItems = cars
-    .filter((c) => c.isAvailable !== false)
+  const activeCars = cars.filter((c) => c.isAvailable !== false);
+
+  const tableRows = activeCars
+    .map((c) => {
+      const selfDrive =
+        c.rates?.self_drive_24h && c.rates.self_drive_24h.startsWith('Rp')
+          ? c.rates.self_drive_24h
+          : 'Khusus + Supir';
+      const withDriver = c.rates?.with_driver_12h || c.price_start_from;
+      return `
+        <tr>
+          <td><a href="/armada/${c.id}">${escapeHtml(c.name)} (${escapeHtml(c.category)})</a></td>
+          <td>${c.capacity} Kursi (${escapeHtml(c.transmission)})</td>
+          <td>${escapeHtml(selfDrive)}</td>
+          <td>${escapeHtml(withDriver)}</td>
+        </tr>`;
+    })
+    .join('\n');
+
+  const carItems = activeCars
     .map(
       (c) => `
       <article>
@@ -236,17 +254,33 @@ function buildFleetLinksHtml() {
 
   return `
     <section>
-      <h2>Daftar Harga Armada Rental Mobil Batam 2026 - L.A Transport Batam</h2>
+      <h2>Daftar Harga Rental Mobil Batam Terbaru 2026 (Lepas Kunci &amp; Plus Supir)</h2>
+      <table>
+        <thead>
+          <tr>
+            <th>Tipe Mobil &amp; Kategori</th>
+            <th>Kapasitas &amp; Transmisi</th>
+            <th>Harga Lepas Kunci (24 Jam)</th>
+            <th>Harga Mobil + Supir + BBM (12 Jam)</th>
+          </tr>
+        </thead>
+        <tbody>
+          ${tableRows}
+        </tbody>
+      </table>
       ${carItems}
     </section>
-    <nav aria-label="Layanan Populer Rental Mobil Batam">
-      <h2>Layanan Utama L.A Transport Batam</h2>
+    <nav aria-label="Layanan & Panduan Populer Rental Mobil Batam">
+      <h2>Layanan Utama &amp; Panduan Wisata L.A Transport Batam</h2>
       <ul>
         <li><a href="/">Beranda Rental Mobil Batam L.A Transport Batam</a></li>
         <li><a href="/rental-mobil-batam-lepas-kunci">Rental Mobil Batam Lepas Kunci 24 Jam Murah Tanpa Deposit</a></li>
         <li><a href="/sewa-mobil-supir-batam">Sewa Mobil Batam Include Supir &amp; BBM (All-In City Tour)</a></li>
         <li><a href="/antar-jemput-bandara-hang-nadim-batam">Antar Jemput Bandara Hang Nadim &amp; Pelabuhan Ferry Batam Center / Harbour Bay</a></li>
         <li><a href="/batam-car-rental-with-driver">Batam Car Rental with Driver &amp; Ferry Terminal Pickup (English)</a></li>
+        <li><a href="/tips-rental-mobil-batam-lepas-kunci">Syarat &amp; Tips Aman Rental Mobil Batam Lepas Kunci 24 Jam</a></li>
+        <li><a href="/panduan-wisata-jembatan-barelang-batam">Panduan Wisata Jembatan Barelang &amp; Seafood Kelong Terbaik di Batam</a></li>
+        <li><a href="/tarif-antar-jemput-bandara-hang-nadim-pelabuhan-ferry-batam">Panduan Transportasi &amp; Tarif Sewa Mobil Bandara Hang Nadim &amp; Ferry Batam</a></li>
       </ul>
     </nav>
   `;
@@ -377,6 +411,36 @@ const landingPages = [
     h1: 'Batam Car Rental with Driver & Ferry Terminal Pickup (Batam Center & Harbour Bay)',
     intro:
       'Travelling from Singapore or Malaysia to Batam Island? L.A Transport Batam provides premier private car charter with experienced drivers (inclusive of petrol/fuel) and 24-hour self-drive car rental. Enjoy complimentary meet-and-greet pickup at Batam Center International Ferry Terminal, Harbour Bay Ferry Terminal, Nongsapura, and Hang Nadim Airport.'
+  },
+  {
+    slug: 'tips-rental-mobil-batam-lepas-kunci',
+    lang: 'id',
+    title: 'Syarat & Tips Aman Rental Mobil Batam Lepas Kunci 24 Jam | L.A Transport Batam',
+    description:
+      'Panduan lengkap syarat sewa mobil lepas kunci 24 jam di Batam tanpa deposit untuk wisatawan & dinas. Gratis antar jemput Bandara Hang Nadim & Pelabuhan Ferry Batam.',
+    h1: 'Syarat & Tips Aman Rental Mobil Batam Lepas Kunci 24 Jam untuk Wisatawan & Dinas',
+    intro:
+      'Panduan resmi bagi wisatawan domestik, tamu dinas instansi/perusahaan, dan pelancong mancanegara yang ingin menyewa mobil lepas kunci 24 jam di Kota Batam. Di L.A Transport Batam, syarat lepas kunci untuk wisatawan sangat mudah tanpa uang deposit: cukup foto e-KTP/Paspor, SIM A aktif, dan bukti tiket pesawat/ferry pulang-pergi beserta nama hotel tempat menginap. Unit diantar gratis langsung ke Bandara Hang Nadim atau Pelabuhan Ferry Batam Center & Harbour Bay.'
+  },
+  {
+    slug: 'panduan-wisata-jembatan-barelang-batam',
+    lang: 'id',
+    title: 'Panduan Wisata Jembatan Barelang & Seafood Kelong Batam | L.A Transport Batam',
+    description:
+      'Rute perjalanan, waktu sunset terbaik di Jembatan 1 Barelang, rekomendasi restoran seafood kelong terbaik, serta tarif sewa mobil + supir 12 jam di Batam.',
+    h1: 'Panduan Wisata Jembatan Barelang & Rekomendasi Kelong Seafood Terbaik di Batam',
+    intro:
+      'Jembatan Barelang (Batam, Rempang, Galang) adalah ikon wisata utama yang wajib dikunjungi saat berada di Pulau Batam. Berjarak sekitar 35–40 menit perjalanan dari pusat kota Nagoya atau Batam Center, Anda dapat menikmati pemandangan sunset dari Jembatan 1 Tengku Fisabilillah, melanjutkan wisata pantai di Pulau Galang, serta menyantap hidangan laut segar (Siput Gonggong, Kepiting Saus Padang, Udang Telur Asin) di restoran kelong tepi laut bersama armada L.A Transport Batam.'
+  },
+  {
+    slug: 'tarif-antar-jemput-bandara-hang-nadim-pelabuhan-ferry-batam',
+    lang: 'id',
+    title: 'Tarif Sewa Mobil & Antar Jemput Bandara Hang Nadim & Ferry Batam | L.A Transport Batam',
+    description:
+      'Informasi lengkap transportasi, estimasi waktu tempuh, dan layanan rental mobil gratis antar-jemput di Bandara Hang Nadim, Pelabuhan Batam Center & Harbour Bay.',
+    h1: 'Panduan Transportasi & Tarif Sewa Mobil dari Bandara Hang Nadim & Pelabuhan Ferry Batam',
+    intro:
+      'Bingung mencari transportasi yang nyaman dan pasti saat mendarat di Bandara Internasional Hang Nadim (BTH) atau tiba di Pelabuhan Ferry Internasional Batam Center, Harbour Bay, Sekupang, dan Nongsapura? L.A Transport Batam menyediakan fasilitas gratis pengantaran unit lepas kunci 24 jam serta layanan charter jemputan VIP dengan supir berpengalaman yang memantau jadwal penerbangan/kapal Anda secara real-time.'
   }
 ];
 
@@ -465,4 +529,4 @@ for (const car of cars) {
   console.log(`✅ Pre-rendered Car Page: dist/armada/${car.id}.html`);
 }
 
-console.log(`🎉 Selesai melakukan pre-rendering 19 halaman SEO statis di folder dist/!`);
+console.log(`🎉 Selesai melakukan pre-rendering 22 halaman SEO statis di folder dist/!`);

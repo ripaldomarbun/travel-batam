@@ -28,7 +28,13 @@ export const RentalPackagesAndGuide: React.FC = () => {
   const { settings } = useFleet();
   const isEn = language === 'en';
 
-  const [activePackageTab, setActivePackageTab] = useState<'lepas-kunci' | 'supir' | 'antar-jemput'>('lepas-kunci');
+  const [activePackageTab, setActivePackageTab] = useState<'lepas-kunci' | 'supir' | 'antar-jemput'>(() => {
+    if (typeof window === 'undefined') return 'lepas-kunci';
+    const path = window.location.pathname.toLowerCase();
+    if (path.includes('supir') || path.includes('driver')) return 'supir';
+    if (path.includes('bandara') || path.includes('antar-jemput')) return 'antar-jemput';
+    return 'lepas-kunci';
+  });
 
   // Package Options Data
   const packages = [

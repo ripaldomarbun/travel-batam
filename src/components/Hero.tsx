@@ -8,6 +8,49 @@ export const Hero: React.FC = () => {
   const { language, t } = useLanguage();
   const { settings } = useFleet();
 
+  const currentPath = typeof window !== 'undefined' ? window.location.pathname.replace(/\/+$/, '') : '';
+
+  const landingOverrides: Record<
+    string,
+    { badge: string; titlePart1: string; titleHighlight: string; subtitle: string }
+  > = {
+    '/rental-mobil-batam-lepas-kunci': {
+      badge: 'PUSAT RENTAL MOBIL LEPAS KUNCI BATAM 24 JAM',
+      titlePart1: 'Rental Mobil Batam Lepas Kunci 24 Jam',
+      titleHighlight: 'Mulai Rp 300.000 / Hari',
+      subtitle:
+        'Unit tahun muda, matic responsif, bersih & wangi. Syarat mudah tanpa deposit untuk wisatawan, gratis antar-jemput mobil di Bandara Hang Nadim & Pelabuhan Ferry Batam Center / Harbour Bay.'
+    },
+    '/sewa-mobil-supir-batam': {
+      badge: 'PAKET SEWA MOBIL + SUPIR VIP & BBM ALL-IN',
+      titlePart1: 'Sewa Mobil Batam Include Supir & BBM',
+      titleHighlight: 'Paket 12 Jam All-In',
+      subtitle:
+        'Perjalanan santai bebas lelah keliling Pulau Batam bersama driver lokal berpengalaman, ramah, dan hafal rute wisata Jembatan Barelang, kuliner seafood kelong, belanja Nagoya, hingga dinas VIP.'
+    },
+    '/antar-jemput-bandara-hang-nadim-batam': {
+      badge: 'LAYANAN ANTAR JEMPUT BANDARA & PELABUHAN FERRY BATAM',
+      titlePart1: 'Rental & Antar Jemput Bandara Hang Nadim',
+      titleHighlight: '& Pelabuhan Ferry Batam',
+      subtitle:
+        'Layanan serah-terima mobil lepas kunci & charter drop-off tepat waktu di pintu kedatangan Bandara Internasional Hang Nadim (BTH), Pelabuhan Ferry Batam Center, Harbour Bay, Sekupang & Nongsapura.'
+    },
+    '/batam-car-rental-with-driver': {
+      badge: 'PREMIER BATAM CAR CHARTER & FERRY TERMINAL PICKUP',
+      titlePart1: 'Batam Car Rental with Driver',
+      titleHighlight: '& 24H Self-Drive Fleet',
+      subtitle:
+        'Trusted private car charter with polite English-speaking drivers (fuel included) or 24-hour self-drive. Free instant pickup at Batam Center Ferry Terminal, Harbour Bay & Hang Nadim Airport.'
+    }
+  };
+
+  const activeHero = landingOverrides[currentPath] || {
+    badge: t.hero.badge,
+    titlePart1: t.hero.titlePart1,
+    titleHighlight: t.hero.titleHighlight,
+    subtitle: t.hero.subtitle
+  };
+
   return (
     <section className="relative min-h-[75svh] sm:min-h-[85vh] flex items-center justify-center overflow-hidden border-b border-neutral-200 dark:border-[#262626] transition-colors duration-200">
       {/* Background Photography with Scrim */}
@@ -31,19 +74,19 @@ export const Hero: React.FC = () => {
         <div className="inline-flex items-center gap-2 px-4 py-1.5 rounded-full bg-black/40 dark:bg-white/10 border border-white/15 backdrop-blur-xl mb-6 shadow-sm">
           <Sparkles className="w-3.5 h-3.5 text-[#D4AF37]" />
           <span className="text-[12px] font-medium text-neutral-100 caption-label">
-            {t.hero.badge}
+            {activeHero.badge}
           </span>
         </div>
 
         {/* Marquee Headline with Optical Tracking */}
         <h1 className="text-3xl sm:text-5xl lg:text-6xl font-extrabold tracking-[-0.028em] text-white mb-6 max-w-4xl text-balance leading-[1.08]">
-          {t.hero.titlePart1}
-          <span className="text-[#D4AF37] block sm:inline"> {t.hero.titleHighlight}</span>
+          {activeHero.titlePart1}
+          <span className="text-[#D4AF37] block sm:inline"> {activeHero.titleHighlight}</span>
         </h1>
 
         {/* Value Proposition */}
         <p className="text-base sm:text-lg text-[#E5E5EA] max-w-2xl mx-auto mb-10 font-normal leading-relaxed text-balance">
-          {t.hero.subtitle}
+          {activeHero.subtitle}
         </p>
 
         {/* Primary CTA Decision Group */}

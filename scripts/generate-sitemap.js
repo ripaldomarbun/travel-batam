@@ -82,6 +82,36 @@ const staticPages = [
       { hreflang: 'id-ID', href: `${baseUrl}/sewa-mobil-supir-batam` },
       { hreflang: 'x-default', href: `${baseUrl}/batam-car-rental-with-driver` }
     ]
+  },
+  {
+    loc: `${baseUrl}/tips-rental-mobil-batam-lepas-kunci`,
+    lastmod: todayIso,
+    changefreq: 'weekly',
+    priority: '0.85',
+    alternateHreflang: [
+      { hreflang: 'id-ID', href: `${baseUrl}/tips-rental-mobil-batam-lepas-kunci` },
+      { hreflang: 'x-default', href: `${baseUrl}/tips-rental-mobil-batam-lepas-kunci` }
+    ]
+  },
+  {
+    loc: `${baseUrl}/panduan-wisata-jembatan-barelang-batam`,
+    lastmod: todayIso,
+    changefreq: 'weekly',
+    priority: '0.85',
+    alternateHreflang: [
+      { hreflang: 'id-ID', href: `${baseUrl}/panduan-wisata-jembatan-barelang-batam` },
+      { hreflang: 'x-default', href: `${baseUrl}/panduan-wisata-jembatan-barelang-batam` }
+    ]
+  },
+  {
+    loc: `${baseUrl}/tarif-antar-jemput-bandara-hang-nadim-pelabuhan-ferry-batam`,
+    lastmod: todayIso,
+    changefreq: 'weekly',
+    priority: '0.85',
+    alternateHreflang: [
+      { hreflang: 'id-ID', href: `${baseUrl}/tarif-antar-jemput-bandara-hang-nadim-pelabuhan-ferry-batam` },
+      { hreflang: 'x-default', href: `${baseUrl}/tarif-antar-jemput-bandara-hang-nadim-pelabuhan-ferry-batam` }
+    ]
   }
 ];
 

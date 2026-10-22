@@ -99,6 +99,39 @@ export function generateSitemapXml(carsList?: ExtendedCar[], baseUrl: string = '
         { hreflang: 'id-ID', href: `${baseUrl}/sewa-mobil-supir-batam` },
         { hreflang: 'x-default', href: `${baseUrl}/batam-car-rental-with-driver` }
       ]
+    },
+    {
+      loc: `${baseUrl}/tips-rental-mobil-batam-lepas-kunci`,
+      lastmod: todayIso,
+      changefreq: 'weekly',
+      priority: '0.85',
+      title: 'Syarat & Tips Aman Rental Mobil Batam Lepas Kunci 24 Jam',
+      alternateHreflang: [
+        { hreflang: 'id-ID', href: `${baseUrl}/tips-rental-mobil-batam-lepas-kunci` },
+        { hreflang: 'x-default', href: `${baseUrl}/tips-rental-mobil-batam-lepas-kunci` }
+      ]
+    },
+    {
+      loc: `${baseUrl}/panduan-wisata-jembatan-barelang-batam`,
+      lastmod: todayIso,
+      changefreq: 'weekly',
+      priority: '0.85',
+      title: 'Panduan Wisata Jembatan Barelang & Seafood Kelong Batam',
+      alternateHreflang: [
+        { hreflang: 'id-ID', href: `${baseUrl}/panduan-wisata-jembatan-barelang-batam` },
+        { hreflang: 'x-default', href: `${baseUrl}/panduan-wisata-jembatan-barelang-batam` }
+      ]
+    },
+    {
+      loc: `${baseUrl}/tarif-antar-jemput-bandara-hang-nadim-pelabuhan-ferry-batam`,
+      lastmod: todayIso,
+      changefreq: 'weekly',
+      priority: '0.85',
+      title: 'Tarif Sewa Mobil & Antar Jemput Bandara Hang Nadim & Ferry Batam',
+      alternateHreflang: [
+        { hreflang: 'id-ID', href: `${baseUrl}/tarif-antar-jemput-bandara-hang-nadim-pelabuhan-ferry-batam` },
+        { hreflang: 'x-default', href: `${baseUrl}/tarif-antar-jemput-bandara-hang-nadim-pelabuhan-ferry-batam` }
+      ]
     }
   ];
 

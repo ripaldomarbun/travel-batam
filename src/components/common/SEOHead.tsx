@@ -95,6 +95,21 @@ export const SEOHead: React.FC<SEOHeadProps> = ({
         title: 'Batam Car Rental with Driver & Self Drive (From SGD 25) | L.A Transport Batam',
         desc: 'Top-rated Batam car rental with polite English-speaking private driver or 24-hour self-drive. Free pickup at Batam Center & Harbour Bay Ferry Terminals. Book via WhatsApp!',
         lang: 'en'
+      },
+      '/tips-rental-mobil-batam-lepas-kunci': {
+        title: 'Syarat & Tips Aman Rental Mobil Batam Lepas Kunci 24 Jam | L.A Transport Batam',
+        desc: 'Panduan lengkap syarat sewa mobil lepas kunci 24 jam di Batam tanpa deposit untuk wisatawan & dinas. Gratis antar jemput Bandara Hang Nadim & Pelabuhan Ferry Batam.',
+        lang: 'id'
+      },
+      '/panduan-wisata-jembatan-barelang-batam': {
+        title: 'Panduan Wisata Jembatan Barelang & Seafood Kelong Batam | L.A Transport Batam',
+        desc: 'Rute perjalanan, waktu sunset terbaik di Jembatan 1 Barelang, rekomendasi restoran seafood kelong terbaik, serta tarif sewa mobil + supir 12 jam di Batam.',
+        lang: 'id'
+      },
+      '/tarif-antar-jemput-bandara-hang-nadim-pelabuhan-ferry-batam': {
+        title: 'Tarif Sewa Mobil & Antar Jemput Bandara Hang Nadim & Ferry Batam | L.A Transport Batam',
+        desc: 'Informasi lengkap transportasi, estimasi waktu tempuh, dan layanan rental mobil gratis antar-jemput di Bandara Hang Nadim, Pelabuhan Batam Center & Harbour Bay.',
+        lang: 'id'
       }
     };
 

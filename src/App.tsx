@@ -10,6 +10,7 @@ import { FleetProvider } from './context/FleetContext';
 import { Header } from './components/Header';
 import { Hero } from './components/Hero';
 import { CarCatalog } from './components/CarCatalog';
+import { PriceTableAndArticles } from './components/PriceTableAndArticles';
 import { RentalPackagesAndGuide } from './components/RentalPackagesAndGuide';
 import { WhyUs } from './components/WhyUs';
 import { CoverageArea } from './components/CoverageArea';
@@ -100,6 +101,7 @@ export default function App() {
               <main className="flex-1">
                 <Hero />
                 <CarCatalog />
+                <PriceTableAndArticles />
                 <RentalPackagesAndGuide />
                 <CoverageArea />
                 <WhyUs />

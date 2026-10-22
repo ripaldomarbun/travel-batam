@@ -185,6 +185,12 @@ export const Footer: React.FC = () => {
             <a href="/antar-jemput-bandara-hang-nadim-batam" className="hover:text-[#D4AF37] transition-colors">Rental Mobil Bandara Hang Nadim</a>
             <span>•</span>
             <a href="/batam-car-rental-with-driver" className="hover:text-[#D4AF37] transition-colors">Batam Car Rental with Driver</a>
+            <span>•</span>
+            <a href="/tips-rental-mobil-batam-lepas-kunci" className="hover:text-[#D4AF37] transition-colors">Syarat Rental Lepas Kunci Batam</a>
+            <span>•</span>
+            <a href="/panduan-wisata-jembatan-barelang-batam" className="hover:text-[#D4AF37] transition-colors">Wisata Jembatan Barelang Batam</a>
+            <span>•</span>
+            <a href="/tarif-antar-jemput-bandara-hang-nadim-pelabuhan-ferry-batam" className="hover:text-[#D4AF37] transition-colors">Tarif Antar Jemput Bandara & Ferry Batam</a>
             {cars.map((car) => (
               <React.Fragment key={car.id}>
                 <span>•</span>
