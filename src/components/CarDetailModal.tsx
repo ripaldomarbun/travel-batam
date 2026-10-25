@@ -17,7 +17,6 @@ import { Car, getCarInquiryUrl, isSelfDriveCar } from '../utils/whatsapp';
 import { useLanguage } from '../context/LanguageContext';
 import { useFleet } from '../context/FleetContext';
 import { LazyImage } from './common/LazyImage';
-import { generateTouristTripJsonLd } from '../utils/seo';
 
 interface CarDetailModalProps {
   car: Car | null;
@@ -453,14 +452,6 @@ export const CarDetailModal: React.FC<CarDetailModalProps> = ({ car, onClose }) 
             </a>
           </div>
         </div>
-
-        {/* Embedded JSON-LD Schema (TouristTrip & Product) for Search Engine Crawlers */}
-        <script
-          type="application/ld+json"
-          dangerouslySetInnerHTML={{
-            __html: JSON.stringify(generateTouristTripJsonLd(car, language))
-          }}
-        />
 
       </div>
     </div>

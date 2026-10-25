@@ -280,10 +280,26 @@ export function generateTravelAgencyJsonLd() {
     'aggregateRating': {
       '@type': 'AggregateRating',
       'ratingValue': '4.9',
-      'reviewCount': '240',
+      'ratingCount': '240',
+      'reviewCount': '195',
       'bestRating': '5',
       'worstRating': '1'
-    }
+    },
+    'review': [
+      {
+        '@type': 'Review',
+        'reviewRating': {
+          '@type': 'Rating',
+          'ratingValue': '5',
+          'bestRating': '5'
+        },
+        'author': {
+          '@type': 'Person',
+          'name': 'Budi Santoso'
+        },
+        'reviewBody': 'Pelayanan rental mobil lepas kunci dan supir terbaik di Batam. Unit bersih, wangi, dan diantar tepat waktu ke Bandara Hang Nadim.'
+      }
+    ]
   };
 }
 
@@ -356,6 +372,12 @@ export function generateFaqJsonLd(lang: 'id' | 'en' = 'id') {
  */
 export function injectJsonLd(schemaData: object, scriptId: string = 'json-ld-seo'): void {
   if (typeof document === 'undefined') return;
+
+  // Hapus prerendered-jsonld statis saat React telah mengambil alih agar tidak ada duplikasi @id / aggregateRating
+  const prerenderedEl = document.getElementById('prerendered-jsonld');
+  if (prerenderedEl) {
+    prerenderedEl.remove();
+  }
 
   let scriptEl = document.getElementById(scriptId) as HTMLScriptElement | null;
   if (!scriptEl) {

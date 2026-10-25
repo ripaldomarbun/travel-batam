@@ -132,7 +132,20 @@ export const FleetProvider: React.FC<{ children: React.ReactNode }> = ({ childre
     return DEFAULT_SETTINGS;
   });
 
-  const [selectedCarForDetail, setSelectedCarForDetailState] = useState<ExtendedCar | null>(null);
+  const [selectedCarForDetail, setSelectedCarForDetailState] = useState<ExtendedCar | null>(() => {
+    if (typeof window === 'undefined') return null;
+    const path = window.location.pathname.replace(/\/+$/, '');
+    if (path.startsWith('/armada/')) {
+      const carId = path.replace('/armada/', '');
+      return cars.find((c) => c.id === carId) || null;
+    }
+    const hash = window.location.hash;
+    if (hash.startsWith('#detail-')) {
+      const carId = hash.replace('#detail-', '');
+      return cars.find((c) => c.id === carId) || null;
+    }
+    return null;
+  });
 
   // Sync dengan database MySQL Rumahweb saat pertama kali dimuat
   useEffect(() => {

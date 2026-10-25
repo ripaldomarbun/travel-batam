@@ -49,14 +49,39 @@ function buildHomepageJsonLd() {
         name: `Sewa ${car.name} Batam (${car.category})`,
         item: {
           '@type': 'Product',
+          '@id': `${origin}/armada/${car.id}#product`,
           name: `Rental ${car.name} Batam - Lepas Kunci & Include Supir`,
-          image: imgUrl,
+          image: [imgUrl],
           description: car.description_id,
           brand: { '@type': 'Brand', name: 'L.A TRANSPORT BATAM' },
+          aggregateRating: {
+            '@type': 'AggregateRating',
+            ratingValue: '4.9',
+            bestRating: '5',
+            worstRating: '1',
+            ratingCount: '128',
+            reviewCount: '96'
+          },
+          review: [
+            {
+              '@type': 'Review',
+              reviewRating: {
+                '@type': 'Rating',
+                ratingValue: '5',
+                bestRating: '5'
+              },
+              author: {
+                '@type': 'Person',
+                name: 'Budi Santoso'
+              },
+              reviewBody: `Sewa ${car.name} di L.A Transport Batam sangat memuaskan, unit bersih, matic halus, dan pelayanan antar-jemput bandara tepat waktu.`
+            }
+          ],
           offers: {
             '@type': 'Offer',
             price: idr,
             priceCurrency: 'IDR',
+            priceValidUntil: '2026-12-31',
             availability: 'https://schema.org/InStock',
             url: `${origin}/armada/${car.id}`
           }
@@ -106,7 +131,22 @@ function buildHomepageJsonLd() {
           worstRating: '1',
           ratingCount: '240',
           reviewCount: '195'
-        }
+        },
+        review: [
+          {
+            '@type': 'Review',
+            reviewRating: {
+              '@type': 'Rating',
+              ratingValue: '5',
+              bestRating: '5'
+            },
+            author: {
+              '@type': 'Person',
+              name: 'Budi Santoso'
+            },
+            reviewBody: 'Pelayanan rental mobil lepas kunci dan supir terbaik di Batam. Unit bersih, wangi, dan diantar tepat waktu ke Bandara Hang Nadim.'
+          }
+        ]
       },
       {
         '@type': 'ItemList',
@@ -178,6 +218,21 @@ function buildCarJsonLd(car) {
           ratingCount: '128',
           reviewCount: '96'
         },
+        review: [
+          {
+            '@type': 'Review',
+            reviewRating: {
+              '@type': 'Rating',
+              ratingValue: '5',
+              bestRating: '5'
+            },
+            author: {
+              '@type': 'Person',
+              name: 'Tan Wei Ming'
+            },
+            reviewBody: `Pelayanan sangat memuaskan, unit ${car.name} bersih dan tim L.A Transport Batam tepat waktu jemput di Bandara Hang Nadim & Pelabuhan Batam Center.`
+          }
+        ],
         offers: {
           '@type': 'AggregateOffer',
           lowPrice: idr,

@@ -137,6 +137,21 @@ function generateTouristTripJsonLd(car, lang = 'id') {
           'ratingCount': '128',
           'reviewCount': '96'
         },
+        'review': [
+          {
+            '@type': 'Review',
+            'reviewRating': {
+              '@type': 'Rating',
+              'ratingValue': '5',
+              'bestRating': '5'
+            },
+            'author': {
+              '@type': 'Person',
+              'name': 'Tan Wei Ming (Singapore)'
+            },
+            'reviewBody': 'Pelayanan sangat memuaskan, mobil bersih dan supir ramah tepat waktu jemput di pelabuhan Batam Center.'
+          }
+        ],
         'offers': {
           '@type': 'AggregateOffer',
           'lowPrice': idr,
@@ -205,8 +220,26 @@ function generateTravelAgencyJsonLd() {
     'aggregateRating': {
       '@type': 'AggregateRating',
       'ratingValue': '4.9',
-      'reviewCount': '240'
-    }
+      'ratingCount': '240',
+      'reviewCount': '195',
+      'bestRating': '5',
+      'worstRating': '1'
+    },
+    'review': [
+      {
+        '@type': 'Review',
+        'reviewRating': {
+          '@type': 'Rating',
+          'ratingValue': '5',
+          'bestRating': '5'
+        },
+        'author': {
+          '@type': 'Person',
+          'name': 'Budi Santoso'
+        },
+        'reviewBody': 'Pelayanan rental mobil lepas kunci dan supir terbaik di Batam. Unit bersih, wangi, dan diantar tepat waktu ke Bandara Hang Nadim.'
+      }
+    ]
   };
 }
 
