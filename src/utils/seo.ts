@@ -370,14 +370,8 @@ export function generateFaqJsonLd(lang: 'id' | 'en' = 'id') {
 /**
  * Menyuntikkan skrip JSON-LD Schema Markup secara aman ke dalam <head>
  */
-export function injectJsonLd(schemaData: object, scriptId: string = 'json-ld-seo'): void {
+export function injectJsonLd(schemaData: object, scriptId: string = 'prerendered-jsonld'): void {
   if (typeof document === 'undefined') return;
-
-  // Hapus prerendered-jsonld statis saat React telah mengambil alih agar tidak ada duplikasi @id / aggregateRating
-  const prerenderedEl = document.getElementById('prerendered-jsonld');
-  if (prerenderedEl) {
-    prerenderedEl.remove();
-  }
 
   let scriptEl = document.getElementById(scriptId) as HTMLScriptElement | null;
   if (!scriptEl) {

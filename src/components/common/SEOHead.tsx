@@ -55,7 +55,7 @@ export const SEOHead: React.FC<SEOHeadProps> = ({
 
       // Suntikkan JSON-LD Rich Snippet khusus paket wisata (TouristTrip + Product Schema)
       const tripSchema = generateTouristTripJsonLd(selectedCarForDetail, language);
-      injectJsonLd(tripSchema, 'json-ld-tourist-trip');
+      injectJsonLd(tripSchema, 'prerendered-jsonld');
       return;
     }
 
@@ -137,13 +137,14 @@ export const SEOHead: React.FC<SEOHeadProps> = ({
       lang: matchedLanding?.lang || language
     });
 
-    // Suntikkan Schema.org TravelAgency / AutoRental
-    const agencySchema = generateTravelAgencyJsonLd();
-    injectJsonLd(agencySchema, 'json-ld-tourist-trip');
-
-    // Suntikkan Schema.org FAQPage untuk memicu Google FAQ Rich Snippets
-    const faqSchema = generateFaqJsonLd(language);
-    injectJsonLd(faqSchema, 'json-ld-faq');
+    // Jika prerendered-jsonld dari build statis sudah ada & memuat katalog lengkap (#fleet-catalog),
+    // pertahankan tanpa menimpanya atau membuat tag <script> ganda.
+    const existingPrerendered = typeof document !== 'undefined' ? document.getElementById('prerendered-jsonld') : null;
+    if (!existingPrerendered || !existingPrerendered.textContent?.includes('#fleet-catalog')) {
+      const agencySchema = generateTravelAgencyJsonLd();
+      const faqSchema = generateFaqJsonLd(language);
+      injectJsonLd({ '@context': 'https://schema.org', '@graph': [agencySchema, faqSchema] }, 'prerendered-jsonld');
+    }
   }, [language, selectedCarForDetail, customTitle, customDescription, canonicalPath, pageType]);
 
   return null;
